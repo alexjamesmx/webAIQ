@@ -14,7 +14,7 @@ class Pages extends CI_Controller{
             if($page == 'login' || $page == 'recover'){
                 $this->load->view('pages/public/'.$page);
             }
-            if($page == 'home'){
+            if($page == 'home' || $page == 'restaurantes' || $page == 'mesas' || 'repartidores' || 'anuncios'){
                 $this->load->view('pages/private/'.$page);
             }    
     }
