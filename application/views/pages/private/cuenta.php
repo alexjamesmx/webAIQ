@@ -87,14 +87,13 @@
             <div class="scroll">
                 <ul class="list-unstyled">
                     
-
                     <li class="#homeRestaurante">
-                        <a href="<?=base_url()?>homeRestaurante">
+                    <a href="<?=base_url()?>homeRestaurante">
                             <i class="iconsminds-bucket"></i> Inicio
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="#">
+                    <li class="#menu">
+                        <a href="<?=base_url()?>menu">
                             <i class="iconsminds-bucket"></i> Menu
                         </a>
                     </li>
@@ -103,8 +102,8 @@
                             <i class="iconsminds-bucket"></i> Reportes
                         </a>
                     </li>
-                    <li class="#cuenta">
-                    <a href="<?=base_url()?>cuenta">
+                    <li class="active">
+                    <a href="#">
                             <i class="iconsminds-bucket"></i> Cuenta
                         </a>
                     </li>

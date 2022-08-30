@@ -86,15 +86,14 @@
         <div class="main-menu">
             <div class="scroll">
                 <ul class="list-unstyled">
-                    
 
-                    <li class="#homeRestaurante">
-                        <a href="<?=base_url()?>homeRestaurante">
+                    <li class="active">
+                    <a href="#">
                             <i class="iconsminds-bucket"></i> Inicio
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="#">
+                    <li class="#menu">
+                        <a href="<?=base_url()?>menu">
                             <i class="iconsminds-bucket"></i> Menu
                         </a>
                     </li>
