@@ -118,6 +118,12 @@
                             <i class="iconsminds-bucket"></i> Anuncios
                         </a>
                     </li>
+
+                    <li class="#homeRestaurante">
+                    <a href="<?=base_url()?>homeRestaurante">
+                            <i class="iconsminds-bucket"></i> homeRestaurante
+                        </a>
+                    </li>
                     
                 </ul>
             </div>
