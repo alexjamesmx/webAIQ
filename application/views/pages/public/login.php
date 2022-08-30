@@ -78,13 +78,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 <label class="form-check-label" for="flexCheckDefault">Recordarme</label>
                                                             </div>
                                                         </div>
-                                                        <p class="forgot-pass mb-0"><a href="<?=base_url('index.php/Login/recover')?>" class="text-dark fw-bold">¿Olvidaste tu contraseña?</a></p>
+                                                        <p class="forgot-pass mb-0"><a href="<?=base_url('index.php/recover')?>" class="text-dark fw-bold">¿Olvidaste tu contraseña?</a></p>
                                                     </div>
                                                 </div><!--end col-->
 
                                                 <div class="col-lg-12 mb-0">
                                                     <div class="d-grid">
-                                                        <button class="btn btn-primary" onclick="window.location.href='<?=base_url('app/orders')?>'">Ingresar</button>
+                                                        <button class="btn btn-primary" onclick="window.location.href='<?=base_url('')?>'">Ingresar</button>
                                                     </div>
                                                 </div><!--end col-->
                                                 

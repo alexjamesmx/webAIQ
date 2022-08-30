@@ -2,17 +2,17 @@
 class Pages extends CI_Controller{
     public function view($page = 'home')
     {        
-            if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
+            if ( ! file_exists(APPPATH.'views/pages/private/'.$page.'.php') &&
+            ! file_exists(APPPATH.'views/pages/public/'.$page.'.php') )
             {
                     // Whoops, we don't have a page for that!
                     show_404();
             }
-            
-            $data['title'] = ucfirst($page); // Capitalize the first letter
-    
-        //     $this->load->view('templates/header', $data);
-            $this->load->view('pages/'.$page, $data);
-        //     $this->load->view('templates/footer', $data);
-      
+            if($page == 'login' || $page == 'recover'){
+                $this->load->view('pages/public/'.$page);
+            }
+            if($page == 'home'){
+                $this->load->view('pages/private/'.$page);
+            }    
     }
 }
