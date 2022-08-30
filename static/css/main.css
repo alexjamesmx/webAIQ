@@ -45,3 +45,7 @@ body.show-spinner::after{
 }
 
 
+body .iconos-size{
+  font-size:18px !important;
+  text-align:center !important;
+}
