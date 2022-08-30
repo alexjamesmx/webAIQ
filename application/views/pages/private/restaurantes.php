@@ -129,7 +129,10 @@
                     <div class="mb-2">
                         <h1>Tus restaurantes</h1>
                         <div class="text-zero top-right-button-container">
-                            <button type="button" class="btn btn-primary btn-lg top-right-button mr-1">AGREGAR NUEVO</button>
+                            <button type="button" class="btn btn-primary btn-lg top-right-button mr-1"
+                            data-toggle="modal" data-target="#exampleModalContent" data-whatever="Agregar">
+                            <i class='fas fa-plus mr-2'></i>    
+                            AGREGAR NUEVO</button>
                         </div>
                     </div>
 
@@ -160,19 +163,38 @@
                     <div class="card d-flex flex-row mb-3">
                         <div class="d-flex flex-grow-1 min-width-zero">
                             <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-                                <a class="list-item-heading mb-0 truncate w-xs-100" href="Pages.Product.Detail.html">
+                                <p class="list-item-heading mb-0 truncate w-xs-100" href="#">
                                     Red wings
-                                </a>
+                                </p>
                                 <p class="mb-0 text-muted text-small w-15 w-xs-100">redwings@gmail.com</p>
                                 <p class="mb-0 text-muted text-small w-15 w-xs-100">4422069322</p>
                             </div>
-
-                            <a class="align-self-center pr-4" href="#" data-toggle="modal" data-target="#exampleModalContent" data-whatever="@getbootstrap">
+                            <!-- EDITAR -->
+                            <a class="align-self-center mr-4" href="#" data-toggle="modal" data-target="#exampleModalContent" data-whatever="Editar">
                                 <i class="iconos-size simple-icon-pencil"></i>
                             </a>
-                            <a class="align-self-center pr-4" href="#" data-toggle="modal" data-target="#exampleModalContent" data-whatever="@getbootstrap">
+                            <!-- EDITAR -->
+                            <!-- ELIMINAR -->
+                            <a class="align-self-center mr-4" href="#"data-toggle="modal"
+                                data-target=".bd-example-modal-sm">
                                 <i class="iconos-size fa-solid fa-trash-can"></i>
                             </a>
+                            <!-- ELIMINAR -->
+                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Eliminar</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- MODAL -->
                             <div class="modal fade" id="exampleModalContent" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -184,16 +206,36 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="col-form-label">Message:</label>
-                                                    <textarea class="form-control" id="message-text"></textarea>
-                                                </div>
-                                            </form>
+                                        <div class="mb-4">
+                        <div class="cardform">
+                           
+                            <form class="needs-validation tooltip-label-right" novalidate>
+                                <div class="form-group position-relative error-l-50">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control" required>
+                                    <div class="invalid-tooltip">
+                                        Name is required!
+                                    </div>
+                                </div>
+                                <div class="form-group position-relative error-l-50">
+                                    <label>Correo electrónico</label>
+                                    <input type="number" class="form-control" required>
+                                    <div class="invalid-tooltip">
+                                        Age is required!
+                                    </div>
+                                </div>
+                                <div class="form-group position-relative error-l-50">
+                                    <label>Teléfono</label>
+                                    <textarea class="form-control" rows="2" required></textarea>
+                                    <div class="invalid-tooltip">
+                                        Details are required!
+                                    </div>
+                                </div>
+                            
+                                <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -256,3 +298,4 @@
 </body>
 
 </html>
+
