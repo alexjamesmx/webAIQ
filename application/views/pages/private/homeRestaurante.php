@@ -42,24 +42,28 @@
                     <rect x="0.5" y="15.5" width="25" height="1" />
                 </svg>
             </a>
-
-
-
         </div>
 
 
         <a class="navbar-logo" href="#">
-            <span class="logo d-none d-xs-block"></span>
+            <span class="d-none d-xs-block">
+                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
+                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
+            </span>
+
             <span class="logo-mobile d-block d-xs-none"></span>
         </a>
 
         <div class="navbar-right">
+            <div class="user d-inline-block">
+                <span class="name">En Linea</span>
+            </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
                     <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="tooltip" data-placement="left" title="Dark Mode">
-                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="switchDark"></label>
+                        data-toggle="k" data-placement="rigth" title="k">
+                        <input class="custom-switch-input" id="k" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="k"></label>
                     </div>
                 </div>
 
@@ -73,13 +77,7 @@
             </div>
 
             <div class="user d-inline-block">
-
                 <span class="name">Starbucks</span>
-                <span>
-                    <img alt="Profile Picture" src="<?=base_url()?>static/img/starbucks.png" />
-                </span>
-
-
             </div>
         </div>
     </nav>
@@ -124,8 +122,8 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title"> Pendientes </h4>
-                                <button type="button" class="btn btn-primary">
+                                <h2 class="card-title"> Pendientes </h2>
+                                <button type="button" class="btn btn-primary restaricon">
                                     <i class="simple-icon-bell"></i>&nbsp;
                                     <span class="badge badge-light">2</span>
                                 </button>
@@ -147,29 +145,30 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">1637263778347</p>
+                                            <p class="list-item-heading ml-3">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Osvaldo</p>
+                                            <p class="text-muted ml-3">Osvaldo</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">$80</p>
+                                            <p class="text-muted ml-3">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
+                                            <p class="text-muted ml-3">18 Nov 2022 - 13:29</p>
                                         </td>
                                         <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
-                                            <p class="list-item-heading">Cocacola</p>
+                                            <p class="list-item-heading ml-3">Hamburgesa de pollo sencilla (sin cebolla)
+                                            </p>
+                                            <p class="list-item-heading ml-3">Cocacola</p>
                                         </td>
                                         <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="simple-icon-check"></i> Acceptar </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -177,30 +176,30 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">1637263778796</p>
+                                            <p class="list-item-heading ml-3">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Oscar</p>
+                                            <p class="text-muted ml-3">Oscar</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">$120</p>
+                                            <p class="text-muted ml-3">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
+                                            <p class="text-muted ml-3">18 Nov 2022 - 14:01</p>
                                         </td>
                                         <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
-                                            <p class="list-item-heading">Munded</p>
-                                            <p class="list-item-heading">Papas (grandes)</p>
+                                            <p class="list-item-heading ml-3">Hamburgesa de pollo suprema</p>
+                                            <p class="list-item-heading ml-3">Munded</p>
+                                            <p class="list-item-heading ml-3">Papas (grandes)</p>
                                         </td>
                                         <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="simple-icon-check"></i> Acceptar </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -216,8 +215,8 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title"> Aceptados (Preparando) </h4>
-                                <button type="button" class="btn btn-primary">
+                                <h2 class="card-title"> Aceptados (Preparando) </h2>
+                                <button type="button" class="btn btn-primary restaricon">
                                     <i class="simple-icon-bell"></i>&nbsp;
                                     <span class="badge badge-light">2</span>
                                 </button>
@@ -230,7 +229,7 @@
                                         <th>Id</th>
                                         <th>Cliente</th>
                                         <th>Total</th>
-                                        <th>Fecha</th>
+                                        <th>Tiempo de preparacion</th>
                                         <th>Detalle</th>
                                         <th></th>
                                     </tr>
@@ -239,29 +238,32 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">1637263778347</p>
+                                            <p class="list-item-heading ml-3">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Osvaldo</p>
+                                            <p class="text-muted ml-3">Osvaldo</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">$80</p>
+                                            <p class="text-muted ml-3">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
+                                            <p class="text-muted ml-3 timeres">
+                                                <span class="badge badge-pill badge-outline-success mb-1">05:23</span>
+                                            </p>
                                         </td>
                                         <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
-                                            <p class="list-item-heading">Cocacola</p>
+                                            <p class="list-item-heading ml-3">Hamburgesa de pollo sencilla (sin cebolla)
+                                            </p>
+                                            <p class="list-item-heading ml-3">Cocacola</p>
                                         </td>
                                         <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="iconsminds-chef-hat"></i> Listos </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -269,30 +271,32 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">1637263778796</p>
+                                            <p class="list-item-heading ml-3">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Oscar</p>
+                                            <p class="text-muted ml-3">Oscar</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">$120</p>
+                                            <p class="text-muted ml-3">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
+                                            <p class="text-muted ml-3 timeres">
+                                                <span class="badge badge-pill badge-outline-danger mb-1">15:10</span>
+                                            </p>
                                         </td>
                                         <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
-                                            <p class="list-item-heading">Munded</p>
-                                            <p class="list-item-heading">Papas (grandes)</p>
+                                            <p class="list-item-heading ml-3">Hamburgesa de pollo suprema</p>
+                                            <p class="list-item-heading ml-3">Munded</p>
+                                            <p class="list-item-heading ml-3">Papas (grandes)</p>
                                         </td>
                                         <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="iconsminds-chef-hat"></i> Listos </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -308,8 +312,8 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title"> Listo para envio </h4>
-                                <button type="button" class="btn btn-primary">
+                                <h2 class="card-title"> Listo para envio </h2>
+                                <button type="button" class="btn btn-primary restaricon">
                                     <i class="simple-icon-bell"></i>&nbsp;
                                     <span class="badge badge-light">2</span>
                                 </button>
@@ -320,9 +324,10 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Cliente</th>
+                                        <th>Repartidor</th>
                                         <th>Total</th>
-                                        <th>Fecha</th>
+                                        <th>Cliente</th>
+                                        <th>Tipo de Pago</th>
                                         <th>Detalle</th>
                                         <th></th>
                                     </tr>
@@ -331,29 +336,33 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">1637263778347</p>
+                                            <p class="list-item-heading ml-3">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Osvaldo</p>
+                                            <p class="text-muted ml-3">Jorge</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">$80</p>
+                                            <p class="text-muted ml-3">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
+                                            <p class="text-muted ml-3">Osvaldo</p>
                                         </td>
                                         <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
-                                            <p class="list-item-heading">Cocacola</p>
+                                            <p class="text-muted ml-3">Tarjeta</p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading ml-3">Hamburgesa de pollo sencilla (sin cebolla)
+                                            </p>
+                                            <p class="list-item-heading ml-3">Cocacola</p>
                                         </td>
                                         <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="iconsminds-mail-send"></i> Enviar </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -361,30 +370,33 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">1637263778796</p>
+                                            <p class="list-item-heading ml-3">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Oscar</p>
+                                            <p class="text-muted ml-3">Raul</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">$120</p>
+                                            <p class="text-muted ml-3">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
+                                            <p class="text-muted ml-3">Oscar</p>
                                         </td>
                                         <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
-                                            <p class="list-item-heading">Munded</p>
-                                            <p class="list-item-heading">Papas (grandes)</p>
+                                            <p class="text-muted ml-3">Efectivo</p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading ml-3">Hamburgesa de pollo suprema</p>
+                                            <p class="list-item-heading ml-3">Munded</p>
+                                            <p class="list-item-heading ml-3">Papas (grandes)</p>
                                         </td>
                                         <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="iconsminds-mail-send"></i> Enviar </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -400,8 +412,8 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title"> Enviado </h4>
-                                <button type="button" class="btn btn-primary">
+                                <h2 class="card-title"> Enviado </h2>
+                                <button type="button" class="btn btn-primary restaricon">
                                     <i class="simple-icon-bell"></i>&nbsp;
                                     <span class="badge badge-light">2</span>
                                 </button>
@@ -412,10 +424,7 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Cliente</th>
                                         <th>Total</th>
-                                        <th>Fecha</th>
-                                        <th>Detalle</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -426,26 +435,16 @@
                                             <p class="list-item-heading">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Osvaldo</p>
-                                        </td>
-                                        <td>
                                             <p class="text-muted">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
-                                        </td>
-                                        <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
-                                            <p class="list-item-heading">Cocacola</p>
-                                        </td>
-                                        <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="iconsminds-financial"></i> Pagado </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a>
                                             </p>
 
                                         </td>
@@ -456,27 +455,16 @@
                                             <p class="list-item-heading">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Oscar</p>
-                                        </td>
-                                        <td>
                                             <p class="text-muted">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
-                                        </td>
-                                        <td>
-                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
-                                            <p class="list-item-heading">Munded</p>
-                                            <p class="list-item-heading">Papas (grandes)</p>
-                                        </td>
-                                        <td>
                                             <p>
-                                                &nbsp; <a href="#acepta"><i
-                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                <a href="#acepta" class="btn btn-outline-success restaricon"><i
+                                                        class="iconsminds-financial"></i> Pagado </a>
                                                 &nbsp;
 
-                                                &nbsp; <a href="#delet"><i
-                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
+                                                        class="simple-icon-trash"></i> Cancelar </a>
                                             </p>
 
                                         </td>

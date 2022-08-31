@@ -46,7 +46,15 @@ body.show-spinner::after{
 }
 
 .restaricon {
-  font-size: 20px;
+  font-size: 16px;
+}
+
+.timeres {
+  font-size: 18px;
+}
+
+.logores {
+  height: 55px !important;
 }
 
 
