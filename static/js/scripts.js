@@ -79,7 +79,6 @@ function loadStyle(href, callback) {
           <label class="custom-control-label" for="rtlRadio">Rtl</label>
         </div>
       </div>
-      <a href="#" class="theme-button"> <i class="simple-icon-magic-wand"></i> </a> 
     </div>`;
 
   $("body").append(themeColorsDom);
