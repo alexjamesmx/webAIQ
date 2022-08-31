@@ -176,578 +176,313 @@
                 <div class="col-12 data-tables-hide-filter">
                     <div class="card">
                         <div class="card-body">
+                    
 
                             <table class="data-table data-tables-pagination responsive nowrap"
                                 data-order="[[ 1, &quot;desc&quot; ]]">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Sales</th>
-                                        <th>Stock</th>
-                                        <th>Category</th>
+                                        <th>Nombre</th>
+                                        <th>Correo electrónico</th>
+                                        <th>Teléfono</th>
+                                        <th class='justify-content-end'>
+                                        <p>
+
+                                            Acciones
+                                        </p>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Marble Cake</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1452</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">62</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Hummingbird</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1414</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">85</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Mantecada</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1401</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">21</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Batik Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1387</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">114</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Kransekake</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1356</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">27</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Aranygaluska</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1323</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">57</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Lamington</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1301</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">11</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Kremówka</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1287</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">94</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Kladdkaka</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1261</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">37</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Fruitcake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1245</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">65</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Blondie</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1218</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">19</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Chocolate Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1200</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">45</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Banoffee Pie</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1192</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">22</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Croquembouche</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1176</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">48</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Basbousa</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1154</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">13</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Bebinca</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1150</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">4</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Punschkrapfen</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1108</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">87</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Crystal Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1068</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">43</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Napoleonshat</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1050</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">41</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Bibingka</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1024</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">12</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Magdalena</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">998</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">24</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Butterkuchen</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">981</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">17</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Charlotte</p>
+                                            <p class="list-item-heading">Red</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">976</p>
+                                            <p class="text-muted">redwings@gmail.com</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">26</p>
+                                            <p class="text-muted">4423452492</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Avocado Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">961</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">106</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
+                                            <!-- EDITAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target="#exampleModalContent" data-whatever="Editar">
+                                                <i class="iconos-size simple-icon-pencil pencil"></i>
+                                            </a>
+                                            <!-- EDITAR -->
+                                            <!-- ELIMINAR -->
+                                            <a class="align-self-center mr-4" href="#" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm">
+                                                <i class="iconos-size simple-icon-trash trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Fig Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">948</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">37</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Šakotis</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">931</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">54</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Chenna Poda</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">930</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">7</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Salzburger Nockerl</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">924</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">20</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Pavlova</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">918</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">14</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Soufflé</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">905</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">64</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cremeschnitte</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">845</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">12</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Kolaczki</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">838</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">21</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cheesecake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">830</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">36</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Gingerbread</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">807</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">21</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Goose Breast</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">795</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">9</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Baumkuchen</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">792</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">18</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Faworki</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">783</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">38</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Kabuni</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">749</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">148</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Buccellato</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">738</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">51</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Vínarterta</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">711</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">49</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
+                                   
                                 </tbody>
                             </table>
                         </div>
