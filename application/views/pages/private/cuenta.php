@@ -89,22 +89,22 @@
                     
                     <li class="#homeRestaurante">
                     <a href="<?=base_url()?>homeRestaurante">
-                            <i class="iconsminds-bucket"></i> Inicio
+                            <i class="iconsminds-shop-4"></i> Inicio
                         </a>
                     </li>
                     <li class="#menu">
                         <a href="<?=base_url()?>menu">
-                            <i class="iconsminds-bucket"></i> Menu
+                            <i class="iconsminds-receipt-4"></i> Menu
                         </a>
                     </li>
                     <li class="#reportes">
                     <a href="<?=base_url()?>reportes">
-                            <i class="iconsminds-bucket"></i> Reportes
+                            <i class="iconsminds-monitor-analytics"></i> Reportes
                         </a>
                     </li>
                     <li class="active">
                     <a href="#">
-                            <i class="iconsminds-bucket"></i> Cuenta
+                            <i class="iconsminds-id-card"></i> Cuenta
                         </a>
                     </li>
                     

@@ -43,8 +43,8 @@
                 </svg>
             </a>
 
-    
-           
+
+
         </div>
 
 
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
                     <i class="simple-icon-size-fullscreen"></i>
@@ -73,12 +73,12 @@
             </div>
 
             <div class="user d-inline-block">
-            
-                    <span class="name">Sarah Kortney</span>
-                    <span>
-                        <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
-                    </span>
-             
+
+                <span class="name">Starbucks</span>
+                <span>
+                    <img alt="Profile Picture" src="<?=base_url()?>static/img/starbucks.png" />
+                </span>
+
 
             </div>
         </div>
@@ -90,26 +90,26 @@
                 <ul class="list-unstyled">
 
                     <li class="active">
-                    <a href="#">
-                            <i class="iconsminds-bucket"></i> Inicio
+                        <a href="#">
+                            <i class="iconsminds-shop-4"></i> Inicio
                         </a>
                     </li>
                     <li class="#menu">
                         <a href="<?=base_url()?>menu">
-                            <i class="iconsminds-bucket"></i> Menu
+                            <i class="iconsminds-receipt-4"></i> Menu
                         </a>
                     </li>
                     <li class="#reportes">
-                    <a href="<?=base_url()?>reportes">
-                            <i class="iconsminds-bucket"></i> Reportes
+                        <a href="<?=base_url()?>reportes">
+                            <i class="iconsminds-monitor-analytics"></i> Reportes
                         </a>
                     </li>
                     <li class="#cuenta">
-                    <a href="<?=base_url()?>cuenta">
-                            <i class="iconsminds-bucket"></i> Cuenta
+                        <a href="<?=base_url()?>cuenta">
+                            <i class="iconsminds-id-card"></i> Cuenta
                         </a>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
@@ -119,26 +119,19 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
-                    <h1>Inicio</h1>
-                    <div class="separator mb-5"></div>
-
-                </div>
-            </div>
-            <div class="row">
-                
-                <div class="col-xl-6 col-lg-12 mb-4">
+                <!--pendiente-->
+                <div class="col-xl-6 col-sm-6 mb-3">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title"> Por aceptar </h5>
+                                <h4 class="card-title"> Pendientes </h4>
                                 <button type="button" class="btn btn-primary">
-                                Notifications&nbsp;
-                                <span class="badge badge-light">4</span>
-                            </button>
+                                    <i class="simple-icon-bell"></i>&nbsp;
+                                    <span class="badge badge-light">2</span>
+                                </button>
                             </div>
-                            
-                            <table class="data-table data-table-scrollable responsive nowrap"
+
+                            <table class="data-table table-striped data-table-scrollable responsive nowrap"
                                 data-order="[[ 1, &quot;desc&quot; ]]">
                                 <thead>
                                     <tr>
@@ -146,270 +139,70 @@
                                         <th>Cliente</th>
                                         <th>Total</th>
                                         <th>Fecha</th>
-                                        <th>Acciones</th>
+                                        <th>Detalle</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Marble Cake</p>
+                                            <p class="list-item-heading">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1452</p>
+                                            <p class="text-muted">Osvaldo</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">62</p>
+                                            <p class="text-muted">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
+                                            <p class="list-item-heading">Cocacola</p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
+
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
+
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Marble Cake</p>
+                                            <p class="list-item-heading">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1452</p>
+                                            <p class="text-muted">Oscar</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">62</p>
+                                            <p class="text-muted">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
+                                            <p class="list-item-heading">Munded</p>
+                                            <p class="list-item-heading">Papas (grandes)</p>
                                         </td>
-                                    </tr>
+                                        <td>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
 
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Marble Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1452</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">62</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
 
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Marble Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1452</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">62</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    
-                                    
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-12 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Best Sellers</h5>
-                            <table class="data-table data-table-scrollable responsive nowrap"
-                                data-order="[[ 1, &quot;desc&quot; ]]">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Sales</th>
-                                        <th>Stock</th>
-                                        <th>Category</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Marble Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1452</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">62</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Fruitcake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1245</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">65</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Chocolate Cake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1200</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">45</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Bebinca</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1150</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">4</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Napoleonshat</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1050</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">41</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Magdalena</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">998</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">24</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Salzburger Nockerl</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">924</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">20</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Soufflé</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">905</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">64</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cremeschnitte</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">845</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">12</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cheesecake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">830</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">36</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Gingerbread</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">807</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">21</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Goose Breast</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">795</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">9</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
                                         </td>
                                     </tr>
 
@@ -418,187 +211,90 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-12 mb-4">
+                <!--Aceptados (Preparando)-->
+                <div class="col-xl-6 col-sm-6 mb-3">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Best Sellers</h5>
-                            <table class="data-table data-table-scrollable responsive nowrap"
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="card-title"> Aceptados (Preparando) </h4>
+                                <button type="button" class="btn btn-primary">
+                                    <i class="simple-icon-bell"></i>&nbsp;
+                                    <span class="badge badge-light">2</span>
+                                </button>
+                            </div>
+
+                            <table class="data-table table-striped data-table-scrollable responsive nowrap"
                                 data-order="[[ 1, &quot;desc&quot; ]]">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Sales</th>
-                                        <th>Stock</th>
-                                        <th>Category</th>
+                                        <th>Id</th>
+                                        <th>Cliente</th>
+                                        <th>Total</th>
+                                        <th>Fecha</th>
+                                        <th>Detalle</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Marble Cake</p>
+                                            <p class="list-item-heading">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1452</p>
+                                            <p class="text-muted">Osvaldo</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">62</p>
+                                            <p class="text-muted">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
+                                            <p class="list-item-heading">Cocacola</p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
+
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
+
                                         </td>
                                     </tr>
+
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Fruitcake</p>
+                                            <p class="list-item-heading">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1245</p>
+                                            <p class="text-muted">Oscar</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">65</p>
+                                            <p class="text-muted">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Chocolate Cake</p>
+                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1200</p>
+                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
+                                            <p class="list-item-heading">Munded</p>
+                                            <p class="list-item-heading">Papas (grandes)</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">45</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Bebinca</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1150</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">4</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Napoleonshat</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">1050</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">41</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Magdalena</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">998</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">24</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Salzburger Nockerl</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">924</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">20</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Soufflé</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">905</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">64</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cremeschnitte</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">845</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">12</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cheesecake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">830</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">36</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Gingerbread</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">807</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">21</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Goose Breast</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">795</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">9</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
+
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
+
                                         </td>
                                     </tr>
 
@@ -607,187 +303,182 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-12 mb-4">
+                <!--Listo para envio-->
+                <div class="col-xl-6 col-sm-6 mb-3">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Best Sellers</h5>
-                            <table class="data-table data-table-scrollable responsive nowrap"
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="card-title"> Listo para envio </h4>
+                                <button type="button" class="btn btn-primary">
+                                    <i class="simple-icon-bell"></i>&nbsp;
+                                    <span class="badge badge-light">2</span>
+                                </button>
+                            </div>
+
+                            <table class="data-table table-striped data-table-scrollable responsive nowrap"
                                 data-order="[[ 1, &quot;desc&quot; ]]">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Sales</th>
-                                        <th>Stock</th>
-                                        <th>Category</th>
+                                        <th>Id</th>
+                                        <th>Cliente</th>
+                                        <th>Total</th>
+                                        <th>Fecha</th>
+                                        <th>Detalle</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Marble Cake</p>
+                                            <p class="list-item-heading">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1452</p>
+                                            <p class="text-muted">Osvaldo</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">62</p>
+                                            <p class="text-muted">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
+                                            <p class="list-item-heading">Cocacola</p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
+
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
+
                                         </td>
                                     </tr>
+
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Fruitcake</p>
+                                            <p class="list-item-heading">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1245</p>
+                                            <p class="text-muted">Oscar</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">65</p>
+                                            <p class="text-muted">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
+                                            <p class="list-item-heading">Munded</p>
+                                            <p class="list-item-heading">Papas (grandes)</p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
+
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
+
                                         </td>
                                     </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--Enviado-->
+                <div class="col-xl-6 col-sm-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="card-title"> Enviado </h4>
+                                <button type="button" class="btn btn-primary">
+                                    <i class="simple-icon-bell"></i>&nbsp;
+                                    <span class="badge badge-light">2</span>
+                                </button>
+                            </div>
+
+                            <table class="data-table table-striped data-table-scrollable responsive nowrap"
+                                data-order="[[ 1, &quot;desc&quot; ]]">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Cliente</th>
+                                        <th>Total</th>
+                                        <th>Fecha</th>
+                                        <th>Detalle</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Chocolate Cake</p>
+                                            <p class="list-item-heading">1637263778347</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1200</p>
+                                            <p class="text-muted">Osvaldo</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">45</p>
+                                            <p class="text-muted">$80</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Desserts</p>
+                                            <p class="text-muted">18 Nov 2022 - 13:29</p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading">Hamburgesa de pollo sencilla (sin cebolla)</p>
+                                            <p class="list-item-heading">Cocacola</p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
+
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
+
                                         </td>
                                     </tr>
+
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading">Bebinca</p>
+                                            <p class="list-item-heading">1637263778796</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1150</p>
+                                            <p class="text-muted">Oscar</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">4</p>
+                                            <p class="text-muted">$120</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Napoleonshat</p>
+                                            <p class="text-muted">18 Nov 2022 - 14:01</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">1050</p>
+                                            <p class="list-item-heading">Hamburgesa de pollo suprema</p>
+                                            <p class="list-item-heading">Munded</p>
+                                            <p class="list-item-heading">Papas (grandes)</p>
                                         </td>
                                         <td>
-                                            <p class="text-muted">41</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Magdalena</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">998</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">24</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Salzburger Nockerl</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">924</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">20</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Soufflé</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">905</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">64</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cremeschnitte</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">845</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">12</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Cheesecake</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">830</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">36</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Desserts</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Gingerbread</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">807</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">21</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading">Goose Breast</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">795</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">9</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted">Cupcakes</p>
+                                            <p>
+                                                &nbsp; <a href="#acepta"><i
+                                                        class="simple-icon-check restaricon text-success"></i></a>
+                                                &nbsp;
+
+                                                &nbsp; <a href="#delet"><i
+                                                        class="simple-icon-trash restaricon text-danger"></i></a> &nbsp;
+                                            </p>
+
                                         </td>
                                     </tr>
 

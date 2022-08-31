@@ -2306,7 +2306,7 @@ main {
   display: none; }
 
 .dashboard-sq-banner {
-  background-image: linear-gradient(to right top, #1a3a53, #145388, #225986);
+  background-image: linear-gradient(to right top, #1a3a53, #00ACC8, #225986);
   background-size: cover;
   height: 385px;
   transition: 0.5s;
@@ -4155,7 +4155,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .progress-banner {
   height: 200px;
-  background-image: linear-gradient(to right top, #1a3a53, #145388, #225986);
+  background-image: linear-gradient(to right top, #1a3a53, #00ACC8, #225986);
   transition: 0.5s;
   background-size: 200% auto;
   cursor: pointer; }
@@ -4618,8 +4618,8 @@ a.ck.ck-button.ck-on:not(.ck-disabled):hover {
     border: 3px solid #922c88;
     background: #922c88; }
   .theme-colors .theme-color-blue {
-    border: 3px solid #145388;
-    background: #145388; }
+    border: 3px solid #00ACC8;
+    background: #00ACC8; }
   .theme-colors .theme-color-orange {
     border: 3px solid #e2863b;
     background: #e2863b; }
