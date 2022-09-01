@@ -47,17 +47,24 @@
 
 
         <a class="navbar-logo" href="#">
-            <span class="logo d-none d-xs-block"></span>
+            <span class="d-none d-xs-block">
+                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
+                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
+            </span>
+
             <span class="logo-mobile d-block d-xs-none"></span>
         </a>
 
         <div class="navbar-right">
+            <div class="user d-inline-block">
+                <span class="name">En Linea</span>
+            </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="tooltip" data-placement="left" title="Dark Mode">
-                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="switchDark"></label>
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
+                        data-placement="rigth" title="k">
+                        <input class="custom-switch-input" id="k" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="k"></label>
                     </div>
                 </div>
 

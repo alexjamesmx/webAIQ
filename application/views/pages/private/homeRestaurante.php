@@ -60,8 +60,8 @@
             </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="k" data-placement="rigth" title="k">
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
+                        data-placement="rigth" title="k">
                         <input class="custom-switch-input" id="k" type="checkbox" checked>
                         <label class="custom-switch-btn" for="k"></label>
                     </div>
@@ -122,7 +122,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h2 class="card-title"> Pendientes </h2>
+                                <h2 class="card-title"> Solicitudes de pedido </h2>
                                 <button type="button" class="btn btn-primary restaricon">
                                     <i class="simple-icon-bell"></i>&nbsp;
                                     <span class="badge badge-light">2</span>
@@ -168,7 +168,7 @@
                                                 &nbsp;
 
                                                 &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
-                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
+                                                        class="simple-icon-trash"></i> Declinar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -199,7 +199,7 @@
                                                 &nbsp;
 
                                                 &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
-                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
+                                                        class="simple-icon-trash"></i> Declinar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -207,6 +207,8 @@
 
                                 </tbody>
                             </table>
+                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
+
                         </div>
                     </div>
                 </div>
@@ -226,11 +228,9 @@
                                 data-order="[[ 1, &quot;desc&quot; ]]">
                                 <thead>
                                     <tr>
+                                        <th>Platillos</th>
+                                        <th> Tiempo de preparacion</th>
                                         <th>Id</th>
-                                        <th>Cliente</th>
-                                        <th>Total</th>
-                                        <th>Tiempo de preparacion</th>
-                                        <th>Detalle</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -238,32 +238,22 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading ml-3">1637263778347</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3">Osvaldo</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3">$80</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3 timeres">
-                                                <span class="badge badge-pill badge-outline-success mb-1">05:23</span>
-                                            </p>
-                                        </td>
-                                        <td>
                                             <p class="list-item-heading ml-3">Hamburgesa de pollo sencilla (sin cebolla)
                                             </p>
                                             <p class="list-item-heading ml-3">Cocacola</p>
                                         </td>
                                         <td>
+                                            <p class="text-muted ml-3 timeres">
+                                                <span class="badge badge-pill badge-outline-success">05:23</span>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading ml-3">1637263778347</p>
+                                        </td>
+                                        <td>
                                             <p>
                                                 &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
                                                         class="iconsminds-chef-hat"></i> Listos </a>
-                                                &nbsp;
-
-                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
-                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -271,32 +261,22 @@
 
                                     <tr>
                                         <td>
-                                            <p class="list-item-heading ml-3">1637263778796</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3">Oscar</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3">$120</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3 timeres">
-                                                <span class="badge badge-pill badge-outline-danger mb-1">15:10</span>
-                                            </p>
-                                        </td>
-                                        <td>
                                             <p class="list-item-heading ml-3">Hamburgesa de pollo suprema</p>
                                             <p class="list-item-heading ml-3">Munded</p>
                                             <p class="list-item-heading ml-3">Papas (grandes)</p>
                                         </td>
                                         <td>
+                                            <p class="text-muted ml-3 timeres">
+                                                <span class="badge badge-pill badge-outline-danger">15:10</span>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p class="list-item-heading ml-3">1637263778796</p>
+                                        </td>
+                                        <td>
                                             <p>
                                                 &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
                                                         class="iconsminds-chef-hat"></i> Listos </a>
-                                                &nbsp;
-
-                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
-                                                        class="simple-icon-trash"></i> Cancelar </a> &nbsp;
                                             </p>
 
                                         </td>
@@ -304,6 +284,7 @@
 
                                 </tbody>
                             </table>
+                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
                         </div>
                     </div>
                 </div>
@@ -404,6 +385,7 @@
 
                                 </tbody>
                             </table>
+                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
                         </div>
                     </div>
                 </div>
@@ -472,6 +454,7 @@
 
                                 </tbody>
                             </table>
+                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
                         </div>
                     </div>
                 </div>

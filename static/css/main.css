@@ -46,15 +46,19 @@ body.show-spinner::after{
 }
 
 .restaricon {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .timeres {
-  font-size: 18px;
+  font-size: .85rem;
 }
 
 .logores {
   height: 55px !important;
+}
+
+.textabla {
+  font-size: 1rem;
 }
 
 

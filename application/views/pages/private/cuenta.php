@@ -41,27 +41,34 @@
                 </svg>
             </a>
 
-    
-           
+
+
         </div>
 
 
         <a class="navbar-logo" href="#">
-            <span class="logo d-none d-xs-block"></span>
+            <span class="d-none d-xs-block">
+                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
+                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
+            </span>
+
             <span class="logo-mobile d-block d-xs-none"></span>
         </a>
 
         <div class="navbar-right">
+            <div class="user d-inline-block">
+                <span class="name">En Linea</span>
+            </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="tooltip" data-placement="left" title="Dark Mode">
-                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="switchDark"></label>
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
+                        data-placement="rigth" title="k">
+                        <input class="custom-switch-input" id="k" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="k"></label>
                     </div>
                 </div>
 
-                
+
 
                 <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
                     <i class="simple-icon-size-fullscreen"></i>
@@ -71,12 +78,12 @@
             </div>
 
             <div class="user d-inline-block">
-            
-                    <span class="name">Sarah Kortney</span>
-                    <span>
-                        <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
-                    </span>
-             
+
+                <span class="name">Sarah Kortney</span>
+                <span>
+                    <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
+                </span>
+
 
             </div>
         </div>
@@ -86,9 +93,9 @@
         <div class="main-menu">
             <div class="scroll">
                 <ul class="list-unstyled">
-                    
+
                     <li class="#homeRestaurante">
-                    <a href="<?=base_url()?>homeRestaurante">
+                        <a href="<?=base_url()?>homeRestaurante">
                             <i class="iconsminds-shop-4"></i> Inicio
                         </a>
                     </li>
@@ -98,16 +105,16 @@
                         </a>
                     </li>
                     <li class="#reportes">
-                    <a href="<?=base_url()?>reportes">
+                        <a href="<?=base_url()?>reportes">
                             <i class="iconsminds-monitor-analytics"></i> Reportes
                         </a>
                     </li>
                     <li class="active">
-                    <a href="#">
+                        <a href="#">
                             <i class="iconsminds-id-card"></i> Cuenta
                         </a>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
