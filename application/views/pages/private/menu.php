@@ -128,9 +128,11 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1>Menu</h1>
-                        <button type="button" class="btn btn-outline-success m-1 textabla"> Agregar <i
+                        <button type="button" class="btn btn-outline-success m-1 textabla" data-toggle="modal"
+                        data-target="#agregar"> Agregar <i
                                 class="simple-icon-plus"></i></button>
                     </div>
+                    
 
                     <div class="separator mb-5"></div>
                 </div>
@@ -432,7 +434,27 @@
             </div>
         </div>
     </main>
-
+    <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
     <script src="<?=base_url()?>static/js/vendor/jquery-3.3.1.min.js"></script>
     <script src="<?=base_url()?>static/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="<?=base_url()?>static/js/vendor/perfect-scrollbar.min.js"></script>

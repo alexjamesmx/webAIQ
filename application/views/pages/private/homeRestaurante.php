@@ -496,6 +496,7 @@
             </div>
         </div>
     </main>
+    
 
     <script src="<?=base_url()?>static/js/vendor/jquery-3.3.1.min.js"></script>
     <script src="<?=base_url()?>static/js/vendor/bootstrap.bundle.min.js"></script>
