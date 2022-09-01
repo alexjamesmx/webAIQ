@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dore jQuery</title>
+    <title>AIQ - Aeropuerto Internacional de Querétaro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?=base_url()?>static/img/aiq.jpeg"  type="image/x-icon">
 
     <link rel="stylesheet" href="<?=base_url()?>static/font/iconsmind-s/css/iconsminds.css" />
     <link rel="stylesheet" href="<?=base_url()?>static/font/simple-line-icons/css/simple-line-icons.css" />
@@ -22,10 +23,12 @@
     <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap-datepicker3.min.css" />
     <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/component-custom-switch.min.css" />
     <link rel="stylesheet" href="<?=base_url()?>static/css/main.css" />
+
+    <!-- <link rel="stylesheet" href="<?=base_url()?>static/fontawesome/css/all.min.css" /> -->
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
-<nav class="navbar fixed-top">
+    <nav class="navbar fixed-top">
         <div class="d-flex align-items-center navbar-left">
             <a href="#" class="menu-button d-none d-md-block">
                 <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
@@ -48,8 +51,8 @@
                 </svg>
             </a>
 
-    
-           
+
+
         </div>
         <a class="navbar-logo" href="#">
             <span class="logo d-none d-xs-block"></span>
@@ -57,15 +60,7 @@
         </a>
         <div class="navbar-right">
             <div class="header-icons d-inline-block align-middle">
-                <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="tooltip" data-placement="left" title="Dark Mode">
-                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="switchDark"></label>
-                    </div>
-                </div>
 
-                
 
                 <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
                     <i class="simple-icon-size-fullscreen"></i>
@@ -75,12 +70,12 @@
             </div>
 
             <div class="user d-inline-block">
-            
-                    <span class="name">Sarah Kortney</span>
-                    <span>
-                        <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
-                    </span>
-             
+
+                <span class="name">Sarah Kortney</span>
+                <span>
+                    <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
+                </span>
+
 
             </div>
         </div>
@@ -89,39 +84,34 @@
         <div class="main-menu">
             <div class="scroll">
                 <ul class="list-unstyled">
-                    
+
                     <li class="active">
-                    <a href="<?=base_url()?>home">
-                            <i class="iconsminds-bucket"></i> Inicio
+                        <a href="<?=base_url()?>home">
+                            <i class="iconsminds-monitor-analytics"></i> Inicio
                         </a>
                     </li>
                     <li class="#restaurantes">
                         <a href="<?=base_url()?>restaurantes">
-                            <i class="iconsminds-bucket"></i> Restaurantes
+                            <i class="iconsminds-shop-4"></i> Restaurantes
                         </a>
                     </li>
                     <li class="#mesas">
-                    <a href="<?=base_url()?>mesas">
-                            <i class="iconsminds-bucket"></i> Mesas
+                        <a href="<?=base_url()?>mesas">
+                            <i class="iconsminds-on-off-2"></i>Mesas
                         </a>
                     </li>
                     <li class="#repartidores">
-                    <a href="<?=base_url()?>repartidores">
-                            <i class="iconsminds-bucket"></i> Repartidores
+                        <a href="<?=base_url()?>repartidores">
+                            <i class="iconsminds-business-man"></i>Repartidores
                         </a>
                     </li>
                     <li class="#anuncios">
-                    <a href="<?=base_url()?>anuncios">
-                            <i class="iconsminds-bucket"></i> Anuncios
+                        <a href="<?=base_url()?>anuncios">
+                            <i class="iconsminds-money-bag"></i> Anuncios
                         </a>
                     </li>
 
-                    <li class="#homeRestaurante">
-                    <a href="<?=base_url()?>homeRestaurante">
-                            <i class="iconsminds-bucket"></i> homeRestaurante
-                        </a>
-                    </li>
-                    
+
                 </ul>
             </div>
         </div>

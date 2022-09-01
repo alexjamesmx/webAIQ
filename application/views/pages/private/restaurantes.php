@@ -55,14 +55,7 @@
 
         <div class="navbar-right">
             <div class="header-icons d-inline-block align-middle">
-                <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="tooltip" data-placement="left" title="Dark Mode">
-                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="switchDark"></label>
-                    </div>
-                </div>
-
+                
 
 
                 <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
@@ -96,7 +89,7 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="<?= base_url() ?>restaurantes">
+                        <a href="#restaurantes">
                             <i class="iconsminds-bucket"></i> Restaurantes
                         </a>
                     </li>
@@ -146,7 +139,7 @@
                         <button type="button" class="btn btn-primary btn-lg top-right-button mr-1" data-toggle="modal"
                             data-target="#exampleModalContent" data-whatever="Agregar">
                             <i class='simple-icon-plus mr-2'></i>
-                            AGREGAR NUEVO</button>
+                            AGREGAR</button>
                     </div>
                     <div class="separator mb-2"></div>
                     <div class="mb-2">
