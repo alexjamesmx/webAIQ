@@ -128,11 +128,11 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1>Menu</h1>
-                        <button type="button" class="btn btn-outline-success m-1 textabla" data-toggle="modal"
-                        data-target="#agregar"> Agregar <i
-                                class="simple-icon-plus"></i></button>
+                        <button type="button" class="btn btn-outline-success m-1 textabla"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Agregar"> Agregar <i class="simple-icon-plus"></i></button>
                     </div>
-                    
+
 
                     <div class="separator mb-5"></div>
                 </div>
@@ -190,7 +190,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -212,7 +214,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -234,7 +238,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -280,7 +286,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -302,7 +310,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -324,7 +334,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -370,8 +382,11 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
+
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
                                                 </td>
@@ -393,7 +408,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -416,7 +433,9 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                    <button type="button" class="btn btn-outline-primary m-1"><i
+                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
                                                     <button type="button" class="btn btn-outline-danger m-1"><i
                                                             class="simple-icon-trash textabla"></i></button>
@@ -435,26 +454,84 @@
         </div>
     </main>
     <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="exampleModalContent" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <a class="navbar-logo" href="#">
+                        <span class="logo d-none d-xs-block"></span>
+                        <span class="logo-mobile d-block d-xs-none"></span>
+                    </a>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="mb-4 modal-title">ACCION</h5>
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-12">
+                            <label for="phone" class="form-label">Nombre</label>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text"><i class="simple-icon-home"></i></span>
+                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
                                 </div>
                             </div>
-    
+                        </div>
+                        <div class="col-12">
+                            <label for="phone" class="form-label">Correo electrónico</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text"><i class="iconsminds-envelope"></i></span>
+                                <input type="text" class="form-control precio" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <div class="input-group has-validation telefono">
+                                <span class="input-group-text"><i class="simple-icon-phone"></i></span>
+                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-12 d-flex flex-row-reverse mt-4">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                            <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="<?=base_url()?>static/js/vendor/jquery-3.3.1.min.js"></script>
     <script src="<?=base_url()?>static/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="<?=base_url()?>static/js/vendor/perfect-scrollbar.min.js"></script>
