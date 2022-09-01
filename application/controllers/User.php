@@ -7,18 +7,28 @@ class User extends CI_Controller
         $password = $this->input->post('password');
 
         $data = [];
-        
-        $exist = $this->pagesControl_model->exist_user($email,$password);
-        if ($exist == false) {
-            $data['message'] = 'User Not Found';
+
+        $exist = $this->pagesControl_model->exist_user($email);
+
+        //USUARIO EXISTE?
+        if (!$exist) {
+            $data['message'] = "User doesn't exit";
             $data['res'] = FALSE;
-            echo  json_encode($data);
-            die();
+          
+        } else {
+
+            //ENTONCES VALIDALO
+            $userData = $this->pagesControl_model->validate_user($email, $password);
+            if (!$userData) {
+                $data['message'] = 'Your email or password are incorrect';
+                $data['res'] = FALSE;
+              
+            } else {
+                $data['user'] = $userData;
+                $data['message'] = 'Logged in succesfully';
+                $data['res'] = TRUe;
+            }
         }
-     
-            $data['message'] = 'User Found';
-            $data['res'] = TRUE;
-        
-        echo json_encode($data);
+        echo  json_encode($data);
     }
 }

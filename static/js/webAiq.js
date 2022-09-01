@@ -14,19 +14,22 @@ $(function() {
         data: {
             email: email,
             password : password,
-        }
+        },
     })
-        .done(function (result) {
+        .done((result) => {
             console.log('RESULTADO: ',result)
             if (result.res) {
+                message("success",'',result.message)
 
-                window.location.replace(window.location.href+'/home')
+                // window.location.replace(window.location.href+'/home')
             }
             else {
-                message("danger",'Error! ',result.message)
+                message("danger",'Error: ',result.message)
             }
         })
-        .fail();
+        .fail(() => {
+            message("danger",'Error: Hubo un problema con la petición')
+        });
 };
 
 
