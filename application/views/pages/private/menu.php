@@ -84,12 +84,7 @@
 
             <div class="user d-inline-block">
 
-                <span class="name">Sarah Kortney</span>
-                <span>
-                    <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
-                </span>
-
-
+                <span class="name">Starbucks</span>
             </div>
         </div>
     </nav>
@@ -131,7 +126,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h1>Menu</h1>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1>Menu</h1>
+                        <button type="button" class="btn btn-outline-success m-1 textabla"> Agregar <i
+                                class="simple-icon-plus"></i></button>
+                    </div>
+
                     <div class="separator mb-5"></div>
                 </div>
             </div>
@@ -376,7 +376,8 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <img src="<?=base_url()?>static/img/frappuccino1.png" alt="Fat Rascal"
+                                                    <img src="<?=base_url()?>static/img/frappuccino1.png"
+                                                        alt="Fat Rascal"
                                                         class="list-thumbnail responsive border-0 card-img-left" />
                                                 </th>
                                                 <td class="align-middle text-center">
@@ -398,7 +399,8 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <img src="<?=base_url()?>static/img/frappuccino2.png" alt="Fat Rascal"
+                                                    <img src="<?=base_url()?>static/img/frappuccino2.png"
+                                                        alt="Fat Rascal"
                                                         class="list-thumbnail responsive border-0 card-img-left" />
                                                 </th>
                                                 <td class="align-middle text-center">

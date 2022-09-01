@@ -61,4 +61,15 @@ body.show-spinner::after{
   font-size: 1rem;
 }
 
+.brad {
+  border-top-left-radius: 2rem !important;
+  border-top-right-radius: 2rem !important;
+}
+
+.bradb {
+  border-bottom-left-radius: 2rem !important;
+  border-bottom-right-radius: 2rem !important;
+  background-color: white !important;
+}
+
 
