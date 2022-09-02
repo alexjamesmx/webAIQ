@@ -80,10 +80,6 @@
             <div class="user d-inline-block">
 
                 <span class="name">STARBUCKS</span>
-                <span>
-                    <img alt="Profile Picture" src="<?=base_url()?>static/img/starbucks.jpg" />
-                </span>
-
 
             </div>
         </div>
@@ -135,7 +131,7 @@
                 <div class="card-body" style="height:auto; width:1000px;">
                     <div class="text-center">
                         <div class="mb-3"> 
-                            <img alt="Profile" src="<?=base_url()?>static/img/starbucks.jpg"
+                            <img alt="Profile" src="<?=base_url()?>static/img/Starbucks.jpg"
                                 class="img-thumbnail border-0 rounded-circle list-thumbnail" style="width:200px; height:200px;"> 
                         </div>                               
                         <div class="html_button btn-left">

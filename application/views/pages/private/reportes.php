@@ -79,11 +79,7 @@
 
             <div class="user d-inline-block">
             
-                    <span class="name">Sarah Kortney</span>
-                    <span>
-                        <img alt="Profile Picture" src="<?=base_url()?>static/img/starbucks.jpg" />
-                    </span>
-             
+                    <span class="name">Starbucks</span>             
 
             </div>
         </div>
