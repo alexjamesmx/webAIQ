@@ -102,7 +102,7 @@
                     </li>
                     <li class="active">
                         <a href="#">
-                            <i class="iconsminds-receipt-4"></i> Menu
+                            <i class="iconsminds-receipt-4"></i> Menú
                         </a>
                     </li>
                     <li class="#reportes">
@@ -127,7 +127,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h1>Menu</h1>
+                        <h1>Menú</h1>
                         <button type="button" class="btn btn-outline-success m-1 textabla" data-toggle="modal"
                             data-target="#exampleModalContent" data-whatever="Agregar"> Agregar <i
                                 class="simple-icon-plus"></i></button>
@@ -548,7 +548,7 @@
                     </button>
                 </div>
                 <div class="modal-body bradb">
-                    <p class="mb-4"> Quieres eliminar a {producto}? </p>
+                    <p class="mb-4"> ¿Quieres eliminar a {producto}? </p>
                     <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cacelar</button>
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Eliminar</button>
                 </div>

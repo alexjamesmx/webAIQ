@@ -94,7 +94,7 @@
                     </li>
                     <li class="#menu">
                         <a href="<?=base_url()?>menu">
-                            <i class="iconsminds-receipt-4"></i> Menu
+                            <i class="iconsminds-receipt-4"></i> Menú
                         </a>
                     </li>
                     <li class="#reportes">
@@ -212,7 +212,7 @@
                             </table>
                         </div>
                         <div class="card-footer bradb">
-                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
+                            <h4 class="text-right m-1"> Total por día <span class="badge badge-light">7</span> </h4>
                         </div>
                     </div>
                 </div>
@@ -293,7 +293,7 @@
                             </table>
                         </div>
                         <div class="card-footer bradb">
-                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
+                            <h4 class="text-right m-1"> Total por día <span class="badge badge-light">7</span> </h4>
                         </div>
                     </div>
                 </div>
@@ -398,7 +398,7 @@
                             </table>
                         </div>
                         <div class="card-footer bradb">
-                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
+                            <h4 class="text-right m-1"> Total por día <span class="badge badge-light">7</span> </h4>
                         </div>
 
 
@@ -488,7 +488,7 @@
                             </table>
                         </div>
                         <div class="card-footer bradb">
-                            <h4 class="text-right m-1"> Total por dia <span class="badge badge-light">7</span> </h4>
+                            <h4 class="text-right m-1"> Total por día <span class="badge badge-light">7</span> </h4>
                         </div>
                     </div>
                 </div>

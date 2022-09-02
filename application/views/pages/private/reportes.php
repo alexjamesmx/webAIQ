@@ -97,7 +97,7 @@
                     </li>
                     <li class="#menu">
                         <a href="<?=base_url()?>menu">
-                            <i class="iconsminds-receipt-4"></i> Menu
+                            <i class="iconsminds-receipt-4"></i> Menú
                         </a>
                     </li>
                     <li class="active">
