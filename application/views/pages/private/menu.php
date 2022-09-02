@@ -128,9 +128,9 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1>Menu</h1>
-                        <button type="button" class="btn btn-outline-success m-1 textabla"
-                                                        data-toggle="modal" data-target="#exampleModalContent"
-                                                        data-whatever="Agregar"> Agregar <i class="simple-icon-plus"></i></button>
+                        <button type="button" class="btn btn-outline-success m-1 textabla" data-toggle="modal"
+                            data-target="#exampleModalContent" data-whatever="Agregar"> Agregar <i
+                                class="simple-icon-plus"></i></button>
                     </div>
 
 
@@ -190,11 +190,12 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
-                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                    <button type="button" class="btn btn-outline-danger m-1"
+                                                        data-toggle="modal" data-target=".bd-example-modal-sm"><i
                                                             class="simple-icon-trash textabla"></i></button>
                                                 </td>
                                             </tr>
@@ -214,7 +215,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
@@ -238,7 +239,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
@@ -264,7 +265,7 @@
                                                     <h4>Precio</h4>
                                                 </th>
                                                 <th scope="col" class="text-center">
-                                                    <h4>Tipo de preparacion</h4>
+                                                    <h4>Tiempo de preparacion</h4>
                                                 </th>
                                                 <th scope="col"></th>
                                             </tr>
@@ -286,7 +287,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
@@ -310,7 +311,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
@@ -334,7 +335,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
@@ -408,7 +409,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
@@ -433,7 +434,7 @@
                                                     </p>
                                                 </td>
                                                 <td class="align-middle text-right">
-                                                <button type="button" class="btn btn-outline-primary m-1"
+                                                    <button type="button" class="btn btn-outline-primary m-1"
                                                         data-toggle="modal" data-target="#exampleModalContent"
                                                         data-whatever="Editar"><i
                                                             class="simple-icon-pencil textabla"></i></button>
@@ -451,6 +452,7 @@
                 </div>
 
             </div>
+
         </div>
     </main>
     <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-hidden="true">
@@ -475,9 +477,9 @@
 
 
     <div class="modal fade" id="exampleModalContent" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+        <div class="modal-dialog brad bradb" role="document">
+            <div class="modal-content brad bradb">
+                <div class="modal-header brad">
 
                     <a class="navbar-logo" href="#">
                         <span class="logo d-none d-xs-block"></span>
@@ -487,45 +489,68 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bradb">
                     <h5 class="mb-4 modal-title">ACCION</h5>
-                    <form class="row g-3 needs-validation" novalidate>
-                        <div class="col-12">
-                            <label for="phone" class="form-label">Nombre</label>
-                            <div class="input-group has-validation ">
-                                <span class="input-group-text"><i class="simple-icon-home"></i></span>
-                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Este campo es requerido.
-                                </div>
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for=""> Nombre </label>
+                                <input type="text" class="form-control" placeholder="Ej. Torta" required>
+                                <span class="invalid-feedback">Precio Requerido</span>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <label for="phone" class="form-label">Correo electrónico</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text"><i class="iconsminds-envelope"></i></span>
-                                <input type="text" class="form-control precio" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Este campo es requerido.
-                                </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="k"> Precio </label>
+                                <input type="text" class="form-control" placeholder="Ej. 13.00" required>
+                                <span class="invalid-feedback">Precio Requerido</span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="k"> Tiempo de preparación</label>
+                                <input type="text" class="form-control" placeholder="Ej. 15:00 (min)" required>
+                                <span class="invalid-feedback">Precio Requerido</span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="v"> Tipo de producto </label>
+                                <select class="custom-select" id="validationTooltip04" required>
+                                    <option selected disabled value="">Tipo ... </option>
+                                    <option>Combo</option>
+                                    <option>Platillo</option>
+                                    <option>Bebida</option>
+                                </select>
+                                <span class="invalid-feedback"> Selecciona una opcion </span>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <label for="phone" class="form-label">Teléfono</label>
-                            <div class="input-group has-validation telefono">
-                                <span class="input-group-text"><i class="simple-icon-phone"></i></span>
-                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Este campo es requerido.
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFileLangHTML">
+                                    <label class="custom-file-label" for="customFileLangHTML"
+                                        data-browse="Seleccionar">Imagen del Producto</label>
                                 </div>
                             </div>
+
                         </div>
-                        <div class=" col-12 d-flex flex-row-reverse mt-4">
-                            <button class="btn btn-primary" type="submit">Guardar</button>
-                            <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">Cerrar</button>
-                        </div>
+                        <button class="btn btn-primary" type="submit">Crear</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm brad bradb">
+            <div class="modal-content brad bradb">
+                <div class="modal-header brad bg-primary">
+                    <h5 class="modal-title">Eliminar {producto}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bradb">
+                    <p class="mb-4"> Quieres eliminar a {producto}? </p>
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cacelar</button>
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Eliminar</button>
                 </div>
             </div>
         </div>
