@@ -51,13 +51,10 @@
     
            
         </div>
-
-
         <a class="navbar-logo" href="#">
-            AIQ
-            <!-- <img src="<?=base_url()?>static/img/aiq.jpeg" width="10%" height="10%"/> -->
-        </a>  
-
+            <span class="logo d-none d-xs-block"></span>
+            <span class="logo-mobile d-block d-xs-none"></span>
+        </a>
         <div class="navbar-right">
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
