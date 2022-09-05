@@ -90,8 +90,8 @@
             <div class="scroll">
                 <ul class="list-unstyled">
                     
-                    <li class="#homeRestaurante">
-                    <a href="<?=base_url()?>homeRestaurante">
+                    <li class="#home">
+                    <a href="<?=base_url()?>home">
                             <i class="iconsminds-shop-4"></i> Inicio
                         </a>
                     </li>
