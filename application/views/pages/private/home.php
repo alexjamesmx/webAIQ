@@ -5,29 +5,30 @@
     <meta charset="UTF-8">
     <title>AIQ - Aeropuerto Internacional de Querétaro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="<?=base_url()?>static/img/aiq.jpeg"  type="image/x-icon">
+    <link rel="icon" href="<?= base_url() ?>static/img/aiq.jpeg" type="image/x-icon">
 
-    <link rel="stylesheet" href="<?=base_url()?>static/font/iconsmind-s/css/iconsminds.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/font/simple-line-icons/css/simple-line-icons.css" />
 
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.rtl.only.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/fullcalendar.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/datatables.responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/select2.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/owl.carousel.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap-stars.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/nouislider.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap-datepicker3.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/component-custom-switch.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/main.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/fullcalendar.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/datatables.responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/select2.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/owl.carousel.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap-stars.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/nouislider.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
-    <!-- <link rel="stylesheet" href="<?=base_url()?>static/fontawesome/css/all.min.css" /> -->
+
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
+
     <nav class="navbar fixed-top">
         <div class="d-flex align-items-center navbar-left">
             <a href="#" class="menu-button d-none d-md-block">
@@ -68,15 +69,21 @@
                 </button>
 
             </div>
-
             <div class="user d-inline-block">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="name"><?= $_SESSION['correo'] ?></span>
+                    <span>
+                    <?php if(isset($_SESSION['avatar'])):?>
+                        <img id='outimage'alt="Profile Picture" src="<?=$_SESSION['avatar']?>" />
+                    <?php endif;?>
+                    </span>
+                </button>
 
-                <span class="name">Sarah Kortney</span>
-                <span>
-                    <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
-                </span>
-
-
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <a class="dropdown-item" href="#" onclick="return handleAvatar()">Actualizar foto</a>
+                    <a class="dropdown-item" href="#" onclick="return handleSignout()">Cerrar sesión</a>
+                    <input type="file" id="avatar" name='avatar' onchange="return handleAvatarValue()">
+                </div>
             </div>
         </div>
     </nav>
@@ -86,27 +93,27 @@
                 <ul class="list-unstyled">
 
                     <li class="active">
-                        <a href="<?=base_url()?>home">
+                        <a href="<?= base_url() ?>home">
                             <i class="iconsminds-monitor-analytics"></i> Inicio
                         </a>
                     </li>
                     <li class="#restaurantes">
-                        <a href="<?=base_url()?>restaurantes">
+                        <a href="<?= base_url() ?>restaurantes">
                             <i class="iconsminds-shop-4"></i> Restaurantes
                         </a>
                     </li>
                     <li class="#mesas">
-                        <a href="<?=base_url()?>mesas">
+                        <a href="<?= base_url() ?>mesas">
                             <i class="iconsminds-on-off-2"></i>Mesas
                         </a>
                     </li>
                     <li class="#repartidores">
-                        <a href="<?=base_url()?>repartidores">
+                        <a href="<?= base_url() ?>repartidores">
                             <i class="iconsminds-business-man"></i>Repartidores
                         </a>
                     </li>
                     <li class="#anuncios">
-                        <a href="<?=base_url()?>anuncios">
+                        <a href="<?= base_url() ?>anuncios">
                             <i class="iconsminds-money-bag"></i> Anuncios
                         </a>
                     </li>
@@ -121,7 +128,7 @@
         <div class="container-fluid">
             <div class="row  ">
                 <div class="col-12">
-
+                    <div class="message mt-3"></div>
                     <h1>Dashboard Analytics</h1>
                     <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
                         <ol class="breadcrumb pt-0">
@@ -149,8 +156,7 @@
                                 </div>
                             </div>
                             <div class="btn-group float-right float-none-xs mt-2">
-                                <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     This Week
                                 </button>
                                 <div class="dropdown-menu">
@@ -175,8 +181,7 @@
                                 </div>
                             </div>
                             <div class="btn-group float-right mt-2 float-none-xs">
-                                <button class="btn btn-outline-secondary btn-xs dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-outline-secondary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     This Week
                                 </button>
                                 <div class="dropdown-menu">
@@ -219,8 +224,7 @@
                                     <span class="float-right text-muted">12/18</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -229,8 +233,7 @@
                                     <span class="float-right text-muted">1/8</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -239,8 +242,7 @@
                                     <span class="float-right text-muted">2/6</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -249,8 +251,7 @@
                                     <span class="float-right text-muted">0/8</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -259,8 +260,7 @@
                                     <span class="float-right text-muted">1/2</span>
                                 </p>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
 
@@ -331,9 +331,7 @@
                         </div>
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <h6 class="mb-0">Profile Status</h6>
-                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88"
-                                data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="40"
-                                data-show-percent="true">
+                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88" data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="40" data-show-percent="true">
                             </div>
                         </div>
                     </div>
@@ -347,9 +345,7 @@
                         </div>
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <h6 class="mb-0">Work Progress</h6>
-                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88"
-                                data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="64"
-                                data-show-percent="true">
+                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88" data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="64" data-show-percent="true">
                             </div>
                         </div>
                     </div>
@@ -363,11 +359,16 @@
                         </div>
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <h6 class="mb-0">Tasks Completed</h6>
-                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88"
-                                data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="75"
-                                data-show-percent="true">
+                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88" data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="75" data-show-percent="true">
                             </div>
-                        </div>
+                        </div> if(!$("#alerta").length){
+                        $('.message').append(`
+                        <div id="alerta" class="alert alert-${type} alert-dismissible fade show mt-3" role="alert"><strong>${boldText}</strong>${text}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`
+                        );
+                        setTimeout(() => {
+                        $('#alerta').alert('close')
+                        }, 3000);
+                        }
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 mb-4">
@@ -379,9 +380,7 @@
                         </div>
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <h6 class="mb-0">Payments Done</h6>
-                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88"
-                                data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="32"
-                                data-show-percent="true">
+                            <div role="progressbar" class="progress-bar-circle position-relative" data-color="#922c88" data-trailColor="#d7d7d7" aria-valuemax="100" aria-valuenow="32" data-show-percent="true">
                             </div>
                         </div>
                     </div>
@@ -427,26 +426,38 @@
                 </div>
             </div>
         </div>
-    </main>
+    </main> 
 
-    <script src="<?=base_url()?>static/js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/Chart.bundle.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/chartjs-plugin-datalabels.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/moment.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/fullcalendar.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/datatables.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/perfect-scrollbar.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/owl.carousel.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/progressbar.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/jquery.barrating.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/select2.full.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/nouislider.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/bootstrap-datepicker.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/Sortable.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/mousetrap.min.js"></script>
-    <script src="<?=base_url()?>static/js/dore.script.js"></script>
-    <script src="<?=base_url()?>static/js/scripts.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/jquery-3.3.1.min.js"></script>
+    <script>
+        var appData = {
+            base_url: "<?= base_url() ?>",
+            user: "<? echo $this->session->correo ?>",
+        };
+    </script>
+    <script src="<?= base_url() ?>static/js/dore.script.js"></script>
+    <script src="<?= base_url() ?>static/js/scripts.js"></script>
+    <script src="<?= base_url('static/js/home.js') ?>"></script>
+    <script src="<?= base_url('static/js/login.js') ?>"></script>
+    <script src="<?= base_url('static/js/message.js') ?>"></script>
+    <script src="<?= base_url() ?>static/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/Chart.bundle.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/chartjs-plugin-datalabels.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/moment.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/fullcalendar.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/datatables.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/owl.carousel.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/progressbar.min.js"></script>
+
+    <!-- <script src="<?= base_url() ?>static/js/vendor/jquery.barrating.min.js"></script> -->
+    <!-- <script src="<?= base_url() ?>static/js/vendor/selet2.full.js"></script> -->
+    <!-- <script src="<?= base_url() ?>static/js/vendor/nouislider.min.js"></script> -->
+    <!-- <script src="<?= base_url() ?>static/js/vendor/bootstrap-datepicker.js"></script> -->
+    <!-- <script src="<?= base_url() ?>static/js/vendor/Sortable.js"></script> -->
+    <!-- <script src="<?= base_url() ?>static/js/vendor/mousetrap.min.js"></script> -->
+
+
 </body>
 
 </html>

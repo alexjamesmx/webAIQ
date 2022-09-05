@@ -2,13 +2,14 @@ $(function() {
     $('#message').hide();
   });
 
+
   const hanldeLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const email = form.get("email").replace(/\s+/g, '');
     const password = form.get("password").replace(/\s+/g, '');
     $.ajax({
-        url: "http://localhost/server/id/webAiq/user/existsUser/",
+        url: appData.base_url + "/user/existsUser/",
         dataType: "json",
         type: "post",
         data: {
@@ -19,9 +20,7 @@ $(function() {
         .done((result) => {
             console.log('RESULTADO: ',result)
             if (result.res) {
-                message("success",'',result.message)
-
-                // window.location.replace(window.location.href+'/home')
+                window.location.replace(appData.base_url + 'home')
             }
             else {
                 message("danger",'Error: ',result.message)
@@ -31,6 +30,19 @@ $(function() {
             message("danger",'Error: Hubo un problema con la petición')
         });
 };
+
+const handleSignout =  () => {
+    $.ajax({
+        url: appData.base_url + '/user/signout/',
+    })
+    .done(() => {
+        window.location.replace(appData.base_url)
+    })
+    .fail(() => {
+        message("danger",'Error: Hubo un problema con la petición')
+    })
+}
+
 
 
 

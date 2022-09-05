@@ -9,25 +9,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <title> Iniciar sesión</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <link rel="shortcut icon" href="<?= base_url('favicon.png') ?>" type="image/x-icon" sizes="144x144">
-    <link rel="icon" href="<?= base_url('favicon.png') ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url() ?>favicon.png" type="image/x-icon" sizes="144x144">
+    <link rel="icon" href="<?= base_url() ?>favicon.png" type="image/x-icon">
 
     <!-- Bootstrap -->
-    <link href="<?= base_url('static/loginrecover/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url() ?>static/loginrecover/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Icons -->
-    <link href="<?= base_url('static/loginrecover/css/materialdesignicons.min.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url() ?>static/loginrecover/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
     <!-- Main Css -->
-    <link href="<?= base_url('static/loginrecover/css/style.css') ?>" rel="stylesheet" type="text/css" id="theme-opt" />
-    <link href="<?= base_url('static/loginrecover/css/colors/red.css') ?>" rel="stylesheet" id="color-opt">
-
-    <script>
-        var appData = {
-            base_url: "<?= base_url() ?>",
-            email: "<?= $this->session->email ?>",
-            nombre: "<?= $this->session->nombre ?>",
-        };
-    </script>
+    <link href="<?= base_url() ?>static/loginrecover/css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="<?= base_url() ?>static/loginrecover/css/colors/red.css" rel="stylesheet" id="color-opt">
 </head>
 
 <body>
@@ -103,8 +95,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </div>
                                                 <!--end col-->
                                                 <div class="message mt-3"></div>
-                                               
+                                                <?php
+                                               if(isset($_SESSION['message'])):
+                                                ?>
+                                                   <div id="alerta"class="alert alert-danger alert-dismissible fade show mt-3" role="alert"><strong>Error: </strong>There's something wrong with your session cookies, log in again<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`
+                                                <?php
+                                                endif;
+                                                ?>
 
+                                              
                                             </div>
                                             <!--end row-->
                                         </form>
@@ -127,16 +126,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <!-- Hero End -->
 
     <!-- javascript -->
-    <script src="<?= base_url('static/jquery-3.6.1.min.js') ?>"></script>
-    <script src="<?= base_url('static/js/message.js') ?>"></script>
-    <script src="<?= base_url('static/loginrecover/js/bootstrap.bundle.min.js') ?>"></script>
-    <script src="<?= base_url('static/js/webAiq.js') ?>"></script>
+    <script src="<?= base_url() ?>static/jquery-3.6.1.min.js"></script>
+    <script>
+        var appData = {
+            base_url: "<?= base_url() ?>",
+        };
+    </script>
+    <script src="<?= base_url() ?>static/js/message.js"></script>
+    <script src="<?= base_url() ?>static/loginrecover/js/bootstrap.bundle.min.js"></script>
     <!-- Icons -->
-    <script src="<?= base_url('static/loginrecover/js/feather.min.js') ?>"></script>
+    <script src="<?= base_url() ?>static/loginrecover/js/feather.min.js"></script>
     <!-- Main Js -->
-    <script src="<?= base_url('static/loginrecover/js/plugins.init.js') ?>"></script>
+    <script src="<?= base_url() ?>static/loginrecover/js/plugins.init.js"></script>
     <!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
-    <script src="<?= base_url('static/loginrecover/js/app.js') ?>"></script>
+    <script src="<?= base_url() ?>static/loginrecover/js/app.js"></script>
+    <script src="<?= base_url() ?>static/js/login.js"></script>
     <!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
 </body>
 
