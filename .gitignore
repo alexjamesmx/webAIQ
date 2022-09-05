@@ -6,7 +6,8 @@ application/config/*
 application/logs/*
 !application/logs/index.html
 
-!application/*/.htaccess
+!application/*/.htaccess 
+.vscode/sftp.json
 
 composer.lock
 tests/mocks/database/ci_test.sqlite

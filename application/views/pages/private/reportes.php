@@ -130,7 +130,7 @@
             <div class="col-12 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <table class="data-table data-table-feature">
+                        <table class="data-table data-table-feature ">
                             <thead>
                                 <tr>
                                     <th>ID</th>
