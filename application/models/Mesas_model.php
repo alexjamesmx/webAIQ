@@ -8,7 +8,7 @@ class Mesas_model extends CI_Model
         return $query->result() !== [];
     }
 
-    public function validate_user($id_mesa, $password)
+    public function validate_table($id_mesa, $password)
     {
         $query = $this->db->get_where('users', array('correo' => $id_mesa, 'password' => $password));
         return $query->row_array();
