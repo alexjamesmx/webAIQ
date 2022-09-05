@@ -46,15 +46,34 @@ body.show-spinner::after{
 }
 
 .restaricon {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .timeres {
-  font-size: 18px;
+  font-size: .85rem;
 }
 
 .logores {
   height: 55px !important;
+}
+
+.textabla {
+  font-size: 1rem;
+}
+
+.brad {
+  border-top-left-radius: 2rem !important;
+  border-top-right-radius: 2rem !important;
+}
+
+.bradb {
+  border-bottom-left-radius: 2rem !important;
+  border-bottom-right-radius: 2rem !important;
+  background-color: white !important;
+}
+
+.p-flex {
+  position: fixed !important;
 }
 
 

@@ -16,7 +16,7 @@ class Pages extends CI_Controller
             if (
                 $this->session->has_userdata("correo") )
             {
-     
+
                 $res = $this->users_model->exist_user($this->session->correo);
                 if($res){
                     if ($page === 'login') {
@@ -37,6 +37,7 @@ class Pages extends CI_Controller
                 } else {
                     $this->load->view('pages/public/login');
                 }
+
             }
         }
     }

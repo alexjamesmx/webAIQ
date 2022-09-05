@@ -3703,7 +3703,10 @@ $.dore = function (element, options) {
       var recipient = button.data("whatever");
       var modal = $(this);
       modal.find(".modal-title").text(recipient);
+<<<<<<< HEAD
       // modal.find(".modal-body input").val(recipient);
+=======
+>>>>>>> origin/cesar
     });
 
     /* 03.24. Scrollbar */

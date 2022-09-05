@@ -41,27 +41,34 @@
                 </svg>
             </a>
 
-    
-           
+
+
         </div>
 
 
         <a class="navbar-logo" href="#">
-            <span class="logo d-none d-xs-block"></span>
+            <span class="d-none d-xs-block">
+                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
+                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
+            </span>
+
             <span class="logo-mobile d-block d-xs-none"></span>
         </a>
 
         <div class="navbar-right">
+            <div class="user d-inline-block">
+                <span class="name">En Linea</span>
+            </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="tooltip" data-placement="left" title="Dark Mode">
-                        <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="switchDark"></label>
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
+                        data-placement="rigth" title="k">
+                        <input class="custom-switch-input" id="k" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="k"></label>
                     </div>
                 </div>
 
-                
+
 
                 <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
                     <i class="simple-icon-size-fullscreen"></i>
@@ -71,12 +78,8 @@
             </div>
 
             <div class="user d-inline-block">
-            
-                    <span class="name">Sarah Kortney</span>
-                    <span>
-                        <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
-                    </span>
-             
+
+                <span class="name">STARBUCKS</span>
 
             </div>
         </div>
@@ -86,28 +89,28 @@
         <div class="main-menu">
             <div class="scroll">
                 <ul class="list-unstyled">
-                    
+
                     <li class="#homeRestaurante">
-                    <a href="<?=base_url()?>homeRestaurante">
+                        <a href="<?=base_url()?>homeRestaurante">
                             <i class="iconsminds-shop-4"></i> Inicio
                         </a>
                     </li>
                     <li class="#menu">
                         <a href="<?=base_url()?>menu">
-                            <i class="iconsminds-receipt-4"></i> Menu
+                            <i class="iconsminds-receipt-4"></i> Menú
                         </a>
                     </li>
                     <li class="#reportes">
-                    <a href="<?=base_url()?>reportes">
+                        <a href="<?=base_url()?>reportes">
                             <i class="iconsminds-monitor-analytics"></i> Reportes
                         </a>
                     </li>
                     <li class="active">
-                    <a href="#">
+                        <a href="#">
                             <i class="iconsminds-id-card"></i> Cuenta
                         </a>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
@@ -118,11 +121,59 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h1>Inicio</h1>
+                    <h1>Cuenta</h1>
                     <div class="separator mb-5"></div>
                 </div>
             </div>
         </div>
+        <form class="row g-3 needs-validation d-flex justify-content-center" novalidate>
+            <div class="card d-flex justify-content-center">
+                <div class="card-body" style="height:auto; width:1000px;">
+                    <div class="text-center">
+                        <div class="mb-3"> 
+                            <img alt="Profile" src="<?=base_url()?>static/img/Starbucks.jpg"
+                                class="img-thumbnail border-0 rounded-circle list-thumbnail" style="width:200px; height:200px;"> 
+                        </div>                               
+                        <div class="html_button btn-left">
+                            <a href="#" class="btn btn-primary rounded active mb-1" role="button" aria-pressed="true">Seleccione Imagen</a>
+                        </div>
+                        <div class="col-12 mt-5">
+                            <label for="phone" class="form-label">Nombre</label>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text"><i class="simple-icon-home"></i></span>
+                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" placeholder="El mejor restaurante" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="phone" class="form-label">Correo electrónico</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text"><i class="iconsminds-envelope"></i></span>
+                                <input type="text" class="form-control precio" aria-describedby="inputGroupPrepend" placeholder="Correo electrónico" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <div class="input-group has-validation telefono">
+                                <span class="input-group-text"><i class="simple-icon-phone"></i></span>
+                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" placeholder="Teléfono" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-12 d-flex justify-content-center mt-4">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </main>
 
     <script src="<?=base_url()?>static/js/vendor/jquery-3.3.1.min.js"></script>
