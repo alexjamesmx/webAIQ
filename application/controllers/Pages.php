@@ -22,9 +22,17 @@ class Pages extends CI_Controller
                     if ($page === 'login') {
                         $page = 'home';
                     }
-                    if ($page === 'home' || $page === 'restaurantes' || $page === 'mesas' || $page === 'repartidores' || $page === 'anuncios' || $page === 'homeRestaurante' || $page === 'menu' || $page === 'cuenta' || $page === 'reportes') {
-                        $this->load->view('pages/private/' . $page);
+                    if ($this->session->tipo == 1){
+                        $this->load->view('pages/private/template/nav');  
+                        if($page === 'home'){
+                            $this->load->view('pages/private/home');  
+                        }
+                        
+                        $this->load->view('pages/private/template/footer');   
                     }
+
+                        // $this->load->view('pages/private/' . $page);
+                    
                 }
                 else {
                     $this->session->set_tempdata('message', "There's something wrong with your session, log in again", 3);

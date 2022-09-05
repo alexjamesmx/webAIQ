@@ -23,6 +23,7 @@ class User extends CI_Controller
                 $data['message'] = 'Tu correo o contraseña son incorrectos';
                 $data['res'] = FALSE;
             } else {
+                
                 unset($userData['password']);
                 $data['user'] = $userData;
                 $data['message'] = 'Logueado correctamente';
