@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/datatables.responsive.bootstrap4.min.css" />
-
+ 
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -543,6 +543,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <!-- MODAL -->
 
 

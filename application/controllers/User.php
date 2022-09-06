@@ -8,7 +8,7 @@ class User extends CI_Controller
         $password = $this->input->post('password');
 
         $data = [];
-
+  
         $res = $this->users_model->exist_user($email);
 
         //USUARIO EXISTE?
@@ -23,7 +23,7 @@ class User extends CI_Controller
                 $data['message'] = 'Tu correo o contraseña son incorrectos';
                 $data['res'] = FALSE;
             } else {
-                
+
                 unset($userData['password']);
                 $data['user'] = $userData;
                 $data['message'] = 'Logueado correctamente';

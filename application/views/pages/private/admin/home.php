@@ -1,127 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>AIQ- Aeropuerto Internacional de Querétaro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="<?=base_url()?>static/font/iconsmind-s/css/iconsminds.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/font/simple-line-icons/css/simple-line-icons.css" />
-
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/datatables.responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.rtl.only.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/component-custom-switch.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/perfect-scrollbar.css" />
-
-    <link rel="stylesheet" href="<?=base_url()?>static/css/main.css" />
-</head>
-
-<body id="app-container" class="menu-default show-spinner">
-    <nav class="navbar fixed-top">
-        <div class="d-flex align-items-center navbar-left">
-            <a href="#" class="menu-button d-none d-md-block">
-                <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
-                    <rect x="0.48" y="0.5" width="7" height="1" />
-                    <rect x="0.48" y="7.5" width="7" height="1" />
-                    <rect x="0.48" y="15.5" width="7" height="1" />
-                </svg>
-                <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
-                    <rect x="1.56" y="0.5" width="16" height="1" />
-                    <rect x="1.56" y="7.5" width="16" height="1" />
-                    <rect x="1.56" y="15.5" width="16" height="1" />
-                </svg>
-            </a>
-
-            <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
-                    <rect x="0.5" y="0.5" width="25" height="1" />
-                    <rect x="0.5" y="7.5" width="25" height="1" />
-                    <rect x="0.5" y="15.5" width="25" height="1" />
-                </svg>
-            </a>
-        </div>
-
-
-        <a class="navbar-logo" href="#">
-            <span class="d-none d-xs-block">
-                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
-                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
-            </span>
-
-            <span class="logo-mobile d-block d-xs-none"></span>
-        </a>
-
-        <div class="navbar-right">
-            <div class="user d-inline-block">
-                <span class="name">En Linea</span>
-            </div>
-            <div class="header-icons d-inline-block align-middle">
-                <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
-                        data-placement="rigth" title="k">
-                        <input class="custom-switch-input" id="k" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="k"></label>
-                    </div>
-                </div>
-
-
-
-                <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
-                    <i class="simple-icon-size-fullscreen"></i>
-                    <i class="simple-icon-size-actual"></i>
-                </button>
-
-            </div>
-
-            <div class="user d-inline-block">
-                <span class="name">Starbucks</span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="menu">
-        <div class="main-menu">
-            <div class="scroll">
-                <ul class="list-unstyled">
-
-                    <li class="active">
-                        <a href="#">
-                            <i class="iconsminds-shop-4"></i> Inicio
-                        </a>
-                    </li>
-                    <li class="#menu">
-                        <a href="<?=base_url()?>menu">
-                            <i class="iconsminds-receipt-4"></i> Menú
-                        </a>
-                    </li>
-                    <li class="#reportes">
-                        <a href="<?=base_url()?>reportes">
-                            <i class="iconsminds-monitor-analytics"></i> Reportes
-                        </a>
-                    </li>
-                    <li class="#cuenta">
-                        <a href="<?=base_url()?>cuenta">
-                            <i class="iconsminds-id-card"></i> Cuenta
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-
-    </div>
-
+<div id='home' class='pages' hidden>
     <main>
         <div class="container-fluid">
             <div class="row">
                 <!--pendiente-->
                 <div class="col-xl-6 col-sm-6 mb-3">
                     <div class="card h-100">
-                    <div
-                            class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 brad">
+                        <div class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 brad">
 
                             <h2 class="card-title"> Solicitudes de pedido </h2>
                             <button type="button" class="btn btn-primary restaricon">
@@ -496,14 +380,687 @@
             </div>
         </div>
     </main>
-    
+</div>
+<div id='menu' class='pages' hidden>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1>Menú</h1>
+                        <button type="button" class="btn btn-outline-success m-1 textabla" data-toggle="modal"
+                            data-target="#exampleModalContent" data-whatever="Agregar"> Agregar <i
+                                class="simple-icon-plus"></i></button>
+                    </div>
 
-    <script src="<?=base_url()?>static/js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/perfect-scrollbar.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/datatables.min.js"></script>
-    <script src="<?=base_url()?>static/js/dore.script.js"></script>
-    <script src="<?=base_url()?>static/js/scripts.js"></script>
-</body>
 
-</html>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card mb-4">
+                        <div id="smartWizardClickable">
+                            <ul class="card-header">
+                                <li class="m-2"><a href="#clickable1">
+                                        <h3> Combos <i class="iconsminds-cookies"></i> </h3>
+                                    </a></li>
+                                <li class="done m-2"><a href="#clickable2">
+                                        <h3> Platillos <i class="iconsminds-hamburger"></i> </h3>
+                                    </a></li>
+                                <li class="done m-2"><a href="#clickable3">
+                                        <h3> Bebidas <i class="iconsminds-coffee-to-go"></i> </h3>
+                                    </a></li>
+                            </ul>
+
+                            <div class="card-body">
+                                <div id="clickable1">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">
+                                                    <h4>Imagen</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Nombre</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Precio</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Tipo de preparacion</h4>
+                                                </th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/Sandwich1.png" alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">Sandwich y Coca de 355ml</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">$45.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"
+                                                        data-toggle="modal" data-target=".bd-example-modal-sm"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/Bagel1.png" alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">Bagel y Coca de 355ml</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">$85.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/Baguette1.png" alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">Baguette y Coca de 355ml</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">$150.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 20:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="clickable2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">
+                                                    <h4>Imagen</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Nombre</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Precio</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Tiempo de preparacion</h4>
+                                                </th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/Sandwich1.png" alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle">
+                                                    <p class="textabla text-center">Sandwich</p>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <p class="textabla text-center">$25.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/Bagel1.png" alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">Bagel</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">$65.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/Baguette1.png" alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">Baguette</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">$130.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 20:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="clickable3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">
+                                                    <h4>Imagen</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Nombre</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Precio</h4>
+                                                </th>
+                                                <th scope="col" class="text-center">
+                                                    <h4>Tipo de preparacion</h4>
+                                                </th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/chai1.png" alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle">
+                                                    <p class="textabla text-center">Chai1</p>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <p class="textabla text-center">$30.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 10:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/frappuccino1.png"
+                                                        alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">Chip Frappuccino</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">$50.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 10:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <img src="<?=base_url()?>static/img/frappuccino2.png"
+                                                        alt="Fat Rascal"
+                                                        class="list-thumbnail responsive border-0 card-img-left" />
+                                                </th>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">Berry Yogurt Frappuccino</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla">$55.00</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <p class="textabla"><i class="iconsminds-stopwatch"></i> 10:00 min
+                                                    </p>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    <button type="button" class="btn btn-outline-primary m-1"
+                                                        data-toggle="modal" data-target="#exampleModalContent"
+                                                        data-whatever="Editar"><i
+                                                            class="simple-icon-pencil textabla"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger m-1"><i
+                                                            class="simple-icon-trash textabla"></i></button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="exampleModalContent" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog brad bradb" role="document">
+            <div class="modal-content brad bradb">
+                <div class="modal-header brad">
+
+                    <a class="navbar-logo" href="#">
+                        <span class="logo d-none d-xs-block"></span>
+                        <span class="logo-mobile d-block d-xs-none"></span>
+                    </a>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bradb">
+                    <h5 class="mb-4 modal-title">ACCION</h5>
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for=""> Nombre </label>
+                                <input type="text" class="form-control" placeholder="Ej. Torta" required>
+                                <span class="invalid-feedback">Precio Requerido</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="k"> Precio </label>
+                                <input type="text" class="form-control" placeholder="Ej. 13.00" required>
+                                <span class="invalid-feedback">Precio Requerido</span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="k"> Tiempo de preparación</label>
+                                <input type="text" class="form-control" placeholder="Ej. 15:00 (min)" required>
+                                <span class="invalid-feedback">Precio Requerido</span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="v"> Tipo de producto </label>
+                                <select class="custom-select" id="validationTooltip04" required>
+                                    <option selected disabled value="">Tipo ... </option>
+                                    <option>Combo</option>
+                                    <option>Platillo</option>
+                                    <option>Bebida</option>
+                                </select>
+                                <span class="invalid-feedback"> Selecciona una opcion </span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFileLangHTML">
+                                    <label class="custom-file-label" for="customFileLangHTML"
+                                        data-browse="Seleccionar">Imagen del Producto</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="btn btn-primary" type="submit">Crear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm brad bradb">
+            <div class="modal-content brad bradb">
+                <div class="modal-header brad bg-primary">
+                    <h5 class="modal-title">Eliminar {producto}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bradb">
+                    <p class="mb-4"> ¿Quieres eliminar a {producto}? </p>
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cacelar</button>
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id='reportes' class='pages' hidden>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Reportes</h1>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="data-table data-table-feature">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Total</th>
+                                    <th>Duración (Min)</th>
+                                    <th>Detalle Pedido</th>
+                                    <th>Fecha/Hora Aceptado</th>
+                                    <th>Fecha/Hora No Aceptado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>$549</td>
+                                    <td>15:00(0)</td>
+                                    <td>
+                                        <p>Café MOKA</p>
+                                        <p>Matcha</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>16:22</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>12:09</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>$549</td>
+                                    <td>15:00(0)</td>
+                                    <td>
+                                        <p>Café MOKA</p>
+                                        <p>Matcha</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>16:22</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>12:09</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>$549</td>
+                                    <td>15:00(0)</td>
+                                    <td>
+                                        <p>Café MOKA</p>
+                                        <p>Matcha</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>16:22</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>12:09</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>$549</td>
+                                    <td>15:00(0)</td>
+                                    <td>
+                                        <p>Café MOKA</p>
+                                        <p>Matcha</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>16:22</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>12:09</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>$128</td>
+                                    <td>17:43(-2:43)</td>
+                                    <td>
+                                        <p>Café MUACK</p>
+                                        <p>Matcha</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>16:22</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>12:09</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>$54</td>
+                                    <td>18:15(-3:15)</td>
+                                    <td>
+                                        <p>Café LINDO</p>
+                                        <p>Matcha</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>16:22</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>12:09</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4 mb-5">
+                        <h6 class="mb-4 d-flex justify-content-center">PEDIDO VS TIEMPO</h6>
+                        <div class="chart-container chart">
+                            <canvas id="areaChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <h6 class="mb-4 d-flex justify-content-center">TIMEPO ON VS OFF</h6>
+                        <div class="chart-container chart">
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <h6 class="mb-4 d-flex justify-content-center">GANANCIAS</h6>
+                        <div class="chart-container chart">
+                            <canvas id="productChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4 mb-5">
+                        <h6 class="mb-4 d-flex justify-content-center">PEDIDOS</h6>
+                        <h10 class="mb-4 d-flex justify-content-center">(RECHAZADO-DEVOLUCIÓN-PAGADOS)</h10>
+                        <div class="chart-container chart">
+                            <canvas id="pieChartNoShadow"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <h6 class="mb-4 d-flex justify-content-center">MÉTODO DE PAGO</h6>
+                        <div class="chart-container chart">
+                            <canvas id="productChartNoShadow"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <h6 class="mb-4 d-flex justify-content-center">TOP 5 MEJORES ALIMENTOS</h6>
+                        <div class="chart-container chart">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div id='cuenta' class='pages' hidden>
+<main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Cuenta</h1>
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
+        </div>
+        <form class="row g-3 needs-validation d-flex justify-content-center" novalidate>
+            <div class="card d-flex justify-content-center">
+                <div class="card-body" style="height:auto; width:1000px;">
+                    <div class="text-center">
+                        <div class="mb-3"> 
+                            <img alt="Profile" src="<?=base_url()?>static/img/Starbucks.jpg"
+                                class="img-thumbnail border-0 rounded-circle list-thumbnail" style="width:200px; height:200px;"> 
+                        </div>                               
+                        <div class="html_button btn-left">
+                            <a href="#" class="btn btn-primary rounded active mb-1" role="button" aria-pressed="true">Seleccione Imagen</a>
+                        </div>
+                        <div class="col-12 mt-5">
+                            <label for="phone" class="form-label">Nombre</label>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text"><i class="simple-icon-home"></i></span>
+                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" placeholder="El mejor restaurante" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="phone" class="form-label">Correo electrónico</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text"><i class="iconsminds-envelope"></i></span>
+                                <input type="text" class="form-control precio" aria-describedby="inputGroupPrepend" placeholder="Correo electrónico" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <div class="input-group has-validation telefono">
+                                <span class="input-group-text"><i class="simple-icon-phone"></i></span>
+                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" placeholder="Teléfono" required>
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-12 d-flex justify-content-center mt-4">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+
+</div>

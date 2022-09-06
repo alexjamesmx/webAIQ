@@ -55,7 +55,7 @@
 
         <div class="navbar-right">
             <div class="header-icons d-inline-block align-middle">
-      
+
 
 
 
@@ -170,7 +170,7 @@
                 <div class="col-12 data-tables-hide-filter">
                     <div class="card">
                         <div class="card-body">
-                    
+
 
                             <table class="data-table data-tables-pagination responsive nowrap"
                                 data-order="[[ 1, &quot;desc&quot; ]]">
@@ -180,10 +180,10 @@
                                         <th>Descripción</th>
                                         <th>Contraseña</th>
                                         <th class='justify-content-end'>
-                                        <p>
+                                            <p>
 
-                                            Acciones
-                                        </p>
+                                                Acciones
+                                            </p>
                                         </th>
                                     </tr>
                                 </thead>
@@ -212,8 +212,8 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    
-                                   
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -281,20 +281,21 @@
                 </div>
             </div>
         </div>
-        <!-- MODAL -->
+    </div>
+    <!-- MODAL -->
 
 
 
 
+ 
 
-
-        <script src="<?= base_url() ?>static/js/vendor/jquery-3.3.1.min.js"></script>
-        <script src="<?= base_url() ?>static/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="<?= base_url() ?>static/js/vendor/perfect-scrollbar.min.js"></script>
-        <script src="<?= base_url() ?>static/js/vendor/mousetrap.min.js"></script>
-        <script src="<?= base_url() ?>static/js/dore.script.js"></script>
-        <script src="<?= base_url() ?>static/js/scripts.js"></script>
-        <script src="<?= base_url() ?>static/js/vendor/datatables.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/mousetrap.min.js"></script>
+    <script src="<?= base_url() ?>static/js/dore.script.js"></script>
+    <script src="<?= base_url() ?>static/js/scripts.js"></script>
+    <script src="<?= base_url() ?>static/js/vendor/datatables.min.js"></script>
 
 
 </body>

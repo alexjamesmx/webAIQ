@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/datatables.responsive.bootstrap4.min.css" />
 
-</head>
+</head> 
 
 <body id="app-container" class="menu-default show-spinner">
     <!-- NAV SUPERIOR -->
@@ -286,6 +286,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <!-- MODAL -->
 
 

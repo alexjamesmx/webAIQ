@@ -4,8 +4,8 @@ class Pages extends CI_Controller
 
 
     public function view($page = 'login')
-    {
-
+    {  
+  
         if (
             !file_exists(APPPATH . 'views/pages/private/superadmin/' . $page . '.php') && 
             !file_exists(APPPATH . 'views/pages/private/admin/' . $page . '.php') && 
@@ -19,18 +19,18 @@ class Pages extends CI_Controller
             ) {
 
                 $res = $this->users_model->exist_user($this->session->correo);
-                if ($res) {
+                if ($res) { 
                     if ($page === 'login') {
                         $page = 'home';
-                    }
+                    }  
                     if ($this->session->tipo == 1) {
                         $this->load->view('pages/private/template/nav');
-                        $this->load->view('pages/private/superadmin/' . $page);
+                        $this->load->view('pages/private/superadmin/home');
                         $this->load->view('pages/private/template/footer');
                     }
-                    else if($this->session->tipo == 0) {
-                        $this->load->view('pages/private/template/nav');
-                        $this->load->view('pages/private/admin/' . $page);
+                    else if($this->session->tipo == 2) {
+                        $this->load->view('pages/private/template/nav_admin');
+                        $this->load->view('pages/private/admin/home');
                         $this->load->view('pages/private/template/footer');
                     }     
                 } else {
@@ -46,4 +46,5 @@ class Pages extends CI_Controller
             }
         }
     }
+
 }
