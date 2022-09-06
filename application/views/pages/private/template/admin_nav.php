@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="<?=base_url()?>static/css/main.css" />
+
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -41,23 +42,34 @@
                 </svg>
             </a>
 
-    
-           
+
+
         </div>
 
 
         <a class="navbar-logo" href="#">
-            <span class="logo d-none d-xs-block"></span>
+            <span class="d-none d-xs-block">
+                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
+                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
+            </span>
+
             <span class="logo-mobile d-block d-xs-none"></span>
         </a>
 
         <div class="navbar-right">
+            <div class="user d-inline-block">
+                <span class="name">En Linea</span>
+            </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                   
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
+                        data-placement="rigth" title="k">
+                        <input class="custom-switch-input" id="k" type="checkbox" checked>
+                        <label class="custom-switch-btn" for="k"></label>
+                    </div>
                 </div>
 
-                
+
 
                 <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
                     <i class="simple-icon-size-fullscreen"></i>
@@ -65,15 +77,22 @@
                 </button>
 
             </div>
-
             <div class="user d-inline-block">
-            
-                    <span class="name">Sarah Kortney</span>
-                    <span>
-                        <img alt="Profile Picture" src="<?=base_url()?>static/img/profile-pic-l.jpg" />
-                    </span>
-             
 
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="name"><?= $_SESSION['correo'] ?></span>
+                    <span>
+                    <?php if(isset($_SESSION['avatar'])):?>
+                        <img id='outimage'alt="Profile Picture" src="<?=$_SESSION['avatar']?>" />
+                    <?php endif;?>
+                    </span>
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <a class="dropdown-item" href="#" onclick="return handleAvatar()">Actualizar foto</a>
+                    <a class="dropdown-item" href="#" onclick="return handleSignout()">Cerrar sesión</a>
+                    <input type="file" id="avatar" name='avatar' onchange="return handleAvatarValue()">
+                </div>
             </div>
         </div>
     </nav>
@@ -82,67 +101,30 @@
         <div class="main-menu">
             <div class="scroll">
                 <ul class="list-unstyled">
-                    
-                    <li class="home">
-                        <a href="<?=base_url()?>home">
-                            <i class="iconsminds-bucket"></i> Inicio
+
+                    <li id='home_nav' class="navigation" data-page='home' onclick='return clickgeneral(this)'>
+                        <a href="#">
+                            <i class="iconsminds-shop-4"></i> Inicio
                         </a>
                     </li>
-                    <li class="#restaurantes">
-                        <a href="<?=base_url()?>restaurantes">
-                            <i class="iconsminds-bucket"></i> Restaurantes
+                    <li id='menu_nav' class="navigation" data-page='menu' onclick='return clickgeneral(this)'>
+                        <a href="#"> 
+                            <i class="iconsminds-receipt-4"></i> Menú
                         </a>
                     </li>
-                    <li class="#mesas">
-                    <a href="<?=base_url()?>mesas">
-                            <i class="iconsminds-bucket"></i> Mesas
+                    <li id='reportes_nav' class="navigation" data-page='reportes' onclick='return clickgeneral(this)'>
+                        <a href="#"> 
+                            <i class="iconsminds-monitor-analytics"></i> Reportes
                         </a>
                     </li>
-                    <li class="#repartidores">
-                    <a href="<?=base_url()?>repartidores">
-                            <i class="iconsminds-bucket"></i> Repartidores
+                    <li id='cuenta_nav' class="navigation" data-page='cuenta' onclick='return clickgeneral(this)'>
+                        <a href="#">
+                            <i class="iconsminds-id-card"></i> Cuenta
                         </a>
                     </li>
-                    <li class="active">
-                    <a href="#">
-                            <i class="iconsminds-bucket"></i> Anuncios
-                        </a>
-                    </li>
-                    
+
                 </ul>
             </div>
         </div>
 
     </div>
-
-    <main>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <h1>Blank Page</h1>
-                    <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
-                        <ol class="breadcrumb pt-0">
-                            <li class="breadcrumb-item">
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Library</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Data</li>
-                        </ol>
-                    </nav>
-                    <div class="separator mb-5"></div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script src="<?=base_url()?>static/js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/perfect-scrollbar.min.js"></script>
-    <script src="<?=base_url()?>static/js/vendor/mousetrap.min.js"></script>
-    <script src="<?=base_url()?>static/js/dore.script.js"></script>
-    <script src="<?=base_url()?>static/js/scripts.js"></script>
-</body>
-
-</html>

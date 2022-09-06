@@ -1,34 +1,39 @@
 <?php
-class User extends CI_Controller
+class Mesas extends CI_Controller
 {
-
-    public function existsUser()
+    public function __construct()
     {
-        $email = $this->input->post('email');
+        parent::__construct();
+        $this->load->model('mesas_model');
+        
+    }
+ 
+    public function existsTable()
+    {
+        $id_mesa = $this->input->post('id_mesa');
         $password = $this->input->post('password');
 
         $data = [];
-  
-        $res = $this->users_model->exist_user($email);
+ 
+        $res = $this->mesas_model->exist_table($id_mesa);
 
-        //USUARIO EXISTE?
+        //MESA EXISTE?
         if (!$res) {
-            $data['message'] = "Este usuario no existe en la base de datos";
+            $data['message'] = "Esta  mesa no existe en la base de datos";
             $data['res'] = FALSE;
         } else {
 
             //ENTONCES VALIDALO
-            $userData = $this->users_model->validate_user($email, $password);
+            $userData = $this->mesas_model->validate_table($id_mesa, $password);
             if (!$userData) {
-                $data['message'] = 'Tu correo o contraseña son incorrectos';
+                $data['message'] = 'El id o contraseña son incorrectos';
                 $data['res'] = FALSE;
             } else {
-
+                
                 unset($userData['password']);
                 $data['user'] = $userData;
                 $data['message'] = 'Logueado correctamente';
                 $data['res'] = TRUE;
-                $this->session->set_userdata($userData);
             }
         }
         echo json_encode($data);

@@ -71,14 +71,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 $active_group = 'default';
-$query_builder = TRUE;
+$query_builder = TRUE;  
 
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'alejandro2mx',
-	'database' => 'AIQFOOD',
+	'username' => 'vcsoftco_AIQ',
+	'password' => 'AIQ2022',
+	'database' => 'vcsoftco_AIQ',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

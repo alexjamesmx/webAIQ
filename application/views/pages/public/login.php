@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="shortcut icon" href="<?= base_url() ?>favicon.png" type="image/x-icon" sizes="144x144">
     <link rel="icon" href="<?= base_url() ?>favicon.png" type="image/x-icon">
-
+ 
     <!-- Bootstrap -->
     <link href="<?= base_url() ?>static/loginrecover/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Icons -->

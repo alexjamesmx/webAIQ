@@ -6,4 +6,4 @@ class Products extends CI_Controller {
                 echo 'hola';
         }
      
-}
+} 
