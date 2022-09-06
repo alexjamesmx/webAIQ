@@ -5,7 +5,7 @@ class MovilR_model extends CI_Model
 
     public function getRestaurant()
     { 
-        $cmd = "select * from restaurantes";
+        $cmd = "SELECT * from restaurantes";
         $query = $this->db->query($cmd);
         return ($query->result());
     }
