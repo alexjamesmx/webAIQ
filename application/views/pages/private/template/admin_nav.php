@@ -55,11 +55,7 @@
 
 
         <a class="navbar-logo" href="#">
-            <span class="d-none d-xs-block">
-                <?php if(isset($_SESSION['avatar'])):?>
-                <img id='outimage' alt="Profile Picture" src="<?=$_SESSION['avatar']?>" />
-                <?php endif;?>
-                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/logoch1.png"/>
+            <span class="logo d-none d-xs-block">
             </span>
 
             <span class="logo-mobile d-block d-xs-none"></span>
@@ -87,19 +83,13 @@
             </div>
             <div class="user d-inline-block">
 
-<<<<<<< HEAD
-                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <span class="name"><?= $_SESSION['correo'] ?></span>
-=======
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="name"><?= $_SESSION['email'] ?></span>
                     <span>
-                        <?php if (isset($_SESSION['avatar'])) : ?>
-                            <img id='outimage' alt="Profile Picture" src="<?= $_SESSION['avatar'] ?>" />
-                        <?php endif; ?>
+                         <?php if (isset($_SESSION['avatar'])) : ?>
+                            <img id='outimage'alt="avatar" src="<?= $_SESSION['avatar'] ?>" />
+                        <?php endif; ?> 
                     </span>
->>>>>>> a4f158353f0e3545c954bf2ec7cdeb3b3b9a58ed
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">
