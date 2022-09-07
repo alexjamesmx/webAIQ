@@ -7,7 +7,7 @@ class User extends CI_Controller
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
-        $data = [];
+        $data = []; 
 
         $res = $this->users_model->exist_user($email);
 
@@ -66,11 +66,41 @@ class User extends CI_Controller
             'phone' => $phone,
             'password' => $password,
         );
-        // $res = $this->users_model->add_user($array);
-        // if (!!$res) {
-        //     $data['message'] = 'Restaurante agregado exitosamente.';
-        //     $data['res'] = $res;
-        // }
-        // echo json_encode($data);
+        $res = $this->users_model->add_user($array);
+        if (!!$res) {
+            $data['message'] = 'Restaurante agregado exitosamente.';
+            $data['res'] = $res;
+        } else {
+            $data['message'] = 'No se pudo agregar un nuevo restaurante, intente más tarde';
+            $data['res'] = $res;
+        }
+        echo json_encode($data);
+    }
+
+    public function getUsers()
+    {
+        $data = [];
+        $res = $this->users_model->get_users();
+        if ($res) {
+            $data['data'] = $res;
+            $data['message'] = 'Datos extraídos correctamente';
+            $data['res'] = TRUE;
+        } else {
+            $data['message'] = "No existen datos en la base de datos";
+            $data['res'] = FALSE;
+        }
+        echo json_encode($data);
+    }
+
+    public function updateUserStatus($id_user , $status)
+    {
+        // $id_user =! $this->input->post('id');
+        // $status =!$this->input->post('status');     
+        // $data = [];
+        $res = $this->users_model->update_user_status($id_user, $status);
+        echo json_encode($res);
+
+
+
     }
 }

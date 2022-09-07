@@ -84,7 +84,7 @@
             <div class="user d-inline-block">
 
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="name"><?= $_SESSION['email'] ?></span>
+                    <span class="name"><?= $_SESSION['nombre'] ?></span>
                     <span>
                          <?php if (isset($_SESSION['avatar'])) : ?>
                             <img id='outimage'alt="avatar" src="<?= $_SESSION['avatar'] ?>" />
