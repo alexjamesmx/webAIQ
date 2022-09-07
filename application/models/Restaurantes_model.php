@@ -1,5 +1,5 @@
 <?php
-class Mesas_model extends CI_Model
+class Restaurantes_model extends CI_Model
 {
 
     public function get_restaurantes()
@@ -7,5 +7,10 @@ class Mesas_model extends CI_Model
         $query = $this->db->get('restaurantes');
         return $query->result() !== [];
     }
-
-} 
+    public function add_restaurant($data)
+    {
+        $query = $this->db->set($data)
+            ->insert('restaurantes');
+        return $query;
+    }
+}

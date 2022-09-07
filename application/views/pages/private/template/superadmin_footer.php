@@ -2,7 +2,7 @@
 <script>
     var appData = {
         base_url: "<?= base_url() ?>",
-        user: "<?= $this->session->correo ?>",
+        user: "<?= $this->session->email ?>",
     };
 </script>
 <script src="<?= base_url() ?>static/js/superadmin/restaurantes.js"></script>

@@ -20,5 +20,6 @@
     <main>
         <?php include('repartidores/repartidores.php') ?>
     </main>
-
 </div>
+
+<div class="message d-flex justify-content-center position-alert"></div>

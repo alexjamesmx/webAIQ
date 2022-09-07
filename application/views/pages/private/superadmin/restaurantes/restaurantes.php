@@ -26,14 +26,24 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3 needs-validation" novalidate onsubmit="return handleModalSubmit(e)">
+                    <form class="row g-3 needs-validation" id='modal-form' novalidate>
                         <div class="col-12">
                             <label for="restaurant" class="form-label">Restaurante</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text"><i class="simple-icon-home"></i></span>
                                 <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required name='restaurant' id='restaurant'>
-                                <div class="invalid-feedback">
-                                    Este campo es requerido.
+                                <div class="restaurant invalid-feedback">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text"><i class="simple-icon-lock"></i></span>
+                                <input type="password" minlength="4" class=" form-control" aria-describedby="inputGroupPrepend" required name="password" id='password'>
+                                <div class="password invalid-feedback">
+
                                 </div>
                             </div>
                         </div>
@@ -41,9 +51,9 @@
                             <label for="email" class="form-label">Correo electrónico</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text"><i class="iconsminds-envelope"></i></span>
-                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required name='email' id='email'>
-                                <div class="invalid-feedback">
-                                    Este campo es requerido.
+                                <input type="email" class="form-control" aria-describedby="inputGroupPrepend" required name='email' id='email'>
+                                <div class="email invalid-feedback">
+
                                 </div>
                             </div>
                         </div>
@@ -51,9 +61,9 @@
                             <label for="phone" class="form-label">Teléfono</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text"><i class="simple-icon-phone"></i></span>
-                                <input type="tel" class="form-control" aria-describedby="inputGroupPrepend" required name="phone" id='phone'>
-                                <div class="invalid-feedback">
-                                    Este campo es requerido.
+                                <input type="tel" pattern="[0-9]{0,20}" class=" form-control" aria-describedby="inputGroupPrepend" required name="phone" id='phone'>
+                                <div class="phone invalid-feedback">
+
                                 </div>
                             </div>
                         </div>
@@ -112,6 +122,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Contraseña</th>
                                 <th>Correo electrónico</th>
                                 <th>Teléfono</th>
                                 <th class='justify-content-end'>
@@ -126,6 +137,9 @@
                             <tr>
                                 <td>
                                     <p class="list-item-heading">Red</p>
+                                </td>
+                                <td>
+                                    <p class="text-muted">1234</p>
                                 </td>
                                 <td>
                                     <p class="text-muted">redwings@gmail.com</p>

@@ -2,7 +2,7 @@
 <script>
     var appData = {
         base_url: "<?= base_url() ?>",
-        user: "<? echo $this->session->correo ?>",
+        user: "<? echo $this->session->email ?>",
     };
 </script>
 <script src="<?= base_url() ?>static/js/dore.script.js"></script>

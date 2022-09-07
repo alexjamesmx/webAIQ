@@ -8,7 +8,7 @@ class User extends CI_Controller
         $password = $this->input->post('password');
 
         $data = [];
-  
+
         $res = $this->users_model->exist_user($email);
 
         //USUARIO EXISTE?
@@ -40,11 +40,10 @@ class User extends CI_Controller
         $email = $this->input->post('email');
         $avatar =  $this->input->post('avatar');
         $res = $this->users_model->update_avatar($email, $avatar);
-        if(!!$res){
+        if (!!$res) {
             $data['message'] = 'Foto de perfil actualizada';
             $data['res'] = $res;
-        }
-        else{
+        } else {
             $data['message'] = 'No ha sido posible actualizar por el momento';
             $data['res'] = $res;
         }
@@ -54,5 +53,24 @@ class User extends CI_Controller
     public function signout()
     {
         $this->session->sess_destroy();
+    }
+    public function addUser()
+    {
+        $restaurant = $this->input->post("restaurant");
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $password = $this->input->post('password');
+        $array = array(
+            'nombre' => $restaurant,
+            'email' => $email,
+            'phone' => $phone,
+            'password' => $password,
+        );
+        // $res = $this->users_model->add_user($array);
+        // if (!!$res) {
+        //     $data['message'] = 'Restaurante agregado exitosamente.';
+        //     $data['res'] = $res;
+        // }
+        // echo json_encode($data);
     }
 }

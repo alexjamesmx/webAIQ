@@ -6,15 +6,15 @@
     <title>AIQ- Aeropuerto Internacional de Querétaro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="<?=base_url()?>static/font/iconsmind-s/css/iconsminds.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/font/simple-line-icons/css/simple-line-icons.css" />
 
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.rtl.only.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/component-custom-switch.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="<?=base_url()?>static/css/main.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
 </head>
 
@@ -49,8 +49,8 @@
 
         <a class="navbar-logo" href="#">
             <span class="d-none d-xs-block">
-                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
-                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
+                <img class="logores" alt="Restaurante" src="<?= base_url() ?>static/img/starbucks.png" />
+                <img class="logores" alt="Logo AIQ" src="<?= base_url() ?>static/img/logoch1.png" />
             </span>
 
             <span class="logo-mobile d-block d-xs-none"></span>
@@ -62,8 +62,7 @@
             </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
-                        data-placement="rigth" title="k">
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k" data-placement="rigth" title="k">
                         <input class="custom-switch-input" id="k" type="checkbox" checked>
                         <label class="custom-switch-btn" for="k"></label>
                     </div>
@@ -80,11 +79,11 @@
             <div class="user d-inline-block">
 
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="name"><?= $_SESSION['correo'] ?></span>
+                    <span class="name"><?= $_SESSION['email'] ?></span>
                     <span>
-                    <?php if(isset($_SESSION['avatar'])):?>
-                        <img id='outimage'alt="Profile Picture" src="<?=$_SESSION['avatar']?>" />
-                    <?php endif;?>
+                        <?php if (isset($_SESSION['avatar'])) : ?>
+                            <img id='outimage' alt="Profile Picture" src="<?= $_SESSION['avatar'] ?>" />
+                        <?php endif; ?>
                     </span>
                 </button>
 
@@ -108,12 +107,12 @@
                         </a>
                     </li>
                     <li id='menu_nav' class="navigation" data-page='menu' onclick='return clickgeneral(this)'>
-                        <a href="#"> 
+                        <a href="#">
                             <i class="iconsminds-receipt-4"></i> Menú
                         </a>
                     </li>
                     <li id='reportes_nav' class="navigation" data-page='reportes' onclick='return clickgeneral(this)'>
-                        <a href="#"> 
+                        <a href="#">
                             <i class="iconsminds-monitor-analytics"></i> Reportes
                         </a>
                     </li>
