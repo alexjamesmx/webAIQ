@@ -14,10 +14,12 @@ class MovilR extends CI_Controller {
         echo json_encode($resultado);
     }
     
-    public function getMenu($id = NULL)
+    public function getMenu($id_user = NULL)
     {   
-        $id = 2;
-        $resultado = $this->MovilR_model->getMenu($id);
+       
+        // $id_menu = $this->input->post('id_user');
+        // var_dump($id_menu);
+        $resultado[] = $this->MovilR_model->getMenu($id_user);
         echo json_encode($resultado);
     }
 
