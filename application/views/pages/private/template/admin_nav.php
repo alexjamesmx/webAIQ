@@ -6,15 +6,15 @@
     <title>AIQ- Aeropuerto Internacional de Querétaro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="<?=base_url()?>static/font/iconsmind-s/css/iconsminds.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/font/simple-line-icons/css/simple-line-icons.css" />
 
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/bootstrap.rtl.only.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/component-custom-switch.min.css" />
-    <link rel="stylesheet" href="<?=base_url()?>static/css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="<?=base_url()?>static/css/main.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
     <script>
         var appData = {
@@ -71,8 +71,7 @@
             </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k"
-                        data-placement="rigth" title="k">
+                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k" data-placement="rigth" title="k">
                         <input class="custom-switch-input" id="k" type="checkbox" checked>
                         <label class="custom-switch-btn" for="k"></label>
                     </div>
@@ -88,9 +87,19 @@
             </div>
             <div class="user d-inline-block">
 
+<<<<<<< HEAD
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <span class="name"><?= $_SESSION['correo'] ?></span>
+=======
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="name"><?= $_SESSION['email'] ?></span>
+                    <span>
+                        <?php if (isset($_SESSION['avatar'])) : ?>
+                            <img id='outimage' alt="Profile Picture" src="<?= $_SESSION['avatar'] ?>" />
+                        <?php endif; ?>
+                    </span>
+>>>>>>> a4f158353f0e3545c954bf2ec7cdeb3b3b9a58ed
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">

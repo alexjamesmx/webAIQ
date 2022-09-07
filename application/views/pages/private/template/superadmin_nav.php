@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
-   
-</head> 
+
+</head>
 
 <body id="app-container" class="menu-default show-spinner">
 
@@ -66,15 +66,15 @@
                     <i class="simple-icon-size-fullscreen"></i>
                     <i class="simple-icon-size-actual"></i>
                 </button>
- 
+
             </div>
             <div class="user d-inline-block">
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="name"><?= $_SESSION['correo'] ?></span>
+                    <span class="name"><?= $_SESSION['email'] ?></span>
                     <span>
-                    <!-- <?php if(isset($_SESSION['avatar'])):?>
-                        <img id='outimage'alt="Profile Picture" src="<?=$_SESSION['avatar']?>" />
-                    <?php endif;?> -->
+                        <!-- <?php if (isset($_SESSION['avatar'])) : ?>
+                        <img id='outimage'alt="Profile Picture" src="<?= $_SESSION['avatar'] ?>" />
+                    <?php endif; ?> -->
                     </span>
                 </button>
 
@@ -91,36 +91,33 @@
             <div class="scroll">
                 <ul class="list-unstyled">
 
-                    <li id='home_nav'class="navigation" data-page='home' onclick='return clickgeneral(this)'>
+                    <li id='home_nav' class="navigation" data-page='home' onclick='return clickgeneral(this)'>
                         <a href="#">
                             <i class="iconsminds-monitor-analytics"></i> Inicio
-                        </a> 
+                        </a>
                     </li>
-                    <li id='restaurantes_nav'class="navigation"data-page='restaurantes' onclick='return clickgeneral(this)'>
+                    <li id='restaurantes_nav' class="navigation" data-page='restaurantes' onclick='return clickgeneral(this)'>
                         <a href="#">
                             <i class="iconsminds-shop-4"></i> Restaurantes
                         </a>
                     </li>
-                    <li id='mesas_nav'class="navigation"data-page='mesas' onclick='return clickgeneral(this)'>
+                    <li id='mesas_nav' class="navigation" data-page='mesas' onclick='return clickgeneral(this)'>
                         <a href="#">
                             <i class="iconsminds-on-off-2"></i>Mesas
                         </a>
                     </li>
-                    <li id='repartidores_nav'class="navigation"data-page='repartidores' onclick='return clickgeneral(this)'>
+                    <li id='repartidores_nav' class="navigation" data-page='repartidores' onclick='return clickgeneral(this)'>
                         <a href="#">
                             <i class="iconsminds-business-man"></i>Repartidores
                         </a>
                     </li>
-                    <li class="anuncios_nav"data-page='anuncios'onclick='return clickgeneral(this)'>
-                        <a href="#"></a>
-                            <i class="iconsminds-money-bag"></i> Anuncios
+                    <li id='anuncios_nav' class="navigation" data-page='anuncios' onclick='return clickgeneral(this)'>
+                        <a href="#">
+                            <i class="iconsminds-money-bag"></i>Repartidores
                         </a>
                     </li>
-
-
                 </ul>
             </div>
         </div>
 
     </div>
-

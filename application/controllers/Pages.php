@@ -15,10 +15,10 @@ class Pages extends CI_Controller
             show_404();
         } else {
             if (
-                $this->session->has_userdata("correo")
+                $this->session->has_userdata("email")
             ) {
 
-                $res = $this->users_model->exist_user($this->session->correo);
+                $res = $this->users_model->exist_user($this->session->email);
                 if ($res) {
                     if ($page === 'login') {
                         $page = 'home';
