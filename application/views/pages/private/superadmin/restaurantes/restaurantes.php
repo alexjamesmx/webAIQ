@@ -116,9 +116,7 @@
         <div class="col-12 data-tables-hide-filter">
             <div class="card">
                 <div class="card-body">
-
-
-                    <table class="data-table data-tables-pagination responsive nowrap" data-order="[[ 1, &quot;desc&quot; ]]">
+                    <table id='table-results' class="data-table data-tables-pagination responsive nowrap" data-order="[[ 1, &quot;desc&quot; ]]">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -133,31 +131,8 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p class="list-item-heading">Red</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">1234</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">redwings@gmail.com</p>
-                                </td>
-                                <td>
-                                    <p class="text-muted">4423452492</p>
-                                </td>
-                                <td>
-                                    <!-- EDITAR -->
-                                    <a class="align-self-center mr-4" href="#" data-toggle="modal" data-target="#exampleModalContent" data-whatever="Editar">
-                                        <i class="iconos-size simple-icon-pencil pencil"></i>
-                                    </a>
-                                    <!-- ELIMINAR -->
-                                    <a class="align-self-center mr-4" href="#" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                        <i class="iconos-size simple-icon-trash trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                        <tbody id="results">
+
                         </tbody>
                     </table>
                 </div>

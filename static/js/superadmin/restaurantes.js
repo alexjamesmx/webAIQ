@@ -4,6 +4,8 @@ var restaurant = "",
 	password = "";
 
 $(function () {
+	$("#results").empty();
+
 	const validateEmail = (email) => {
 		return email.match(
 			/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -51,7 +53,7 @@ $(function () {
 			email.trim();
 			phone.trim();
 			$(".close").click();
-
+			$("#results").empty();
 			$.ajax({
 				type: "post",
 				url: appData.base_url + "user/addUser",
@@ -61,15 +63,19 @@ $(function () {
 					phone,
 					password,
 				},
-				dataType: "dataType",
+				dataType: "json",
 			})
-				.done((res) => {})
+				.done((res) => {
+					getUsers();
+				})
 				.fail(() => {
 					message("danger", "", "Error: Hubo un problema con la petición");
 				});
 		}
 	});
+	getUsers();
 });
+
 function handleModal(e) {
 	let action = $(e).data("action");
 	console.log(action);
@@ -91,5 +97,75 @@ function handleModal(e) {
 		$("#password").on("input", (e) => {
 			password = e.target.value;
 		});
+	} else if (action == "editar") {
+		item = $(e).attr("data-item");
+		item = JSON.parse(item);
+		console.log(item);
+		console.log(item.restaurant);
+		$("#restaurant").attr("placeholder", item.restaurant);
+		$("#password").attr("placeholder", item.password);
+		$("#email").attr("placeholder", item.email);
+		$("#phone").attr("placeholder", item.phone);
+		$("#restaurant").on("input", (e) => {
+			restaurant = e.target.value;
+		});
+		$("#restaurant").val(item.restaurant);
+		$("#password").val(item.password);
+		$("#email").val(item.email);
+		$("#phone").val(item.phone);
+		$("#restaurant").on("input", (e) => {
+			restaurant = e.target.value;
+		});
+		$("#email").on("input", (e) => {
+			email = e.target.value;
+		});
+		$("#phone").on("input", (e) => {
+			phone = e.target.value;
+		});
+		$("#password").on("input", (e) => {
+			password = e.target.value;
+		});
 	}
+}
+
+function getUsers() {
+	$.ajax({
+		url: appData.base_url + "user/getUsers",
+		dataType: "json",
+	})
+		.done((result) => {
+			if (result.res) {
+				result.data.map((item) => {
+					$("#results").append(`
+					<tr class='item'>
+					<td>
+						<p class="list-item-heading">${item.nombre}</p>
+					</td>
+					<td>
+						<p class="text-muted">${item.password}</p>
+					</td>
+					<td>
+						<p class="text-muted">${item.email}</p>
+					</td>
+					<td>
+						<p class="text-muted">${item.phone}</p>
+					</td>
+					<td>
+						<!-- EDITAR -->
+						<a class="align-self-center mr-4" href="#" data-toggle="modal" data-target="#exampleModalContent" data-whatever="Editar" data-${item.id_user} data-action="editar" onclick="return handleModal(this)" data-item={"restaurant":"${item.nombre}","password":"${item.password}","email":"${item.email}","phone":"${item.phone}"}>
+							<i class="iconos-size simple-icon-pencil pencil"></i>
+						</a>
+						<!-- ELIMINAR -->
+						<a class="align-self-center mr-4" href="#" data-toggle="modal" data-target=".bd-example-modal-sm">
+							<i class="iconos-size simple-icon-trash trash"></i>
+						</a>
+					</td>
+				</tr>
+					`);
+				});
+			}
+		})
+		.fail(() => {
+			message("danger", "", "Error: Hubo un problema con la petición");
+		});
 }

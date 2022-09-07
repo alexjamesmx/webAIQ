@@ -66,11 +66,29 @@ class User extends CI_Controller
             'phone' => $phone,
             'password' => $password,
         );
-        // $res = $this->users_model->add_user($array);
-        // if (!!$res) {
-        //     $data['message'] = 'Restaurante agregado exitosamente.';
-        //     $data['res'] = $res;
-        // }
-        // echo json_encode($data);
+        $res = $this->users_model->add_user($array);
+        if (!!$res) {
+            $data['message'] = 'Restaurante agregado exitosamente.';
+            $data['res'] = $res;
+        } else {
+            $data['message'] = 'No se pudo agregar un nuevo restaurante, intente más tarde';
+            $data['res'] = $res;
+        }
+        echo json_encode($data);
+    }
+
+    public function getUsers()
+    {
+        $data = [];
+        $res = $this->users_model->get_users();
+        if ($res) {
+            $data['data'] = $res;
+            $data['message'] = 'Datos extraídos correctamente';
+            $data['res'] = TRUE;
+        } else {
+            $data['message'] = "No existen datos en la base de datos";
+            $data['res'] = FALSE;
+        }
+        echo json_encode($data);
     }
 }
