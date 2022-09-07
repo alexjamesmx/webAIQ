@@ -4,11 +4,11 @@ class Pages extends CI_Controller
 
 
     public function view($page = 'login')
-    {  
-  
+    {
+
         if (
-            !file_exists(APPPATH . 'views/pages/private/superadmin/' . $page . '.php') && 
-            !file_exists(APPPATH . 'views/pages/private/admin/' . $page . '.php') && 
+            !file_exists(APPPATH . 'views/pages/private/superadmin/' . $page . '.php') &&
+            !file_exists(APPPATH . 'views/pages/private/admin/' . $page . '.php') &&
             !file_exists(APPPATH . 'views/pages/public/' . $page . '.php')
         ) {
             // Whoops, we don't have a page for that!
@@ -19,20 +19,19 @@ class Pages extends CI_Controller
             ) {
 
                 $res = $this->users_model->exist_user($this->session->correo);
-                if ($res) { 
+                if ($res) {
                     if ($page === 'login') {
                         $page = 'home';
-                    }  
-                    if ($this->session->tipo == 1) {
-                        $this->load->view('pages/private/template/nav');
-                        $this->load->view('pages/private/superadmin/home');
-                        $this->load->view('pages/private/template/footer');
                     }
-                    else if($this->session->tipo == 2) {
-                        $this->load->view('pages/private/template/nav_admin');
+                    if ($this->session->tipo == 1) {
+                        $this->load->view('pages/private/template/superadmin_nav');
+                        $this->load->view('pages/private/superadmin/home');
+                        $this->load->view('pages/private/template/superadmin_footer');
+                    } else if ($this->session->tipo == 2) {
+                        $this->load->view('pages/private/template/admin_nav');
                         $this->load->view('pages/private/admin/home');
-                        $this->load->view('pages/private/template/footer');
-                    }     
+                        $this->load->view('pages/private/template/admin_footer');
+                    }
                 } else {
                     $this->session->set_tempdata('message', "There's something wrong with your session, log in again", 3);
                     $this->load->view('pages/public/login');
@@ -46,5 +45,4 @@ class Pages extends CI_Controller
             }
         }
     }
-
 }

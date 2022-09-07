@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h1>Menú</h1>
                 <button type="button" class="btn btn-outline-success m-1 textabla" data-toggle="modal"
-                    data-target="#exampleModalContent" data-whatever="Agregar"> Agregar <i
+                    data-target="#exampleModalContent" data-whatever="Agregar Producto" data-action="agregar" onclick="return handleModal(this)"> Agregar <i
                         class="simple-icon-plus"></i></button>
             </div>
 

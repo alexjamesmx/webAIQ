@@ -1,14 +1,8 @@
 <script src="<?= base_url() ?>static/js/vendor/jquery-3.3.1.min.js"></script>
-    <script>
-        var appData = {
-            base_url: "<?= base_url() ?>",
-            user: "<? echo $this->session->correo ?>",
-        };
-    </script>
+    
     <script src="<?= base_url() ?>static/js/dore.script.js"></script>
     <script src="<?= base_url() ?>static/js/scripts.js"></script>
     <script src="<?= base_url('static/js/home.js') ?>"></script>
-    <script src="<?= base_url('static/js/login.js') ?>"></script>
     <script src="<?= base_url('static/js/message.js') ?>"></script>
     <script src="<?= base_url() ?>static/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>static/js/vendor/Chart.bundle.min.js"></script>
@@ -23,9 +17,7 @@
     <script src="<?= base_url() ?>static/js/vendor/owl.carousel.min.js"></script>
     <script src="<?= base_url() ?>static/js/vendor/progressbar.min.js"></script>
     <script src="<?= base_url() ?>static/js/vendor/mousetrap.min.js"></script>
-
-
-
+    <script src="<?= base_url() ?>static/js/menu.js"></script>
   
 </body> 
 

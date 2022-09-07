@@ -16,6 +16,13 @@
 
     <link rel="stylesheet" href="<?=base_url()?>static/css/main.css" />
 
+    <script>
+        var appData = {
+            "base_url": '<?=base_url()?>',
+            "idRes": '<?=$this->session->id_user?>'
+        } 
+    </script>
+ 
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -42,15 +49,17 @@
                 </svg>
             </a>
 
-
+ 
 
         </div>
 
 
         <a class="navbar-logo" href="#">
             <span class="d-none d-xs-block">
-                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/starbucks.png" />
-                <img class="logores" alt="Logo AIQ" src="<?=base_url()?>static/img/logoch1.png" />
+                <?php if(isset($_SESSION['avatar'])):?>
+                <img id='outimage' alt="Profile Picture" src="<?=$_SESSION['avatar']?>" />
+                <?php endif;?>
+                <img class="logores" alt="Restaurante" src="<?=base_url()?>static/img/logoch1.png"/>
             </span>
 
             <span class="logo-mobile d-block d-xs-none"></span>
@@ -79,19 +88,13 @@
             </div>
             <div class="user d-inline-block">
 
-                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     <span class="name"><?= $_SESSION['correo'] ?></span>
-                    <span>
-                    <?php if(isset($_SESSION['avatar'])):?>
-                        <img id='outimage'alt="Profile Picture" src="<?=$_SESSION['avatar']?>" />
-                    <?php endif;?>
-                    </span>
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">
-                    <a class="dropdown-item" href="#" onclick="return handleAvatar()">Actualizar foto</a>
                     <a class="dropdown-item" href="#" onclick="return handleSignout()">Cerrar sesión</a>
-                    <input type="file" id="avatar" name='avatar' onchange="return handleAvatarValue()">
                 </div>
             </div>
         </div>
@@ -108,12 +111,12 @@
                         </a>
                     </li>
                     <li id='menu_nav' class="navigation" data-page='menu' onclick='return clickgeneral(this)'>
-                        <a href="#"> 
+                        <a href="#">
                             <i class="iconsminds-receipt-4"></i> Menú
                         </a>
                     </li>
                     <li id='reportes_nav' class="navigation" data-page='reportes' onclick='return clickgeneral(this)'>
-                        <a href="#"> 
+                        <a href="#">
                             <i class="iconsminds-monitor-analytics"></i> Reportes
                         </a>
                     </li>

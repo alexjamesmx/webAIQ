@@ -33,3 +33,5 @@
     </main>
 
 </div>
+
+<div class="message d-flex justify-content-center position-alert"></div>

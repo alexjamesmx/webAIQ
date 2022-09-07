@@ -85,3 +85,10 @@ body .iconos-size{
 .trash{
   color:red;
 }
+
+.position-alert {
+  position: absolute !important;
+  top: 78px;
+  right: 0;
+  width: 100vh;
+}
