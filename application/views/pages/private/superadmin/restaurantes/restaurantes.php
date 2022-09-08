@@ -10,7 +10,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
                 </div>
             </div>
         </div>
@@ -20,7 +19,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">ACCION</h5>
+                    <h5 class="modal-title accion"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -53,7 +52,6 @@
                                 <span class="input-group-text"><i class="iconsminds-envelope"></i></span>
                                 <input type="email" class="form-control" aria-describedby="inputGroupPrepend" required name='email' id='email'>
                                 <div class="email invalid-feedback">
-
                                 </div>
                             </div>
                         </div>
@@ -63,80 +61,83 @@
                                 <span class="input-group-text"><i class="simple-icon-phone"></i></span>
                                 <input type="tel" pattern="[0-9]{0,20}" class=" form-control" aria-describedby="inputGroupPrepend" required name="phone" id='phone'>
                                 <div class="phone invalid-feedback">
-
                                 </div>
                             </div>
                         </div>
-                        <div class=" col-12 d-flex flex-row-reverse mt-4">
-                            <button class="btn btn-primary" type="submit">Guardar</button>
-                            <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cerrar</button>
-                        </div>
-                    </form>
-
-
-
-
+                        <label for="id">Contra</label>
+                        <input name="id" id='id'>
                 </div>
+                <div class=" col-12 d-flex flex-row-reverse mt-4">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cerrar</button>
+                </div>
+                </form>
+
+
+
+
             </div>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-12">
-            <h1>Tus restaurantes</h1>
-            <div class="text-zero top-right-button-container">
-                <button id='btn-modal' type="button" class="btn btn-primary btn-lg top-right-button mr-1" data-toggle="modal" data-target="#exampleModalContent" data-whatever="Agregar restaurante" data-action="agregar" onclick="return handleModal(this)">
-                    <i class='simple-icon-plus mr-2'></i>
-                    AGREGAR</button>
-            </div>
-            <div class="separator mb-2"></div>
-            <div class="mb-2">
-                <div class="collapse dont-collapse-sm" id="displayOptions">
+<div class="row">
+    <div class="col-12">
+        <h1>Tus restaurantes</h1>
+        <div class="text-zero top-right-button-container">
+            <button id='btn-modal' type="button" class="btn btn-primary btn-lg top-right-button mr-1" data-toggle="modal" data-target="#exampleModalContent" data-whatever="Agregar restaurante" data-action="Agregar" onclick="return handleModal(this)">
+                <i class='simple-icon-plus mr-2'></i>
+                AGREGAR</button>
+        </div>
+        <div class="separator mb-2"></div>
+        <div class="mb-2">
+            <div class="collapse dont-collapse-sm" id="displayOptions">
 
-                    <div class="float-md-right">
-                        <span class="text-muted text-small">Mostrando 1-10 of 30 items </span>
-                        <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            20
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">10</a>
-                            <a class="dropdown-item active" href="#">20</a>
-                            <a class="dropdown-item" href="#">30</a>
-                            <a class="dropdown-item" href="#">50</a>
-                            <a class="dropdown-item" href="#">100</a>
-                        </div>
+                <div class="float-md-right">
+                    <span class="text-muted text-small">Mostrando 1-10 of 30 items </span>
+                    <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        20
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">10</a>
+                        <a class="dropdown-item active" href="#">20</a>
+                        <a class="dropdown-item" href="#">30</a>
+                        <a class="dropdown-item" href="#">50</a>
+                        <a class="dropdown-item" href="#">100</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
-    <div class="row mb-4">
-        <div class="col-12 data-tables-hide-filter">
-            <div class="card">
-                <div class="card-body">
-                    <table id='table-results' class="data-table data-tables-pagination responsive nowrap" data-order="[[ 1, &quot;desc&quot; ]]">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Contraseña</th>
-                                <th>Correo electrónico</th>
-                                <th>Teléfono</th>
-                                <th class='justify-content-end'>
-                                    <p>
+<div class="row mb-4">
+    <div class="col-12 data-tables-hide-filter">
+        <div class="card">
+            <div class="card-body">
+                <table id='table-results' class="data-table data-tables-pagination responsive nowrap" data-order="[[ 1, &quot;desc&quot; ]]">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Contraseña</th>
+                            <th>Correo electrónico</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                            <th class='justify-content-end'>
+                                <p>
 
-                                        Acciones
-                                    </p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="results">
+                                    Acciones
+                                </p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="results">
 
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 </div>

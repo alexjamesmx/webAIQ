@@ -37,4 +37,24 @@ class Users_model extends CI_Model
             return false;
         }
     }
+    public function update_user_status($id_user, $status)
+    {
+
+        $query = $this->db->set("status", $status)
+            ->where("id_user", $id_user)
+            ->update("users");
+        if ($query) {
+            return $this->db->select('status')
+                ->where('id_user', $id_user)
+                ->get('users')->result_array();
+        } else {
+            return false;
+        }
+    }
+    public function update_user($id_user, $array)
+    {
+        return $this->db->set($array)
+            ->where('id_user', $id_user)
+            ->update('users');
+    }
 }

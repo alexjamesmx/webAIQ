@@ -91,4 +91,37 @@ class User extends CI_Controller
         }
         echo json_encode($data);
     }
+
+    public function updateUserStatus()
+    {
+        $id_user = $this->input->post('id_user');
+        $status = $this->input->post('status') == 1 ? 0 : 1;
+        $res = $this->users_model->update_user_status($id_user, $status);
+        if ($res) {
+            $data['data'] = $res;
+            $data['message'] = 'Datos extraidos correctamente';
+            $data['res'] = TRUE;
+        } else if ($res == false) {
+            $data['data'] = $res;
+            $data['message'] = 'Hubo un problema con la peticion';
+            $data['res'] = FALSE;
+        }
+        echo json_encode($data);
+    }
+    public function updateUser()
+    {
+        $id_user = $this->input->post("id_user");
+        $restaurant = $this->input->post("restaurant");
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $password = $this->input->post('password');
+        $array = array(
+            'nombre' => $restaurant,
+            'email' => $email,
+            'phone' => $phone,
+            'password' => $password,
+        );
+        $res = $this->users_model->update_user($id_user, $array);
+        echo json_encode($res);
+    }
 }
