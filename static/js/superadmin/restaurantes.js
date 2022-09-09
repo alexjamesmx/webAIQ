@@ -2,71 +2,23 @@ $(function () {
 	$("#results").empty();
 	getUsers();
 
-	const validateEmail = (email) => {
-		return email.match(
-			/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		);
-	};
-	const isLetter = (str) => {
-		return str.match(/[a-z]/i);
-	};
-
+	//EDITAR 0 AGREGAR EVENTO
 	$("#modal-form").on("submit", function (event) {
-		action = $(".accion").text();
-		restaurant = $("#restaurant").val();
-		password = $("#password").val();
-		email = $("#email").val();
-		phone = $("#phone").val();
-		id_user = $("#id").val();
 		event.preventDefault();
-		if (restaurant == "") {
-			$(".restaurant").text("Este campo es requerido");
-		}
-		if (email != "" && !validateEmail(email)) {
-			$(".email").text("El formato es incorrecto");
-		}
-		if (email == "") {
-			$(".email").text("Este campo es requerido");
-		}
-		if (phone == "") {
-			$(".phone").text("Este campo es requerido");
-		}
-		if (phone != "" && isLetter(phone)) {
-			$(".phone").text("Debe contener sólo numeros");
-		}
-		if (password == "") {
-			$(".password").text("Este campo es requerido");
-		}
-		if (password != "" && password.length < 4) {
-			$(".password").text("Debe ser contener 4 caracteres o más");
-		}
-		if (
-			restaurant != "" &&
-			email != "" &&
-			phone != "" &&
-			!isLetter(phone) &&
-			validateEmail(email) &&
-			password != "" &&
-			password.length >= 4
-		) {
-			console.log("BIEN");
-			restaurant.trim();
-			email.trim();
-			phone.trim();
+		action = $("#btn-modal").data("action");
+
+		if (validateForm()) {
 			$(".close").click();
+			console.log(action);
 			if (action == "Agregar") {
+				console.log("NO SE ESTA MANDANDO");
+
 				$("#results").empty();
 
 				$.ajax({
 					type: "post",
 					url: appData.base_url + "user/addUser",
-					data: {
-						restaurant,
-						email,
-						phone,
-						password,
-					},
-					dataType: "json",
+					data: $("#modal-form").serialize(),
 				})
 					.done((res) => {
 						getUsers();
@@ -76,79 +28,61 @@ $(function () {
 					});
 			}
 			if (action == "Editar") {
-				restaurant = $.ajax({
+				nombre = $.ajax({
 					type: "post",
 					url: appData.base_url + "user/updateUser",
-					data: {
-						id_user,
-						restaurant,
-						email,
-						phone,
-						password,
-					},
-					dataType: "json",
+					data: $("#modal-form").serialize(),
 				})
-					.done((res) => {
-						console.log("EDITAR", res);
-					})
+					.done((res) => {})
 					.fail(() => {
 						message("danger", "", "Error: Hubo un problema con la petición");
 					});
 			}
 		} else {
-			console.log("FORM incorrexto");
 		}
 	});
 });
 
 function handleModal(e) {
-	let restaurant = "";
-	let phone = "";
-	let email = "";
-	let password = "";
-	let id = "";
-	$("#restaurant").attr("placeholder", null);
-	$("#password").attr("placeholder", null);
-	$("#email").attr("placeholder", null);
-	$("#phone").attr("placeholder", null);
-	$("#restaurant").val(restaurant);
-	$("#password").val(password);
-	$("#email").val(email);
-	$("#phone").val(phone);
-	$("#id").val(id);
+	$("#nombre").attr("placeholder", "");
+	$("#password").attr("placeholder", "");
+	$("#email").attr("placeholder", "");
+	$("#phone").attr("placeholder", "");
+	$("#nombre").val("");
+	$("#password").val("");
+	$("#email").val("");
+	$("#phone").val("");
+	//INVALID FEEDBACK
+	$(".nombre").text("");
+	$(".email").text("");
+	$(".password").text("");
+	$(".phone").text("");
 
 	action = $(e).data("action");
 	if (action == "Agregar") {
-		console.log("QUE");
-
-		$("#restaurant").attr("placeholder", "Nombre del restaurante");
+		$("#nombre").attr("placeholder", "Nombre del restaurante");
 		$("#password").attr("placeholder", "Contraseña");
 		$("#email").attr("placeholder", "Correo electrónico");
 		$("#phone").attr("placeholder", "Teléfono");
 	} else if (action == "Editar") {
-		id = $(e).attr("data-id");
-		restaurant = $(e).attr("data-restaurant");
-		password = $(e).attr("data-password");
-		email = $(e).attr("data-email");
-		phone = $(e).attr("data-phone");
-		$("#restaurant").attr("placeholder", restaurant);
+		let id_user = $(e).attr("data-id");
+		let nombre = $(e).attr("data-nombre");
+		let password = $(e).attr("data-password");
+		let email = $(e).attr("data-email");
+		let phone = $(e).attr("data-phone");
+		$("#nombre").attr("placeholder", nombre);
 		$("#password").attr("placeholder", password);
 		$("#email").attr("placeholder", email);
 		$("#phone").attr("placeholder", phone);
-		$("#restaurant").on("input", (e) => {
-			restaurant = e.target.value;
-		});
-		$("#restaurant").val(restaurant);
+		$("#nombre").val(nombre);
 		$("#password").val(password);
 		$("#email").val(email);
 		$("#phone").val(phone);
-		$("#id").val(id);
+		$("#id_user").val(id_user);
 	}
 }
 function handleStatus(id_user, e, nombre) {
-	console.log(e);
 	let status = $(e).data("status");
-	console.log("El status", status);
 	if (status) {
 		$("#id_user").removeClass("slider");
 		$("#id_user").addClass("sliderdis");
@@ -168,7 +102,6 @@ function handleStatus(id_user, e, nombre) {
 		if (result.res) {
 			let available = result.data[0].status;
 
-			console.log("AQUI DEBERIA ACTUALIZAR EL STATUS DATA");
 			$(e).data("status", available);
 			if (available == "1") {
 				message("info", "", nombre + " habilitado");
@@ -207,24 +140,34 @@ function getUsers() {
 					</td>
 					<td>
 
-					<label class="switch"><input id=\"${item.id_user}_status\" type="checkbox"data-status=\"${item.status}\" onclick="return handleStatus(${item.id_user},this,\`${item.nombre}\`)"><span data-id='${item.id_user}'class="slider round"></span></label>
+					<label class="switch">
+						<input 
+							id=\"${item.id_user}_status\" 
+							type="checkbox"
+							data-status=\"${item.status}\" 
+							onclick="return handleStatus(${item.id_user},this,\`${item.nombre}\`)"
+							>
+								<span 
+									data-id='${item.id_user}'
+									class="slider round"
+								></span>
+					</label>
 					</td>
 					<td> 
-						<!-- EDITAR -->
-						<a class="align-self-center mr-4" href="#" data-toggle="modal" data-target="#exampleModalContent" data-whatever="Editar" 
-						data-${item.id_user} 
-						data-action="Editar" 
-						onclick="return handleModal (this)" 
-						data-id=\"${item.id_user}\"
-						data-restaurant=\"${item.nombre}\"
-						data-password=\"${item.password}\"
-						data-email=\"${item.email}\"
-						data-phone=\"${item.phone}\">
+						<a class="align-self-center mr-4"
+							href="#" 
+							data-toggle="modal" 
+							data-target="#exampleModalContent" 
+							data-whatever="Editar \`${item.nombre}\`" 
+							data-action="Editar" 
+							onclick="return handleModal (this)" 
+							data-id=\"${item.id_user}\"
+							data-nombre=\"${item.nombre}\"
+							data-password=\"${item.password}\"
+							data-email=\"${item.email}\"
+							data-phone=\"${item.phone}\">
 							<i class="iconos-size simple-icon-pencil pencil"></i>
-						</a>
-						<a class="align-self-center mr-4" href="#" data-toggle="modal" data-target=".bd-example-modal-sm">
-							<i class="iconos-size simple-icon-trash trash"><i>
-						</a>
+						</a><a class="align-self-center mr-4" href="#" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="iconos-size simple-icon-trash trash"><i></a>
 					</td>
 				</tr>
 					`
@@ -250,21 +193,16 @@ function getUsers() {
 					</td>
 					<td> 
 						<a class="align-self-center mr-4" href="#" data-toggle="modal" data-target="#exampleModalContent" data-whatever="Editar" 
-						data-${item.id_user} 
 						data-action="editar" 
 						onclick="return handleModal(this)" 
 						data-id=\"${item.id_user}\"
-						data-restaurant=\"${item.nombre}\"
+						data-nombre=\"${item.nombre}\"
 						data-password=\"${item.password}\"
 						data-email=\"${item.email}\"
 						data-phone=\"${item.phone}\">
 						<i class="iconos-size simple-icon-pencil pencil"></i>
 						</a>
-						<a class="align-self-center mr-4" href="#" data-toggle="modal" data-target=".bd-example-modal-sm">
-						<i class="iconos-size simple-icon-trash trash">
-						</i>
-						</a>
-					
+						<a class="align-self-center mr-4" href="#" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="iconos-size simple-icon-trash trash"></i></a>
 						</td>
 						</tr>
 						`
@@ -275,4 +213,66 @@ function getUsers() {
 		.fail(() => {
 			message("danger", "", "Error: Hubo un problema con la petición");
 		});
+}
+
+function validateForm() {
+	const form = document.getElementById("modal-form");
+
+	let nombre = form.elements[0].value;
+	let password = form.elements[1].value;
+	let email = form.elements[2].value;
+	let phone = form.elements[3].value;
+
+	if (
+		nombre != "" &&
+		email != "" &&
+		phone != "" &&
+		!isLetter(phone) &&
+		validateEmail(email) &&
+		password != "" &&
+		password.length >= 4
+	) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+$("#nombre").on("input", () => {
+	if ($("#nombre").val() == "") {
+		$(".nombre").text("Este campo es requerido");
+	}
+});
+$("#password").on("input", () => {
+	if ($("#password").val() == "") {
+		$(".password").text("Este campo es requerido");
+	}
+	if ($("#password").val() != "" && $("#password").val().length < 4) {
+		$(".password").text("Debe ser contener 4 caracteres o más");
+	}
+});
+$("#email").on("input", () => {
+	if ($("#email").val() != "" && !validateEmail($("#email").val())) {
+		$(".email").text("El formato es incorrecto");
+	}
+	if ($("#email").val() == "") {
+		$(".email").text("Este campo es requerido");
+	}
+});
+$("#phone").on("input", () => {
+	if ($("#phone").val() == "") {
+		$(".phone").text("Este campo es requerido");
+	}
+	if ($("#phone").val() != "" && isLetter($("#phone").val())) {
+		$(".phone").text("Debe contener sólo numeros");
+	}
+});
+
+function validateEmail(email) {
+	return email.match(
+		/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	);
+}
+function isLetter(str) {
+	return str.match(/[a-z]/i);
 }

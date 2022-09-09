@@ -111,12 +111,12 @@ class User extends CI_Controller
     public function updateUser()
     {
         $id_user = $this->input->post("id_user");
-        $restaurant = $this->input->post("restaurant");
+        $nombre = $this->input->post("nombre");
         $email = $this->input->post('email');
         $phone = $this->input->post('phone');
         $password = $this->input->post('password');
         $array = array(
-            'nombre' => $restaurant,
+            'nombre' => $nombre,
             'email' => $email,
             'phone' => $phone,
             'password' => $password,

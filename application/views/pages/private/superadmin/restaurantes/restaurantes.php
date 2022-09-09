@@ -27,11 +27,11 @@
                 <div class="modal-body">
                     <form class="row g-3 needs-validation" id='modal-form' novalidate>
                         <div class="col-12">
-                            <label for="restaurant" class="form-label">Restaurante</label>
+                            <label for="nombre" class="form-label">Restaurante</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text"><i class="simple-icon-home"></i></span>
-                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required name='restaurant' id='restaurant'>
-                                <div class="restaurant invalid-feedback">
+                                <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required name='nombre' id='nombre'>
+                                <div class="nombre invalid-feedback">
 
                                 </div>
                             </div>
@@ -64,8 +64,8 @@
                                 </div>
                             </div>
                         </div>
-                        <label for="id">Contra</label>
-                        <input name="id" id='id'>
+                        <label hidden for="id_user"></label>
+                        <input hidden name="id_user" id='id_user'>
                 </div>
                 <div class=" col-12 d-flex flex-row-reverse mt-4">
                     <button class="btn btn-primary" type="submit">Guardar</button>
