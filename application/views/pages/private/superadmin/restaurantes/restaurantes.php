@@ -1,21 +1,24 @@
 <div class="container-fluid">
     <!-- ELIMINAR -->
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Eliminar</h5>
+        <div class="modal-dialog modal-sm brad bradb">
+            <div class="modal-content brad bradb">
+                <div class="modal-header brad bg-primary">
+                    <h5 class="modal-title" id='modal-delete'></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bradb">
+                    <p class="mb-4"> ¿Quieres eliminar a {producto}? </p>
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cacelar</button>
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Eliminar</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- MODAL -->
-    <div class="modal fade" id="exampleModalContent" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="exampleModalContent" tabindex="-1" role="dialog" aria-hidden="true" data-action="">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -67,9 +70,9 @@
                         <label hidden for="id_user"></label>
                         <input hidden name="id_user" id='id_user'>
                 </div>
-                <div class=" col-12 d-flex flex-row-reverse mt-4">
+                <div class=" col-12 d-flex flex-row-reverse mb-2">
                     <button class="btn btn-primary" type="submit">Guardar</button>
-                    <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cerrar</button>
+                    <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancelar</button>
                 </div>
                 </form>
 
@@ -120,16 +123,10 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Contraseña</th>
                             <th>Correo electrónico</th>
                             <th>Teléfono</th>
                             <th>Estado</th>
-                            <th class='justify-content-end'>
-                                <p>
-
-                                    Acciones
-                                </p>
-                            </th>
+                            <th class='justify-content-end'>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="results">
