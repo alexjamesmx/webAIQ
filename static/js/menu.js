@@ -11,6 +11,8 @@ var id_user = '',
 imagen = ''
 
 function handleModal(e) {
+  //abrimos modal y cargamos las variables paraue se envianpor data
+  let id_comida = $(e).data('id')
   let action = $(e).data('action')
   let nombre_edit = $(e).data('nombre')
   let precio_edit = $(e).data('precio')
@@ -18,9 +20,13 @@ function handleModal(e) {
   let tipo_edit = $(e).data('tipo')
   let descripcion_edit = $(e).data('descripcion')
 
+  //verificamos la accion y depende cual es entonses
+
   console.log(action)
 
   if (action == 'agregar') {
+
+    //si es agregar borramo tolos los campos y colocamos el placeholder   ue es el texto que se ve por defecto y colocamos el onclick="add" para mandar a llamar la funcion de agregar
     resetform()
     $('#nombre').attr('placeholder', 'Ej. Torta')
     $('#precio').attr('placeholder', 'Ej. 13.00')
@@ -31,48 +37,59 @@ function handleModal(e) {
     )
     $('#guardarinfo').attr('onclick', 'add()')
   } else if (action == 'edit') {
+
+    // si es editar colocamos los valores que se pidieron de base de datos y colocamos el onclick="edit" para llamar la funcion de editar y colocamos en disabled el boton en espera de algun cambio en los input
     resetform()
+    $('#id_comida').val(id_comida)
     $('#nombre').val(nombre_edit)
     $('#precio').val(precio_edit)
     $('#tiempo').val(tiempo_edit)
     $('#tipo').val(tipo_edit)
     $('#descripcion').val(descripcion_edit)
     $('#guardarinfo').attr('onclick', 'edit()')
+    $('#guardarinfo').attr('disabled', 'disabled')
+    $('#guardarinfo').attr('data-dismiss', 'modal')
+
+    //si cambia etones actulaizamos pero primero abilitamos el boton
+
+    if (
+      $('#nombre').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#precio').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#tiempo').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#tipo').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#descripcion').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
   }
 }
 function edit() {
-  id_user = $('#id').val()
+
+  //cargamos valores de base de datos
+  id_comida = $('#id_comida').val()
   nombre = $('#nombre').val()
   precio = $('#precio').val()
+  tiempo = $('#tiempo').val()
   tipo = $('#tipo').val()
   descripcion = $('#descripcion').val()
-  console.log(id_user)
-  console.log(nombre)
-  console.log(precio)
-  console.log(tipo)
-  console.log(descripcion)
-}
 
-function add() {
-  id_user = $('#id').val()
-  $('#nombre').on('input', (e) => {
-    nombre = e.target.value
-  })
-  $('#precio').on('input', (e) => {
-    precio = e.target.value
-  })
-
-  $('#tiempo').on('input', (e) => {
-    tiempo = e.target.value
-  })
-
-  $('#tipo').on('input', (e) => {
-    tipo = e.target.value
-  })
-
-  $('#descripcion').on('input', (e) => {
-    descripcion = e.target.value
-  })
+  //validacion de campos vacios
 
   if (nombre == '') {
     $('#nombre').addClass('is-invalid')
@@ -104,6 +121,9 @@ function add() {
     $('#descripcion').removeClass('is-invalid')
     $('#descripcion').addClass('is-valid')
   }
+
+  //si todo esta bine entonses
+
   if (
     nombre != '' &&
     precio != '' &&
@@ -111,11 +131,113 @@ function add() {
     tipo != '' &&
     descripcion != ''
   ) {
+
+    //borrar espacios vacios
     nombre.trim()
     precio.trim()
     tiempo.trim()
     descripcion.trim()
 
+    //enviamos por metodo post
+    $.ajax({
+      url: appData.base_url + 'Menu/edit',
+      dataType: 'json',
+      type: 'POST',
+      data: {
+        id_comida: id_comida,
+        nombre: nombre,
+        precio: precio,
+        tiempo: tiempo,
+        tipo: tipo,
+        descripcion: descripcion,
+      },
+    })
+    //si contesto bine entonses
+      .done(() => {
+        message("success", "Listo", "se actualizo informacion");
+        get_menu(1);
+        get_menu(2);
+        get_menu(3);
+      })
+      //alfo fallo el en controlador o en el modelo
+      .fail(() => {
+        message('danger', 'Error', 'Hubo un problema con la petición')
+        console.log('eroorrrrr')
+      })
+  }
+}
+
+function add() {
+  //cargamos valores del formulario a las variables
+  id_user = $('#id').val()
+  $('#nombre').on('input', (e) => {
+    nombre = e.target.value
+  })
+  $('#precio').on('input', (e) => {
+    precio = e.target.value
+  })
+
+  $('#tiempo').on('input', (e) => {
+    tiempo = e.target.value
+  })
+
+  $('#tipo').on('input', (e) => {
+    tipo = e.target.value
+  })
+
+  $('#descripcion').on('input', (e) => {
+    descripcion = e.target.value
+  })
+
+  //validacion
+
+  if (nombre == '') {
+    $('#nombre').addClass('is-invalid')
+  } else {
+    $('#nombre').removeClass('is-invalid')
+    $('#nombre').addClass('is-valid')
+  }
+  if (precio == '') {
+    $('#precio').addClass('is-invalid')
+  } else {
+    $('#precio').removeClass('is-invalid')
+    $('#precio').addClass('is-valid')
+  }
+  if (tiempo == '') {
+    $('#tiempo').addClass('is-invalid')
+  } else {
+    $('#tiempo').removeClass('is-invalid')
+    $('#tiempo').addClass('is-valid')
+  }
+  if (tipo == '') {
+    $('#tipo').addClass('is-invalid')
+  } else {
+    $('#tipo').removeClass('is-invalid')
+    $('#tipo').addClass('is-valid')
+  }
+  if (descripcion == '') {
+    $('#descripcion').addClass('is-invalid')
+  } else {
+    $('#descripcion').removeClass('is-invalid')
+    $('#descripcion').addClass('is-valid')
+  }
+
+  //si todo esta bien entonses
+  if (
+    nombre != '' &&
+    precio != '' &&
+    tiempo != '' &&
+    tipo != '' &&
+    descripcion != ''
+  ) {
+
+    //borramos espacios
+    nombre.trim()
+    precio.trim()
+    tiempo.trim()
+    descripcion.trim()
+
+    //enviamos por metodo post
     $.ajax({
       url: appData.base_url + 'Menu/add',
       dataType: 'json',
@@ -130,6 +252,7 @@ function add() {
         imagen: imagen,
       },
     })
+    //si contesto bine entonses
       .done(() => {
         // message("success", "Listo", "se agrego platillo");
         resetform()
@@ -137,6 +260,7 @@ function add() {
         $('#form-subir-img').removeClass('d-none')
         console.log('listosssss')
       })
+      //alfo fallo el en controlador o en el modelo
       .fail(() => {
         message('danger', 'Error', 'Hubo un problema con la petición')
         console.log('eroorrrrr')

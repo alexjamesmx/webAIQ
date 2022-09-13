@@ -55,6 +55,12 @@ class Menu_model extends CI_Model {
         $this->db->update('menu');
         return $this->db->affected_rows();
       }
+
+      public function update_menu( $data ) {
+        $this->db->where('id_comida', $data['id_comida']);
+        $this->db->update('menu', $data);
+        return $this->db->affected_rows();
+        }
 }
 
 /* End of file Menu_model.php */

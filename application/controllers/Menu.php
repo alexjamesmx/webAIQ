@@ -98,6 +98,27 @@ class Menu extends CI_Controller {
         
         echo json_encode($obj);
      }
+
+     public function edit() {
+        $id_comida = $this->input->post("id_comida");
+        $imagen = $this->input->post("imagen");
+        $nombre = $this->input->post("nombre");
+        $precio = $this->input->post("precio");
+        $tiempo = $this->input->post("tiempo");
+        $tipo = $this->input->post("tipo");
+        $descripcion = $this->input->post("descripcion");
+
+        $data = array(
+            "id_comida" => $id_comida,
+            "nombre" => $nombre,
+            "precio" => $precio,
+            "tiempo" => $tiempo,
+            "descripcion" => $descripcion,
+            "id_categoria" => $tipo,
+        );
+
+        echo json_encode( $this->Menu_model->update_menu($data));
+     }
 }
 
 /* End of file  Menu.php */

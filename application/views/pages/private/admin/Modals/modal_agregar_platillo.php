@@ -15,6 +15,7 @@
                     <h5 class="mb-4 modal-title">ACCION</h5>
                     <form class="needs-validation" id="form-producto" novalidate>
                     <input type="hidden" class="form-control" id="id" name="id" value="<?=$_SESSION['id_user']?>">
+                    <input type="hidden" class="form-control" id="id_comida" name="id_comida" value="">
                         <div class="form-row">
                             <div class="col-md-12 mb-3">
                                 <label for=""> Nombre </label>
