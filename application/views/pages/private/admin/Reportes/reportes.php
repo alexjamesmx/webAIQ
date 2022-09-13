@@ -10,7 +10,7 @@
             <div class="col-12 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <table class="data-table data-table-feature">
+                        <table class="data-table data-table-scrollable responsive nowrap">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -18,14 +18,14 @@
                                     <th>Duración (Min)</th>
                                     <th>Detalle Pedido</th>
                                     <th>Fecha/Hora Aceptado</th>
+                                    <th>Status</th>
                                     <th>Fecha/Hora Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
+                                <td>1</td>
                                     <td>$549</td>
-                                    <td>15:00(0)</td>
+                                    <td>19:42(-5:42)</td>
                                     <td>
                                         <p>Café MOKA</p>
                                         <p>Matcha</p>
@@ -34,11 +34,11 @@
                                         <p>2022/09/02</p>
                                         <p>16:22</p>
                                     </td>
+                                    <td>1</td>
                                     <td>
                                         <p>2022/09/02</p>
-                                        <p>12:09</p>
+                                        <p>17:56</p>
                                     </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

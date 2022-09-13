@@ -28,15 +28,7 @@ $("#modal-form").on("submit", function (event) {
 			})
 				.done((result) => {
 					if (result.res) {
-						const form = document.getElementById("modal-form");
-						let nombre = form.elements[0].value;
-						let email = form.elements[2].value;
-						let phone = form.elements[3].value;
-						let id_user = form.elements[4].value;
-
-						$("#" + id_user + "_nombre").text(nombre);
-						$("#" + id_user + "_email").text(email);
-						$("#" + id_user + "_phone").text(phone);
+						getUsers();
 						message("success", "", result.message);
 					} else {
 						message("danger", "", result.message);
@@ -54,10 +46,6 @@ $("#modal-form").on("submit", function (event) {
 		if ($("#password").val() == "") {
 			$(".password").text("Este campo es requerido");
 		}
-		if ($("#password").val() != "" && $("#password").val().length < 4) {
-			$(".password").text("Debe ser contener 4 caracteres o más");
-		}
-
 		if ($("#email").val() != "" && !validateEmail($("#email").val())) {
 			$(".email").text("El formato es incorrecto");
 		}

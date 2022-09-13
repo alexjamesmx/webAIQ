@@ -1,7 +1,11 @@
 <?php
 class User extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('users_model');
+    }
     public function existsUser()
     {
         $email = $this->input->post('email');
@@ -115,6 +119,21 @@ class User extends CI_Controller
         } else {
             $data["message"] = "No ha sido posible actualizar por el momento";
             $data["res"] = $res;
+        }
+        echo json_encode($data);
+    }
+    public function deleteUser()
+    {
+        $data = [];
+        $id_user = $this->input->post("id_user");
+
+        $res = $this->users_model->delete_user($id_user);
+        if ($res) {
+            $data["message"] = " eliminado correctamente";
+            $data["res"] = true;
+        } else {
+            $data["message"] = "El restaurante no existe en la base de datos";
+            $data["res"] = false;
         }
         echo json_encode($data);
     }

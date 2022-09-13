@@ -22,36 +22,6 @@ class MovilR extends CI_Controller {
         $resultado = $this->MovilR_model->getMenu($id_user);
         echo json_encode($resultado);
     }
-    
-    
-    // menus especificos
-    
-        public function getComidas($id_user = NULL)
-    {   
-       
-        // $id_menu = $this->input->post('id_user');
-        // var_dump($id_menu);
-        $resultado = $this->MovilR_model->getComidas($id_user);
-        echo json_encode($resultado);
-    }
-        public function getBebidas($id_user = NULL)
-    {   
-       
-        // $id_menu = $this->input->post('id_user');
-        // var_dump($id_menu);
-        $resultado = $this->MovilR_model->getBebidas($id_user);
-        echo json_encode($resultado);
-    }
-        public function getCombos($id_user = NULL)
-    {   
-       
-        // $id_menu = $this->input->post('id_user');
-        // var_dump($id_menu);
-        $resultado = $this->MovilR_model->getCombos($id_user);
-        echo json_encode($resultado);
-    }
-    
-    // fin menus
 
     public function getRepartidor()
     {   

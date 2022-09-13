@@ -77,7 +77,6 @@ class Menu extends CI_Controller {
 		$obj[ "mensaje" ]   = $obj[ "res" ] ?
 		"Se recuperaron ".count( $data )." productos" : "No hay productos registrados";
 		$obj[ "productos" ]  = $data;
-
 		echo json_encode( $obj );
     }
 

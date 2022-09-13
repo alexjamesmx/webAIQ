@@ -20,4 +20,4 @@ function message(type, boldText, text) {
         <div class="alert alert-${type} alerta alert-dismissible fade show mt-3 alertaAIQ" role="alert"data-bs-dismiss="alert" aria-label="Close"><strong>${boldText}</strong>${text}</div>`);
 		console.log(`${boldText} ${text}`);
 	}
-}
+} 

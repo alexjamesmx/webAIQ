@@ -28,40 +28,6 @@ class MovilR_model extends CI_Model
         // echo json_encode($resultado);
         
     }
-    
-    
-    public function getCombos($id_user)
-    { 
-        $this->db->select('*')
-        ->from('menu')
-        ->where('id_user', $id_user)
-        ->where('id_categoria', 1)
-        ->where('status', 1);
-        $rs = $this->db->get();
-        return $rs->result();
-    }
-    
-        public function getComidas($id_user)
-    { 
-        $this->db->select('*')
-        ->from('menu')
-        ->where('id_user', $id_user)
-        ->where('id_categoria', 2)
-        ->where('status', 1);
-        $rs = $this->db->get();
-        return $rs->result();
-    }
-    
-           public function getBebidas($id_user)
-    { 
-        $this->db->select('*')
-        ->from('menu')
-        ->where('id_user', $id_user)
-        ->where('id_categoria', 3)
-        ->where('status', 1);
-        $rs = $this->db->get();
-        return $rs->result();
-    }
 
     public function getRepartidor() 
     { 

@@ -1,7 +1,6 @@
 <?php
 class Users_model extends CI_Model
 {
-
     public function exist_user($email)
     {
         $query = $this->db->get_where('users', array('email' => $email));
@@ -56,5 +55,14 @@ class Users_model extends CI_Model
         return $this->db->set($array)
             ->where('id_user', $id_user)
             ->update('users');
+    }
+    public function delete_user($id_user)
+    {
+        $query = $this->db->where('id_user', $id_user)
+            ->delete('users');
+        $query = $this->db->affected_rows();
+        echo json_encode($query);
+        die();
+        return $query;
     }
 }

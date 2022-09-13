@@ -12,8 +12,7 @@ function validateForm() {
 		phone != "" &&
 		!isLetter(phone) &&
 		validateEmail(email) &&
-		password != "" &&
-		password.length >= 4
+		password != ""
 	) {
 		return true;
 	} else {
@@ -28,9 +27,6 @@ $("#nombre").on("input", () => {
 $("#password").on("input", () => {
 	if ($("#password").val() == "") {
 		$(".password").text("Este campo es requerido");
-	}
-	if ($("#password").val() != "" && $("#password").val().length < 4) {
-		$(".password").text("Debe ser contener 4 caracteres o más");
 	}
 });
 $("#email").on("input", () => {

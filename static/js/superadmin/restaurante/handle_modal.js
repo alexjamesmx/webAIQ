@@ -37,3 +37,30 @@ function handleModal(e) {
 		$("#id_user").val(id_user);
 	}
 }
+
+function handleModalDelete(e) {
+	id_user = $(e).data("id");
+	nombre = $(e).data("nombre");
+	$("#modal-delete-title").text(`¿Estás seguro de eliminar a ${nombre}?`);
+	$("#modal-delete-text").text(`Eliminar a ${nombre}`);
+
+	$("button[name='delete']").click(function () {
+		$.ajax({
+			type: "post",
+			url: appData.base_url + "user/deleteUser",
+			data: { id_user },
+			dataType: "json",
+			success: function (response) {
+				if (response.res) {
+					message("info", "", nombre + response.message);
+				} else {
+					message("danger", "", nombre + response.message);
+				}
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				message("Estado: ", "", textStatus);
+				message("Error: ", "", errorThrown);
+			},
+		});
+	});
+}
