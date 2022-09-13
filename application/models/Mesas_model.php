@@ -32,4 +32,4 @@ class Mesas_model extends CI_Model
     //     // $query = $this->db->get('mesas');
     //     // return $query->result();
     // }
-}
+} 

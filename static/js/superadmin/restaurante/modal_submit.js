@@ -32,31 +32,10 @@ $("#modal-form").on("submit", function (event) {
 						let email = form.elements[2].value;
 						let phone = form.elements[3].value;
 						let id_user = form.elements[4].value;
-						$("#" + id_user + "_nombre").text(nombre);
+
+						$("#", id_user, "_nombre").text(nombre);
 						$("#" + id_user + "_email").text(email);
 						$("#" + id_user + "_phone").text(phone);
-						$("#" + id_user + "_restaurantes_input").data("nombre", nombre);
-						$("#" + id_user + "_restaurantes_actions_edit").attr(
-							"data-nombre",
-							nombre
-						);
-
-						$("#" + id_user + "_restaurantes_actions_edit").attr(
-							"data-email",
-							email
-						);
-						$("#" + id_user + "_restaurantes_actions_edit").attr(
-							"data-phone",
-							phone
-						);
-						$("#" + id_user + "_restaurantes_actions_delete").attr(
-							"data-nombre",
-							nombre
-						);
-						$("#" + id_user + "_restaurantes_actions_edit").attr(
-							"data-whatever",
-							"Editar " + nombre
-						);
 						message("success", "", result.message);
 					} else {
 						message("danger", "", result.message);
@@ -74,7 +53,7 @@ $("#modal-form").on("submit", function (event) {
 		if ($("#password").val() == "") {
 			$(".password").text("Este campo es requerido");
 		}
-		if ($("#password").val() != "") {
+		if ($("#password").val() != "" && $("#password").val().length < 4) {
 			$(".password").text("Debe ser contener 4 caracteres o más");
 		}
 
