@@ -28,7 +28,6 @@ class Users_model extends CI_Model
             ->insert('users');
         return $query;
     }
-
     public function get_users()
     {
         $rows = $this->db->count_all_results('users') > 0;
@@ -38,12 +37,24 @@ class Users_model extends CI_Model
             return false;
         }
     }
-    
     public function update_user_status($id_user, $status)
     {
-        $this->db->where('id', $id_user);
-        $query = $this->db->update('status', $status);
-        return $query;
-        die();
+
+        $query = $this->db->set("status", $status)
+            ->where("id_user", $id_user)
+            ->update("users");
+        if ($query) {
+            return $this->db->select('status')
+                ->where('id_user', $id_user)
+                ->get('users')->result_array();
+        } else {
+            return false;
+        }
+    }
+    public function update_user($id_user, $array)
+    {
+        return $this->db->set($array)
+            ->where('id_user', $id_user)
+            ->update('users');
     }
 }

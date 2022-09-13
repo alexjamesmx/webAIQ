@@ -7,7 +7,7 @@ class User extends CI_Controller
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
-        $data = []; 
+        $data = [];
 
         $res = $this->users_model->exist_user($email);
 
@@ -34,21 +34,6 @@ class User extends CI_Controller
         echo json_encode($data);
     }
 
-    public function updateAvatar()
-    {
-        $data = [];
-        $email = $this->input->post('email');
-        $avatar =  $this->input->post('avatar');
-        $res = $this->users_model->update_avatar($email, $avatar);
-        if (!!$res) {
-            $data['message'] = 'Foto de perfil actualizada';
-            $data['res'] = $res;
-        } else {
-            $data['message'] = 'No ha sido posible actualizar por el momento';
-            $data['res'] = $res;
-        }
-        echo json_encode($data);
-    }
 
     public function signout()
     {
@@ -56,16 +41,17 @@ class User extends CI_Controller
     }
     public function addUser()
     {
-        $restaurant = $this->input->post("restaurant");
+        $nombre = $this->input->post("nombre");
         $email = $this->input->post('email');
         $phone = $this->input->post('phone');
         $password = $this->input->post('password');
         $array = array(
-            'nombre' => $restaurant,
+            'nombre' => $nombre,
             'email' => $email,
             'phone' => $phone,
             'password' => $password,
         );
+        print_r($array);
         $res = $this->users_model->add_user($array);
         if (!!$res) {
             $data['message'] = 'Restaurante agregado exitosamente.';
@@ -92,15 +78,44 @@ class User extends CI_Controller
         echo json_encode($data);
     }
 
-    public function updateUserStatus($id_user , $status)
+    public function updateUserStatus()
     {
-        // $id_user =! $this->input->post('id');
-        // $status =!$this->input->post('status');     
-        // $data = [];
+        $id_user = $this->input->post('id_user');
+        $status = $this->input->post('status') == 1 ? 0 : 1;
         $res = $this->users_model->update_user_status($id_user, $status);
-        echo json_encode($res);
-
-
-
+        if ($res) {
+            $data['data'] = $res;
+            $data['message'] = 'Datos extraidos correctamente';
+            $data['res'] = TRUE;
+        } else if ($res == false) {
+            $data['data'] = $res;
+            $data['message'] = 'Hubo un problema con la peticion';
+            $data['res'] = FALSE;
+        }
+        echo json_encode($data);
+    }
+    public function updateUser()
+    {
+        $data = [];
+        $id_user = $this->input->post("id_user");
+        $nombre = $this->input->post("nombre");
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $password = $this->input->post('password');
+        $array = array(
+            'nombre' => $nombre,
+            'email' => $email,
+            'phone' => $phone,
+            'password' => $password,
+        );
+        $res = $this->users_model->update_user($id_user, $array);
+        if ($res) {
+            $data["message"] = "Restaurante actualizado exitosamente";
+            $data["res"] = $res;
+        } else {
+            $data["message"] = "No ha sido posible actualizar por el momento";
+            $data["res"] = $res;
+        }
+        echo json_encode($data);
     }
 }

@@ -39,7 +39,6 @@ class Menu extends CI_Controller {
      {
         $id_res = $this->session->userdata('id_user');
         $id_init = intval($id_res);
-        var_dump($id_init);
       
         $config['upload_path'] = 'static/img/';
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -60,7 +59,6 @@ class Menu extends CI_Controller {
             $imagen = $file_info['file_name'];
             var_dump($imagen);
             $id_platillo = $this->Menu_model->select_id_imagen($id_init);
-            var_dump($id_platillo->id_comida);
             $ima = array(
                 'imagen' => $imagen
             );
@@ -70,6 +68,36 @@ class Menu extends CI_Controller {
        // redirect(base_url('app/myaccount'), 'refresh');
     }
 
+    public function get_menus() {
+        $id_res = $this->session->userdata('id_user');
+        $category = $this->input->post('category');
+
+        $data = $this->Menu_model->get_combos($category, $id_res);
+        $obj[ "res" ] = $data != NULL;
+		$obj[ "mensaje" ]   = $obj[ "res" ] ?
+		"Se recuperaron ".count( $data )." productos" : "No hay productos registrados";
+		$obj[ "productos" ]  = $data;
+
+		echo json_encode( $obj );
+    }
+
+    public function cambiarstatus() {
+        $idcomida = $this->input->post("idcomida");
+        $obj["res"] = $this->Menu_model->change_producto($idcomida);
+        $obj["mes"] = $obj["res"] ? 
+            "Status cambiado con éxito" : "Imposible actualizar el status";
+        
+        echo json_encode($obj);
+    }
+
+    public function del() {
+        $idcomida = $this->input->post("id_comida");
+        $obj["res"] = $this->Menu_model->delete_producto($idcomida) > 0;
+        $obj["mes"] = $obj["res"] ? 
+            "Producto eliminado con éxito" : "El producto no se pudo eliminar";
+        
+        echo json_encode($obj);
+     }
 }
 
 /* End of file  Menu.php */

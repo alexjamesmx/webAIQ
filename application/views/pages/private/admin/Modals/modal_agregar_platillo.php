@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body bradb">
                     <h5 class="mb-4 modal-title">ACCION</h5>
-                    <form class="needs-validation" id="agregar_platillo" novalidate>
+                    <form class="needs-validation" id="form-producto" novalidate>
                     <input type="hidden" class="form-control" id="id" name="id" value="<?=$_SESSION['id_user']?>">
                         <div class="form-row">
                             <div class="col-md-12 mb-3">
@@ -25,12 +25,12 @@
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="k"> Precio </label>
-                                <input type="number" class="form-control" id="precio" name="precio" required>
+                                <input type="number" step="0.01" class="form-control" id="precio" name="precio" required>
                                 <span class="invalid-feedback">Precio Requerido</span>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="k"> Tiempo de preparación</label>
-                                <input type="time" class="form-control" id="tiempo" name="tiempo" required>
+                                <label for="k">Preparación (min)</label>
+                                <input type="number" step="1"  class="form-control" id="tiempo" name="tiempo" required>
                                 <span class="invalid-feedback">Tiempo Requerido</span>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -51,9 +51,9 @@
                                 <span class="invalid-feedback">Descripcion Requerido</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="guardarinfo" type="submit">Crear</button>
+                        <button class="btn btn-primary" type="button" id="guardarinfo">Guardar</button>
                     </form>
-                    <form id="form-subir-img" action="/AIQ/Menu/subirImagen" class="validate-ptp d-none" method="post" enctype="multipart/form-data">
+                    <form id="form-subir-img" action="/AIQ/Menu/subirImagen" class="validate-ptp d-none" method="post" enctype="multipart/form-data" target="votar">
                                
                                 <div class="row">
                                     <div class="col-12 mt-3">
@@ -71,9 +71,9 @@
                                 <input type="file" name="fileImagen" id="fileImagen" 
                                 class="form-control btn btn-primary required btn-block mt-3">
                                 <button class="btn btn-link btn-block mb-4 mt-2" style="font-size: 18px">
-                                    <i name="btnon" id="btnon"  class="fas fa-camera"></i> 
+                                    <i name="btnon" id="btnon" data-dismiss="modal"  class="fas fa-camera close"></i> 
                                     <u>
-                                        Subir logo
+                                        Subir imagen
                                     </input>
                                 </u>
                             </button>
@@ -82,3 +82,5 @@
             </div>
         </div>
     </div>
+
+    <iframe name="votar" style="display:none;"></iframe> 

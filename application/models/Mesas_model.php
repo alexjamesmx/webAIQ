@@ -19,4 +19,17 @@ class Mesas_model extends CI_Model
     //     ->update('users');
     //     return $query;
     // }
+
+    // public function get_mesas()
+    // {
+    //     $rows = $this->db->count_all_results('mesas') > 0;
+    //     if ($rows) {
+    //         return $this->db->get('mesas')->result();
+    //     } else {
+    //         return false;
+    //     }
+
+    //     // $query = $this->db->get('mesas');
+    //     // return $query->result();
+    // }
 } 

@@ -12,9 +12,15 @@ class MovilR_model extends CI_Model
 
     public function getMenu($id_user)
     { 
-        $cmd = "SELECT * FROM menu WHERE id_user = $id_user";
-        $query = $this->db->query($cmd);
-        return ($query->result()); 
+        // $cmd = "SELECT * FROM menu WHERE id_user = $id_user";
+        // $query = $this->db->query($cmd);
+        // return ($query->result()); 
+        $this->db->select('*')
+        ->from('menu')
+        ->where('id_user', $id_user)
+        ->where('status', 1);
+        $rs = $this->db->get();
+        return $rs->result();
         //$id_menu = $this->input->post('id_res');
         // $id_convert = intval($id_menu);
         // var_dump($id_convert);
@@ -23,7 +29,7 @@ class MovilR_model extends CI_Model
         
     }
 
-    public function getRepartidor()
+    public function getRepartidor() 
     { 
         $cmd = "SELECT * FROM repartidores WHERE activo = 1";
         $query = $this->db->query($cmd);

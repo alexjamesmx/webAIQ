@@ -32,7 +32,7 @@ class MovilR extends CI_Controller {
     public function getPublicidad()
     {   
         $resultado["Publicidad"] = $this->MovilR_model->getPublicidad();
-        echo json_encode($resultado);
+        echo json_encode($resultado); 
     }
 
     public function getBuscadorPalabra($palabra = NULL)

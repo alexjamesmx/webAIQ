@@ -30,8 +30,31 @@ class Menu_model extends CI_Model {
         $obj[ 'mensaje' ]     = $obj[ 'res' ] ?
         'Platillo insertado' : 'No fue posible insertar el platillo';
         return $obj;
-
     }
+
+    public function get_combos( $tipo, $id_res ) {
+        $this->db->select('*')
+        ->from('menu')
+        ->where('id_categoria', $tipo)
+        ->where('id_user', $id_res)
+        ->where('status !=', 2);
+        $rs = $this->db->get();
+		return $rs->num_rows() > 0 ? $rs->result() : NULL;
+    }
+
+    public function change_producto( $idcomida ) {
+        $this->db->where('id_comida', $idcomida);
+        $this->db->set("status", "1 - status", FALSE);
+        $this->db->update('menu');
+        return $this->db->affected_rows();
+     }
+
+     public function delete_producto( $id_comida ) {
+        $this->db->where('id_comida', $id_comida);
+        $this->db->set("status", 2);
+        $this->db->update('menu');
+        return $this->db->affected_rows();
+      }
 }
 
 /* End of file Menu_model.php */

@@ -17,307 +17,327 @@
             <div class="card mb-4">
                 <div id="smartWizardClickable">
                     <ul class="card-header">
-                        <li class="m-2"><a href="#clickable1">
+                        <li class="m-2"><a href="#clickable1" onclick="get_menu('1')">
                                 <h3> Combos <i class="iconsminds-cookies"></i> </h3>
                             </a></li>
-                        <li class="done m-2"><a href="#clickable2">
+                        <li class="done m-2"><a href="#clickable2" onclick="get_menu('2')">
                                 <h3> Platillos <i class="iconsminds-hamburger"></i> </h3>
                             </a></li>
-                        <li class="done m-2"><a href="#clickable3">
+                        <li class="done m-2"><a href="#clickable3" onclick="get_menu('3')">
                                 <h3> Bebidas <i class="iconsminds-coffee-to-go"></i> </h3>
                             </a></li>
                     </ul>
 
                     <div class="card-body">
                         <div id="clickable1">
-                            <table class="table">
-                                <thead>
+                            <div id="combos-log">
+                                <table  cellpadding="0" cellspacing="0" width="100%" class="table_loader">
                                     <tr>
-                                        <th scope="col">
-                                            <h4>Imagen</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Nombre</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Precio</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Tipo de preparacion</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/Sandwich1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">Sandwich y Coca de 355ml</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">$45.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1" data-toggle="modal"
-                                                data-target=".bd-example-modal-sm"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/Bagel1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
-                                        </th>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">Bagel y Coca de 355ml</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">$85.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/Baguette1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
-                                        </th>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">Baguette y Coca de 355ml</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">$150.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 20:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
                                     </tr>
+                                    <tr>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                    </tr>
+                                
+                                </table>
+                            </div>
 
-                                </tbody>
-                            </table>
-                        </div>
+                            <div id="combos" class="d-none">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <h4>Imagen</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Nombre</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Precio</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Tiempo de preparacion</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Status</h4>
+                                            </th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableCombos">
+                                       
+                                    </tbody>
+                                </table>
+                                </div>
+
+                                </div>
+    
+
                         <div id="clickable2">
-                            <table class="table">
-                                <thead>
+                            <div id="platillos-log">
+                                <table  cellpadding="0" cellspacing="0" width="100%" class="table_loader">
                                     <tr>
-                                        <th scope="col">
-                                            <h4>Imagen</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Nombre</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Precio</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Tiempo de preparacion</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/Sandwich1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <td class="align-middle">
-                                            <p class="textabla text-center">Sandwich</p>
-                                        </td>
-                                        <td class="align-middle">
-                                            <p class="textabla text-center">$25.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/Bagel1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
-                                        </th>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">Bagel</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">$65.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 15:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/Baguette1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
-                                        </th>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">Baguette</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">$130.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 20:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
                                     </tr>
-
-                                </tbody>
-                            </table>
+                                    <tr>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                    </tr>
+                                
+                                </table>
+                            </div>
+                            <div id="platillos" class="d-none">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <h4>Imagen</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Nombre</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Precio</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Tiempo de preparacion</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Status</h4>
+                                            </th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablePlatillos">
+                                
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="clickable3">
-                            <table class="table">
-                                <thead>
+                            <div id="bebidas-log">
+                                <table  cellpadding="0" cellspacing="0" width="100%" class="table_loader">
                                     <tr>
-                                        <th scope="col">
-                                            <h4>Imagen</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Nombre</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Precio</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col" class="text-center">
-                                            <h4>Tipo de preparacion</h4>
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/chai1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
+                                        <th class="col3">
+                                            <span></span>
                                         </th>
-                                        <td class="align-middle">
-                                            <p class="textabla text-center">Chai1</p>
-                                        </td>
-                                        <td class="align-middle">
-                                            <p class="textabla text-center">$30.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 10:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/frappuccino1.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
-                                        </th>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">Chip Frappuccino</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">$50.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 10:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">
-                                            <img src="<?=base_url()?>static/img/frappuccino2.png" alt="Fat Rascal"
-                                                class="list-thumbnail responsive border-0 card-img-left" />
-                                        </th>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">Berry Yogurt Frappuccino</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla">$55.00</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="textabla"><i class="iconsminds-stopwatch"></i> 10:00 min
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-right">
-                                            <button type="button" class="btn btn-outline-primary m-1"
-                                                data-toggle="modal" data-target="#exampleModalContent"
-                                                data-whatever="Editar"><i
-                                                    class="simple-icon-pencil textabla"></i></button>
-                                            <button type="button" class="btn btn-outline-danger m-1"><i
-                                                    class="simple-icon-trash textabla"></i></button>
-                                        </td>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
                                     </tr>
-
-                                </tbody>
-                            </table>
+                                    <tr>
+                                      <td class="col3">
+                                        <span class="img"></span>
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                      <td class="col3">
+                                        <span></span>	
+                                      </td>
+                                    </tr>
+                                
+                                </table>
+                            </div>
+                            <div id="bebidas" class="d-none">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <h4>Imagen</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Nombre</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Precio</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Tiempo de preparacion</h4>
+                                            </th>
+                                            <th scope="col" class="text-center">
+                                                <h4>Status</h4>
+                                            </th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBebidas">
+                                
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
