@@ -36,6 +36,34 @@ function handleModal(e) {
       'Ej: torta de salchicha con  jitomate, cebolla, mayoneza',
     )
     $('#guardarinfo').attr('onclick', 'add()')
+    $('#guardarinfo').attr('disabled', 'disabled')
+    $('#guardarinfo').removeAttr('data-dismiss', 'modal')
+
+    if (
+      $('#nombre').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#precio').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#tiempo').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#tipo').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
+    if (
+      $('#descripcion').change(function () {
+        $('#guardarinfo').removeAttr('disabled')
+      })
+    );
   } else if (action == 'edit') {
 
     // si es editar colocamos los valores que se pidieron de base de datos y colocamos el onclick="edit" para llamar la funcion de editar y colocamos en disabled el boton en espera de algun cambio en los input
@@ -170,24 +198,11 @@ function edit() {
 function add() {
   //cargamos valores del formulario a las variables
   id_user = $('#id').val()
-  $('#nombre').on('input', (e) => {
-    nombre = e.target.value
-  })
-  $('#precio').on('input', (e) => {
-    precio = e.target.value
-  })
-
-  $('#tiempo').on('input', (e) => {
-    tiempo = e.target.value
-  })
-
-  $('#tipo').on('input', (e) => {
-    tipo = e.target.value
-  })
-
-  $('#descripcion').on('input', (e) => {
-    descripcion = e.target.value
-  })
+  nombre = $('#nombre').val()
+  precio = $('#precio').val()
+  tiempo = $('#tiempo').val()
+  tipo = $('#tipo').val()
+  descripcion = $('#descripcion').val()
 
   //validacion
 
@@ -325,12 +340,12 @@ function get_menu(tipo) {
             $('#tableCombos').append(
               '<tr>' +
                 '<th scope="row">' +
-                '<img src="' +
+                '<a href="#' + element['id_comida'] + '"> <img src="' +
                 appData.base_url +
                 'static/img/' +
                 element['imagen'] +
                 '" alt="Fat Rascal"' +
-                'class="list-thumbnail responsive border-0 card-img-left" />' +
+                'class="list-thumbnail responsive border-0 card-img-left" /> </a>' +
                 '</th>' +
                 '<td class="align-middle text-center">' +
                 '<p class="textabla">' +
@@ -616,4 +631,4 @@ function borra_click(idcomida, nomproducto) {
   $('#modal-nomproducto-body').html(nomproducto)
 
   $('#btn-borrar-confirmar').attr('data-idcomida', idcomida)
-}
+} 

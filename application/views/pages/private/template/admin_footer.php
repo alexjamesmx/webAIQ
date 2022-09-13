@@ -19,6 +19,9 @@
     <script src="<?= base_url() ?>static/js/vendor/progressbar.min.js"></script>
     <script src="<?= base_url() ?>static/js/vendor/mousetrap.min.js"></script>
     <script src="<?= base_url() ?>static/js/menu.js"></script>
+    <script src="<?= base_url() ?>static/js/estadores.js"></script> 
+    <script src="<?= base_url() ?>static/js/cuenta.js"></script> 
+
   
 </body> 
 
