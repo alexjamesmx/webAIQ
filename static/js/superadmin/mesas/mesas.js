@@ -18,10 +18,10 @@ function getMesas() {
 						`
 					<tr class='item' id='${item.id_mesa}_registro'>
 					<td>
-						<p id="${item.id_mesa}_id" class="text-muted">${item.id_mesa}</p>
+						<p id="${item.id_mesa}_id_mesa" class="text-muted">${item.id_mesa}</p>
 					</td>
 					<td>
-						<p id="${item.id_mesa}_nombre" class="list-item-heading">${item.descripcion}</p>
+						<p id="${item.id_mesa}_descrpcion_mesa" class="list-item-heading">${item.descripcion}</p>
 					</td>
 					<td> 
 						<a class="align-self-center mr-4"
@@ -29,7 +29,6 @@ function getMesas() {
 							href="#" 
 							data-toggle="modal" 
 							data-target="#modal-actions-mesas" 
-							data-whatever="" 
 							data-action="Editar"  
 							onclick="return handleModal_mesas (this)" 
 							data-password=\"${item.password}\"
@@ -40,10 +39,10 @@ function getMesas() {
 						</a>
 						<a class="align-self-center mr-4"
 							id="${item.id_mesa}_mesas_actions_delete" 
-							onclick="return handleModalDelete(this)" 
+							onclick="return handleModalDelete_mesas(this)" 
 							href="#" 
 							data-toggle="modal" 
-							data-target="#modal-delete"
+							data-target="#modal-delete_mesas"
 							data-id=\"${item.id_mesa}\">
 						<i class="iconos-size simple-icon-trash trash"></i>
 						</a>
@@ -57,4 +56,10 @@ function getMesas() {
 		.fail(() => {
 			message("danger", "", "Error: Hubo un problema con la petición");
 		});
+}
+
+function reload_mesas() {
+	$("#results_tabla_mesas").empty();
+	getMesas();
+	$(".dataTables_empty").remove();
 }

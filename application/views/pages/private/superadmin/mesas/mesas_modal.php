@@ -9,36 +9,57 @@
             </div>
             <div class="modal-body">
                 <form class="row g-3 needs-validation" id='modal-form-mesas' novalidate>
-                    <div class="col-12">
-
-                        <label for="descripcion_mesas" class="form-label">Descripción</label>
+                    <div class="col-12 m-2">
+                        <label for="id_mesa" class="form-label">Id</label>
                         <div class="input-group has-validation">
-                            <span class="input-group-text"><i class="simple-icon-home"></i></span>
-                            <input type="text" class="form-control" required name='descripcion_mesas' id='descripcion_mesas'>
-                            <div class="descripcion_mesas invalid-feedback">
-
+                            <span class="input-group-text"><i class="iconsminds-tablet-3"></i></span>
+                            <input type="text" class=" form-control" required name="id_mesa" id='id_mesa'>
+                            <div class="id_mesa invalid-feedback">
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 m-2">
+                        <label for="descripcion_mesas" class="form-label">Descripción</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text"><i class="simple-icon-tag"></i></span>
+                            <input type="text" class="form-control" required name='descripcion_mesas' id='descripcion_mesas'>
+                            <div class="descripcion_mesas invalid-feedback">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 m-2">
                         <label for="password_mesas" class="form-label">Contraseña</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text"><i class="simple-icon-lock"></i></span>
-                            <input type="password" class="form-control" required name="password_mesas" id='password_mesas'>
+                            <input type="password" class="form-control" required name="password_mesas" id='password_mesas' autocomplete="on">
                             <div class="password_mesas invalid-feedback">
                             </div>
                         </div>
-
                     </div>
-
-                    <label hidden for="id_mesa"></label>
-                    <input hidden name="id_mesa" id='id_mesa'>
             </div>
             <div class=" col-12 d-flex flex-row-reverse mb-2">
                 <button class="btn btn-primary" type="submit">Guardar</button>
                 <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancelar</button>
             </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<div id='modal-delete_mesas' class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm brad bradb">
+        <div class="modal-content brad bradb">
+            <div class="modal-header brad bg-primary">
+                <h5 id='modal-delete-title_mesas'></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bradb">
+                <p class="mb-4" id='modal-delete-text-mesas'></p>
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" name='delete'>Eliminar</button>
+            </div>
         </div>
     </div>
 </div>

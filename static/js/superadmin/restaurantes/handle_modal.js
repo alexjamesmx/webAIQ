@@ -27,9 +27,9 @@ function handleModal_restaurantes(e) {
 		let password = $(e).attr("data-password");
 		let email = $(e).attr("data-email");
 		let phone = $(e).attr("data-phone");
-		$("#modal-actions-title-restaurantes").text("Editar " + nombre);
+		$("#modal-actions-title-restaurantes").html("Editar <b>" + nombre + "</b>");
 		$("#nombre").attr("placeholder", nombre);
-		$("#password").attr("placeholder", password);
+		$("#password").attr("placeholder", "Contraseña");
 		$("#email").attr("placeholder", email);
 		$("#phone").attr("placeholder", phone);
 		$("#nombre").val(nombre);
@@ -37,21 +37,17 @@ function handleModal_restaurantes(e) {
 		$("#email").val(email);
 		$("#phone").val(phone);
 		$("#id_user").val(id_user);
-
-		// $("#" + id_user + "_restaurantes_actions_edit").data(
-		// 	"whatever",
-		// 	"Editar " + nombre
-		// );
 		$("#modal-actions-restaurantes").data("action", "Editar");
 	}
 }
 
-function handleModalDelete(e) {
+function handleModalDelete_restaurantes(e) {
 	let id_user = $(e).data("id");
 	let nombre = $("#" + id_user + "_nombre").text();
-	console.log("data-nombew: ", nombre);
-	$("#modal-delete-title").text(`¿Estás seguro de eliminar a ${nombre}?`);
-	$("#modal-delete-text-restaurante").text(`Eliminar a ${nombre}`);
+	$("#modal-delete-title-restaurantes").html(
+		`¿Estás seguro de eliminar a <b>${nombre}</b>?`
+	);
+	$("#modal-delete-text-restaurantes").html(`Eliminar a ${nombre}`);
 
 	$("button[name='delete']").click(function () {
 		$.ajax({

@@ -50,7 +50,6 @@ function getUsers() {
 							href="#" 
 							data-toggle="modal" 
 							data-target="#modal-actions-restaurantes" 
-							data-whatever="" 
 							data-action="Editar"  
 							onclick="return handleModal_restaurantes (this)" 
 							data-id=\"${item.id_user}\"
@@ -62,10 +61,10 @@ function getUsers() {
 						</a>
 						<a class="align-self-center mr-4"
 							id="${item.id_user}_restaurantes_actions_delete" 
-							onclick="return handleModalDelete(this)" 
+							onclick="return handleModalDelete_restaurantes(this)" 
 							href="#" 
 							data-toggle="modal" 
-							data-target="#modal-delete"
+							data-target="#modal-delete-restaurantes"
 							data-id=\"${item.id_user}\">
 						<i class="iconos-size simple-icon-trash trash"></i>
 						</a>

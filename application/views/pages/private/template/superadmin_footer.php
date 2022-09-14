@@ -12,6 +12,8 @@
 
 <script src="<?= base_url() ?>static/js/superadmin/mesas/mesas.js"></script>
 <script src="<?= base_url() ?>static/js/superadmin/mesas/handle_modal.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/mesas/validate_form.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/mesas/handle_submit.js"></script>
 
 
 <script src="<?= base_url() ?>static/js/dore.script.js"></script>

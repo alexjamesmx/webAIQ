@@ -22,4 +22,8 @@ class Mesas_model extends CI_Model
             return false;
         }
     }
+    public function add_mesa($data)
+    {
+        return $this->db->insert('mesas', $data);
+    }
 }

@@ -1,20 +1,36 @@
 //EDITAR 0 AGREGAR EVENTO
 $("#modal-form-restaurantes").on("submit", function (event) {
 	event.preventDefault();
-
 	action = $("#modal-actions-restaurantes").data("action");
 	if (validateForm()) {
+		const form = document.getElementById("modal-form-restaurantes");
+		let nombre = form.elements[0].value;
+		let email = form.elements[2].value;
+		let phone = form.elements[3].value;
+		let id_user = form.elements[4].value;
 		$(".close").click();
-		console.log(action);
 		if (action == "Agregar") {
-			$("#results").empty();
 			$.ajax({
 				type: "post",
 				url: appData.base_url + "user/addUser",
 				data: $("#modal-form-restaurantes").serialize(),
+				dataType: "json",
 			})
 				.done((res) => {
-					getUsers();
+					if (res.res === true) {
+						message("success", "", res.message);
+						getUsers();
+					}
+					if (res.res === false) {
+						message("danger", "Error: ", res.message);
+					}
+					if (res.res === "exists") {
+						message(
+							"danger",
+							"Error: ",
+							`El registro (<small>${nombre} \\ ${email}</small>) ya existen en la base de datos`
+						);
+					}
 				})
 				.fail(() => {
 					message("danger", "", "Error: Hubo un problema con la petición");
@@ -28,12 +44,7 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 				dataType: "json",
 			})
 				.done((result) => {
-					if (result.res) {
-						const form = document.getElementById("modal-form-restaurantes");
-						let nombre = form.elements[0].value;
-						let email = form.elements[2].value;
-						let phone = form.elements[3].value;
-						let id_user = form.elements[4].value;
+					if (result.res === true) {
 						$("#" + id_user + "_nombre").text(nombre);
 						$("#" + id_user + "_email").text(email);
 						$("#" + id_user + "_phone").text(phone);
@@ -42,7 +53,6 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 							"data-nombre",
 							nombre
 						);
-
 						$("#" + id_user + "_restaurantes_actions_edit").attr(
 							"data-email",
 							email
@@ -55,9 +65,17 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 							"data-whatever",
 							"Editar " + nombre
 						);
-						message("success", "", result.message);
-					} else {
-						message("danger", "", result.message);
+						message("success", "", nombre + result.message);
+					}
+					if (result.res === false) {
+						message("danger", "Error: ", res.message);
+					}
+					if (result.res === "exists") {
+						message(
+							"danger",
+							"Error: ",
+							`El registro (<small>${nombre} \\ ${email}</small>) ya existen en la base de datos`
+						);
 					}
 				})
 				.fail(() => {
@@ -71,9 +89,6 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 
 		if ($("#password").val() == "") {
 			$(".password").text("Este campo es requerido");
-		}
-		if ($("#password").val() != "") {
-			$(".password").text("Debe ser contener 4 caracteres o más");
 		}
 
 		if ($("#email").val() != "" && !validateEmail($("#email").val())) {

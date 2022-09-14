@@ -23,5 +23,3 @@
 </div>
 
 <div class="message d-flex justify-content-center position-alert"></div>
-
-<?php include('superadmin_modal_delete.php') ?>

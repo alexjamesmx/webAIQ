@@ -10,7 +10,6 @@ class User extends CI_Controller
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-
         $data = [];
 
         $res = $this->users_model->exist_user($email);
@@ -27,7 +26,6 @@ class User extends CI_Controller
                 $data['message'] = 'Tu correo o contraseña son incorrectos';
                 $data['res'] = FALSE;
             } else {
-
                 unset($userData['password']);
                 $data['user'] = $userData;
                 $data['message'] = 'Logueado correctamente';
@@ -37,7 +35,6 @@ class User extends CI_Controller
         }
         echo json_encode($data);
     }
-
 
     public function signout()
     {
@@ -55,14 +52,20 @@ class User extends CI_Controller
             'phone' => $phone,
             'password' => $password,
         );
-        print_r($array);
-        $res = $this->users_model->add_user($array);
-        if (!!$res) {
-            $data['message'] = 'Restaurante agregado exitosamente.';
-            $data['res'] = $res;
+        $exists = $this->users_model->exist_user($email, $nombre);
+
+        if ($exists) {
+            $data['message'] = "Este restaurante/usuario ya existe en la base de datos";
+            $data['res'] = 'exists';
         } else {
-            $data['message'] = 'No se pudo agregar un nuevo restaurante, intente más tarde';
-            $data['res'] = $res;
+            $res = $this->users_model->add_user($array);
+            if ($res) {
+                $data['message'] = 'Restaurante agregado exitosamente.';
+                $data['res'] = TRUE;
+            } else {
+                $data['message'] = 'No se pudo agregar un nuevo restaurante, consulte con sistemas';
+                $data['res'] = FALSE;
+            }
         }
         echo json_encode($data);
     }
@@ -112,13 +115,20 @@ class User extends CI_Controller
             'phone' => $phone,
             'password' => $password,
         );
-        $res = $this->users_model->update_user($id_user, $array);
-        if ($res) {
-            $data["message"] = "Restaurante actualizado exitosamente";
-            $data["res"] = $res;
+        $exists = $this->users_model->exist_user($email, $nombre, 'more');
+
+        if ($exists) {
+            $data['message'] = "Este restaurante/usuario ya existe en la base de datos";
+            $data['res'] = 'exists';
         } else {
-            $data["message"] = "No ha sido posible actualizar por el momento";
-            $data["res"] = $res;
+            $res = $this->users_model->update_user($id_user, $array);
+            if ($res) {
+                $data["message"] = " actualizado exitosamente";
+                $data["res"] = $res;
+            } else {
+                $data["message"] = "No ha sido posible actualizar por el momento";
+                $data["res"] = $res;
+            }
         }
         echo json_encode($data);
     }

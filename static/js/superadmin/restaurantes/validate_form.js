@@ -32,7 +32,6 @@ $("#password").on("input", () => {
 $("#email").on("input", () => {
 	if ($("#email").val() != "" && !validateEmail($("#email").val())) {
 		$(".email").text("El formato es incorrecto");
-		$(".nombre").text("Este campo es requerido");
 	}
 	if ($("#email").val() == "") {
 		$(".email").text("Este campo es requerido");

@@ -6,6 +6,10 @@
         <div class="col-12">
             <h1>Mesas</h1>
             <div class="text-zero top-right-button-container">
+                <button type="button" class="btn btn-outline-dark btn-sm top-right-button mr-1 iconos-size-sm" onclick="return reload_mesas()">
+                    <i class='simple-icon-refresh iconos-size-sm'></i>
+                    Recargar
+                </button>
                 <button id='btn-modal' type="button" class="btn btn-primary btn-lg top-right-button mr-1" data-toggle="modal" data-target="#modal-actions-mesas" data-whatever="Agregar mesa" data-action="Agregar" onclick="return handleModal_mesas(this)">
                     <i class='simple-icon-plus mr-2'></i>
                     AGREGAR</button>
