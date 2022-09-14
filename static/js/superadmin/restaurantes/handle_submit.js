@@ -1,15 +1,17 @@
 //EDITAR 0 AGREGAR EVENTO
-$("#modal-form").on("submit", function (event) {
+$("#modal-form-restaurantes").on("submit", function (event) {
 	event.preventDefault();
-	action = $("#modal-form").data("action");
+
+	action = $("#modal-actions-restaurantes").data("action");
 	if (validateForm()) {
 		$(".close").click();
+		console.log(action);
 		if (action == "Agregar") {
 			$("#results").empty();
 			$.ajax({
 				type: "post",
 				url: appData.base_url + "user/addUser",
-				data: $("#modal-form").serialize(),
+				data: $("#modal-form-restaurantes").serialize(),
 			})
 				.done((res) => {
 					getUsers();
@@ -22,12 +24,12 @@ $("#modal-form").on("submit", function (event) {
 			$.ajax({
 				type: "post",
 				url: appData.base_url + "user/updateUser",
-				data: $("#modal-form").serialize(),
+				data: $("#modal-form-restaurantes").serialize(),
 				dataType: "json",
 			})
 				.done((result) => {
 					if (result.res) {
-						const form = document.getElementById("modal-form");
+						const form = document.getElementById("modal-form-restaurantes");
 						let nombre = form.elements[0].value;
 						let email = form.elements[2].value;
 						let phone = form.elements[3].value;
@@ -48,10 +50,6 @@ $("#modal-form").on("submit", function (event) {
 						$("#" + id_user + "_restaurantes_actions_edit").attr(
 							"data-phone",
 							phone
-						);
-						$("#" + id_user + "_restaurantes_actions_delete").attr(
-							"data-nombre",
-							nombre
 						);
 						$("#" + id_user + "_restaurantes_actions_edit").attr(
 							"data-whatever",

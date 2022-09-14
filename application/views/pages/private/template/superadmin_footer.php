@@ -5,10 +5,15 @@
         user: "<?= $this->session->email ?>",
     };
 </script>
-<script src="<?= base_url() ?>static/js/superadmin/restaurante/restaurantes.js"></script>
-<script src="<?= base_url() ?>static/js/superadmin/restaurante/handle_modal.js"></script>
-<script src="<?= base_url() ?>static/js/superadmin/restaurante/validate_form.js"></script>
-<script src="<?= base_url() ?>static/js/superadmin/restaurante/handle_submit.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/restaurantes/restaurantes.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/restaurantes/handle_modal.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/restaurantes/validate_form.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/restaurantes/handle_submit.js"></script>
+
+<script src="<?= base_url() ?>static/js/superadmin/mesas/mesas.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/mesas/handle_modal.js"></script>
+
+
 <script src="<?= base_url() ?>static/js/dore.script.js"></script>
 <script src="<?= base_url() ?>static/js/scripts.js"></script>
 <script src="<?= base_url() ?>static/js/message.js"></script>

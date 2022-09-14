@@ -38,24 +38,22 @@ class Mesas extends CI_Controller
         echo json_encode($data);
     }
 
-    public function updateAvatar()
-    {
-        $data = [];
-        $email = $this->input->post('email');
-        $avatar =  $this->input->post('avatar');
-        $res = $this->users_model->update_avatar($email, $avatar);
-        if (!!$res) {
-            $data['message'] = 'Foto de perfil actualizada';
-            $data['res'] = $res;
-        } else {
-            $data['message'] = 'No ha sido posible actualizar por el momento';
-            $data['res'] = $res;
-        }
-        echo json_encode($data);
-    }
-
     public function signout()
     {
         $this->session->sess_destroy();
+    }
+    public function getMesas()
+    {
+        $data = [];
+        $res = $this->mesas_model->get_mesas();
+        if ($res) {
+            $data['data'] = $res;
+            $data['message'] = 'Datos extraídos correctamente';
+            $data['res'] = TRUE;
+        } else {
+            $data['message'] = "No existen datos en la base de datos";
+            $data['res'] = FALSE;
+        }
+        echo json_encode($data);
     }
 }

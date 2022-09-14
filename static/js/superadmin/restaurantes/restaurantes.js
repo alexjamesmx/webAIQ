@@ -1,10 +1,12 @@
 $(function () {
-	$("#results").empty();
+	$("#results_tabla_restaurantes").empty();
 	getUsers();
+	$(".dataTables_empty").remove();
 });
 
 function getUsers() {
-	$("#results").empty();
+	$(".dataTables_empty").remove();
+	$("#results_tabla_restaurantes").empty();
 	$.ajax({
 		url: appData.base_url + "user/getUsers",
 		dataType: "json",
@@ -12,9 +14,12 @@ function getUsers() {
 		.done((result) => {
 			if (result.res) {
 				result.data.map((item) => {
-					$("#results").append(
+					$("#results_tabla_restaurantes").append(
 						`
 					<tr class='item' id='${item.id_user}_registro'>
+					<td>
+						<p id="${item.id_user}_id" class="text-muted">${item.id_user}</p>
+					</td>
 					<td>
 						<p id="${item.id_user}_nombre" class="list-item-heading">${item.nombre}</p>
 					</td>
@@ -44,10 +49,10 @@ function getUsers() {
 							id="${item.id_user}_restaurantes_actions_edit" 
 							href="#" 
 							data-toggle="modal" 
-							data-target="#exampleModalContent" 
+							data-target="#modal-actions-restaurantes" 
 							data-whatever="" 
 							data-action="Editar"  
-							onclick="return handleModal (this)" 
+							onclick="return handleModal_restaurantes (this)" 
 							data-id=\"${item.id_user}\"
 							data-nombre=\"${item.nombre}\"
 							data-password=\"${item.password}\"
@@ -56,12 +61,11 @@ function getUsers() {
 							<i class="iconos-size simple-icon-pencil pencil"></i>
 						</a>
 						<a class="align-self-center mr-4"
-						id="${item.id_user}_restaurantes_actions_delete" 
+							id="${item.id_user}_restaurantes_actions_delete" 
 							onclick="return handleModalDelete(this)" 
 							href="#" 
 							data-toggle="modal" 
-							data-target=".bd-example-modal-sm"
-							data-nombre=\"${item.nombre}\"
+							data-target="#modal-delete"
 							data-id=\"${item.id_user}\">
 						<i class="iconos-size simple-icon-trash trash"></i>
 						</a>
@@ -104,4 +108,10 @@ function getUsers() {
 		.fail(() => {
 			message("danger", "", "Error: Hubo un problema con la petición");
 		});
+}
+
+function reload_restaurantes() {
+	$("#results_tabla_restaurantes").empty();
+	getUsers();
+	$(".dataTables_empty").remove();
 }

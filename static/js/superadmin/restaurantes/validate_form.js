@@ -1,5 +1,5 @@
 function validateForm() {
-	const form = document.getElementById("modal-form");
+	const form = document.getElementById("modal-form-restaurantes");
 
 	let nombre = form.elements[0].value;
 	let password = form.elements[1].value;
@@ -32,6 +32,7 @@ $("#password").on("input", () => {
 $("#email").on("input", () => {
 	if ($("#email").val() != "" && !validateEmail($("#email").val())) {
 		$(".email").text("El formato es incorrecto");
+		$(".nombre").text("Este campo es requerido");
 	}
 	if ($("#email").val() == "") {
 		$(".email").text("Este campo es requerido");

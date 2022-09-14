@@ -7,7 +7,7 @@
     <main>
         <?php include('restaurantes/restaurantes.php') ?>
     </main>
-</div> 
+</div>
 
 <div id='mesas' class='pages' hidden>
     <main>
@@ -23,3 +23,5 @@
 </div>
 
 <div class="message d-flex justify-content-center position-alert"></div>
+
+<?php include('superadmin_modal_delete.php') ?>
