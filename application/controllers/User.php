@@ -40,35 +40,7 @@ class User extends CI_Controller
     {
         $this->session->sess_destroy();
     }
-    public function addUser()
-    {
-        $nombre = $this->input->post("nombre");
-        $email = $this->input->post('email');
-        $phone = $this->input->post('phone');
-        $password = $this->input->post('password');
-        $array = array(
-            'nombre' => $nombre,
-            'email' => $email,
-            'phone' => $phone,
-            'password' => $password,
-        );
-        $exists = $this->users_model->exist_user($email, $nombre);
 
-        if ($exists) {
-            $data['message'] = "Este restaurante/usuario ya existe en la base de datos";
-            $data['res'] = 'exists';
-        } else {
-            $res = $this->users_model->add_user($array);
-            if ($res) {
-                $data['message'] = 'Restaurante agregado exitosamente.';
-                $data['res'] = TRUE;
-            } else {
-                $data['message'] = 'No se pudo agregar un nuevo restaurante, consulte con sistemas';
-                $data['res'] = FALSE;
-            }
-        }
-        echo json_encode($data);
-    }
 
     public function getUsers()
     {
@@ -181,32 +153,47 @@ class User extends CI_Controller
         $phone = $this->input->post('phone');
         $password = $this->input->post('password');
 
-        $config['upload_path'] = 'static/img/';
-        $config['allowed_types'] = 'jpg|png|jpeg';
-        $config['max_size'] = '5000';
-
-        $nuevoNombreImg = 'platillo' . (date('YmdHis'));
-        $config['file_name'] = strtolower($nuevoNombreImg);
-
-        $this->load->library('upload', $config);
-
-        if (!$this->upload->do_upload('avatar')) {
-            $error = array('error' => $this->upload->display_errors());
-            echo json_encode($error);
+        $exists = $this->users_model->exist_user($email, $nombre);
+        if ($exists) {
+            $data['message'] = "Este restaurante/usuario ya existe en la base de datos";
+            $data['res'] = 'exists';
         } else {
-            $file_info = $this->upload->data();
+            $config['upload_path'] = 'static/img/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['max_size'] = '5000';
 
-            $imagen = $file_info['file_name'];
-            $array = array(
-                'avatar' => $imagen,
-                'nombre' => $nombre,
-                'email' => $email,
-                'phone' => $phone,
-                'password' => $password,
-            );
-            echo json_encode(
-                $this->users_model->imagen($array)
-            );
+            $nuevoNombreImg = 'platillo' . (date('YmdHis'));
+            $config['file_name'] = strtolower($nuevoNombreImg);
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('avatar')) {
+                $error = array('error' => $this->upload->display_errors());
+                $data['message'] = $error;
+                $data['res'] = FALSE;
+            } else {
+                $file_info = $this->upload->data();
+
+                $imagen = $file_info['file_name'];
+                $array = array(
+                    'avatar' => $imagen,
+                    'nombre' => $nombre,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'password' => $password,
+                );
+                $res = $this->users_model->imagen($array);
+                if ($res) {
+                    $data['message'] = 'Restaurante agregado exitosamente.';
+                    $data['res'] = TRUE;
+                } else {
+                    $data['message'] = 'No se pudo agregar un nuevo restaurante, consulte con sistemas';
+                    $data['res'] = FALSE;
+                }
+            }
         }
+
+
+        echo json_encode($data);
     }
 }

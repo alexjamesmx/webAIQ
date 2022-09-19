@@ -139,6 +139,7 @@ $("#actualizaImagen_anuncio_btn").click(function (e) {
 			url: appData.base_url + "anuncios/actualizarImagen",
 			data: formData,
 			type: "POST",
+			dataType: "json",
 			contentType: false,
 			processData: false,
 			success: function (res) {

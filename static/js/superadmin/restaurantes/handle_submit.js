@@ -28,6 +28,7 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 					url: appData.base_url + "user/subirImagen",
 					data: formData,
 					type: "POST",
+					dataType: "json",
 					contentType: false,
 					processData: false,
 				})
@@ -44,7 +45,7 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 							message(
 								"danger",
 								"Error: ",
-								`El registro (<small>${nombre} \\ ${email}</small>) ya existen en la base de datos`
+								`El registro <small>${nombre} \\ ${email}</small> ya existen en la base de datos`
 							);
 						}
 					})

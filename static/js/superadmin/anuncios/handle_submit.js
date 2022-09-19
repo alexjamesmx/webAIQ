@@ -26,15 +26,16 @@ $("#modal-form-anuncios").on("submit", function (event) {
 					url: appData.base_url + "anuncios/subirImagen",
 					data: formData,
 					type: "POST",
+					dataType: "json",
 					contentType: false,
 					processData: false,
 				})
 					.done((res) => {
 						if (res) {
-							message("success", "", res.message);
+							message("success", "", "Anuncio agregado correctamente...");
 							$("button[name='reload_anuncios']").click();
 						} else {
-							message("danger", "Error: Hubo un error al subir imagen");
+							message("danger", "Error: Hubo un error el anuncio");
 						}
 					})
 					.fail(() => {
@@ -61,7 +62,7 @@ $("#modal-form-anuncios").on("submit", function (event) {
 				dataType: "json",
 			})
 				.done((res) => {
-					if (res.res) {
+					if (res) {
 						$("#" + id_ad + "_fechainicio_anuncio").text(inicio_anuncio);
 						$("#" + id_ad + "_fechafin_anuncio").text(fin_anuncio);
 						$("#" + id_ad + "_anuncios_actions_edit").attr(
@@ -73,9 +74,9 @@ $("#modal-form-anuncios").on("submit", function (event) {
 							fin_anuncio
 						);
 
-						message("success", "", res.message);
+						message("success", "", "Fecha actualizada");
 					} else {
-						message("danger", "", res.message);
+						message("danger", "", "No se pudo actualizar la fecha");
 					}
 				})
 				.fail(() => {
