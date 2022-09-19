@@ -27,7 +27,7 @@ class Menu extends CI_Controller
 
         $data = [
             'nombre' => $nombre,
-            'precio' => $precio,
+            'precio' => $precio, 
             'id_user' => $id_user,
             'imagen' => $imagen,
             'tiempo' => $tiempo,
@@ -36,6 +36,35 @@ class Menu extends CI_Controller
         ];
 
         echo json_encode($this->menu_model->insert_menu($data));
+    }
+
+    public function actualizarImagen() {
+        $id_a = $this->input->post('id_com');
+        var_dump($id_a);
+        $id_init_actualizar = intval($id_a);
+        $config['upload_path'] = 'static/img/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '5000';
+        $hoy = date('YmdHis');
+        var_dump($id_init_actualizar);
+
+        $nuevoNombreImg = 'platillo' . ($hoy = date('YmdHis'));
+        $config['file_name'] = strtolower($nuevoNombreImg);
+
+        $regreso = $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('fotoa')) {
+            $bandera = 0;
+        } else {
+            $file_info = $this->upload->data();
+            $imagena = $file_info['file_name'];
+            $imac = [
+                'imagen' => $imagena,
+            ];
+        }
+        echo json_encode(
+            $this->menu_model->imagen($imac, $id_init_actualizar)
+        );
     }
 
     public function subirImagen()
@@ -53,20 +82,24 @@ class Menu extends CI_Controller
 
         $regreso = $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('fileImagen')) {
-            $bandera = 0;
+        if (!$this->upload->do_upload('foto')) {
+            $error = array('error' => $this->upload->display_errors());
+            echo json_encode($error);
         } else {
             $file_info = $this->upload->data();
             $imagen = $file_info['file_name'];
             var_dump($imagen);
             $id_platillo = $this->menu_model->select_id_imagen($id_init);
+            var_dump($id_platillo);
             $ima = [
                 'imagen' => $imagen,
             ];
+            var_dump($ima);
+            echo json_encode(
+                $this->menu_model->imagen($ima, $id_platillo->id_comida)
+            );
         }
-        echo json_encode(
-            $this->menu_model->imagen($ima, $id_platillo->id_comida)
-        );
+        
         // redirect(base_url('app/myaccount'), 'refresh');
     }
 

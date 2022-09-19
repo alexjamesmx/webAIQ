@@ -26,9 +26,7 @@ class Menu_model extends CI_Model {
         $this->db->set( $data );
         $this->db->where( 'id_comida', $id );
         $this->db->update( 'menu' );
-        $obj[ 'res' ] = $this->db->affected_rows() != 0;
-        $obj[ 'mensaje' ]     = $obj[ 'res' ] ?
-        'Platillo insertado' : 'No fue posible insertar el platillo';
+        $obj = $this->db->affected_rows() != 0;
         return $obj;
     }
 

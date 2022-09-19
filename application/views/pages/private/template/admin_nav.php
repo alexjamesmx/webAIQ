@@ -86,7 +86,7 @@
                     <span class="name"><?= $_SESSION['nombre'] ?></span>
                     <span>
                          <?php if (isset($_SESSION['avatar'])): ?>
-                            <img id='outimage'alt="avatar" src="<?= $_SESSION[
+                            <img id='outimage'alt="avatar" src=" <?= base_url() ?>static/img/<?= $_SESSION[
                                 'avatar'
                             ] ?>" />
                         <?php endif; ?> 

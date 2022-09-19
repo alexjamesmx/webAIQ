@@ -26,7 +26,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="table-poraceptar">
 
                                     <tr>
                                         <td>
@@ -45,37 +45,6 @@
                                             <p class="list-item-heading ml-3">Hamburgesa de pollo sencilla (sin cebolla)
                                             </p>
                                             <p class="list-item-heading ml-3">Cocacola</p>
-                                        </td>
-                                        <td>
-                                            <p>
-                                                &nbsp; <a href="#acepta" class="btn btn-outline-success restaricon"><i
-                                                        class="simple-icon-check"></i> Acceptar </a>
-                                                &nbsp;
-
-                                                &nbsp; <a href="#delet" class="btn btn-outline-danger restaricon"><i
-                                                        class="simple-icon-close"></i> Declinar </a> &nbsp;
-                                            </p>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p class="list-item-heading ml-3">1637263778796</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3">Oscar</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3">$120</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted ml-3">18 Nov 2022 - 14:01</p>
-                                        </td>
-                                        <td>
-                                            <p class="list-item-heading ml-3">Hamburgesa de pollo suprema</p>
-                                            <p class="list-item-heading ml-3">Munded</p>
-                                            <p class="list-item-heading ml-3">Papas (grandes)</p>
                                         </td>
                                         <td>
                                             <p>

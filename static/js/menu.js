@@ -10,6 +10,11 @@ var id_user = '',
   descripcion = ''
 imagen = ''
 
+function imagenModal(e) {
+  let id_comida = $(e).data('id')
+  $('#id_comida_imagen').val(id_comida)
+}
+
 function handleModal(e) {
   //abrimos modal y cargamos las variables paraue se envianpor data
   let id_comida = $(e).data('id')
@@ -25,7 +30,6 @@ function handleModal(e) {
   console.log(action)
 
   if (action == 'agregar') {
-
     //si es agregar borramo tolos los campos y colocamos el placeholder   ue es el texto que se ve por defecto y colocamos el onclick="add" para mandar a llamar la funcion de agregar
     resetform()
     $('#nombre').attr('placeholder', 'Ej. Torta')
@@ -65,7 +69,6 @@ function handleModal(e) {
       })
     );
   } else if (action == 'edit') {
-
     // si es editar colocamos los valores que se pidieron de base de datos y colocamos el onclick="edit" para llamar la funcion de editar y colocamos en disabled el boton en espera de algun cambio en los input
     resetform()
     $('#id_comida').val(id_comida)
@@ -108,7 +111,6 @@ function handleModal(e) {
   }
 }
 function edit() {
-
   //cargamos valores de base de datos
   id_comida = $('#id_comida').val()
   nombre = $('#nombre').val()
@@ -159,7 +161,6 @@ function edit() {
     tipo != '' &&
     descripcion != ''
   ) {
-
     //borrar espacios vacios
     nombre.trim()
     precio.trim()
@@ -180,12 +181,12 @@ function edit() {
         descripcion: descripcion,
       },
     })
-    //si contesto bine entonses
+      //si contesto bine entonses
       .done(() => {
-        message("success", "Listo", "se actualizo informacion");
-        get_menu(1);
-        get_menu(2);
-        get_menu(3);
+        message('success', 'Listo', 'se actualizo informacion')
+        get_menu(1)
+        get_menu(2)
+        get_menu(3)
       })
       //alfo fallo el en controlador o en el modelo
       .fail(() => {
@@ -245,7 +246,6 @@ function add() {
     tipo != '' &&
     descripcion != ''
   ) {
-
     //borramos espacios
     nombre.trim()
     precio.trim()
@@ -267,7 +267,7 @@ function add() {
         imagen: imagen,
       },
     })
-    //si contesto bine entonses
+      //si contesto bine entonses
       .done(() => {
         // message("success", "Listo", "se agrego platillo");
         resetform()
@@ -282,16 +282,6 @@ function add() {
       })
   }
 }
-
-$('#form-subir-img').on('submit', function (e) {
-  $('#form-subir-img').addClass('d-none')
-  $('#form-producto').removeClass('d-none')
-  message('success', 'Listo', 'se agrego platillo')
-  get_menu(1)
-  get_menu(2)
-  get_menu(3)
-  $('.close').click()
-})
 
 function resetform() {
   nombre = ''
@@ -340,12 +330,20 @@ function get_menu(tipo) {
             $('#tableCombos').append(
               '<tr>' +
                 '<th scope="row">' +
-                '<a href="#' + element['id_comida'] + '"> <img src="' +
+                '<a type="button" data-toggle="modal" data-target="#exampleModal" data-id="' +
+                element['id_comida'] +
+                '" onclick="return imagenModal(this)">' +
+                '<div class="contenedor-img ejemplo-1">' +
+                ' <img src="' +
                 appData.base_url +
                 'static/img/' +
                 element['imagen'] +
                 '" alt="Fat Rascal"' +
-                'class="list-thumbnail responsive border-0 card-img-left" /> </a>' +
+                'class="list-thumbnail responsive border-0" />' +
+                '<div class="mascara">' +
+                '<a class="link">' +
+                '<i class="simple-icon-pencil"></i>' +
+                '</a> </div>  </div> </a>' +
                 '</th>' +
                 '<td class="align-middle text-center">' +
                 '<p class="textabla">' +
@@ -424,14 +422,22 @@ function get_menu(tipo) {
           data.productos.map((element) => {
             $('#tablePlatillos').append(
               '<tr>' +
-                '<th scope="row">' +
-                '<img src="' +
-                appData.base_url +
-                'static/img/' +
-                element['imagen'] +
-                '" alt="Fat Rascal"' +
-                'class="list-thumbnail responsive border-0 card-img-left" />' +
-                '</th>' +
+              '<th scope="row">' +
+              '<a type="button" data-toggle="modal" data-target="#exampleModal" data-id="' +
+              element['id_comida'] +
+              '" onclick="return imagenModal(this)">' +
+              '<div class="contenedor-img ejemplo-1">' +
+              ' <img src="' +
+              appData.base_url +
+              'static/img/' +
+              element['imagen'] +
+              '" alt="Fat Rascal"' +
+              'class="list-thumbnail responsive border-0" />' +
+              '<div class="mascara">' +
+              '<a class="link">' +
+              '<i class="simple-icon-pencil"></i>' +
+              '</a> </div>  </div> </a>' +
+              '</th>' +
                 '<td class="align-middle text-center">' +
                 '<p class="textabla">' +
                 element['nombre'] +
@@ -509,14 +515,22 @@ function get_menu(tipo) {
           data.productos.map((element) => {
             $('#tableBebidas').append(
               '<tr>' +
-                '<th scope="row">' +
-                '<img src="' +
-                appData.base_url +
-                'static/img/' +
-                element['imagen'] +
-                '" alt="Fat Rascal"' +
-                'class="list-thumbnail responsive border-0 card-img-left" />' +
-                '</th>' +
+              '<th scope="row">' +
+              '<a type="button" data-toggle="modal" data-target="#exampleModal" data-id="' +
+              element['id_comida'] +
+              '" onclick="return imagenModal(this)">' +
+              '<div class="contenedor-img ejemplo-1">' +
+              ' <img src="' +
+              appData.base_url +
+              'static/img/' +
+              element['imagen'] +
+              '" alt="Fat Rascal"' +
+              'class="list-thumbnail responsive border-0" />' +
+              '<div class="mascara">' +
+              '<a class="link">' +
+              '<i class="simple-icon-pencil"></i>' +
+              '</a> </div>  </div> </a>' +
+              '</th>' +
                 '<td class="align-middle text-center">' +
                 '<p class="textabla">' +
                 element['nombre'] +
@@ -631,4 +645,72 @@ function borra_click(idcomida, nomproducto) {
   $('#modal-nomproducto-body').html(nomproducto)
 
   $('#btn-borrar-confirmar').attr('data-idcomida', idcomida)
-} 
+}
+
+$(function () {
+  var $fotoProducto = $('#fileImagen'),
+    $btnGuardar = $('#guardarImg')
+  var formData = new FormData();
+
+  $btnGuardar.click(function () {
+    var archivos = $fotoProducto[0].files
+    if (archivos.length > 0) {
+      var foto = archivos[0] //Sólo queremos la primera imagen, ya que el usuario pudo seleccionar más
+      var lector = new FileReader()
+      console.log(foto)
+      //Ojo: En este caso 'foto' será el nombre con el que recibiremos el archivo en el servidor
+      formData.append('foto', foto)
+      $.ajax({
+        url: appData.base_url + 'Menu/subirImagen',
+        data: formData,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        success: function (resultados) {
+          console.log(resultados)
+          $('#form-subir-img').addClass('d-none')
+          $('#form-producto').removeClass('d-none')
+          message('success', 'Listo', 'se agrego platillo')
+          get_menu(1)
+          get_menu(2)
+          get_menu(3)
+        },
+      })
+    }
+  })
+})
+
+$(function () {
+  var $fotoActualProducto = $('#actualizaImagen'),
+    $btnActualizar = $('#actualizaImg')
+  var formData = new FormData();
+   
+
+  $btnActualizar.click(function () {
+    var id_com = $('#id_comida_imagen').val();
+    console.log(id_com);
+    var archivos = $fotoActualProducto[0].files
+    if (archivos.length > 0) {
+      var fotoa = archivos[0] //Sólo queremos la primera imagen, ya que el usuario pudo seleccionar más
+      var lector = new FileReader()
+      console.log(fotoa)
+      //Ojo: En este caso 'fotoa' será el nombre con el que recibiremos el archivo en el servidor
+      formData.append('fotoa', fotoa)
+      formData.append('id_com', id_com)
+      $.ajax({
+        url: appData.base_url + 'Menu/actualizarImagen',
+        data: formData,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        success: function (resultados) {
+          console.log(resultados)
+          message('success', 'Listo', 'se actualizo platillo')
+          get_menu(1)
+          get_menu(2)
+          get_menu(3)
+        },
+      })
+    }
+  })
+})

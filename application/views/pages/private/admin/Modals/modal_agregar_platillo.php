@@ -54,7 +54,7 @@
                         </div>
                         <button class="btn btn-primary" type="button" id="guardarinfo">Guardar</button>
                     </form>
-                    <form id="form-subir-img" action="/AIQ/Menu/subirImagen" class="validate-ptp d-none" method="post" enctype="multipart/form-data" target="votar">
+                    <form id="form-subir-img" class="d-none">
                                
                                 <div class="row">
                                     <div class="col-12 mt-3">
@@ -69,16 +69,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="file" name="fileImagen" id="fileImagen" 
-                                class="form-control btn btn-primary required btn-block mt-3">
-                                <button class="btn btn-link btn-block mb-4 mt-2" style="font-size: 18px">
-                                    <i name="btnon" id="btnon" data-dismiss="modal"  class="fas fa-camera close"></i> 
-                                    <u>
+                                <input type="file" name="fileImagen" id="fileImagen"  class="form-control btn btn-primary required btn-block mt-3">
+                                <button id="guardarImg" class="btn btn-primary btn-block mb-4 mt-2" style="font-size: 18px" data-dismiss="modal">
                                         Subir imagen
-                                    </input>
-                                </u>
-                            </button>
-                        </form>
+                                </button>
+                    </form>
                 </div>
             </div>
         </div>
