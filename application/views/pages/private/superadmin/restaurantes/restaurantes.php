@@ -6,7 +6,7 @@
         <div class="col-12">
             <h1>Restaurantes</h1>
             <div class="text-zero top-right-button-container">
-                <button type="button" class="btn btn-outline-dark btn-sm top-right-button mr-1 iconos-size-sm" onclick="return reload_restaurantes()">
+                <button name='reload_restaurantes' type="button" class="btn btn-outline-dark btn-sm top-right-button mr-1 iconos-size-sm" onclick="return reload_restaurantes()">
                     <i class='simple-icon-refresh iconos-size-sm'></i>
                     Recargar
                 </button>

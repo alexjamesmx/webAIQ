@@ -1,10 +1,9 @@
 function validateForm_mesas() {
 	const form = document.getElementById("modal-form-mesas");
-	let id_mesa = form.elements[0].value;
+	let nombre_mesa = form.elements[0].value;
 	let descripcion = form.elements[1].value;
 	let password = form.elements[2].value;
-
-	if (id_mesa != "" && descripcion != "" && password != "") {
+	if (nombre_mesa != "" && descripcion != "" && password != "") {
 		return true;
 	} else {
 		return false;
@@ -20,10 +19,8 @@ $("#password_mesas").on("input", () => {
 		$(".password_mesas").text("Este campo es requerido");
 	}
 });
-$("#id_mesa").on("input", () => {
-	if ($("#id_mesa").val() == "") {
-		$(".id_mesa").text("Este campo es requerido");
+$("#nombre_mesa").on("input", () => {
+	if ($("#nombre_mesa").val() == "") {
+		$(".nombre_mesa").text("Este campo es requerido");
 	}
 });
-
-$;

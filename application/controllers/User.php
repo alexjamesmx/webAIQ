@@ -115,6 +115,7 @@ class User extends CI_Controller
             'phone' => $phone,
             'password' => $password,
         );
+
         $exists = $this->users_model->exist_user($email, $nombre, 'more');
 
         if ($exists) {
@@ -142,7 +143,6 @@ class User extends CI_Controller
             $data["message"] = " eliminado correctamente";
             $data["res"] = true;
         } else {
-            $data["message"] = " no existe en la base de datos";
             $data["res"] = false;
         }
         echo json_encode($data);

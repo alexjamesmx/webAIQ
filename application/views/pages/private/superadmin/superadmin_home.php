@@ -22,4 +22,10 @@
     </main>
 </div>
 
+<div id='anuncios' class='pages' hidden>
+    <main>
+        <?php include('anuncios/anuncios.php') ?>
+    </main>
+</div>
+
 <div class="message d-flex justify-content-center position-alert"></div>

@@ -50,7 +50,7 @@
                     <label hidden for="id_user"></label>
                     <input hidden name="id_user" id='id_user'>
             </div>
-            <div class=" col-12 d-flex flex-row-reverse mb-2">
+            <div class=" col-12 d-flex flex-row-reverse mb-2 mt-2">
                 <button class="btn btn-primary" type="submit">Guardar</button>
                 <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancelar</button>
             </div>

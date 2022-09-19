@@ -10,19 +10,17 @@
     <div class="card d-flex justify-content-center">
         <div class="card-body" style="height:auto; width:1000px;">
             <div class="text-center">
-                <div class="mb-3">
-                    <img alt="Profile" src="<?=base_url()?>static/img/Starbucks.jpg"
-                        class="img-thumbnail border-0 rounded-circle list-thumbnail" style="width:200px; height:200px;">
-                </div>
-                <div class="html_button btn-left">
-                    <a href="#" class="btn btn-primary rounded active mb-1" role="button" aria-pressed="true">Seleccione
-                        Imagen</a>
-                </div>
+                <a type="button" data-toggle="modal" data-target="#exampleModalPopovers" onclick="return imagenModal2(this)">
+                    <div class="mb-3">
+                        <img id="img-pr" alt="Profile"
+                            class="img-thumbnail border-0 rounded-circle list-thumbnail" style="width:200px; height:200px;">
+                    </div>
+                </a>
                 <div class="col-12 mt-4">
                     <label for="nombre" class="form-label">Restaurante</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text"><i class="simple-icon-home"></i></span>
-                        <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required name='nombre' id='nombre'>
+                        <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required name='nombre' id='nombre12'>
                         <div class="nombre invalid-feedback">
 
                         </div>
@@ -34,7 +32,6 @@
                         <span class="input-group-text"><i class="simple-icon-lock"></i></span>
                         <input type="password" minlength="4" class=" form-control" aria-describedby="inputGroupPrepend" required name="password" id='password'>
                         <div class="password invalid-feedback">
-
                         </div>
                     </div>
                 </div>
@@ -60,7 +57,7 @@
                 <input hidden name="id_user" id='id_user'>
             </div>
             <div class=" col-12 d-flex justify-content-center mb-2 mt-4">
-                <button class="btn btn-primary" type="submit">Guardar</button>
+                <button class="btn btn-primary" id="btn-save">Guardar</button>
             </div>
         </div>
     </div>

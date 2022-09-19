@@ -55,13 +55,12 @@ function handleModalDelete_restaurantes(e) {
 			url: appData.base_url + "user/deleteUser",
 			data: { id_user },
 			dataType: "json",
-			success: function (response) {
-				if (response.res) {
-					message("info", "", nombre + response.message);
+			success: function (res) {
+				$("#" + id_user + "_registro").remove();
+				message("info", "", nombre + res.message);
+				setTimeout(() => {
 					$("#" + id_user + "_registro").remove();
-				} else {
-					message("danger", "", nombre + response.message);
-				}
+				}, 1000);
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
 				message("Estado: ", "", textStatus);

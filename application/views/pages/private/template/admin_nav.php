@@ -13,20 +13,20 @@
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.rtl.only.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/perfect-scrollbar.css" />
-    <link rel="shortcut icon" href="#" />
+
     <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
     <script>
         var appData = {
-            "base_url": '<?=base_url()?>',
-            "idRes": '<?=$this->session->id_user?>'
+            "base_url": '<?= base_url() ?>',
+            "idRes": '<?= $this->session->id_user ?>'
         } 
     </script>
  
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
-    <nav class="navbar fixed-top">
+    <nav class="navbar fixed-top" id="navadmin">
         <div class="d-flex align-items-center navbar-left">
             <a href="#" class="menu-button d-none d-md-block">
                 <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
@@ -63,15 +63,14 @@
 
         <div class="navbar-right">
             <div class="user d-inline-block">
-                <span class="name">En Linea</span>
+                <span id="estado-name" class="name"></span>
             </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-toggle="k" data-placement="rigth" title="k">
-                        <input class="custom-switch-input" id="k" type="checkbox" checked>
-                        <label class="custom-switch-btn" for="k"></label>
-                    </div>
-                </div>
+                    <label class="switch">
+                    <input type="checkbox" id="estado-icon" onclick="estado_res(appData.idRes)" > <span id="icon-estado" class="round">
+                    </span> </label> 
+                </div> 
 
 
 
@@ -86,8 +85,10 @@
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="name"><?= $_SESSION['nombre'] ?></span>
                     <span>
-                         <?php if (isset($_SESSION['avatar'])) : ?>
-                            <img id='outimage'alt="avatar" src="<?= $_SESSION['avatar'] ?>" />
+                         <?php if (isset($_SESSION['avatar'])): ?>
+                            <img id='outimage'alt="avatar" src=" <?= base_url() ?>static/img/<?= $_SESSION[
+                                'avatar'
+                            ] ?>" />
                         <?php endif; ?> 
                     </span>
                 </button>
@@ -120,7 +121,7 @@
                         </a>
                     </li>
                     <li id='cuenta_nav' class="navigation" data-page='cuenta' onclick='return clickgeneral(this)'>
-                        <a href="#">
+                        <a href="#" id="cuenta-clic">
                             <i class="iconsminds-id-card"></i> Cuenta
                         </a>
                     </li>

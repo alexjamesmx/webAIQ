@@ -6,7 +6,7 @@
         <div class="col-12">
             <h1>Mesas</h1>
             <div class="text-zero top-right-button-container">
-                <button type="button" class="btn btn-outline-dark btn-sm top-right-button mr-1 iconos-size-sm" onclick="return reload_mesas()">
+                <button name='reload_mesas' type="button" class="btn btn-outline-dark btn-sm top-right-button mr-1 iconos-size-sm" onclick="return reload_mesas()">
                     <i class='simple-icon-refresh iconos-size-sm'></i>
                     Recargar
                 </button>
@@ -46,6 +46,7 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Mesa</th>
                                 <th>Descripción</th>
                                 <th class='justify-content-end'>Acciones</th>
                             </tr>

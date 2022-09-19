@@ -20,6 +20,7 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 					if (res.res === true) {
 						message("success", "", res.message);
 						getUsers();
+						$("button[name='reload_restaurantes']").click();
 					}
 					if (res.res === false) {
 						message("danger", "Error: ", res.message);
@@ -74,7 +75,7 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 						message(
 							"danger",
 							"Error: ",
-							`El registro (<small>${nombre} \\ ${email}</small>) ya existen en la base de datos`
+							`El registro <small>${nombre} \\ ${email}</small> ya existen en la base de datos`
 						);
 					}
 				})

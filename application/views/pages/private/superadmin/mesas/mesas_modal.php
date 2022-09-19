@@ -10,11 +10,11 @@
             <div class="modal-body">
                 <form class="row g-3 needs-validation" id='modal-form-mesas' novalidate>
                     <div class="col-12 m-2">
-                        <label for="id_mesa" class="form-label">Id</label>
+                        <label for="nombre_mesa" class="form-label">Mesa</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text"><i class="iconsminds-tablet-3"></i></span>
-                            <input type="text" class=" form-control" required name="id_mesa" id='id_mesa'>
-                            <div class="id_mesa invalid-feedback">
+                            <input type="text" class=" form-control" required name="nombre_mesa" id='nombre_mesa'>
+                            <div class="nombre_mesa invalid-feedback">
                             </div>
                         </div>
                     </div>
@@ -36,17 +36,18 @@
                             </div>
                         </div>
                     </div>
+                    <input hidden type="text" class=" form-control" required name="id_mesa" id='id_mesa'>
+                    <input id="old_name" type="hidden" name="old_name" />
+                    <div class=" col-12 d-flex flex-row-reverse mb-2 mt-2">
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                        <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                    </div>
+                </form>
             </div>
-            <div class=" col-12 d-flex flex-row-reverse mb-2">
-                <button class="btn btn-primary" type="submit">Guardar</button>
-                <button class="btn btn-danger mr-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Cancelar</button>
-            </div>
-            </form>
         </div>
     </div>
 </div>
-
-<div id='modal-delete_mesas' class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+<div id='modal-delete-mesas' class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm brad bradb">
         <div class="modal-content brad bradb">
             <div class="modal-header brad bg-primary">
@@ -58,7 +59,7 @@
             <div class="modal-body bradb">
                 <p class="mb-4" id='modal-delete-text-mesas'></p>
                 <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" name='delete'>Eliminar</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" name='delete' data-id="">Eliminar</button>
             </div>
         </div>
     </div>

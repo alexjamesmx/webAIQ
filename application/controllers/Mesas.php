@@ -7,14 +7,14 @@ class Mesas extends CI_Controller
         $this->load->model('mesas_model');
     }
 
-    public function existsTable()
+    public function existsMesa()
     {
-        $id_mesa = $this->input->post('id_mesa');
+        $nombre = $this->input->post('nombre');
         $password = $this->input->post('password');
 
         $data = [];
 
-        $res = $this->mesas_model->exist_table($id_mesa);
+        $res = $this->mesas_model->exist_mesa($nombre);
 
         //MESA EXISTE?
         if (!$res) {
@@ -23,9 +23,9 @@ class Mesas extends CI_Controller
         } else {
 
             //ENTONCES VALIDALO
-            $userData = $this->mesas_model->validate_table($id_mesa, $password);
+            $userData = $this->mesas_model->validate_table($nombre, $password);
             if (!$userData) {
-                $data['message'] = 'El id o contraseña son incorrectos';
+                $data['message'] = 'El nombre o contraseña son incorrectos';
                 $data['res'] = FALSE;
             } else {
 
@@ -58,15 +58,16 @@ class Mesas extends CI_Controller
     }
     public function addMesa()
     {
-        $id_mesa = $this->input->post("id_mesa");
+        $nombre = $this->input->post("nombre_mesa");
         $descripcion = $this->input->post("descripcion_mesas");
         $password = $this->input->post('password_mesas');
         $array = array(
-            'id_mesa' => $id_mesa,
+            'nombre' => $nombre,
             'descripcion' => $descripcion,
             'password' => $password,
         );
-        $exists = $this->mesas_model->exist_table($id_mesa);
+        $exists = $this->mesas_model->exist_mesa($nombre);
+
         //MESA EXISTE?
         if ($exists) {
             $data['message'] = "Esta mesa ya existe en la base de datos";
@@ -81,7 +82,58 @@ class Mesas extends CI_Controller
                 $data['res'] = FALSE;
             }
         }
+        echo json_encode($data);
+    }
+    public function updateMesa()
+    {
+        $data = [];
+        $id_mesa = $this->input->post("id_mesa");
+        $nombre = $this->input->post("nombre_mesa");
+        $descripcion = $this->input->post("descripcion_mesas");
+        $password = $this->input->post('password_mesas');
+        $old_name = $this->input->post('old_name');
+        $array = array(
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'password' => $password,
+        );
+        if ($nombre != $old_name) {
+            $exists = $this->mesas_model->exist_mesa($nombre, $old_name);
+        }
+        if ($nombre == $old_name) {
+            $exists = $this->mesas_model->exist_mesa($nombre, '', 'camposIguales');
+        }
 
+
+        if ($exists) {
+            $data['message'] = "Esta mesa/usuario ya existe en la base de datos";
+            $data['res'] = 'exists';
+        } else {
+
+            $res = $this->mesas_model->update_mesa($id_mesa, $array);
+            if ($res) {
+                $data["message"] = " actualizado exitosamente";
+                $data["res"] = $res;
+            } else {
+                $data["message"] = "No ha sido posible actualizar por el momento";
+                $data["res"] = $res;
+            }
+        }
+        echo json_encode($data);
+    }
+
+    public function deleteMesa()
+    {
+        $data = [];
+        $id_mesa = $this->input->post("id_mesa");
+
+        $res = $this->mesas_model->delete_mesa($id_mesa);
+        if ($res == true) {
+            $data["message"] = " eliminado correctamente";
+            $data["res"] = true;
+        } else {
+            $data["res"] = false;
+        }
         echo json_encode($data);
     }
 }

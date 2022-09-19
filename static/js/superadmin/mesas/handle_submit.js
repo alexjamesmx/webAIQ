@@ -1,7 +1,11 @@
 //EDITAR 0 AGREGAR EVENTO
 $("#modal-form-mesas").on("submit", function (event) {
 	event.preventDefault();
-
+	const form = document.getElementById("modal-form-mesas");
+	const nombre_mesa = form.elements[0].value;
+	const descripcion = form.elements[1].value;
+	const password = form.elements[2].value;
+	const id_mesa = form.elements[3].value;
 	action = $("#modal-actions-mesas").data("action");
 	if (validateForm_mesas()) {
 		$(".close").click();
@@ -15,7 +19,7 @@ $("#modal-form-mesas").on("submit", function (event) {
 				.done((res) => {
 					if (res.res === true) {
 						message("success", "", res.message);
-						getMesas();
+						$("button[name='reload_mesas']").click();
 					}
 					if (res.res === false) {
 						message("danger", "Error: ", res.message);
@@ -35,25 +39,36 @@ $("#modal-form-mesas").on("submit", function (event) {
 				data: $("#modal-form-mesas").serialize(),
 				dataType: "json",
 			})
-				.done((result) => {
-					if (result.res) {
-						const form = document.getElementById("modal-form-mesas");
-						let id_mesa = form.elements[0].value;
-						let descripcion = form.elements[1].value;
-						let password = form.elements[2].value;
-						$("#" + id_mesa + "_id_mesa").text(descripcion);
-						$("#" + id_mesa + "_descrpcion_mesa").text(email);
-						$("#" + id_user + "_mesas_actions_edit").attr("data-id", id_mesa);
-
-						$("#" + id_user + "modal-actions-mesas").attr(
+				.done((res) => {
+					if (res.res === true) {
+						$("#" + id_mesa + "_nombre_mesa").text(nombre_mesa);
+						$("#" + id_mesa + "_descripcion_mesa").text(descripcion);
+						$("#" + id_mesa + "_mesas_actions_edit").attr("data-id", id_mesa);
+						$("#" + id_mesa + "_mesas_actions_edit").attr(
 							"data-password",
 							password
 						);
-						$("#" + id_user + "_mesas_actions_edit").attr(
+						$("#" + id_mesa + "_mesas_actions_edit").attr(
 							"data-descripcion",
 							descripcion
 						);
-						message("success", "", result.message);
+						$("#" + id_mesa + "_mesas_actions_edit").attr(
+							"data-nombre",
+							nombre_mesa
+						);
+						message("success", "", nombre_mesa + res.message);
+					}
+					if (res.res === false) {
+						message("danger", "Error: ", res.message);
+					}
+					if (res.res === "exists") {
+						message(
+							"danger",
+							"Error: ",
+							`El registro <small>${nombre_mesa}</small> ya existe en la base de datos`
+						);
+					}
+					if (res.res) {
 					} else {
 						message("danger", "", result.message);
 					}
@@ -63,8 +78,8 @@ $("#modal-form-mesas").on("submit", function (event) {
 				});
 		}
 	} else {
-		if ($("#id_mesa").val() == "") {
-			$(".id_mesa").text("Este campo es requerido");
+		if ($("#nombre_mesa").val() == "") {
+			$(".nombre_mesa").text("Este campo es requerido");
 		}
 		if ($("#descripcion_mesas").val() == "") {
 			$(".descripcion_mesas").text("Este campo es requerido");

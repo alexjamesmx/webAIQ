@@ -13,15 +13,19 @@ function getMesas() {
 	})
 		.done((result) => {
 			if (result.res) {
-				result.data.map((item) => {
-					$("#results_tabla_mesas").append(
-						`
+				if ($("#results_tabla_mesas").empty()) {
+					result.data.forEach((item) => {
+						$("#results_tabla_mesas").append(
+							`
 					<tr class='item' id='${item.id_mesa}_registro'>
 					<td>
-						<p id="${item.id_mesa}_id_mesa" class="text-muted">${item.id_mesa}</p>
+						<p class="text-muted">${item.id_mesa}</p>
 					</td>
 					<td>
-						<p id="${item.id_mesa}_descrpcion_mesa" class="list-item-heading">${item.descripcion}</p>
+						<p id="${item.id_mesa}_nombre_mesa" class"list-item-heading">${item.nombre}</p>
+					</td>
+					<td>
+						<p id="${item.id_mesa}_descripcion_mesa" class="text-muted">${item.descripcion}</p>
 					</td>
 					<td> 
 						<a class="align-self-center mr-4"
@@ -34,6 +38,7 @@ function getMesas() {
 							data-password=\"${item.password}\"
                             data-id=\"${item.id_mesa}\"
 							data-descripcion=\"${item.descripcion}\"
+							data-nombre=\"${item.nombre}\"
                             >
 							<i class="iconos-size simple-icon-pencil pencil"></i>
 						</a>
@@ -42,15 +47,17 @@ function getMesas() {
 							onclick="return handleModalDelete_mesas(this)" 
 							href="#" 
 							data-toggle="modal" 
-							data-target="#modal-delete_mesas"
-							data-id=\"${item.id_mesa}\">
+							data-target="#modal-delete-mesas"
+							data-id=\"${item.id_mesa}\"
+							data-nombre=\"${item.nombre}\">
 						<i class="iconos-size simple-icon-trash trash"></i>
 						</a>
 					</td>
 					</tr>
 					`
-					);
-				});
+						);
+					});
+				}
 			}
 		})
 		.fail(() => {

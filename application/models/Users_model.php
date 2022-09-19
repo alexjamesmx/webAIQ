@@ -3,10 +3,7 @@ class Users_model extends CI_Model
 {
     public function exist_user($email, $nombre = '', $more = '')
     {
-        $query = $this->db->get_where('users', array('email' => $email));
-        if ($query->result() === [] && $nombre != '') {
-            $query = $this->db->get_where('users', array('nombre' => $nombre));
-        }
+
         if ($more != '') {
             return
                 $this->db->select('*')
@@ -14,6 +11,10 @@ class Users_model extends CI_Model
                 ->where('email =', $email)
                 ->or_where('nombre =', $nombre)
                 ->count_all_results() > 1;
+        }
+        $query = $this->db->get_where('users', array('email' => $email));
+        if ($query->result() === [] && $nombre != '') {
+            $query = $this->db->get_where('users', array('nombre' => $nombre));
         }
         return $query->result() !== [];
     }

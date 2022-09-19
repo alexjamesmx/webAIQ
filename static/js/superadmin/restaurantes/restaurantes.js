@@ -13,9 +13,10 @@ function getUsers() {
 	})
 		.done((result) => {
 			if (result.res) {
-				result.data.map((item) => {
-					$("#results_tabla_restaurantes").append(
-						`
+				if ($("#results_tabla_restaurantes").empty()) {
+					result.data.forEach((item) => {
+						$("#results_tabla_restaurantes").append(
+							`
 					<tr class='item' id='${item.id_user}_registro'>
 					<td>
 						<p id="${item.id_user}_id" class="text-muted">${item.id_user}</p>
@@ -71,8 +72,9 @@ function getUsers() {
 					</td>
 					</tr>
 					`
-					);
-				});
+						);
+					});
+				}
 				$(".status").click(function () {
 					let status = null;
 					if ($(this).is(":checked")) {
