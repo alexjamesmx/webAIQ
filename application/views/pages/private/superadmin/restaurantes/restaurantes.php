@@ -45,6 +45,7 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Logo</th>
                                 <th>Nombre</th>
                                 <th>Correo electrónico</th>
                                 <th>Teléfono</th>

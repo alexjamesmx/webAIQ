@@ -59,4 +59,32 @@ class Anuncios_model extends CI_Model
             return false;
         }
     }
+    public function update_anuncio_fecha($id_ad, $array)
+    {
+        return $this->db->set($array)
+            ->where('id_ad', $id_ad)
+            ->update('publicidad');
+    }
+    public function select_id_imagen()
+    {
+        $this->db->select('id_comida');
+        $this->db->from('menu');
+        $this->db->order_by('id_comida', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    public function imagen($data)
+    {
+        return $this->db->insert('publicidad', $data);
+    }
+
+    public function imagen_where($data, $id)
+    {
+        $this->db->set($data);
+        $this->db->where('id_ad', $id);
+        $this->db->update('publicidad');
+        $obj = $this->db->affected_rows() != 0;
+        return $obj;
+    }
 }

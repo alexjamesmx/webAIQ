@@ -2,42 +2,62 @@
 $("#modal-form-restaurantes").on("submit", function (event) {
 	event.preventDefault();
 	action = $("#modal-actions-restaurantes").data("action");
-	if (validateForm()) {
+	if (validateForm(action)) {
 		const form = document.getElementById("modal-form-restaurantes");
-		let nombre = form.elements[0].value;
-		let email = form.elements[2].value;
-		let phone = form.elements[3].value;
-		let id_user = form.elements[4].value;
+
 		$(".close").click();
 		if (action == "Agregar") {
-			$.ajax({
-				type: "post",
-				url: appData.base_url + "user/addUser",
-				data: $("#modal-form-restaurantes").serialize(),
-				dataType: "json",
-			})
-				.done((res) => {
-					if (res.res === true) {
-						message("success", "", res.message);
-						getUsers();
-						$("button[name='reload_restaurantes']").click();
-					}
-					if (res.res === false) {
-						message("danger", "Error: ", res.message);
-					}
-					if (res.res === "exists") {
-						message(
-							"danger",
-							"Error: ",
-							`El registro (<small>${nombre} \\ ${email}</small>) ya existen en la base de datos`
-						);
-					}
+			const nombre = form.elements[1].value;
+			const password = form.elements[2].value;
+			const email = form.elements[3].value;
+			const phone = form.elements[4].value;
+
+			const fotoProducto = $("#imagen_input_restaurantes");
+			const formData = new FormData();
+			const archivos = fotoProducto[0].files;
+
+			if (archivos.length > 0) {
+				const avatar = archivos[0]; //Sólo queremos la primera imagen, ya que el usuario pudo seleccionar más
+				//Ojo: En este caso 'foto' será el nombre con el que recibiremos el archivo en el servidor
+				formData.append("avatar", avatar);
+				formData.append("nombre", nombre);
+				formData.append("password", password);
+				formData.append("email", email);
+				formData.append("phone", phone);
+				$.ajax({
+					url: appData.base_url + "user/subirImagen",
+					data: formData,
+					type: "POST",
+					contentType: false,
+					processData: false,
 				})
-				.fail(() => {
-					message("danger", "", "Error: Hubo un problema con la petición");
-				});
+					.done((res) => {
+						if (res.res === true) {
+							message("success", "", res.message);
+							getUsers();
+							$("button[name='reload_restaurantes']").click();
+						}
+						if (res.res === false) {
+							message("danger", "Error: ", res.message);
+						}
+						if (res.res === "exists") {
+							message(
+								"danger",
+								"Error: ",
+								`El registro (<small>${nombre} \\ ${email}</small>) ya existen en la base de datos`
+							);
+						}
+					})
+					.fail(() => {
+						message("danger", "", "Error: Hubo un problema con la petición");
+					});
+			}
 		}
 		if (action == "Editar") {
+			const nombre = form.elements[0].value;
+			const email = form.elements[1].value;
+			const phone = form.elements[2].value;
+			const id_user = form.elements[3].value;
 			$.ajax({
 				type: "post",
 				url: appData.base_url + "user/updateUser",
@@ -104,6 +124,9 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 		}
 		if ($("#phone").val() != "" && isLetter($("#phone").val())) {
 			$(".phone").text("Debe contener sólo numeros");
+		}
+		if ($("#imagen_input_restaurantes").val() == "") {
+			$(".imagen_input_restaurantes").text("Este campo es requerido");
 		}
 	}
 });

@@ -1,22 +1,45 @@
-function validateForm() {
+function validateForm(action) {
 	const form = document.getElementById("modal-form-restaurantes");
 
-	let nombre = form.elements[0].value;
-	let password = form.elements[1].value;
-	let email = form.elements[2].value;
-	let phone = form.elements[3].value;
+	if (action === "Agregar") {
+		const imagen_input = form.elements[0].value;
+		const nombre = form.elements[1].value;
+		const password = form.elements[2].value;
+		const email = form.elements[3].value;
+		const phone = form.elements[4].value;
+		console.log(imagen_input);
+		if (
+			nombre != "" &&
+			email != "" &&
+			phone != "" &&
+			!isLetter(phone) &&
+			validateEmail(email) &&
+			password != "" &&
+			imagen_input != ""
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	if (action === "Editar") {
+		const nombre = form.elements[0].value;
+		const password = form.elements[1].value;
+		const email = form.elements[2].value;
+		const phone = form.elements[3].value;
 
-	if (
-		nombre != "" &&
-		email != "" &&
-		phone != "" &&
-		!isLetter(phone) &&
-		validateEmail(email) &&
-		password != ""
-	) {
-		return true;
-	} else {
-		return false;
+		if (
+			nombre != "" &&
+			email != "" &&
+			phone != "" &&
+			!isLetter(phone) &&
+			validateEmail(email) &&
+			password != ""
+		) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 $("#nombre").on("input", () => {
@@ -43,6 +66,12 @@ $("#phone").on("input", () => {
 	}
 	if ($("#phone").val() != "" && isLetter($("#phone").val())) {
 		$(".phone").text("Debe contener sólo numeros");
+	}
+});
+
+$("#imagen_input_restaurantes").on("input", () => {
+	if ($("#imagen_input_restaurantes").val()) {
+		$(".imagen_input_restaurantes").text("Este campo es requerido");
 	}
 });
 

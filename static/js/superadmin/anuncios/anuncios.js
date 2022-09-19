@@ -21,13 +21,14 @@ function getAnuncios() {
 					<td>
 						<p class="text-muted">${item.id_ad}</p>
 					</td> 
-					<td scope="row">
-						<a type="button" data-toggle="modal" data-target="#exampleModal" data-id="${
+					<td scope="row" style="padding-right:5px">
+						<a type="button" data-toggle="modal" data-target="#anuncios_imagen_modal" data-id="${
 							item.id_ad
-						} 
-						onclick="return imagenModal(this)"> 
+						}" onclick="return imagenModal_anuncios(this)"> 
 							<div class="contenedor-img ejemplo-1">
-								<img src="${item.imagen}" class="list-thumbnail responsive border-0" />
+								<img src="${appData.base_url}static/img/${
+								item.imagen
+							}" class="list-thumbnail responsive border-0" />
 								<div class="mascara">
 									<a class="link"><i class="simple-icon-pencil"></i></a>
 								</div>
@@ -44,7 +45,7 @@ function getAnuncios() {
 					</td>
                     <td>
 					<label class="switch">
-					<input class='status'
+					<input class='status_anuncios'
 							type="checkbox"
 							id="${item.id_ad}_anuncios_input" 
 							name="checkbox" 
@@ -86,7 +87,7 @@ function getAnuncios() {
 						);
 					});
 				}
-				$(".status").click(function () {
+				$(".status_anuncios").click(function () {
 					let status = null;
 					if ($(this).is(":checked")) {
 						status = 0;
@@ -98,7 +99,7 @@ function getAnuncios() {
 					$.ajax({
 						type: "POST",
 						dataType: "json",
-						url: appData.base_url + "anuncios/updateRepartidorStatus",
+						url: appData.base_url + "anuncios/updateAnuncioStatus",
 						data: {
 							id_ad,
 							activo: status,
@@ -120,6 +121,44 @@ function getAnuncios() {
 		.fail(() => {
 			message("danger", "", "Error: Hubo un problema con la petición");
 		});
+}
+
+$("#actualizaImagen_anuncio_btn").click(function (e) {
+	const $fotoActualProducto = $("#actualizaImagen_anuncio");
+	var formData = new FormData();
+	const id_ad = $("#anuncios_imagen_modal").attr("data-id");
+
+	var archivos = $fotoActualProducto[0].files;
+
+	if (archivos.length > 0) {
+		var fotos = archivos[0]; //Sólo queremos la primera imagen, ya que el usuario pudo seleccionar más
+		//Ojo: En este caso 'fotoa' será el nombre con el que recibiremos el archivo en el servidor
+		formData.append("fotos", fotos);
+		formData.append("id_ad", id_ad);
+		$.ajax({
+			url: appData.base_url + "anuncios/actualizarImagen",
+			data: formData,
+			type: "POST",
+			contentType: false,
+			processData: false,
+			success: function (res) {
+				if (res) {
+					message("success", "", "Anuncio actualizado");
+					$("button[name='reload_anuncios']").click();
+				} else {
+					message("danger", "Error: Hubo un error al actualizar imagen");
+				}
+			},
+		});
+	}
+});
+
+function imagenModal_anuncios(e) {
+	$("#actualizaImagen_anuncio").val(null);
+	const id_ad = $(e).data("id");
+
+	$("#anuncios_imagen_modal").attr("data-id", id_ad);
+	$("#restaurantes_imagen_modal").data("id", id_ad);
 }
 
 function reload_anuncios() {

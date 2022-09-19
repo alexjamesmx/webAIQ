@@ -1,4 +1,6 @@
 function handleModal_restaurantes(e) {
+	$(".was-validated").removeClass("was-validated");
+	$("#imagen-input-restaurantes").remove();
 	$("#nombre").attr("placeholder", "");
 	$("#password").attr("placeholder", "");
 	$("#email").attr("placeholder", "");
@@ -15,6 +17,29 @@ function handleModal_restaurantes(e) {
 
 	action = $(e).data("action");
 	if (action == "Agregar") {
+		$("#modal-form-restaurantes").prepend(
+			`
+		<div id="imagen-input-restaurantes">
+			<div class="col-12 mb-2">
+				<div class="alert alert-warning">
+					<h9>
+						<i class="fas fa-exclamation-triangle"></i>
+						El logo de la empresa debe ser un archivo en formato
+						<h9 class="text-success"> .gif .jpeg .png o .jpg</h9>.
+						<br>
+						Con un peso máximo de <h9 class="text-success"> 512 kb.</h9>
+					</h9>
+				</div>
+			</div>
+			<div class="col-12 mb-2">
+				<input type="file" class="form-control" id="imagen_input_restaurantes" required>
+				<div class="valid-feedback"></div>
+				<div class="imagen_input_restaurantes invalid-feedback"></div>
+			</div>
+		</div>
+		`
+		);
+
 		$("#modal-actions-title-restaurantes").text("Agregar Restaurante");
 		$("#nombre").attr("placeholder", "Nombre del restaurante");
 		$("#password").attr("placeholder", "Contraseña");

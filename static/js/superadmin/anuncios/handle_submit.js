@@ -1,94 +1,96 @@
 //EDITAR 0 AGREGAR EVENTO
 $("#modal-form-anuncios").on("submit", function (event) {
 	event.preventDefault();
-	const form = document.getElementById("modal-form-anuncios");
 
 	action = $("#modal-actions-anuncios").data("action");
-	console.log("action submit ", action);
 	if (validateForm_anuncios(action)) {
+		const form = document.getElementById("modal-form-anuncios");
+
 		$(".close").click();
 		if (action == "Agregar") {
-			const inicio_anuncio = form.elements[0].value;
-			const finanuncio = form.elements[1].value;
-			const id_ad = form.elements[2].value;
+			const inicio_anuncio = form.elements[1].value;
+			const fin_anuncio = form.elements[2].value;
+			const fotoProducto = $("#imagen_input");
+			const formData = new FormData();
+			const archivos = fotoProducto[0].files;
 
 			console.log(inicio_anuncio);
-			console.log(finanuncio);
-			console.log(id_ad);
-
-			// $.ajax({
-			// 	type: "post",
-			// 	url: appData.base_url + "anuncios/addAnuncio",
-			// 	data: $("#modal-form-repartidores").serialize(),
-			// 	dataType: "json",
-			// })
-			// 	.done((res) => {
-			// 		if (res.res === true) {
-			// 			message("success", "", res.message);
-			// 			$("button[name='reload_repartidores']").click();
-			// 		}
-			// 		if (res.res === false) {
-			// 			message("danger", "Error: ", res.message);
-			// 		}
-			// 		if (res.res === "exists") {
-			// 			message("danger", "Error: ", res.message);
-			// 		}
-			// 	})
-			// 	.fail(() => {
-			// 		message("danger", "", "Error: Hubo un problema con la petición");
-			// 	});
+			console.log(fin_anuncio);
+			if (archivos.length > 0) {
+				var foto = archivos[0]; //Sólo queremos la primera imagen, ya que el usuario pudo seleccionar más
+				//Ojo: En este caso 'foto' será el nombre con el que recibiremos el archivo en el servidor
+				formData.append("foto", foto);
+				formData.append("inicio_anuncio", inicio_anuncio);
+				formData.append("fin_anuncio", fin_anuncio);
+				$.ajax({
+					url: appData.base_url + "anuncios/subirImagen",
+					data: formData,
+					type: "POST",
+					contentType: false,
+					processData: false,
+				})
+					.done((res) => {
+						if (res) {
+							message("success", "", res.message);
+							$("button[name='reload_anuncios']").click();
+						} else {
+							message("danger", "Error: Hubo un error al subir imagen");
+						}
+					})
+					.fail(() => {
+						message("danger", "", "Error: Hubo un problema con la petición");
+					});
+			}
 		}
 		if (action == "Editar") {
-			// $.ajax({
-			// 	type: "post",
-			// 	url: appData.base_url + "repartidores/updateRepartidor",
-			// 	data: $("#modal-form-repartidores").serialize(),
-			// 	dataType: "json",
-			// })
-			// 	.done((res) => {
-			// 		if (res.res === true) {
-			// 			$("#" + id_rep + "_nombre_repartidor").text(nombre_repartior);
-			// 			$("#" + id_rep + "_phone_repartidor").text(phone_repartidor);
-			// 			$("#" + id_rep + "_repartidores_actions_edit").attr(
-			// 				"data-id",
-			// 				id_rep
-			// 			);
-			// 			$("#" + id_rep + "_repartidores_actions_edit").attr(
-			// 				"data-phone",
-			// 				phone_repartidor
-			// 			);
-			// 			$("#" + id_rep + "_repartidores_actions_edit").attr(
-			// 				"data-nombre",
-			// 				nombre_repartior
-			// 			);
-			// 			message("success", "", nombre_repartior + res.message);
-			// 		}
-			// 		if (res.res === false) {
-			// 			message("danger", "Error: ", res.message);
-			// 		}
-			// 		if (res.res === "exists") {
-			// 			message(
-			// 				"danger",
-			// 				"Error: ",
-			// 				`El telefono <small>${phone_repartidor}</small> ya existe en la base de datos`
-			// 			);
-			// 		}
-			// 		if (res.res) {
-			// 		} else {
-			// 			message("danger", "", res.message);
-			// 		}
-			// 	})
-			// 	.fail(() => {
-			// 		message("danger", "", "Error: Hubo un problema con la petición");
-			// 	});
+			console.log(form.elements);
+			const inicio_anuncio = form.elements[0].value;
+			const fin_anuncio = form.elements[1].value;
+			const id_ad = form.elements[2].value;
+
+			console.log(inicio_anuncio, "   ", fin_anuncio);
+			console.log("bien");
+			$.ajax({
+				type: "post",
+				url: appData.base_url + "anuncios/updateAnuncioFecha",
+				data: {
+					inicio_anuncio,
+					fin_anuncio,
+					id_ad,
+				},
+				dataType: "json",
+			})
+				.done((res) => {
+					if (res.res) {
+						$("#" + id_ad + "_fechainicio_anuncio").text(inicio_anuncio);
+						$("#" + id_ad + "_fechafin_anuncio").text(fin_anuncio);
+						$("#" + id_ad + "_anuncios_actions_edit").attr(
+							"data-fechainicio",
+							inicio_anuncio
+						);
+						$("#" + id_ad + "_anuncios_actions_edit").attr(
+							"data-fechafin",
+							fin_anuncio
+						);
+
+						message("success", "", res.message);
+					} else {
+						message("danger", "", res.message);
+					}
+				})
+				.fail(() => {
+					message("danger", "", "Error: Hubo un problema con la petición");
+				});
 		}
 	} else {
-		console.log("algo mal");
 		if ($("#fin_anuncio").val() == "") {
 			$(".fin_anuncio").text("Este campo es requerido");
 		}
 		if ($("#inicio_anuncio").val() == "") {
 			$(".inicio_anuncio").text("Este campo es requerido");
+		}
+		if ($("#imagen_input").val() == "") {
+			$(".imagen_input").text("Este campo es requerido");
 		}
 	}
 });

@@ -147,4 +147,66 @@ class User extends CI_Controller
         }
         echo json_encode($data);
     }
+
+    public function actualizarImagen()
+    {
+        $id_user = $this->input->post('id_user');
+        $id_user = intval($id_user);
+
+        $config['upload_path'] = 'static/img/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '5000';
+
+        $nuevoNombreImg = 'platillo' . ($hoy = date('YmdHis'));
+        $config['file_name'] = strtolower($nuevoNombreImg);
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('fotos')) {
+            $file_info = $this->upload->data();
+            $imagen = $file_info['file_name'];
+            $array = [
+                'avatar' => $imagen,
+            ];
+        }
+        echo json_encode(
+            $this->users_model->imagen_where($array, $id_user)
+        );
+    }
+
+    public function subirImagen()
+    {
+        $nombre = $this->input->post("nombre");
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $password = $this->input->post('password');
+
+        $config['upload_path'] = 'static/img/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '5000';
+
+        $nuevoNombreImg = 'platillo' . (date('YmdHis'));
+        $config['file_name'] = strtolower($nuevoNombreImg);
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('avatar')) {
+            $error = array('error' => $this->upload->display_errors());
+            echo json_encode($error);
+        } else {
+            $file_info = $this->upload->data();
+
+            $imagen = $file_info['file_name'];
+            $array = array(
+                'avatar' => $imagen,
+                'nombre' => $nombre,
+                'email' => $email,
+                'phone' => $phone,
+                'password' => $password,
+            );
+            echo json_encode(
+                $this->users_model->imagen($array)
+            );
+        }
+    }
 }

@@ -22,35 +22,7 @@ class Anuncios extends CI_Controller
         }
         echo json_encode($data);
     }
-    public function addAnuncios()
-    {
-        $imagen = $this->input->post("imagen_anuncio");
-        $fecha_inicio = $this->input->post('fecha_inicio');
-        $fecha_fin = $this->input->post('fecha_fin');
 
-        $array = array(
-            'imagen' => $imagen,
-            'fecha_inicio' => $fecha_inicio,
-            'fecha_fin' => $fecha_fin,
-        );
-        $exists = $this->anuncios_model->exist_anuncio($imagen);
-
-        //MESA EXISTE?password
-        if ($exists) {
-            $data['message'] = "Este anuncio ya existe";
-            $data['res'] = 'exists';
-        } else {
-            $res = $this->anuncios_model->add_anuncio($array);
-            if ($res) {
-                $data['message'] = 'Anuncio agregado exitosamente.';
-                $data['res'] = TRUE;
-            } else {
-                $data['message'] = 'No se pudo agregar un nuevo anuncio, consulte con sistemas';
-                $data['res'] = FALSE;
-            }
-        }
-        echo json_encode($data);
-    }
     public function updateAnuncio()
     {
         $data = [];
@@ -88,6 +60,29 @@ class Anuncios extends CI_Controller
         }
         echo json_encode($data);
     }
+    public function updateAnuncioFecha()
+    {
+        $data = [];
+        $id_ad = $this->input->post("id_ad");
+        $inicio_anuncio = $this->input->post('inicio_anuncio');
+        $fin_anuncio = $this->input->post('fin_anuncio');
+
+        $array = array(
+            'fecha_inicio' => $inicio_anuncio,
+            'fecha_fin' => $fin_anuncio,
+        );
+
+        $res = $this->anuncios_model->update_anuncio_fecha($id_ad, $array);
+        if ($res) {
+            $data["message"] = "Fecha actualizada";
+            $data["res"] = $res;
+        } else {
+            $data["message"] = "No ha sido posible actualizar por el momento";
+            $data["res"] = $res;
+        }
+
+        echo json_encode($data);
+    }
     public function updateAnuncioStatus()
     {
         $id_ad = $this->input->post('id_ad');
@@ -117,5 +112,65 @@ class Anuncios extends CI_Controller
             $data["res"] = false;
         }
         echo json_encode($data);
+    }
+
+
+
+    public function subirImagen()
+    {
+        $inicio_anuncio = $this->input->post('inicio_anuncio');
+        $fin_anuncio = $this->input->post('fin_anuncio');
+
+
+        $config['upload_path'] = 'static/img/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '5000';
+
+        $nuevoNombreImg = 'platillo' . (date('YmdHis'));
+        $config['file_name'] = strtolower($nuevoNombreImg);
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('foto')) {
+            $error = array('error' => $this->upload->display_errors());
+            echo json_encode($error);
+        } else {
+            $file_info = $this->upload->data();
+
+            $imagen = $file_info['file_name'];
+            $array = [
+                'imagen' => $imagen,
+                'fecha_inicio' => $inicio_anuncio,
+                'fecha_fin' => $fin_anuncio,
+            ];
+            echo json_encode(
+                $this->anuncios_model->imagen($array)
+            );
+        }
+    }
+    public function actualizarImagen()
+    {
+        $id_ad = $this->input->post('id_ad');
+        $id_ad = intval($id_ad);
+
+        $config['upload_path'] = 'static/img/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '5000';
+
+        $nuevoNombreImg = 'platillo' . ($hoy = date('YmdHis'));
+        $config['file_name'] = strtolower($nuevoNombreImg);
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('fotos')) {
+            $file_info = $this->upload->data();
+            $imagen = $file_info['file_name'];
+            $array = [
+                'imagen' => $imagen,
+            ];
+        }
+        echo json_encode(
+            $this->anuncios_model->imagen_where($array, $id_ad)
+        );
     }
 }
