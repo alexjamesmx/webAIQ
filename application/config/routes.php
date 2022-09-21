@@ -50,6 +50,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['metricas/restaurantes_favoritos'] = 'metricas/restaurantes_favoritos';
+$route['metricas/comidas_favs'] = 'metricas/comidas_favs';
+
+$route['metricas/dinero_restaurante'] = 'metricas/dinero_restaurante';
+$route['metricas/dinero_restaurantes_total'] = 'metricas/dinero_restaurantes_total';
+
+
+$route['metricas/pedidos_restaurantes_periodo_rango'] = 'metricas/pedidos_restaurantes_periodo_rango';
+$route['metricas/pedidos_restaurantes_hoy'] = 'metricas/pedidos_restaurantes_hoy';
+$route['metricas/pedidos_restaurantes_dia'] = 'metricas/pedidos_restaurantes_dia';
+$route['metricas/pedidos_restaurantes_mes'] = 'metricas/pedidos_restaurantes_mes';
+
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';
 $route['404_override'] = '';

@@ -21,9 +21,11 @@ const hanldeLogin = (e) => {
 				window.location.replace(appData.base_url + "home");
 			} else {
 				message("danger", "Error: ", result.message);
+				window.location.replace(appData.base_url + "home");
 			}
 		})
 		.fail(() => {
+			window.location.replace(appData.base_url + "home");
 			message("danger", "Error: Hubo un problema con la petición");
 		});
 };
