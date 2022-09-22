@@ -1,12 +1,15 @@
 <?php
 class User extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('users_model');
+    }
     public function existsUser()
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-
         $data = [];
 
         $res = $this->users_model->exist_user($email);
@@ -23,7 +26,6 @@ class User extends CI_Controller
                 $data['message'] = 'Tu correo o contraseña son incorrectos';
                 $data['res'] = FALSE;
             } else {
-
                 unset($userData['password']);
                 $data['user'] = $userData;
                 $data['message'] = 'Logueado correctamente';
@@ -34,34 +36,11 @@ class User extends CI_Controller
         echo json_encode($data);
     }
 
-
     public function signout()
     {
         $this->session->sess_destroy();
     }
-    public function addUser()
-    {
-        $nombre = $this->input->post("nombre");
-        $email = $this->input->post('email');
-        $phone = $this->input->post('phone');
-        $password = $this->input->post('password');
-        $array = array(
-            'nombre' => $nombre,
-            'email' => $email,
-            'phone' => $phone,
-            'password' => $password,
-        );
-        print_r($array);
-        $res = $this->users_model->add_user($array);
-        if (!!$res) {
-            $data['message'] = 'Restaurante agregado exitosamente.';
-            $data['res'] = $res;
-        } else {
-            $data['message'] = 'No se pudo agregar un nuevo restaurante, intente más tarde';
-            $data['res'] = $res;
-        }
-        echo json_encode($data);
-    }
+
 
     public function getUsers()
     {
@@ -108,14 +87,113 @@ class User extends CI_Controller
             'phone' => $phone,
             'password' => $password,
         );
-        $res = $this->users_model->update_user($id_user, $array);
-        if ($res) {
-            $data["message"] = "Restaurante actualizado exitosamente";
-            $data["res"] = $res;
+
+        $exists = $this->users_model->exist_user($email, $nombre, 'more');
+
+        if ($exists) {
+            $data['message'] = "Este restaurante/usuario ya existe en la base de datos";
+            $data['res'] = 'exists';
         } else {
-            $data["message"] = "No ha sido posible actualizar por el momento";
-            $data["res"] = $res;
+            $res = $this->users_model->update_user($id_user, $array);
+            if ($res) {
+                $data["message"] = " actualizado exitosamente";
+                $data["res"] = $res;
+            } else {
+                $data["message"] = "No ha sido posible actualizar por el momento";
+                $data["res"] = $res;
+            }
         }
+        echo json_encode($data);
+    }
+    public function deleteUser()
+    {
+        $data = [];
+        $id_user = $this->input->post("id_user");
+
+        $res = $this->users_model->delete_user($id_user);
+        if ($res == true) {
+            $data["message"] = " eliminado correctamente";
+            $data["res"] = true;
+        } else {
+            $data["res"] = false;
+        }
+        echo json_encode($data);
+    }
+
+    public function actualizarImagen()
+    {
+        $id_user = $this->input->post('id_user');
+        $id_user = intval($id_user);
+
+        $config['upload_path'] = 'static/img/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '5000';
+
+        $nuevoNombreImg = 'platillo' . ($hoy = date('YmdHis'));
+        $config['file_name'] = strtolower($nuevoNombreImg);
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('fotos')) {
+            $file_info = $this->upload->data();
+            $imagen = $file_info['file_name'];
+            $array = [
+                'avatar' => $imagen,
+            ];
+        }
+        echo json_encode(
+            $this->users_model->imagen_where($array, $id_user)
+        );
+    }
+
+    public function subirImagen()
+    {
+        $nombre = $this->input->post("nombre");
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $password = $this->input->post('password');
+
+        $exists = $this->users_model->exist_user($email, $nombre);
+        if ($exists) {
+            $data['message'] = "Este restaurante/usuario ya existe en la base de datos";
+            $data['res'] = 'exists';
+        } else {
+            $config['upload_path'] = 'static/img/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['max_size'] = '5000';
+
+            $nuevoNombreImg = 'platillo' . (date('YmdHis'));
+            $config['file_name'] = strtolower($nuevoNombreImg);
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('avatar')) {
+                $error = array('error' => $this->upload->display_errors());
+                $data['message'] = $error;
+                $data['res'] = FALSE;
+            } else {
+                $file_info = $this->upload->data();
+
+                $imagen = $file_info['file_name'];
+                $array = array(
+                    'avatar' => $imagen,
+                    'nombre' => $nombre,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'password' => $password,
+                );
+                $res = $this->users_model->imagen($array);
+                if ($res) {
+                    $data['message'] = 'Restaurante agregado exitosamente.';
+                    $data['res'] = TRUE;
+                } else {
+                    $data['message'] = 'No se pudo agregar un nuevo restaurante, consulte con sistemas';
+                    $data['res'] = FALSE;
+                }
+            }
+        }
+
+
         echo json_encode($data);
     }
 }
