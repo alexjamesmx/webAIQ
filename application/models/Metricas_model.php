@@ -17,7 +17,7 @@ class Metricas_model extends CI_Model
     }
     public function pedidos_restaurantes_mes($fecha_actual)
     {
-        $sql = 'SELECT users.nombre as Restaurante, count(pedidos.id_user) as totalPedidos, MONTH(\'' . $fecha_actual . '\') as Mes FROM pedidos INNER JOIN users ON users.id_user=pedidos.id_user where MONTH(DATE(pedidos.fecha)) = MONTH(\'' . $fecha_actual . ' \')  GROUP BY pedidos.id_user';
+        $sql = 'SELECT users.nombre as Restaurante, count(pedidos.id_user) as totalPedidos FROM pedidos INNER JOIN users ON users.id_user=pedidos.id_user where MONTH(DATE(pedidos.fecha)) = MONTH(\'' . $fecha_actual . ' \')  GROUP BY pedidos.id_user';
         $query = $this->db->query($sql);
         return $query->result_array();
     }

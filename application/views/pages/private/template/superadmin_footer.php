@@ -42,7 +42,7 @@
 <script src="<?= base_url() ?>static/js/superadmin/repartidores/validate_form.js"></script>
 <script src="<?= base_url() ?>static/js/superadmin/repartidores/handle_submit.js"></script>
 
-
+<script src="<?= base_url() ?>static/js/superadmin/metricas/pedidos.js"></script>
 
 
 

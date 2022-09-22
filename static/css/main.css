@@ -290,58 +290,119 @@ input:checked + .sliderdis:before {
 	position: relative;
 	text-align: center;
 	background: #fff;
-	}
-	.contenedor-img .mascara,.contenedor-img .contenido {
+}
+.contenedor-img .mascara,
+.contenedor-img .contenido {
 	position: absolute;
 	overflow: hidden;
 	top: 0;
-	left: 0
-	}
-	.contenedor-img img {
+	left: 0;
+}
+.contenedor-img img {
 	display: block;
 	position: relative;
-	
-	}
-	.contenedor-img a.link {
+}
+.contenedor-img a.link {
 	display: inline-block;
 	text-decoration: none;
 	padding: 7px 14px;
 	background: #222;
 	color: #fff;
 	text-transform: uppercase;
-	box-shadow: 0 0 1px #000
-	}
-	.contenedor-img a.link:hover {
-	box-shadow: 0 0 5px #000
-	}
+	box-shadow: 0 0 1px #000;
+}
+.contenedor-img a.link:hover {
+	box-shadow: 0 0 5px #000;
+}
 
 .ejemplo-1 img {
 	transition: all 0.2s linear;
-	}
-	.ejemplo-1 .mascara {
+}
+.ejemplo-1 .mascara {
 	opacity: 0;
 	background-color: rgba(89, 89, 89, 0.7);
 	transition: all 0.3s ease-in-out;
-	}
-	.ejemplo-1 a.link{
+}
+.ejemplo-1 a.link {
 	opacity: 0;
 	transition: all 0.4s ease-in-out;
-	transform: translateY(100px)/*Desplazamos para abajo*/
-	}
-	.ejemplo-1:hover img {
-	transform: scale(1.1);/*Damos un ligero zoom a la imagen*/
-	}
-	.ejemplo-1:hover .mascara {
+	transform: translateY(100px); /*Desplazamos para abajo*/
+}
+.ejemplo-1:hover img {
+	transform: scale(1.1); /*Damos un ligero zoom a la imagen*/
+}
+.ejemplo-1:hover .mascara {
 	opacity: 1;
-	}
-	.ejemplo-1:hover a.link {
+}
+.ejemplo-1:hover a.link {
 	opacity: 1;
-	transform: translateX(0px);/*Regresamos a las posiciones originales*/
-	}
-	
-	.ejemplo-1:hover a.link {
+	transform: translateX(0px); /*Regresamos a las posiciones originales*/
+}
+
+.ejemplo-1:hover a.link {
 	transition-delay: 0.1s; /*Aplicamos un pequeño retardo para que se muestre al final*/
 	transform: translateY(0px);
-	}
+}
 
-	
+/* SELECT */
+/* The container must be positioned relative: */
+.custom-select {
+	position: relative;
+	font-family: Arial;
+}
+
+.custom-select select {
+	display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+	background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+	position: absolute;
+	content: "";
+	top: 14px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+	border-color: transparent transparent #fff transparent;
+	top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+	color: #ffffff;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+	position: absolute;
+	background-color: DodgerBlue;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+	display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+	background-color: rgba(0, 0, 0, 0.1);
+}

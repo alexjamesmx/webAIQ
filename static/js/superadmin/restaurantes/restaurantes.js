@@ -1,3 +1,5 @@
+var restaurantes = null;
+
 $(function () {
 	$("#results_tabla_restaurantes").empty();
 	getUsers();
@@ -13,6 +15,7 @@ function getUsers() {
 	})
 		.done((result) => {
 			if (result.res) {
+				restaurantes = result;
 				if ($("#results_tabla_restaurantes").empty()) {
 					result.data.forEach((item) => {
 						$("#results_tabla_restaurantes").append(

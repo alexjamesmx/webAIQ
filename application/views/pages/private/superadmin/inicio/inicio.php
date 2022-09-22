@@ -2,75 +2,27 @@
     <div class="row  ">
         <div class="col-12">
             <div class="message mt-3"></div>
-            <h1>Dashboard Analytics</h1>
-            <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
-                <ol class="breadcrumb pt-0">
-                    <li class="breadcrumb-item">
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="#">Library</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                </ol>
-            </nav>
+            <h1>Metricas y reportes</h1>
+
             <div class="separator mb-5"></div>
         </div>
     </div>
-
     <div class="row">
-        <div class="col-md-6 col-sm-12 mb-4">
-            <div class="card dashboard-filled-line-chart">
-                <div class="card-body ">
-                    <div class="float-left float-none-xs">
-                        <div class="d-inline-block">
-                            <h5 class="d-inline">Website Visits</h5>
-                            <span class="text-muted text-small d-block">Unique Visitors</span>
-                        </div>
-                    </div>
-                    <div class="btn-group float-right float-none-xs mt-2">
-                        <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            This Week
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Last Week</a>
-                            <a class="dropdown-item" href="#">This Month</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart card-body pt-0">
-                    <canvas id="visitChart"></canvas>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-6 col-sm-12 mb-4">
-            <div class="card dashboard-filled-line-chart">
-                <div class="card-body ">
-                    <div class="float-left float-none-xs">
-                        <div class="d-inline-block">
-                            <h5 class="d-inline">Conversion Rates</h5>
-                            <span class="text-muted text-small d-block">Per Session</span>
-                        </div>
-                    </div>
-                    <div class="btn-group float-right mt-2 float-none-xs">
-                        <button class="btn btn-outline-secondary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            This Week
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Last Week</a>
-                            <a class="dropdown-item" href="#">This Month</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart card-body pt-0">
-                    <canvas id="conversionChart"></canvas>
-                </div>
-            </div>
+        <div class="col-12 col-sm-12 mb-4">
+
+            <select>
+                <option value="0" disabled>Categoria:</option>
+                <option value="1">Ano</option>
+                <option value="2">Mes</option>
+                <option value="2">Dia</option>
+
+            </select>
+            <input id='datePicker' type="date">
+            <div id="container"> </div>
+
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-md-12 col-lg-6 col-xl-4 mb-4">
             <div class="card h-100">
@@ -82,7 +34,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-12 col-lg-6 col-xl-4 mb-4">
             <div class="card dashboard-progress">
                 <div class="position-absolute card-top-buttons">
@@ -100,7 +51,6 @@
                             <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-
                     <div class="mb-4">
                         <p class="mb-2">Portfolio
                             <span class="float-right text-muted">1/8</span>
@@ -109,7 +59,6 @@
                             <div class="progress-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-
                     <div class="mb-4">
                         <p class="mb-2">Billing Details
                             <span class="float-right text-muted">2/6</span>
@@ -118,7 +67,6 @@
                             <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-
                     <div class="mb-4">
                         <p class="mb-2">Interests
                             <span class="float-right text-muted">0/8</span>
@@ -127,7 +75,6 @@
                             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-
                     <div class="mb-4">
                         <p class="mb-2">Legal Documents
                             <span class="float-right text-muted">1/2</span>
@@ -136,7 +83,6 @@
                             <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -162,7 +108,6 @@
                                 <canvas id="smallChart2"></canvas>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-6 mb-4">
@@ -188,12 +133,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
-
     <div class="row sortable">
         <div class="col-xl-3 col-lg-6 mb-4">
             <div class="card">
@@ -261,8 +202,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-lg-6 col-12 mb-4">
             <div class="card">
@@ -285,9 +224,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="row">
         <div class="col-12 mb-4">
             <div class="card">
