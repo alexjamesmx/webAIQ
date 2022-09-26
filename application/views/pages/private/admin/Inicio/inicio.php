@@ -6,7 +6,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 brad">
 
                             <h2 class="card-title"> Solicitudes de pedido </h2>
-                            <button type="button" class="btn btn-primary restaricon">
+                            <button onclick="refrescar_aceptar()" type="button" class="btn btn-primary restaricon">
                                 <i class="simple-icon-bell"></i>&nbsp;
                                 <span id="contidadporacetpar" class="badge badge-light"></span>
                             </button>
@@ -18,11 +18,8 @@
                                 data-order="[[ 1, &quot;desc&quot; ]]">
                                 <thead>
                                     <tr class="text-center">
-                                        <th class="mx-3">Id</th>
-                                        <th class="mx-3">Nombre del Cliente</th>
-                                        <th class="mx-3">Total</th>
-                                        <th class="mx-3">Fecha y Hora de entrada</th>
-                                        <th class="mx-3">Detalle del pedido</th>
+                                        <th>Id</th>
+                                        <th>Detalle del pedido</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -45,7 +42,7 @@
                             class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 bg-primary brad">
 
                             <h2 class="card-title"> Aceptados (Preparando) </h2>
-                            <button type="button" class="btn btn-light restaricon">
+                            <button onclick="refrescar_preparando()" type="button" class="btn btn-light restaricon">
                                 <i class="simple-icon-bell"></i>&nbsp;
                                 <span id="contidadpreparando" class="badge badge-dark"></span>
                             </button>
@@ -81,7 +78,7 @@
                             class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 bg-secondary brad">
 
                             <h2 class="card-title"> Empaquetado y en Espera </h2>
-                            <button type="button" class="btn btn-light restaricon">
+                            <button onclick="refrescar_espera()" type="button" class="btn btn-light restaricon">
                                 <i class="simple-icon-bell"></i>&nbsp;
                                 <span id="contidadespera" class="badge badge-dark"></span>
                             </button>
@@ -122,7 +119,7 @@
                             class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 bg-info brad text-white">
 
                             <h2 class="card-title"> Pedidos por cobrar </h2>
-                            <button type="button" class="btn btn-light restaricon">
+                            <button onclick="refrescar_enviados()" type="button" class="btn btn-light restaricon">
                                 <i class="simple-icon-bell"></i>&nbsp;
                                 <span id="contidadenviados" class="badge badge-dark"></span>
                             </button>
@@ -153,4 +150,5 @@
                 </div>
 
             </div>
-        </div> 
+
+        

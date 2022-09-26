@@ -24,6 +24,7 @@ function handleModal(e) {
   let tiempo_edit = $(e).data('tiempo')
   let tipo_edit = $(e).data('tipo')
   let descripcion_edit = $(e).data('descripcion')
+  $('#titulo_moda').html(action)
 
   //verificamos la accion y depende cual es entonses
 

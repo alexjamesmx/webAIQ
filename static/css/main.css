@@ -344,4 +344,13 @@ input:checked + .sliderdis:before {
 	transform: translateY(0px);
 	}
 
+
+.alertaAIQ {
+	width: 350px;
+	margin-top: 11vh;
+	margin-left: auto;
+    margin-right: auto;
+	border-radius: 5px;
+}
+
 	
