@@ -21,6 +21,10 @@
     <script src="<?= base_url() ?>static/js/menu.js"></script>
     <script src="<?= base_url() ?>static/js/estadores.js"></script> 
     <script src="<?= base_url() ?>static/js/cuenta.js"></script>  
+    <script src="<?= base_url() ?>static/js/Dasboard/poraceptar.js"></script> 
+    <script src="<?= base_url() ?>static/js/Dasboard/preparando.js"></script> 
+    <script src="<?= base_url() ?>static/js/Dasboard/espera.js"></script> 
+    <script src="<?= base_url() ?>static/js/Dasboard/enviados.js"></script> 
 
   
 </body> 

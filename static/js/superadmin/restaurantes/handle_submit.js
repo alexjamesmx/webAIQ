@@ -56,9 +56,9 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 		}
 		if (action == "Editar") {
 			const nombre = form.elements[0].value;
-			const email = form.elements[1].value;
-			const phone = form.elements[2].value;
-			const id_user = form.elements[3].value;
+			const email = form.elements[2].value;
+			const phone = form.elements[3].value;
+			const id_user = form.elements[4].value;
 			$.ajax({
 				type: "post",
 				url: appData.base_url + "user/updateUser",

@@ -24,4 +24,4 @@
 
 </div>
 
-<div class="message d-flex justify-content-center position-alert"></div>
+<div class="message"></div>

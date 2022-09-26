@@ -24,6 +24,21 @@ class Metricas extends CI_Controller
         $res = $this->metricas_model->pedidos_restaurantes_mes($fecha_actual);
         echo json_encode($res);
     }
+
+    public function pedidos_restaurantes_mes_not()
+    {
+        $fecha_actual = $this->input->post('mes');
+        $res = $this->metricas_model->pedidos_restaurantes_mes_not($fecha_actual);
+        echo json_encode($res);
+    }
+
+
+    public function pedidos_restaurantes_year()
+    {
+        $fecha_actual = $this->input->post('mes');
+        $res = $this->metricas_model->pedidos_restaurantes_year($fecha_actual);
+        echo json_encode($res);
+    }
     public function pedidos_restaurantes_periodo_rango($fecha_inicio, $fecha_fin)
     {
 

@@ -17,10 +17,33 @@ class Metricas_model extends CI_Model
     }
     public function pedidos_restaurantes_mes($fecha_actual)
     {
-        $sql = 'SELECT users.nombre as Restaurante, count(pedidos.id_user) as totalPedidos FROM pedidos INNER JOIN users ON users.id_user=pedidos.id_user where MONTH(DATE(pedidos.fecha)) = MONTH(\'' . $fecha_actual . ' \')  GROUP BY pedidos.id_user';
+        $sql = 'SELECT users.nombre as Restaurante, count(pedidos.id_user) as totalPedidos FROM pedidos INNER JOIN users ON users.id_user=pedidos.id_user where MONTH(DATE(pedidos.fecha)) = MONTH(\'' . $fecha_actual . ' \') 
+        AND YEAR(DATE(pedidos.fecha)) = YEAR(\'' . $fecha_actual . ' \') 
+        GROUP BY pedidos.id_user';
         $query = $this->db->query($sql);
         return $query->result_array();
     }
+
+    public function pedidos_restaurantes_mes_not($fecha_actual)
+    {
+        $sql = 'SELECT nombre as Restaurante , \'1\' as totalPedidos FROM users where id_user not in (SELECT users.id_user FROM pedidos INNER JOIN users ON users.id_user=pedidos.id_user where MONTH(DATE(pedidos.fecha)) =  MONTH(\'' . $fecha_actual . ' \') 
+        AND YEAR(DATE(pedidos.fecha)) = YEAR(\'' . $fecha_actual . ' \') 
+        GROUP BY pedidos.id_user)';
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+
+
+    public function pedidos_restaurantes_year($fecha_actual)
+    {
+        $sql = 'SELECT users.nombre as Restaurante, count(pedidos.id_user) as totalPedidos, pedidos.fecha FROM pedidos INNER JOIN users ON users.id_user=pedidos.id_user where MONTH(DATE(pedidos.fecha)) = MONTH(\'' . $fecha_actual . ' \')  GROUP BY pedidos.id_user';
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+
+
     public function pedidos_restaurantes_periodo_rango($fecha_inicio, $fecha_fin)
     {
         $sql = 'SELECT users.nombre as Restaurante, count(pedidos.id_user) as totalPedidos, DATE_FORMAT(pedidos.fecha, "%Y-%m-%d") as Fecha FROM pedidos INNER JOIN users ON users.id_user=pedidos.id_user where DATE(pedidos.fecha) in(\'' . $fecha_inicio . ' \',\'' . $fecha_fin . ' \')  GROUP BY pedidos.id_user';

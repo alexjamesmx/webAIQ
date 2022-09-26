@@ -67,7 +67,7 @@
 
         <div class="navbar-right">
             <div class="user d-inline-block">
-                <span class="name">En Linea</span>
+                <span class="name">En Línea</span>
             </div>
             <div class="header-icons d-inline-block align-middle">
                 <div class="d-none d-md-inline-block align-text-bottom mr-3">

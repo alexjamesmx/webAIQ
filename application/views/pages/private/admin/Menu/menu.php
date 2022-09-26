@@ -118,7 +118,7 @@
                                                 <h4>Precio</h4>
                                             </th>
                                             <th scope="col" class="text-center">
-                                                <h4>Tiempo de preparacion</h4>
+                                                <h4>Tiempo de preparación</h4>
                                             </th>
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
@@ -223,7 +223,7 @@
                                                 <h4>Precio</h4>
                                             </th>
                                             <th scope="col" class="text-center">
-                                                <h4>Tiempo de preparacion</h4>
+                                                <h4>Tiempo de preparación</h4>
                                             </th>
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
@@ -325,7 +325,7 @@
                                                 <h4>Precio</h4>
                                             </th>
                                             <th scope="col" class="text-center">
-                                                <h4>Tiempo de preparacion</h4>
+                                                <h4>Tiempo de preparación</h4>
                                             </th>
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>

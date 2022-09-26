@@ -69,10 +69,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body bradb">
+            <div class="modal-body bradb" id='delete_users'>
                 <p class="mb-4" id='modal-delete-text-restaurantes'></p>
                 <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" name='delete'>Eliminar</button>
+
+                <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal" name='delete'>Eliminar</button> -->
             </div>
         </div>
     </div>

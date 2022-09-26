@@ -12,7 +12,7 @@
                     </button>
                 </div>
                 <div class="modal-body bradb">
-                    <h5 class="mb-4 modal-title">ACCION</h5>
+                    <h5 class="mb-4 modal-title">ACCIÓN</h5>
                     <form class="needs-validation" id="form-producto" novalidate>
                     <input type="hidden" class="form-control" id="id" name="id" value="<?=$_SESSION['id_user']?>">
                     <input type="hidden" class="form-control" id="id_comida" name="id_comida" value="">

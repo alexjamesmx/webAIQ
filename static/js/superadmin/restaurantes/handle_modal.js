@@ -67,25 +67,31 @@ function handleModal_restaurantes(e) {
 }
 
 function handleModalDelete_restaurantes(e) {
+	$("button[name='delete']").remove();
 	let id_user = $(e).data("id");
 	let nombre = $("#" + id_user + "_nombre").text();
+	$("#delete_users").append(`
+	<button type="button" class="btn btn-outline-danger" data-dismiss="modal" name='delete' id='delete_users_${id_user}'>Eliminar</button>`);
+	$("");
 	$("#modal-delete-title-restaurantes").html(
 		`¿Estás seguro de eliminar a <b>${nombre}</b>?`
 	);
 	$("#modal-delete-text-restaurantes").html(`Eliminar a ${nombre}`);
 
-	$("button[name='delete']").click(function () {
+	$("#delete_users_" + id_user).click(function () {
 		$.ajax({
 			type: "post",
 			url: appData.base_url + "user/deleteUser",
 			data: { id_user },
 			dataType: "json",
 			success: function (res) {
-				$("#" + id_user + "_registro").remove();
-				message("info", "", nombre + res.message);
-				setTimeout(() => {
+				if (res) {
 					$("#" + id_user + "_registro").remove();
-				}, 1000);
+					message("info", "", nombre + res.message);
+					setTimeout(() => {
+						$("#" + id_user + "_registro").remove();
+					}, 1000);
+				}
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
 				message("Estado: ", "", textStatus);

@@ -2,7 +2,7 @@
     <div class="row  ">
         <div class="col-12">
             <div class="message mt-3"></div>
-            <h1>Metricas y reportes</h1>
+            <h1>Métricas y reportes</h1>
 
             <div class="separator mb-5"></div>
         </div>
@@ -11,13 +11,30 @@
 
         <div class="col-12 col-sm-12 mb-4">
 
-            <select>
-                <option value="0" disabled>Categoria:</option>
-                <option value="1">Ano</option>
-                <option value="2">Mes</option>
-                <option value="2">Dia</option>
-
+            <select id="selected-category">
+                <option value="0" disabled>Categoría:</option>
+                <option value="1">Por Año</option>
+                <option value="2" selected="selected">Por Mes</option>
+                <option value="2">Por Día</option>
             </select>
+
+
+
+            <select id="selected-category-month">
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+            <input id='selected-category-year' type='number'>
             <input id='datePicker' type="date">
             <div id="container"> </div>
 
@@ -27,7 +44,7 @@
         <div class="col-md-12 col-lg-6 col-xl-4 mb-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Product Categories</h5>
+                    <h5 class="card-title">Categoría de Productos</h5>
                     <div class="dashboard-donut-chart chart">
                         <canvas id="categoryChart"></canvas>
                     </div>
