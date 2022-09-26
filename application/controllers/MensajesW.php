@@ -12,20 +12,19 @@ class MensajesW extends CI_Controller {
 	
 public  function sendTextMessage()
   {
-   // $celular = "52".$cel;
+    $celular = 524427408410;
         $data = [];
+        $cuerpo = 'dadad';
         $data  = [];
      
-          //524171078724
-          //santi 524561034762
           
                     $PostData = array(
                     "messaging_product" => "whatsapp",
-                    "to"=>  524427408410,
+                    "to"=>  $celular,
                     "type"=> "text",
                     "recipient_type"=> "individual",
                     "text"=> array(
-                    "body"=>  "Morrita rica esta cerca de ti saludos"  )
+                    "body"=>  $cuerpo  )
                     );
      //var_dump($PostData);
           //        $PostData = array(

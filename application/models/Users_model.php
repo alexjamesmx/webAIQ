@@ -1,10 +1,21 @@
 <?php
 class Users_model extends CI_Model
 {
-
-    public function exist_user($email)
+    public function exist_user($email, $nombre = '', $more = '')
     {
+
+        if ($more != '') {
+            return
+                $this->db->select('*')
+                ->from('users')
+                ->where('email =', $email)
+                ->or_where('nombre =', $nombre)
+                ->count_all_results() > 1;
+        }
         $query = $this->db->get_where('users', array('email' => $email));
+        if ($query->result() === [] && $nombre != '') {
+            $query = $this->db->get_where('users', array('nombre' => $nombre));
+        }
         return $query->result() !== [];
     }
 
@@ -24,9 +35,8 @@ class Users_model extends CI_Model
 
     public function add_user($data)
     {
-        $query = $this->db->set($data)
+        return $this->db->set($data)
             ->insert('users');
-        return $query;
     }
     public function get_users()
     {
@@ -56,5 +66,23 @@ class Users_model extends CI_Model
         return $this->db->set($array)
             ->where('id_user', $id_user)
             ->update('users');
+    }
+    public function delete_user($id_user)
+    {
+        $this->db->where('id_user', $id_user)
+            ->delete('users');
+        return $this->db->affected_rows();
+    }
+    public function imagen_where($data, $id)
+    {
+        $this->db->set($data);
+        $this->db->where('id_user', $id);
+        $this->db->update('users');
+        $obj = $this->db->affected_rows() != 0;
+        return $obj;
+    }
+    public function imagen($data)
+    {
+        return $this->db->insert('users', $data);
     }
 }

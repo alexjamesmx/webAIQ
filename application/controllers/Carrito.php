@@ -59,6 +59,73 @@ class Carrito extends CI_Controller {
 
     }
 
+    //agrega productos en carrito y en caso necesario crea nuevo carrito
+    public function addProd() 
+    {
+        //obtener idCarrito
+        $idMesa = $this->input->post("id_mesa");
+        $query = $this->carrito_model->getIdCart($idMesa);
+
+        //VALIDANDO ESTATUS CARRITO
+        if (($query == false) || ($query->id_status > 1))  {
+            //en caso de no existir carrito en proceso, se crea uno nuevo
+            $this->carrito_model->createCart($idMesa);
+        }
+        //volvemos a leer el id de carrito en caso de generar uno nuevo
+        $query = $this->carrito_model->getIdCart($idMesa);
+        //obtener carrito
+        $carrito = $this->carrito_model->getCart($query->id);
+
+        //datos a insertar en detalle_carrito
+        $idCart = $query->id;
+        $idComida = $this->input->post("id_comida");
+        $cantidad = $this->input->post("cantidad");
+        $subtotal = $this->input->post("subtotal");
+        $comentario = $this->input->post("comentario");
+        //arreglo con datos a insertar
+        $array = array(
+            'id_carrito' => $idCart,
+            'id_comida' => $idComida,
+            'cantidad' => $cantidad,
+            'subtotal' => $subtotal,
+            'comentario' => $comentario,
+        );
+
+        $confirmacion = [];
+        foreach ($carrito as $row)
+        {
+            $data['id_carrito'] = $row['id_carrito'];
+            $data['id_comida'] = $row['id_comida'];
+            $data['cantidad'] = $row['cantidad'];
+
+            if ($idComida == $data['id_comida']) {
+                $res = $this->carrito_model->addProd($idCart, $idComida, $cantidad);
+                if ($res) {
+                    $confirmacion['message'] = 'Producto actualizado en carrito exitosamente.';
+                    $confirmacion['res'] = $res;
+                } else {
+                    $confirmacion['message'] = 'No se pudo actualizar el producto, intente mas tarde';
+                    $confirmacion['res'] = $res;
+                }
+                echo json_encode($confirmacion);
+            }
+        }
+
+        if ($confirmacion == NULL) {
+            //mandamos a insertar datos
+            $res = $this->carrito_model->addCart($array);
+            $arRes = [];
+            if ($res) {
+                $arRes['message'] = 'Producto agregado a carrito exitosamente.';
+                $arRes['res'] = $res;
+            } else {
+                $arRes['message'] = 'No se pudo agregar el producto, intente mas tarde';
+                $arRes['res'] = $res;
+            }
+            echo json_encode($arRes);
+        }
+    }
+
     public function getTotalCart($idMesa) {
         //obtener idCarrito
         $idCart = $this->carrito_model->getIdCart($idMesa);

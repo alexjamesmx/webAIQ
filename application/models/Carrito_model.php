@@ -45,11 +45,18 @@ class Carrito_model extends CI_Model {
 
     //agrega productos
     public function addCart($data) {
-        //inserta productos a carrito
-        //$addCart = $this->db->insert_string('detalle_carrito', $data); <- retorna el comando inserte completo
-        //otro metodo, este retorna true o false
         $addCart = $this->db->set($data)->insert('detalle_carrito');
         return $addCart;
+    }
+
+    //agrega productos
+    public function addProd($idCart, $idComida, $cantidad) {
+        $this->db->set('cantidad', $cantidad);
+        $this->db->where('id_carrito', $idCart);
+        $this->db->where('id_comida', $idComida);
+        $upCarrito = $this->db->update('detalle_carrito'); // gives UPDATE `mytable` SET `field` = 'field+1' WHERE `id` = 2
+
+        return $upCarrito;
     }
 
     //eliminar producto de carrito
