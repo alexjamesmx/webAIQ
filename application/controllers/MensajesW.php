@@ -12,9 +12,10 @@ class MensajesW extends CI_Controller {
 	
 public  function sendTextMessage()
   {
-    $celular = 524427408410;
+      
+    $celular = 524422198567;
         $data = [];
-        $cuerpo = 'dadad';
+        $cuerpo = 'mensaje de prueba';
         $data  = [];
      
           
@@ -38,7 +39,7 @@ public  function sendTextMessage()
             
 
       $phone_number_id  =    110096128392170;
-      $token            = 'EAAMYWllJ1tEBAMFE4GbDUrfQLQqsKbeQ2aZAvc0h3FOQPG3qdzZBm6LqoW5KGd8A94WFlX5f6Enc0UuwfGKPQvIfwoFJYzw1rFuABa6Epv7J9kc66lwagQp1OjZCafz8KN0ByZBekW5XX7ydGTLm4Ms8oaPt90tocBbK4NImBlPE5OkuD5IugKf99HIDkG2UgNKoZA2eDJgZDZD';
+      $token            = 'EAAMYWllJ1tEBABQ4cHPRQg51SC26DpHX82Ki0XGJYNVhI0impOkJlvpzTZAtfNl87DZBvHEnuAAOJH8ZAlqqOjQVZAldL0P8fxtmHGFZAr7itaWdgD9sQLZB3ARIqZAaDZCcc5wXOC9ZAgQSZBkhv7x5Y2jeKQ4eW1QXBvKdqZAOESZAgPNVJpyfHid1gSOH22TnWtzpQ6koBqnR0wZDZD';
       $ruta             = ("/v12.0/".$phone_number_id. "/messages?access_token=".$token);
       //$tujen            = "EAANZBaKZCdBFwBAJZAcxnAfPDc8ZBWpaKls9cNEt8EHoZBCbE196XCXUZCBpUqBjqXiIGV33rqLx1r3faGRZBYtiqYT33qFK0GFMj7NyRcclwCMOZAvFdlfqLvfGQc5J15XAiGzclpm7KpRgiGaYQyRlhGf9bdHA2oFY12gNN37vu3GAPqr9xv2FZCUBKnHx6jrkdfa5tZB0doHSWC2RYZC7LNW"; 
       $url              = "https://graph.facebook.com/v13.0/110096128392170/messages?access_token=". $token;

@@ -8,9 +8,9 @@ class MovilR extends CI_Controller {
         $this->load->model('MovilR_model');
     }
  
-    public function getRestaurantes()
-    {
-        $resultado = $this->MovilR_model->getRestaurant();
+    public function getRestaurantes($zona = NULL)
+    {  
+        $resultado = $this->MovilR_model->getRestaurant($zona);
         echo json_encode($resultado);
     }
     

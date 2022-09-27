@@ -245,7 +245,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h5 class="mb-4 modal-title">ACCION</h5>
+                    <h5 class="mb-4 modal-title">ACCIÓN</h5>
                     <form class="row g-3 needs-validation" novalidate>
                         <div class="col-12">
                             <label for="phone" class="form-label">Nombre</label>

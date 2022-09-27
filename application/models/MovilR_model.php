@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MovilR_model extends CI_Model
 {
 
-    public function getRestaurant()
+    public function getRestaurant($zona)
     { 
-        $cmd = "SELECT * FROM users WHERE tipo = 2";
+        $cmd = "SELECT * FROM users WHERE tipo = 2 AND zona = $zona";
         $query = $this->db->query($cmd);
         return ($query->result());
     }
@@ -27,6 +27,40 @@ class MovilR_model extends CI_Model
         // $resultado[$this->db->select()] = $this->MovilR_model->getMenu($id_convert);
         // echo json_encode($resultado);
         
+    }
+    
+    
+    public function getCombos($id_user)
+    { 
+        $this->db->select('*')
+        ->from('menu')
+        ->where('id_user', $id_user)
+        ->where('id_categoria', 1)
+        ->where('status', 1);
+        $rs = $this->db->get();
+        return $rs->result();
+    }
+    
+        public function getComidas($id_user)
+    { 
+        $this->db->select('*')
+        ->from('menu')
+        ->where('id_user', $id_user)
+        ->where('id_categoria', 2)
+        ->where('status', 1);
+        $rs = $this->db->get();
+        return $rs->result();
+    }
+    
+           public function getBebidas($id_user)
+    { 
+        $this->db->select('*')
+        ->from('menu')
+        ->where('id_user', $id_user)
+        ->where('id_categoria', 3)
+        ->where('status', 1);
+        $rs = $this->db->get();
+        return $rs->result();
     }
 
     public function getRepartidor() 

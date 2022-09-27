@@ -81,10 +81,12 @@ class User extends CI_Controller
         $email = $this->input->post('email');
         $phone = $this->input->post('phone');
         $password = $this->input->post('password');
+        $zona = $this->input->post('zona');
         $array = array(
             'nombre' => $nombre,
             'email' => $email,
             'phone' => $phone,
+            'zona' => $zona,
             'password' => $password,
         );
 
@@ -107,15 +109,31 @@ class User extends CI_Controller
     }
     public function deleteUser()
     {
-        $data = [];
-        $id_user = $this->input->post("id_user");
+        // $data = [];
+        // $id_user = $this->input->post("id_user");
 
-        $res = $this->users_model->delete_user($id_user);
-        if ($res == true) {
+        // $res = $this->users_model->delete_user($id_user);
+        // if ($res == true) {
+        //     $data["message"] = " eliminado correctamente";
+        //     $data["res"] = true;
+        // } else {
+        //     $data["res"] = false;
+        // }
+        // echo json_encode($data);
+
+
+
+        $id_user = $this->input->post('id_user');
+        $status = 3;
+        $res = $this->users_model->update_user_status($id_user, $status);
+        if ($res) {
+            $data['data'] = $res;
             $data["message"] = " eliminado correctamente";
-            $data["res"] = true;
-        } else {
-            $data["res"] = false;
+            $data['res'] = TRUE;
+        } else if ($res == false) {
+            $data['data'] = $res;
+            $data['message'] = 'Hubo un problema con la peticion';
+            $data['res'] = FALSE;
         }
         echo json_encode($data);
     }
@@ -152,6 +170,7 @@ class User extends CI_Controller
         $email = $this->input->post('email');
         $phone = $this->input->post('phone');
         $password = $this->input->post('password');
+        $zona = $this->input->post('zona');
 
         $exists = $this->users_model->exist_user($email, $nombre);
         if ($exists) {
@@ -179,6 +198,7 @@ class User extends CI_Controller
                     'avatar' => $imagen,
                     'nombre' => $nombre,
                     'email' => $email,
+                    'zona' => $zona,
                     'phone' => $phone,
                     'password' => $password,
                 );

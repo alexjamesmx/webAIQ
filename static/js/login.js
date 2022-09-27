@@ -17,8 +17,8 @@ const hanldeLogin = (e) => {
 		},
 	})
 		.done((result) => {
-			console.log("RESULTADO: ", result);
 			if (result.res) {
+				window.location.replace(appData.base_url + "home");
 				window.location.replace(appData.base_url + "home");
 			} else {
 				message("danger", "Error: ", result.message);

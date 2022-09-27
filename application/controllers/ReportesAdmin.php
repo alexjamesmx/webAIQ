@@ -23,8 +23,9 @@ class ReportesAdmin extends CI_Controller{
         echo json_encode($res);
     }
 
-    public function getTopFood(){
-        $res = $this->ReportesAdmin_model->get_topFood();
+    public function getTopFood($id){
+  
+        $res = $this->ReportesAdmin_model->get_topFood($id);
         echo json_encode($res);
     }
 

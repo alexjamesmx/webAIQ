@@ -27,9 +27,11 @@ class Repartidores extends CI_Controller
         $telefono = $this->input->post("phone_repartidor");
         // $activo = $this->input->post("activo_repartidor");
         $nombre = $this->input->post('nombre_repartidor');
+        $zona = $this->input->post('zona_repartidor');
         $array = array(
             'telefono' => $telefono,
             'nombre' => $nombre,
+            'zona' => $zona,
         );
         $exists = $this->repartidores_model->exist_repartidor($telefono);
 
@@ -55,10 +57,12 @@ class Repartidores extends CI_Controller
         $id_rep = $this->input->post("id_rep");
         $telefono = $this->input->post("phone_repartidor");
         $nombre = $this->input->post('nombre_repartidor');
+        $zona = $this->input->post('zona_repartidor');
         $old_phone = $this->input->post('old_telefono');
         $array = array(
             'nombre' => $nombre,
             'telefono' => $telefono,
+            'zona' => $zona,
         );
         if ($nombre != $old_phone) {
             $exists = $this->repartidores_model->exist_repartidor($telefono, $old_phone);

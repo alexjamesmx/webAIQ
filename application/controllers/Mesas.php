@@ -61,10 +61,12 @@ class Mesas extends CI_Controller
         $nombre = $this->input->post("nombre_mesa");
         $descripcion = $this->input->post("descripcion_mesas");
         $password = $this->input->post('password_mesas');
+        $zona_mesas = $this->input->post('zona_mesas');
         $array = array(
             'nombre' => $nombre,
             'descripcion' => $descripcion,
             'password' => $password,
+            'zona' => $zona_mesas,
         );
         $exists = $this->mesas_model->exist_mesa($nombre);
 
@@ -91,11 +93,13 @@ class Mesas extends CI_Controller
         $nombre = $this->input->post("nombre_mesa");
         $descripcion = $this->input->post("descripcion_mesas");
         $password = $this->input->post('password_mesas');
+        $zona_mesas = $this->input->post('zona_mesas');
         $old_name = $this->input->post('old_name');
         $array = array(
             'nombre' => $nombre,
             'descripcion' => $descripcion,
             'password' => $password,
+            'zona' => $zona_mesas,
         );
         if ($nombre != $old_name) {
             $exists = $this->mesas_model->exist_mesa($nombre, $old_name);
