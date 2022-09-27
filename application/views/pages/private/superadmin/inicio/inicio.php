@@ -9,7 +9,7 @@
     </div>
     <div class="row">
 
-        <div class="col-12 col-sm-12 mb-4">
+        <div id='hc' class="col-12 col-sm-12 mb-4">
 
             <select id="selected-category">
                 <option value="0" disabled>Categoría:</option>
@@ -36,7 +36,7 @@
             </select>
             <input id='selected-category-year' type='number'>
             <input id='datePicker' type="date">
-            <div id="container"> </div>
+
 
         </div>
     </div>

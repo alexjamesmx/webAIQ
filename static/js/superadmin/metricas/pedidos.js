@@ -57,84 +57,101 @@ const pedidos_fecha = () => {
 	$("#selected-category-month").val(month);
 	$("#selected-category-year").val(year);
 
-	hcTittle = "Pedidos restaurantes en " + monthNames[month - 1] + " " + year;
-	const monthArray = [
-		year + "-01-01",
-		year + "-02-01",
-		year + "-03-01",
-		year + "-04-01",
-		year + "-05-01",
-		year + "-06-01",
-		year + "-07-01",
-		year + "-08-01",
-		year + "-09-01",
-		year + "-10-01",
-		year + "-11-01",
-		year + "-12-01",
-	];
-
 	const dataPrev = {};
 
 	const wait = new Promise((resolve, reject) => {
-		monthArray.forEach((item, i) => {
-			$.ajax({
-				type: "post",
-				url: appData.base_url + "metricas/pedidos_restaurantes_mes",
-				data: {
-					mes: item,
-				},
-				dataType: "json",
-			})
-				.done((res) => {
-					const arr = [];
-					console.log("res", res);
+		const isHidden = (elem) => {
+			const styles = window.getComputedStyle(elem);
+			return styles.display === "none" || styles.visibility === "hidden";
+		};
+		const elem_year = document.getElementById("selected-category-year");
+		const elem_month = document.getElementById("selected-category-month");
+		const elem_days = document.getElementById("datePicker");
+		if (!isHidden(elem_year)) {
+		}
+		if (!isHidden(elem_month)) {
+			hcTittle =
+				"Pedidos restaurantes en " + monthNames[month - 1] + " " + year;
+			const monthArray = [
+				year + "-01-01",
+				year + "-02-01",
+				year + "-03-01",
+				year + "-04-01",
+				year + "-05-01",
+				year + "-06-01",
+				year + "-07-01",
+				year + "-08-01",
+				year + "-09-01",
+				year + "-10-01",
+				year + "-11-01",
+				year + "-12-01",
+			];
 
-					res.forEach((item) => {
-						item.totalPedidos = Number(item.totalPedidos);
-						arr.push(Object.values(item));
-					});
-
-					$.ajax({
-						type: "post",
-						url: appData.base_url + "metricas/pedidos_restaurantes_mes_not",
-						dataType: "json",
-						data: {
-							mes: item,
-						},
-					})
-						.done((res) => {
-							res.forEach((item) => {
-								item.totalPedidos = Number(item.totalPedidos);
-								arr.push(Object.values(item));
-							});
-						})
-						.fail((err) => console.error(err));
-
-					dataPrev[i + 1] = arr;
-					if (i === monthArray.length - 1) resolve(dataPrev);
+			monthArray.forEach((item, i) => {
+				$.ajax({
+					type: "post",
+					url: appData.base_url + "metricas/pedidos_restaurantes_mes",
+					data: {
+						mes: item,
+					},
+					dataType: "json",
 				})
-				.fail((err) => console.error(err));
-		});
+					.done((result) => {
+						const arr = [];
+						$.ajax({
+							type: "post",
+							url: appData.base_url + "metricas/pedidos_restaurantes_mes_not",
+							dataType: "json",
+							data: {
+								mes: item,
+							},
+						})
+							.done((res) => {
+								result.forEach((item) => {
+									item.totalPedidos = Number(item.totalPedidos);
+									arr.push(Object.values(item));
+									console.log(arr);
+								});
+
+								res.forEach((item) => {
+									item.totalPedidos = Number(item.totalPedidos);
+									arr.push(Object.values(item));
+								});
+								dataPrev[i + 1] = arr;
+
+								if (i === monthArray.length - 1) resolve(dataPrev);
+							})
+							.fail((err) => console.error(err));
+					})
+					.fail((err) => console.error(err));
+			});
+		}
+		if (!isHidden(elem_days)) {
+		}
 	});
 
 	wait
-		.then((dataPrev) => {
-			const data = dataPrev;
-			console.log(dataPrev);
-
+		.then((data) => {
+			console.log("DATA", data);
 			let dataMonth = [];
+			let dataMonthPrev = [];
 			return new Promise((resolve) => {
 				const timeout = setInterval(() => {
+					dataMonthPrev = data[month - 1];
 					dataMonth = data[month];
-					if (dataMonth.length > 0) {
+					if (dataMonth.length > 0 && dataMonthPrev.length > 0) {
 						clearInterval(timeout);
-						resolve(dataMonth, data);
+						resolve([dataMonth, dataMonthPrev]);
 					}
 				}, 100);
 			});
 		})
-		.then((dataMonth, data) => {
-			console.log("DATAFINAL--> ", dataMonth);
+		.then((arr) => {
+			const dataMonth = arr[0];
+			const dataMonthPrev = arr[1];
+
+			$("#hc").append(` <div id="container"> </div>`);
+
 			const getData = (data) =>
 				data.map((country, i) => ({
 					name: country[0],
@@ -175,7 +192,7 @@ const pedidos_fecha = () => {
 					accessibility: {
 						description: "Restaurantes",
 					},
-					max: 10,
+					max: countries.length - 1,
 					labels: {
 						useHTML: true,
 						animate: true,
@@ -207,7 +224,7 @@ const pedidos_fecha = () => {
 						color: "rgb(158, 159, 163)",
 						// pointPlacement: -0.2,
 						linkedTo: "main",
-						data: dataPrev[1],
+						data: dataMonthPrev[0],
 						name: "2016",
 					},
 					{
@@ -321,6 +338,7 @@ $("#selected-category").on("change", function (e) {
 		$("#datePicker").hide();
 		$("#selected-category-year").hide();
 		$("#selected-category-month").show();
+
 		hcTittle = "Pedidos restaurantes en " + year;
 	} else if (o == "3") {
 		$("#selected-category-month").hide();
@@ -329,3 +347,16 @@ $("#selected-category").on("change", function (e) {
 		hcTittle = "Pedidos restaurantes en dias";
 	}
 });
+
+$("#selected-category-month").on("change", function (e) {
+	const o = document.getElementById("selected-category-month").selectedIndex;
+	month = o + 1;
+	getData();
+});
+
+document
+	.getElementById("selected-category-year")
+	.addEventListener("focusout", (e) => {
+		year = e.target.value;
+		getData();
+	});
