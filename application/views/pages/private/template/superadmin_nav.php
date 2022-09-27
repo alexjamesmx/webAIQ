@@ -24,20 +24,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
-
-
     <!-- METRICAS -->
     <link rel="stylesheet" href="<?= base_url() ?>static/css/metricas/pedidos.css" />
-
-    <script src="<?= base_url() ?>static/highcharts/highcharts.js"></script>
-    <script src="<?= base_url() ?>static/highcharts/modules/exporting.js"></script>
-    <script src="<?= base_url() ?>static/highcharts/modules/export-data.js"></script>
-    <script src="<?= base_url() ?>static/highcharts/modules/accessibility.js"></script>
-
-
-    <!-- Flag sprites service provided by Martijn Lafeber,
-    https://github.com/lafeber/world-flags-sprite/blob/master/LICENSE -->
-    <link rel="stylesheet" type="text/css" href="https://github.s3.amazonaws.com/downloads/lafeber/world-flags-sprite/flags32.css" />
 
 
 

@@ -43,7 +43,17 @@
 <script src="<?= base_url() ?>static/js/superadmin/repartidores/handle_submit.js"></script>
 
 <script src="<?= base_url() ?>static/js/superadmin/metricas/pedidos.js"></script>
+<script src="<?= base_url() ?>static/js/superadmin/metricas/pedidos_grafica.js"></script>
 
+
+
+
+
+
+<script src="<?= base_url() ?>static/highcharts/highcharts.js"></script>
+<script src="<?= base_url() ?>static/highcharts/modules/exporting.js"></script>
+<script src="<?= base_url() ?>static/highcharts/modules/export-data.js"></script>
+<script src="<?= base_url() ?>static/highcharts/modules/accessibility.js"></script>
 
 
 

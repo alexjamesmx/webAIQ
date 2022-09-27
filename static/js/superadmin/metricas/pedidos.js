@@ -1,7 +1,10 @@
 var countries,
 	hcTittle = "";
+
+var arrfinal = [];
 var month = new Date().getMonth() + 1;
 var year = new Date().getFullYear();
+var monthArray = [];
 
 const monthNames = [
 	"Enero",
@@ -43,7 +46,7 @@ function getData() {
 			countries = result.data.map(({ nombre, avatar }) => ({
 				["name"]: nombre,
 				["flag"]: appData.base_url + "static/img/" + avatar,
-				["color"]: "rgb(215, 0, 38)",
+				["color"]: "#0071CE",
 			}));
 
 			pedidos_fecha();
@@ -70,21 +73,20 @@ const pedidos_fecha = () => {
 		if (!isHidden(elem_year)) {
 		}
 		if (!isHidden(elem_month)) {
-			hcTittle =
-				"Pedidos restaurantes en " + monthNames[month - 1] + " " + year;
-			const monthArray = [
-				year + "-01-01",
-				year + "-02-01",
-				year + "-03-01",
-				year + "-04-01",
-				year + "-05-01",
-				year + "-06-01",
-				year + "-07-01",
-				year + "-08-01",
-				year + "-09-01",
-				year + "-10-01",
-				year + "-11-01",
-				year + "-12-01",
+			hcTittle = "Pedidos totales en " + monthNames[month - 1] + " " + year;
+			monthArray = [
+				year + "-01-10",
+				year + "-02-10",
+				year + "-03-10",
+				year + "-04-10",
+				year + "-05-10",
+				year + "-06-10",
+				year + "-07-10",
+				year + "-08-10",
+				year + "-09-10",
+				year + "-10-10",
+				year + "-11-10",
+				year + "-12-10",
 			];
 
 			monthArray.forEach((item, i) => {
@@ -98,30 +100,16 @@ const pedidos_fecha = () => {
 				})
 					.done((result) => {
 						const arr = [];
-						$.ajax({
-							type: "post",
-							url: appData.base_url + "metricas/pedidos_restaurantes_mes_not",
-							dataType: "json",
-							data: {
-								mes: item,
-							},
-						})
-							.done((res) => {
-								result.forEach((item) => {
-									item.totalPedidos = Number(item.totalPedidos);
-									arr.push(Object.values(item));
-									console.log(arr);
-								});
 
-								res.forEach((item) => {
-									item.totalPedidos = Number(item.totalPedidos);
-									arr.push(Object.values(item));
-								});
-								dataPrev[i + 1] = arr;
+						Object.keys(result).map((key) => {
+							result[key].forEach((item) => {
+								item.totalPedidos = Number(item.totalPedidos);
+								arr.push([item.Restaurante, item.totalPedidos]);
+							});
+						});
+						dataPrev[i + 1] = arr.sort();
 
-								if (i === monthArray.length - 1) resolve(dataPrev);
-							})
-							.fail((err) => console.error(err));
+						if (i === monthArray.length - 1) resolve(dataPrev);
 					})
 					.fail((err) => console.error(err));
 			});
@@ -130,199 +118,202 @@ const pedidos_fecha = () => {
 		}
 	});
 
-	wait
-		.then((data) => {
-			console.log("DATA", data);
-			let dataMonth = [];
-			let dataMonthPrev = [];
-			return new Promise((resolve) => {
-				const timeout = setInterval(() => {
-					dataMonthPrev = data[month - 1];
-					dataMonth = data[month];
-					if (dataMonth.length > 0 && dataMonthPrev.length > 0) {
-						clearInterval(timeout);
-						resolve([dataMonth, dataMonthPrev]);
-					}
-				}, 100);
-			});
-		})
-		.then((arr) => {
-			const dataMonth = arr[0];
-			const dataMonthPrev = arr[1];
+	wait.then((d) => {
+		const data = d;
 
-			$("#hc").append(` <div id="container"> </div>`);
+		var timeout = setInterval(function () {
+			console.log(checkIfFinished(data));
+			if (checkIfFinished(data)) {
+				clearInterval(timeout);
+				const getData = (data) =>
+					data.map((country, i) => ({
+						name: country[0],
+						y: country[1],
+						color: countries[i].color,
+					}));
 
-			const getData = (data) =>
-				data.map((country, i) => ({
-					name: country[0],
-					y: country[1],
-					color: countries[i].color,
-				}));
-
-			const chart = Highcharts.chart("container", {
-				chart: {
-					type: "column",
-				},
-				title: {
-					text: hcTittle,
-					align: "left",
-				},
-				subtitle: {
-					text: "",
-					align: "left",
-				},
-				plotOptions: {
-					series: {
-						grouping: false,
-						borderWidth: 0,
+				Highcharts.chart({
+					chart: {
+						renderTo: container,
+						type: "column",
+						spacingBottom: 50,
+						spacingTop: 40,
+						spacingRight: 20,
+						spacingLeft: 20,
+						// backgroundColor: "#",
+						borderColor: "#0071CE",
+						borderWidth: 2,
+						borderRadius: 20,
+						shadow: true,
 					},
-				},
-				legend: {
-					enabled: false,
-				},
-				tooltip: {
-					shared: true,
-					headerFormat:
-						'<span style="font-size: 15px">{point.point.name}</span><br/>',
-					pointFormat:
-						'<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y} medals</b><br/>',
-				},
-				xAxis: {
-					type: "category",
-					accessibility: {
-						description: "Restaurantes",
+					title: {
+						text: hcTittle,
+						align: "left",
 					},
-					max: countries.length - 1,
-					labels: {
-						useHTML: true,
-						animate: true,
-						formatter: (ctx) => {
-							let name, flag;
-							countries.forEach(function (country) {
-								if (country.name === ctx.value) {
-									name = country.name;
-									flag = country.flag;
-								}
-							});
-							return `${name}<br><img src="${flag}" alt="Nature" class="responsiveImg">`;
-						},
-						style: {
-							textAlign: "center",
+					subtitle: {
+						text: "",
+						align: "left",
+					},
+					plotOptions: {
+						series: {
+							grouping: false,
+							borderWidth: 0,
 						},
 					},
-				},
-				yAxis: [
-					{
-						title: {
-							text: "Pedidos",
-						},
-						showFirstLabel: false,
+					legend: {
+						enabled: false,
 					},
-				],
-				series: [
-					{
-						color: "rgb(158, 159, 163)",
-						// pointPlacement: -0.2,
-						linkedTo: "main",
-						data: dataMonthPrev[0],
-						name: "2016",
+					tooltip: {
+						shared: true,
+						headerFormat:
+							'<span style="font-size: 15px">{point.point.name}</span><br/>',
+						pointFormat:
+							'<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y} pedidos</b><br/>',
 					},
-					{
-						name: "2020",
-						id: "main",
-						dataSorting: {
-							enabled: true,
-							matchByName: true,
+					xAxis: {
+						type: "category",
+						accessibility: {
+							description: "Restaurantes",
 						},
-						dataLabels: [
-							{
-								enabled: true,
-								inside: true,
-								style: {
-									fontSize: "16px",
-								},
+						max: countries.length - 1,
+						labels: {
+							useHTML: true,
+							animate: true,
+							formatter: (ctx) => {
+								let name, flag;
+								countries.forEach(function (country) {
+									if (country.name === ctx.value) {
+										name = country.name;
+										flag = country.flag;
+									}
+								});
+								return `${name}<br><img src="${flag}" alt="Nature" class="responsiveImg">`;
 							},
-						],
-						data: getData(dataMonth).slice(),
+							style: {
+								textAlign: "center",
+							},
+						},
 					},
-				],
-				exporting: {
-					allowHTML: true,
-				},
-			});
-			// const locations = [
-			// 	{
-			// 		city: "Tokyo",
-			// 		year: 2020,
-			// 	},
-			// 	{
-			// 		city: "Rio",
-			// 		year: 2016,
-			// 	},
-			// 	{
-			// 		city: "London",
-			// 		year: 2012,
-			// 	},
-			// 	{
-			// 		city: "Beijing",
-			// 		year: 2008,
-			// 	},
-			// 	{
-			// 		city: "Athens",
-			// 		year: 2004,
-			// 	},
-			// 	{
-			// 		city: "Sydney",
-			// 		year: 2000,
-			// 	},
-			// ];
-			// locations.forEach((location) => {
-			// 	const btn = document.getElementById(location.year);
-			// 	btn.addEventListener("click", () => {
-			// 		document
-			// 			.querySelectorAll(".buttons button.active")
-			// 			.forEach((active) => {
-			// 				active.className = "";
-			// 			});
-			// 		btn.className = "active";
-			// 		chart.update(
-			// 			{
-			// 				title: {
-			// 					text:
-			// 						"Summer Olympics " +
-			// 						location.year +
-			// 						" - Top 5 countries by Gold medals",
-			// 				},
-			// 				subtitle: {
-			// 					text:
-			// 						"Comparing to results from Summer Olympics " +
-			// 						(location.year - 4) +
-			// 						' - Source: <a href="https://olympics.com/en/olympic-games/' +
-			// 						location.city.toLowerCase() +
-			// 						"-" +
-			// 						location.year +
-			// 						'/medals" target="_blank">Olympics</a>',
-			// 				},
-			// 				series: [
-			// 					{
-			// 						name: location.year - 4,
-			// 						data: dataPrev[location.year].slice(),
-			// 					},
-			// 					{
-			// 						name: location,
-			// 						data: getData(data[location.year]).slice(),
-			// 					},
-			// 				],
-			// 			},
-			// 			true,
-			// 			false,
-			// 			{
-			// 				duration: 800,
-			// 			}
-			// 		);
-			// 	});
-			// });
-		});
+					yAxis: [
+						{
+							tickInterval: 1,
+							gridLineWidth: 1,
+							title: {
+								text: "Pedidos",
+							},
+							showFirstLabel: false,
+						},
+					],
+					series: [
+						{
+							color: "rgb(158, 159, 163)",
+							// pointPlacement: -0.2,
+							linkedTo: "main",
+							data: month != 1 ? data[month - 1] : data[month - 1],
+							name: monthNames[month - 2],
+						},
+						{
+							name: monthNames[month - 1],
+							id: "main",
+							dataSorting: {
+								enabled: true,
+								matchByName: true,
+							},
+							dataLabels: [
+								{
+									enabled: true,
+									inside: true,
+									style: {
+										fontSize: "16px",
+									},
+								},
+							],
+							data: getData(data[month]).slice(),
+						},
+					],
+					exporting: {
+						allowHTML: true,
+					},
+				});
+			}
+		}, 100);
+
+		// }, 5000);
+
+		// const locations = [
+		// 	{
+		// 		city: "Tokyo",
+		// 		year: 2020,
+		// 	},
+		// 	{
+		// 		city: "Rio",
+		// 		year: 2016,
+		// 	},
+		// 	{
+		// 		city: "London",
+		// 		year: 2012,
+		// 	},
+		// 	{
+		// 		city: "Beijing",
+		// 		year: 2008,
+		// 	},
+		// 	{
+		// 		city: "Athens",
+		// 		year: 2004,
+		// 	},
+		// 	{
+		// 		city: "Sydney",
+		// 		year: 2000,
+		// 	},
+		// ];
+		// locations.forEach((location) => {
+		// 	const btn = document.getElementById(location.year);
+		// 	btn.addEventListener("click", () => {
+		// 		document
+		// 			.querySelectorAll(".buttons button.active")
+		// 			.forEach((active) => {
+		// 				active.className = "";
+		// 			});
+		// 		btn.className = "active";
+		// 		chart.update(
+		// 			{
+		// 				title: {
+		// 					text:
+		// 						"Summer Olympics " +
+		// 						location.year +
+		// 						" - Top 5 countries by Gold medals",
+		// 				},
+		// 				subtitle: {
+		// 					text:
+		// 						"Comparing to results from Summer Olympics " +
+		// 						(location.year - 4) +
+		// 						' - Source: <a href="https://olympics.com/en/olympic-games/' +
+		// 						location.city.toLowerCase() +
+		// 						"-" +
+		// 						location.year +
+		// 						'/medals" target="_blank">Olympics</a>',
+		// 				},
+		// 				series: [
+		// 					{
+		// 						name: location.year - 4,
+		// 						data: dataPrev[location.year].slice(),
+		// 					},
+		// 					{
+		// 						name: location,
+		// 						data: getData(data[location.year]).slice(),
+		// 					},
+		// 				],
+		// 			},
+		// 			true,
+		// 			false,
+		// 			{
+		// 				duration: 800,
+		// 			}
+		// 		);
+		// 	});
+		// });
+	});
+
 	wait.catch((err) => console.log(err));
 };
 
@@ -333,18 +324,18 @@ $("#selected-category").on("change", function (e) {
 		$("#datePicker").hide();
 		$("#selected-category-month").hide();
 		$("#selected-category-year").show();
-		hcTittle = "Pedidos restaurantes en " + monthNames[month];
+		hcTittle = "Pedidos totales en " + monthNames[month];
 	} else if (o == "2") {
 		$("#datePicker").hide();
 		$("#selected-category-year").hide();
 		$("#selected-category-month").show();
 
-		hcTittle = "Pedidos restaurantes en " + year;
+		hcTittle = "Pedidos totales en " + year;
 	} else if (o == "3") {
 		$("#selected-category-month").hide();
 		$("#selected-category-year").hide();
 		$("#datePicker").show();
-		hcTittle = "Pedidos restaurantes en dias";
+		hcTittle = "Pedidos totales en dias";
 	}
 });
 
@@ -360,3 +351,7 @@ document
 		year = e.target.value;
 		getData();
 	});
+
+function checkIfFinished(arr) {
+	return Object.keys(arr).length == "12";
+}

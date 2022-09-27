@@ -10,7 +10,8 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 			const nombre = form.elements[1].value;
 			const password = form.elements[2].value;
 			const email = form.elements[3].value;
-			const phone = form.elements[4].value;
+			const zona = form.elements[4].value;
+			const phone = form.elements[5].value;
 
 			const fotoProducto = $("#imagen_input_restaurantes");
 			const formData = new FormData();
@@ -23,6 +24,7 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 				formData.append("nombre", nombre);
 				formData.append("password", password);
 				formData.append("email", email);
+				formData.append("zona", zona);
 				formData.append("phone", phone);
 				$.ajax({
 					url: appData.base_url + "user/subirImagen",
@@ -57,8 +59,9 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 		if (action == "Editar") {
 			const nombre = form.elements[0].value;
 			const email = form.elements[2].value;
-			const phone = form.elements[3].value;
-			const id_user = form.elements[4].value;
+			const zona = form.elements[3].value;
+			const phone = form.elements[4].value;
+			const id_user = form.elements[5].value;
 			$.ajax({
 				type: "post",
 				url: appData.base_url + "user/updateUser",
@@ -70,6 +73,7 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 						$("#" + id_user + "_nombre").text(nombre);
 						$("#" + id_user + "_email").text(email);
 						$("#" + id_user + "_phone").text(phone);
+						$("#" + id_user + "_zona").val(zona);
 						$("#" + id_user + "_restaurantes_input").data("nombre", nombre);
 						$("#" + id_user + "_restaurantes_actions_edit").attr(
 							"data-nombre",
@@ -78,6 +82,10 @@ $("#modal-form-restaurantes").on("submit", function (event) {
 						$("#" + id_user + "_restaurantes_actions_edit").attr(
 							"data-email",
 							email
+						);
+						$("#" + id_user + "_restaurantes_actions_edit").attr(
+							"data-zona",
+							zona
 						);
 						$("#" + id_user + "_restaurantes_actions_edit").attr(
 							"data-phone",

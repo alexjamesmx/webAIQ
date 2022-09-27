@@ -15,7 +15,6 @@ function getUsers() {
 			if (result.res) {
 				if ($("#results_tabla_restaurantes").empty()) {
 					result.data.forEach((item) => {
-						console.log(item.status);
 						if (item.status !== "3") {
 							$("#results_tabla_restaurantes").append(
 								`
@@ -44,6 +43,9 @@ function getUsers() {
 						</td>
 						<td>
 							<p id="${item.id_user}_email"class="text-muted">${item.email}</p>
+						</td>
+						<td>
+							<p id="${item.id_user}_email"class="text-muted">${item.zona}</p>
 						</td>
 						<td>
 							<p id="${item.id_user}_phone"class="text-muted">${item.phone}</p>
@@ -75,6 +77,7 @@ function getUsers() {
 								data-nombre=\"${item.nombre}\" 
 								data-password=\"${item.password}\"
 								data-email=\"${item.email}\"
+								data-zona=\"${item.zona}\"
 								data-phone=\"${item.phone}\">
 								<i class="iconos-size simple-icon-pencil pencil"></i>
 							</a>

@@ -36,7 +36,7 @@
             </select>
             <input id='selected-category-year' type='number'>
             <input id='datePicker' type="date">
-
+            <div id="container"> </div>;
 
         </div>
     </div>

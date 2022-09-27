@@ -9,11 +9,13 @@ function handleModal_restaurantes(e) {
 	$("#password").val("");
 	$("#email").val("");
 	$("#phone").val("");
+	$("#zona").val("");
 	//INVALID FEEDBACK
 	$(".nombre").text(null);
 	$(".email").text(null);
 	$(".password").text(null);
 	$(".phone").text(null);
+	$(".zona").text(null);
 
 	action = $(e).data("action");
 	if (action == "Agregar") {
@@ -52,6 +54,7 @@ function handleModal_restaurantes(e) {
 		let password = $(e).attr("data-password");
 		let email = $(e).attr("data-email");
 		let phone = $(e).attr("data-phone");
+		let zona = $(e).attr("data-zona");
 		$("#modal-actions-title-restaurantes").html("Editar <b>" + nombre + "</b>");
 		$("#nombre").attr("placeholder", nombre);
 		$("#password").attr("placeholder", "Contraseña");
@@ -61,6 +64,7 @@ function handleModal_restaurantes(e) {
 		$("#password").val(password);
 		$("#email").val(email);
 		$("#phone").val(phone);
+		$("#zona").val(zona);
 		$("#id_user").val(id_user);
 		$("#modal-actions-restaurantes").data("action", "Editar");
 	}
