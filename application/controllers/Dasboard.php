@@ -74,7 +74,7 @@ class Dasboard extends CI_Controller {
 
     public function btn_aceptar() {
         $id_pedido = $this->input->post( 'id_pedido' );
-        $fecha_act = date( 'Y-m-d H:m:s' );
+        $fecha_act = date( 'Y-m-d H:i:s' );
         $obj[ 'res' ] = $this->Dasboard_model->pedido_aceptado( $id_pedido, $fecha_act );
         $obj[ 'mes' ] = $obj[ 'res' ]
         ? 'Status cambiado con éxito'
@@ -97,7 +97,7 @@ class Dasboard extends CI_Controller {
     public function btn_listo()  {
         $id_pedido = $this->input->post( 'id_pedido' );
         // asignamos fecha
-        $fecha_act = date( 'Y-m-d H:m:s' );
+        $fecha_act = date( 'Y-m-d H:i:s' );
         //elegimos un repartidor alazar activo
         $id_rep = json_decode( json_encode( $this->Dasboard_model->select_repartidor() ), true );
         if ( $id_rep == null ) {
@@ -128,7 +128,7 @@ class Dasboard extends CI_Controller {
     public function btn_cancelado() {
         $id_pedido = $this->input->post( 'id_pedido' );
         $id_res = $this->input->post( 'id_repartidor' );
-        $fecha_act = date( 'Y-m-d H:m:s' );
+        $fecha_act = date( 'Y-m-d H:i:s' );
         $obj[ 'res' ] = $this->Dasboard_model->pedido_cancelado( $id_pedido, $fecha_act );
         if ( $obj[ 'res' ] == true ) { 
             $obj[ 'repartidor' ] = $this->Dasboard_model->status_repartidor( $id_res );
@@ -142,7 +142,7 @@ class Dasboard extends CI_Controller {
 
     public function btn_enviado() {
         $id_pedido = $this->input->post( 'id_pedido' );
-        $fecha_act = date( 'Y-m-d H:m:s' );
+        $fecha_act = date( 'Y-m-d H:i:s' );
         $obj[ 'res' ] = $this->Dasboard_model->pedido_enviado( $id_pedido, $fecha_act );
         $obj[ 'mes' ] = $obj[ 'res' ]
         ? 'Status cambiado con éxito'
@@ -154,7 +154,7 @@ class Dasboard extends CI_Controller {
     public function btn_devolucion() {
         $id_pedido = $this->input->post( 'id_pedido' );
         $id_res = $this->input->post( 'id_repartidor' );
-        $fecha_act = date( 'Y-m-d H:m:s' );
+        $fecha_act = date( 'Y-m-d H:i:s' );
         $obj[ 'res' ] = $this->Dasboard_model->pedido_devolucion( $id_pedido, $fecha_act );
         if ( $obj[ 'res' ] == true ) { 
             $obj[ 'repartidor' ] = $this->Dasboard_model->status_repartidor( $id_res );
@@ -169,7 +169,7 @@ class Dasboard extends CI_Controller {
     public function btn_finalizado() {
         $id_pedido = $this->input->post( 'id_pedido' );
         $id_res = $this->input->post( 'id_repartidor' );
-        $fecha_act = date( 'Y-m-d H:m:s' );
+        $fecha_act = date( 'Y-m-d H:i:s' );
         $obj[ 'res' ] = $this->Dasboard_model->pedido_finalizado( $id_pedido, $fecha_act );
         if ( $obj[ 'res' ] == true ) { 
             $obj[ 'repartidor' ] = $this->Dasboard_model->status_repartidor( $id_res );
@@ -180,6 +180,27 @@ class Dasboard extends CI_Controller {
 
         echo json_encode( $obj );
     }
+
+    public function contador() { 
+        $id_pedido = $this->input->post( 'id_pedido' );
+        $obj['id_pedido'] = $id_pedido;
+        $inicio = json_decode( json_encode($this->Dasboard_model->hora( $id_pedido )), true );
+        $hora_inicio = $inicio[ 'fecha_act' ];
+        $dt = new DateTime($hora_inicio);
+        //var_dump($dt);
+        $hora_act = date( 'Y-m-d H:i:s' );
+        $dt1 = new DateTime($hora_act);
+        //var_dump($dt1);
+        $diff = $dt1->diff($dt);
+        $obj['tiempo'] = ( ($diff->days * 24 ) * 60 ) + ( $diff->i ) . ':'. $diff->s;
+        $obj['minutos'] = ( ($diff->days * 24 ) * 60 ) + ( $diff->i );
+        $obj['asignado'] = $this->Dasboard_model->tiempo_asignado( $id_pedido );
+
+        echo json_encode( $obj );
+    }
+
+
+
 
     
 

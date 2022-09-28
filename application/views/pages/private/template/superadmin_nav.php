@@ -24,11 +24,14 @@
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
+    <!-- METRICAS -->
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/metricas/pedidos.css" />
+
+
 
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
-
     <nav class="navbar fixed-top">
         <div class="d-flex align-items-center navbar-left">
             <a href="#" class="menu-button d-none d-md-block">
@@ -71,26 +74,18 @@
             <div class="user d-inline-block">
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="name"><?= $_SESSION['email'] ?></span>
-                    <span>
-                        <!-- <?php if (isset($_SESSION['avatar'])) : ?>
-                        <img id='outimage'alt="Profile Picture" src="<?= $_SESSION['avatar'] ?>" />
-                    <?php endif; ?> -->
-                    </span>
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">
-                    <!-- <a class="dropdown-item" href="#" onclick="return handleAvatar()">Actualizar foto</a> -->
                     <a class="dropdown-item" href="#" onclick="return handleSignout()">Cerrar sesión</a>
-                    <!-- <input type="file" id="avatar" name='avatar' onchange="return handleAvatarValue()"> -->
                 </div>
             </div>
         </div>
     </nav>
     <div class="menu">
         <div class="main-menu">
-            <div class="scroll">
+            <div class="scroll ps ps--active-y">
                 <ul class="list-unstyled">
-
                     <li id='home_nav' class="navigation" data-page='home' onclick='return clickgeneral(this)'>
                         <a href="#">
                             <i class="iconsminds-monitor-analytics"></i> Inicio
@@ -113,9 +108,10 @@
                     </li>
                     <li id='anuncios_nav' class="navigation" data-page='anuncios' onclick='return clickgeneral(this)'>
                         <a href="#">
-                            <i class="iconsminds-money-bag"></i>Repartidores
+                            <i class="iconsminds-money-bag"></i>Anuncios
                         </a>
                     </li>
+
                 </ul>
             </div>
         </div>

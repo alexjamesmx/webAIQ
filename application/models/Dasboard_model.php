@@ -15,7 +15,7 @@ class Dasboard_model extends CI_Model
 
     public function detalle($id_pedido)
     {
-        $this->db->select('id_pedido, cantidad, menu.nombre, comentario, tiempo' );
+        $this->db->select('id_pedido, cantidad, menu.nombre, comentario' );
         $this->db->from('pedidos_users');
         $this->db->join('menu', 'menu.id_comida = pedidos_users.id_comida');
         $this->db->where('id_pedido', $id_pedido);
@@ -29,6 +29,25 @@ class Dasboard_model extends CI_Model
         $this->db->from('pedidos');
         $this->db->where('id_user', $id_res);
         $this->db->where('id_status', 2);
+        $query = $this->db->get();
+        return $query->num_rows() > 0 ? $query->result() : NULL;
+    }
+
+    public function hora($id_pedido)
+    {
+        $this->db->select('fecha_act');
+        $this->db->from('pedidos');
+        $this->db->where('id_pedido', $id_pedido);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function tiempo_asignado($id_pedido)
+    {
+        $this->db->select_max('menu.tiempo');
+        $this->db->from('pedidos_users');
+        $this->db->join('menu', 'menu.id_comida = pedidos_users.id_comida');
+        $this->db->where('id_pedido', $id_pedido);
         $query = $this->db->get();
         return $query->num_rows() > 0 ? $query->result() : NULL;
     }

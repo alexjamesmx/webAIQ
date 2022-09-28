@@ -50,8 +50,9 @@ class Carrito_model extends CI_Model {
     }
 
     //agrega productos
-    public function addProd($idCart, $idComida, $cantidad) {
+    public function addProd($idCart, $idComida, $cantidad, $comentario) {
         $this->db->set('cantidad', $cantidad);
+        $this->db->set('comentario', $comentario);
         $this->db->where('id_carrito', $idCart);
         $this->db->where('id_comida', $idComida);
         $upCarrito = $this->db->update('detalle_carrito'); // gives UPDATE `mytable` SET `field` = 'field+1' WHERE `id` = 2
@@ -87,6 +88,14 @@ class Carrito_model extends CI_Model {
         }
     }
 
+    //cambia estado a carrito completado
+    public function completeCart($idCart) {
+        $this->db->set('id_status', 5)->where('id', $idCart);
+        $cierraCart = $this->db->update('carrito');
+
+        return $cierraCart;
+    }
+    
     //eliminar codigo usado 
     public function deleteCodigo($codigo) {
         $this->db->where('codigo', $codigo);

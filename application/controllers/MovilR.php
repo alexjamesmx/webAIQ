@@ -10,7 +10,8 @@ class MovilR extends CI_Controller {
  
     public function getRestaurantes()
     {
-        $resultado = $this->MovilR_model->getRestaurant();
+        $zona = $this->input->post('zona');
+        $resultado = $this->MovilR_model->getRestaurant($zona);
         echo json_encode($resultado);
     }
     

@@ -10,7 +10,7 @@
             <div class="col-12 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <table class="data-table data-table-feature">
+                        <table class="data-table data-table-scrollable responsive nowrap">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -18,112 +18,27 @@
                                     <th>Duración (Min)</th>
                                     <th>Detalle Pedido</th>
                                     <th>Fecha/Hora Aceptado</th>
-                                    <th>Fecha/Hora No Aceptado</th>
+                                    <th>Status</th>
+                                    <th>Fecha/Hora Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <td>1</td>
+                                    <td>$549</td>
+                                    <td>19:42(-5:42)</td>
+                                    <td>
+                                        <p>Café MOKA</p>
+                                        <p>Matcha</p>
+                                    </td>
+                                    <td>
+                                        <p>2022/09/02</p>
+                                        <p>16:22</p>
+                                    </td>
                                     <td>1</td>
-                                    <td>$549</td>
-                                    <td>15:00(0)</td>
-                                    <td>
-                                        <p>Café MOKA</p>
-                                        <p>Matcha</p>
-                                    </td>
                                     <td>
                                         <p>2022/09/02</p>
-                                        <p>16:22</p>
+                                        <p>17:56</p>
                                     </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>12:09</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>$549</td>
-                                    <td>15:00(0)</td>
-                                    <td>
-                                        <p>Café MOKA</p>
-                                        <p>Matcha</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>16:22</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>12:09</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>$549</td>
-                                    <td>15:00(0)</td>
-                                    <td>
-                                        <p>Café MOKA</p>
-                                        <p>Matcha</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>16:22</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>12:09</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>$549</td>
-                                    <td>15:00(0)</td>
-                                    <td>
-                                        <p>Café MOKA</p>
-                                        <p>Matcha</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>16:22</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>12:09</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>$128</td>
-                                    <td>17:43(-2:43)</td>
-                                    <td>
-                                        <p>Café MUACK</p>
-                                        <p>Matcha</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>16:22</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>12:09</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>$54</td>
-                                    <td>18:15(-3:15)</td>
-                                    <td>
-                                        <p>Café LINDO</p>
-                                        <p>Matcha</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>16:22</p>
-                                    </td>
-                                    <td>
-                                        <p>2022/09/02</p>
-                                        <p>12:09</p>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

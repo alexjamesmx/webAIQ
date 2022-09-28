@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MovilR_model extends CI_Model
 {
 
-    public function getRestaurant()
+    public function getRestaurant($zona)
     { 
-        $cmd = "SELECT * FROM users WHERE tipo = 2";
+        $cmd = "SELECT * FROM users WHERE tipo = 2 AND zona = $zona";
         $query = $this->db->query($cmd);
         return ($query->result());
     }

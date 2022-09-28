@@ -3,30 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AIQ- Aeropuerto Internacional de Querétaro</title>
+    <title>AIQ - Aeropuerto Internacional de Querétaro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?= base_url() ?>static/img/aiq.jpeg" type="image/x-icon">
 
     <link rel="stylesheet" href="<?= base_url() ?>static/font/iconsmind-s/css/iconsminds.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/font/simple-line-icons/css/simple-line-icons.css" />
 
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap.rtl.only.min.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/fullcalendar.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/datatables.responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/select2.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/perfect-scrollbar.css" />
-
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/owl.carousel.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap-stars.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/nouislider.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>static/css/vendor/component-custom-switch.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>static/css/main.css" />
 
-    <script>
-        var appData = {
-            "base_url": '<?= base_url() ?>',
-            "idRes": '<?= $this->session->id_user ?>'
-        } 
-    </script>
- 
+
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
-    <nav class="navbar fixed-top" id="navadmin">
+
+    <nav class="navbar fixed-top">
         <div class="d-flex align-items-center navbar-left">
             <a href="#" class="menu-button d-none d-md-block">
                 <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
@@ -49,31 +52,16 @@
                 </svg>
             </a>
 
- 
+
 
         </div>
-
-
         <a class="navbar-logo" href="#">
-            <span class="logo d-none d-xs-block">
-            </span>
-
-            <span class="logo-mobile d-block d-xs-none"></span>
+            <span class="logo d-none d-xs-block"></span>
+            <span class="logo-mobile d-bl
+            ock d-xs-none"></span>
         </a>
-
         <div class="navbar-right">
-            <div class="user d-inline-block">
-                <span id="estado-name" class="name"></span>
-            </div>
             <div class="header-icons d-inline-block align-middle">
-                <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                    <label class="switch">
-                    <input type="checkbox" id="estado-icon" onclick="estado_res(appData.idRes)" > <span id="icon-estado" class="round">
-                    </span> </label> 
-                </div> 
-
-
-
                 <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
                     <i class="simple-icon-size-fullscreen"></i>
                     <i class="simple-icon-size-actual"></i>
@@ -81,25 +69,23 @@
 
             </div>
             <div class="user d-inline-block">
-
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="name"><?= $_SESSION['nombre'] ?></span>
+                    <span class="name"><?= $_SESSION['correo'] ?></span>
                     <span>
-                         <?php if (isset($_SESSION['avatar'])): ?>
-                            <img id='outimage'alt="avatar" src=" <?= base_url() ?>static/img/<?= $_SESSION[
-                                'avatar'
-                            ] ?>" />
-                        <?php endif; ?> 
+                        <!-- <?php if (isset($_SESSION['avatar'])) : ?>
+                        <img id='outimage'alt="Profile Picture" src="<?= $_SESSION['avatar'] ?>" />
+                    <?php endif; ?> -->
                     </span>
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <!-- <a class="dropdown-item" href="#" onclick="return handleAvatar()">Actualizar foto</a> -->
                     <a class="dropdown-item" href="#" onclick="return handleSignout()">Cerrar sesión</a>
+                    <!-- <input type="file" id="avatar" name='avatar' onchange="return handleAvatarValue()"> -->
                 </div>
             </div>
         </div>
     </nav>
-
     <div class="menu">
         <div class="main-menu">
             <div class="scroll">
@@ -107,25 +93,29 @@
 
                     <li id='home_nav' class="navigation" data-page='home' onclick='return clickgeneral(this)'>
                         <a href="#">
-                            <i class="iconsminds-shop-4"></i> Inicio
+                            <i class="iconsminds-monitor-analytics"></i> Inicio
                         </a>
                     </li>
-                    <li id='menu_nav' class="navigation" data-page='menu' onclick='return clickgeneral(this)'>
+                    <li id='restaurantes_nav' class="navigation" data-page='restaurantes' onclick='return clickgeneral(this)'>
                         <a href="#">
-                            <i class="iconsminds-receipt-4"></i> Menú
+                            <i class="iconsminds-shop-4"></i> Restaurantes
                         </a>
                     </li>
-                    <li id='reportes_nav' class="navigation" data-page='reportes' onclick='return clickgeneral(this)'>
+                    <li id='mesas_nav' class="navigation" data-page='mesas' onclick='return clickgeneral(this)'>
                         <a href="#">
-                            <i class="iconsminds-monitor-analytics"></i> Reportes
+                            <i class="iconsminds-on-off-2"></i>Mesas
                         </a>
                     </li>
-                    <li id='cuenta_nav' class="navigation" data-page='cuenta' onclick='return clickgeneral(this)'>
-                        <a href="#" id="cuenta-clic">
-                            <i class="iconsminds-id-card"></i> Cuenta
+                    <li id='repartidores_nav' class="navigation" data-page='repartidores' onclick='return clickgeneral(this)'>
+                        <a href="#">
+                            <i class="iconsminds-business-man"></i>Repartidores
                         </a>
                     </li>
-
+                    <li id='anuncios_nav' class="navigation" data-page='anuncios' onclick='return clickgeneral(this)'>
+                        <a href="#">
+                            <i class="iconsminds-money-bag"></i>Repartidores
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

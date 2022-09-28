@@ -15,52 +15,14 @@ class Carrito extends CI_Controller {
         echo json_encode($carrito);
     }
 
+    public function getIdCart($idMesa) {
+        //obtener idCarrito
+        $query = $this->carrito_model->getIdCart($idMesa);
+        echo json_encode($query->id);
+    }
+    
     //agrega productos en carrito y en caso necesario crea nuevo carrito
     public function addCart() 
-    {
-        //obtener idCarrito
-        $idMesa = $this->input->post("id_mesa");
-        $query = $this->carrito_model->getIdCart($idMesa);
-
-        //VALIDANDO ESTATUS CARRITO
-        if (($query == false) || ($query->id_status > 1))  {
-            //en caso de no existir carrito en proceso, se crea uno nuevo
-            $this->carrito_model->createCart($idMesa);
-        }
-        //volvemos a leer el id de carrito en caso de generar uno nuevo
-        $query = $this->carrito_model->getIdCart($idMesa);
-
-        //datos a insertar en detalle_carrito
-        $idCart = $query->id;
-        $idComida = $this->input->post("id_comida");
-        $cantidad = $this->input->post("cantidad");
-        $subtotal = $this->input->post("subtotal");
-        $comentario = $this->input->post("comentario");
-        //arreglo con datos a insertar
-        $array = array(
-            'id_carrito' => $idCart,
-            'id_comida' => $idComida,
-            'cantidad' => $cantidad,
-            'subtotal' => $subtotal,
-            'comentario' => $comentario,
-        );
-
-        //mandamos a insertar datos
-        $res = $this->carrito_model->addCart($array);
-        $data = [];
-        if ($res) {
-            $data['message'] = 'Producto agregado a carrito exitosamente.';
-            $data['res'] = $res;
-        } else {
-            $data['message'] = 'No se pudo agregar el producto, intente mas tarde';
-            $data['res'] = $res;
-        }
-        echo json_encode($data);
-
-    }
-
-    //agrega productos en carrito y en caso necesario crea nuevo carrito
-    public function addProd() 
     {
         //obtener idCarrito
         $idMesa = $this->input->post("id_mesa");
@@ -92,6 +54,7 @@ class Carrito extends CI_Controller {
         );
 
         $confirmacion = [];
+        //si ya fue agregado el articulo actualiza la cantidad de piezas
         foreach ($carrito as $row)
         {
             $data['id_carrito'] = $row['id_carrito'];
@@ -99,7 +62,7 @@ class Carrito extends CI_Controller {
             $data['cantidad'] = $row['cantidad'];
 
             if ($idComida == $data['id_comida']) {
-                $res = $this->carrito_model->addProd($idCart, $idComida, $cantidad);
+                $res = $this->carrito_model->addProd($idCart, $idComida, $cantidad, $comentario);
                 if ($res) {
                     $confirmacion['message'] = 'Producto actualizado en carrito exitosamente.';
                     $confirmacion['res'] = $res;
@@ -111,6 +74,7 @@ class Carrito extends CI_Controller {
             }
         }
 
+        //si el producto no fue seleccionado previamente, se agrega.
         if ($confirmacion == NULL) {
             //mandamos a insertar datos
             $res = $this->carrito_model->addCart($array);
@@ -194,10 +158,9 @@ class Carrito extends CI_Controller {
         $query = $this->carrito_model->getIdCart($idMesa);
 
         //VALIDANDO ESTATUS CARRITO
-        if (($query == true) || ($query->id_status == 1))  {
+        if (($query == true) && ($query->id_status == 1))  {
             //en caso de no existir carrito en proceso, se crea uno nuevo
             $this->carrito_model->borraCarrito($query->id);
         }
     }
-
 }
