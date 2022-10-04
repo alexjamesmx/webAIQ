@@ -342,7 +342,9 @@ function get_menu(tipo) {
                 '" alt="Fat Rascal"' +
                 'class="list-thumbnail responsive border-0" />' +
                 '<div class="mascara">' +
-                '<a class="link">' +
+                '<a class="link" type="button" data-toggle="modal" data-target="#exampleModal" data-id="' +
+                element['id_comida'] +
+                '" onclick="return imagenModal(this)">' +
                 '<i class="simple-icon-pencil"></i>' +
                 '</a> </div>  </div> </a>' +
                 '</th>' +
@@ -435,7 +437,9 @@ function get_menu(tipo) {
               '" alt="Fat Rascal"' +
               'class="list-thumbnail responsive border-0" />' +
               '<div class="mascara">' +
-              '<a class="link">' +
+              '<a class="link" type="button" data-toggle="modal" data-target="#exampleModal" data-id="' +
+              element['id_comida'] +
+              '" onclick="return imagenModal(this)">' +
               '<i class="simple-icon-pencil"></i>' +
               '</a> </div>  </div> </a>' +
               '</th>' +
@@ -528,7 +532,9 @@ function get_menu(tipo) {
               '" alt="Fat Rascal"' +
               'class="list-thumbnail responsive border-0" />' +
               '<div class="mascara">' +
-              '<a class="link">' +
+              '<a class="link" type="button" data-toggle="modal" data-target="#exampleModal" data-id="' +
+              element['id_comida'] +
+              '" onclick="return imagenModal(this)">' +
               '<i class="simple-icon-pencil"></i>' +
               '</a> </div>  </div> </a>' +
               '</th>' +

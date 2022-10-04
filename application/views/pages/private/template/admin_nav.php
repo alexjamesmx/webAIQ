@@ -19,9 +19,10 @@
     <script>
         var appData = {
             "base_url": '<?= base_url() ?>',
-            "idRes": '<?= $this->session->id_user ?>'
+            "idRes": `<?= $this->session->id_user ?>`,
+            "nom" : `<?= $this->session->nombre ?>`
         } 
-    </script>
+    </script> 
  
 </head>
 

@@ -1,101 +1,44 @@
+let url_get_espera = appData.base_url + "Dasboard/espera";
+
 $(document).ready(function () {
 	get_table2();
 });
 
 function get_table2() {
-	$.ajax({
-		url: appData.base_url + "Dasboard/espera",
-		dataType: "json",
-		type: "post",
-	})
-		.done(function (data) {
-			//alert(JSON.stringify(data))
-			$("#contidadespera").html(data.cantidad);
-			if (data.res) {
-				$.each(data.pedidos, function (i, p) {
-					id = p.id_pedido;
-					id_rep = p.id_repartidor;
-					$("#table-espera").append(
-						"<tr>" +
-							"<td> " +
-							'<p class="list-item-heading mx-3"> 2022-' +
-							p.id_pedido +
-							" </p>" +
-							"</td>" +
-							'<td class="text-center mx-2">' +
-							'<p class="text-muted"> $' +
-							p.total +
-							" </p>" +
-							"</td>" +
-							'<td class="text-center mx-2">' +
-							'<p class="text-muted"> ' +
-							p.metodo +
-							" </p>" +
-							"</td>" +
-							'<td class="text-center mx-2">' +
-							'<p class="text-muted">' +
-							p.nombre +
-							"</p>" +
-							"</td>" +
-							'<td class="text-center mx-2">' +
-							'<p class="text-muted"> ' +
-							p.nombre_alias +
-							" </p>" +
-							"</td>" +
-							'<td id="detalleespera' +
-							id +
-							'">' +
-							"</td>" +
-							"<td>" +
-							"<p>" +
-							'<a href="#" onclick="enviado_pedido(' +
-							id +
-							')" class="btn btn-outline-success restaricon mb-1">' +
-							"Enviado</a> </p>" +
-							'<p> <a href="#" onclick="cancelado_pedido(' +
-							id +
-							"," +
-							id_rep +
-							')" class="btn btn-outline-danger restaricon">' +
-							"Cancelado</a>" +
-							"</p>" +
-							"</td>" +
-							"</tr>"
-					);
-					$.ajax({
-						url: appData.base_url + "Dasboard/detalle_pedido",
-						dataType: "json",
-						type: "post",
-						data: {
-							id_pedido: id,
-						},
-					})
-						.done(function (response) {
-							//alert(JSON.stringify(response))
-							$.each(response.detalle, function (i, d) {
-								if (d.comentario != null) {
-									$("#detalleespera" + d.id_pedido).append(
-										'<p class="ml-3">' +
-											d.cantidad +
-											" - " +
-											d.nombre +
-											"</p>" +
-											'<span class=" text-muted ml-4">' +
-											d.comentario +
-											"</span>"
-									);
-								} else {
-									$("#detalleespera" + d.id_pedido).append(
-										'<p class="ml-3">' + d.cantidad + " - " + d.nombre + "</p>"
-									);
-								}
-							});
-						})
-						.fail();
-				});
+	fetch(url_get_espera)
+		.then((response) => response.json())
+		.then((data) => tabla_espera(data))
+		.then((error) => console.log(error));
+
+	const tabla_espera = (data) => {
+		let cuerpo = "";
+		if (data.pedidos == null) {
+			cuerpo = `<td colspan="5" >No tienes pedidos para enviar</td>`;
+		} else {
+			document.getElementById("contidadespera").innerHTML = data.cantidad;
+			for (let i = 0; i < data.pedidos.length; i++) {
+				let id = data.pedidos[i].id_pedido;
+				let id_rep = data.pedidos[i].id_repartidor;
+
+				cuerpo += `<tr> 
+				<td> <p> ${id} </p> </td>
+				<td> <p> ${data.pedidos[i].metodo} </p> </td>
+				<td> <p> ${data.pedidos[i].nombre} </p> </td>
+				<td> <p> ${data.pedidos[i].nombre_alias} </p> </td>
+				<td> <div class='btn-group btn-group-sm' role='group' aria-label='Basic example'>
+						<button type="button" onclick="enviado_pedido(${id})" class="btn btn-outline-success">
+							<i class="simple-icon-check"></i>
+						</button>
+						<button type="button" onclick="cancelado_pedido(${id},${id_rep})" class="btn btn-outline-danger">
+							<i class="simple-icon-close"></i>
+						</button>
+					</div>
+				</td>
+				</tr>`;
 			}
-		})
-		.fail();
+		}
+		document.getElementById("table-espera").innerHTML = cuerpo;
+	};
 }
 
 function enviado_pedido(id_pedido) {

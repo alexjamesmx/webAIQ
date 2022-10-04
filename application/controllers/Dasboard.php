@@ -8,6 +8,7 @@ class Dasboard extends CI_Controller {
         $this->load->model( 'Dasboard_model' );
     }
 
+
     public function poraceptar_cantidad() {
         $id_res = $this->session->userdata( 'id_user' );
         $data = $this->Dasboard_model->select_poraceptar( $id_res );
@@ -32,7 +33,8 @@ class Dasboard extends CI_Controller {
     }
 
     public function detalle_pedido() {
-        $id_pedido = $this->input->post( 'id_pedido' );
+        $id_pedido = $this->input->post('id_pedido');
+        //var_dump($id_pedido);
         $data = $this->Dasboard_model->detalle( $id_pedido );
         $obj[ 'res' ] = $data != null;
         $obj[ 'detalle' ] = $data;
@@ -96,10 +98,11 @@ class Dasboard extends CI_Controller {
 
     public function btn_listo()  {
         $id_pedido = $this->input->post( 'id_pedido' );
+        $zona = $this->session->userdata( 'zona' );
         // asignamos fecha
         $fecha_act = date( 'Y-m-d H:i:s' );
         //elegimos un repartidor alazar activo
-        $id_rep = json_decode( json_encode( $this->Dasboard_model->select_repartidor() ), true );
+        $id_rep = json_decode( json_encode( $this->Dasboard_model->select_repartidor($zona) ), true );
         if ( $id_rep == null ) {
             // si no hay repartidores avisar para que no aga nada
             $obj[ 'mes' ]  = 'No hay repartidores intenta mas tarde';
@@ -183,6 +186,7 @@ class Dasboard extends CI_Controller {
 
     public function contador() { 
         $id_pedido = $this->input->post( 'id_pedido' );
+        $id_carrito = $this->input->post( 'id_carrito' );
         $obj['id_pedido'] = $id_pedido;
         $inicio = json_decode( json_encode($this->Dasboard_model->hora( $id_pedido )), true );
         $hora_inicio = $inicio[ 'fecha_act' ];
@@ -194,8 +198,29 @@ class Dasboard extends CI_Controller {
         $diff = $dt1->diff($dt);
         $obj['tiempo'] = ( ($diff->days * 24 ) * 60 ) + ( $diff->i ) . ':'. $diff->s;
         $obj['minutos'] = ( ($diff->days * 24 ) * 60 ) + ( $diff->i );
-        $obj['asignado'] = $this->Dasboard_model->tiempo_asignado( $id_pedido );
+        $obj['asignado'] = $this->Dasboard_model->tiempo_asignado( $id_carrito );
 
+        echo json_encode( $obj );
+    }
+
+    public function numero_repartidor()
+    {
+        $id_repa = $this->input->post( 'repartidor' );
+        $data = json_decode( json_encode($this->Dasboard_model->numeros( $id_repa )), true );
+        $obj[ 'res' ] = $data != null;
+
+        $obj[ 'telefono' ] = $data['telefono'];
+        
+        echo json_encode( $obj );
+    }
+
+    public function mesajepedido()
+    {
+        $id_pedido = $this->input->post( 'pedido' );
+        $data =  json_decode( json_encode($this->Dasboard_model->get_mesas( $id_pedido )),true );
+        $obj[ 'res' ] = $data != null;
+        $obj[ 'detalles' ] = $data;
+        
         echo json_encode( $obj );
     }
 

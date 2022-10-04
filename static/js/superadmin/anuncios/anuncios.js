@@ -30,7 +30,9 @@ function getAnuncios() {
 								item.imagen
 							}" class="list-thumbnail responsive border-0" />
 								<div class="mascara">
-									<a class="link"><i class="simple-icon-pencil"></i></a>
+									<a type="button" data-toggle="modal" data-target="#anuncios_imagen_modal" data-id="${
+										item.id_ad
+									}" onclick="return imagenModal_anuncios(this)" class="link"><i class="simple-icon-pencil"></i></a>
 								</div>
 							</div> 
 						</a> 
