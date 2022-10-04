@@ -181,6 +181,15 @@ class Dasboard_model extends CI_Model
         $query = $this->db->get();
         return $query->num_rows() == 1 ? $query->result() : NULL;
     }
+
+    public function buscar_codigo($codigo)
+    {
+        $this->db->select('codigo');
+        $this->db->from('codigos');
+        $this->db->where('codigo', $codigo);
+        $query = $this->db->get();
+        return $query->num_rows() == 1 ? $query->result() : NULL;
+    }
                         
 }
 
