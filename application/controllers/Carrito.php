@@ -62,7 +62,7 @@ class Carrito extends CI_Controller {
             $data['cantidad'] = $row['cantidad'];
 
             if ($idComida == $data['id_comida']) {
-                $res = $this->carrito_model->addProd($idCart, $idComida, $cantidad, $comentario);
+                $res = $this->carrito_model->addProd($idCart, $idComida, $cantidad, $comentario, $subtotal);
                 if ($res) {
                     $confirmacion['message'] = 'Producto actualizado en carrito exitosamente.';
                     $confirmacion['res'] = $res;

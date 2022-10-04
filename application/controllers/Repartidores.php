@@ -114,4 +114,28 @@ class Repartidores extends CI_Controller
         }
         echo json_encode($data);
     }
+
+
+
+    public function updateRepartidorActivo()
+    {
+
+        $data = json_decode(file_get_contents('php://input'), true);
+        $telefono = $data["telefono"];
+
+        $res = $this->repartidores_model->update_repartidor_activo($telefono);
+
+        if ($res === 'no existe') {
+            $data['message'] = 'Este número no esta registrado';
+            $data['res'] = FALSE;
+        } else if ($res) {
+            $data['data'] = [$res[0]['nombre'], $res[0]['activo']];
+            $data['message'] = 'Estatus actualizado correctamente';
+            $data['res'] = TRUE;
+        } else {
+            $data['message'] = 'Hubo un problema con la petición';
+            $data['res'] = FALSE;
+        }
+        echo json_encode($data);
+    }
 }

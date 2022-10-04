@@ -8,7 +8,7 @@ const hanldeLogin = (e) => {
 	const email = form.get("email").replace(/\s+/g, "");
 	const password = form.get("password").replace(/\s+/g, "");
 	$.ajax({
-		url: appData.base_url + "/user/existsUser/",
+		url: appData.base_url + "user/existsUser/",
 		dataType: "json",
 		type: "post",
 		data: {
@@ -21,9 +21,11 @@ const hanldeLogin = (e) => {
 				window.location.replace(appData.base_url + "home");
 			} else {
 				message("danger", "Error: ", result.message);
+				window.location.replace(appData.base_url + "home");
 			}
 		})
 		.fail(() => {
+			window.location.replace(appData.base_url + "home");
 			message("danger", "Error: Hubo un problema con la petición");
 		});
 };

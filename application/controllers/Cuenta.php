@@ -1,12 +1,15 @@
 <?php
-class Cuenta extends CI_Controller { 
+class Cuenta extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
-        $this->load->model( 'Cuenta_model' );
+        $this->load->model('Cuenta_model');
     }
 
-    public function getCuenta() {
+    public function getCuenta()
+    {
         $id_user = $this->session->userdata('id_user');
         $data = [];
         // $id_user = $this->input->post('id_user');
@@ -22,13 +25,13 @@ class Cuenta extends CI_Controller {
         echo json_encode($data);
     }
 
-    public function updateCuenta() {
+    public function updateCuenta()
+    {
         $id_user  = $this->session->userdata('id_user');
-        print_r($this->session->userdata());
-        $nombre   = $this->input->post('nombre');
-        $password = $this->input->post('password');
-        $email    = $this->input->post('email');
-        $phone    = $this->input->post('phone');
+        $nombre   = $this->input->post('cuenta_nombre');
+        $password = $this->input->post('cuenta_password');
+        $email    = $this->input->post('cuenta_email');
+        $phone    = $this->input->post('cuenta_phone');
 
         $data = array(
             'id_user'  => $id_user,
@@ -38,17 +41,25 @@ class Cuenta extends CI_Controller {
             'phone'    => $phone
         );
 
-        $obj["res"] = $this->Cuenta_model->update_cuenta($data);
-        $obj["msj"] = $obj["res"] ?
-            "Se actualizaron los datos de la cuenta" : "No se pudieron actualizar los datos de la cuenta";
+        $res = $this->Cuenta_model->update_cuenta($data);
+        if ($res) {
+            $obj["message"] = "Se actualizaron los datos de la cuenta";
+            $obj["res"] = $res;
+        } else {
+            $obj["message"] =  "No se pudieron actualizar los datos de la cuenta";
+            $obj["res"] = $res;
+        }
+
         echo json_encode($obj);
-        if ($obj) {
+
+        if ($obj['res']) {
             $this->session->set_userdata("email", $data["email"]);
             $this->session->set_userdata("nombre", $data["nombre"]);
         }
     }
 
-    public function update_avatar() {
+    public function update_avatar()
+    {
         $id_res = $this->session->userdata('id_user');
         $id_init = intval($id_res);
 
@@ -81,5 +92,4 @@ class Cuenta extends CI_Controller {
             }
         }
     }
-
-} 
+}

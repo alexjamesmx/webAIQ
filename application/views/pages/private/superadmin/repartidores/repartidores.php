@@ -49,6 +49,7 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Teléfono</th>
+                                <th>Zona</th>
                                 <th>Estado</th>
                                 <th class='justify-content-end'>Acciones</th>
                             </tr>

@@ -74,6 +74,7 @@
             <div class="user d-inline-block">
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="name"><?= $_SESSION['email'] ?></span>
+                    <span><i class='simple-icon-user'></i></span>
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">

@@ -28,14 +28,16 @@
                         </div>
                     </div>
                     <div class="form-group col-12 m-2">
-                        <label for="inputState" class="form-label">Zona</label>
+                        <label for="zona_repartidor" class="form-label">Zona</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text"><i class="iconsminds-shop"></i></span>
-                            <select class="form-control" required name="zona" id='zona'>
+                            <select class="form-control" required name="zona_repartidor" id='zona_repartidor'>
                                 <option selected disabled value="">¿En qué zona está?</option>
                                 <option value="1">Zona A</option>
                                 <option value="2">Zona B</option>
                             </select>
+                            <div class="zona_repartidor invalid-feedback">
+                            </div>
                         </div>
                     </div>
                     <input id='id_rep' class=" form-control" type="hidden" required name="id_rep">

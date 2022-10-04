@@ -25,7 +25,7 @@ class Pages extends CI_Controller
                 $res = $this->users_model->exist_user($this->session->email);
                 if ($res) {
                     if ($page === 'login') {
-                        $page = 'home'; 
+                        $page = 'home';
                     }
                     if ($this->session->tipo == 1) {
                         $this->load->view('pages/private/template/superadmin_nav');

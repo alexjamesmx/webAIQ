@@ -50,6 +50,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['status'] = 'status';
+
 $route['metricas/restaurantes_favoritos'] = 'metricas/restaurantes_favoritos';
 $route['metricas/comidas_favs'] = 'metricas/comidas_favs';
 

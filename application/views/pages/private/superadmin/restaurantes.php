@@ -18,7 +18,7 @@
  
 </head>
 
-<body id="app-container" class="menu-default show-spinner">
+<body id="app-container" class="menu-default show-spinner"> 
     <!-- NAV SUPERIOR -->
     <nav class="navbar fixed-top">
         <div class="d-flex align-items-center navbar-left">

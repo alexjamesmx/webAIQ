@@ -59,4 +59,24 @@ class Repartidores_model extends CI_Model
             return false;
         }
     }
+
+    public function update_repartidor_activo($telefono)
+    {
+
+        $q = $this->db->where('telefono', $telefono)
+            ->get('repartidores')->result_array();
+
+        if (count($q) > 0) {
+            $sql = 'UPDATE repartidores SET activo = IF(activo = "1","0", "1" ) WHERE telefono = \'' . $telefono . ' \' ';
+            $query = $this->db->query($sql);
+
+            if ($query) {
+                return $q;
+            } else {
+                return false;
+            }
+        } else {
+            return 'no existe';
+        }
+    }
 }

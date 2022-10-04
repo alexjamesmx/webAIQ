@@ -107,6 +107,8 @@ class User extends CI_Controller
         }
         echo json_encode($data);
     }
+
+    //ELIMINAR RESTAURANT
     public function deleteUser()
     {
         // $data = [];

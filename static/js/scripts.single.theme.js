@@ -7,9 +7,9 @@ Table of Contents
 
 /* 01. Single Theme Initializer */
 
-(function($) {
-  if ($().dropzone) {
-    Dropzone.autoDiscover = false;
-  }
-  var $dore = $("body").dore();
+(function ($) {
+	if ($().dropzone) {
+		Dropzone.autoDiscover = false;
+	}
+	var $dore = $("body").dore();
 })(jQuery);

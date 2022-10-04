@@ -3694,15 +3694,6 @@ $.dore = function (element, options) {
 				});
 			}
 		}
-
-		/* 03.23. Modal Passing Content */
-		$("#exampleModalContent").on("show.bs.modal", function (event) {
-			var button = $(event.relatedTarget);
-			var recipient = button.data("whatever");
-			var modal = $(this);
-			modal.find(".modal-title").text(recipient);
-		});
-
 		/* 03.24. Scrollbar */
 		if (typeof PerfectScrollbar !== "undefined") {
 			var chatAppScroll;
