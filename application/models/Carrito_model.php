@@ -96,17 +96,4 @@ class Carrito_model extends CI_Model {
 
         return $cierraCart;
     }
-    
-    public function insertPedido($idPedido, $idCart) {
-        $this->db->set('id_pedido', $idPedido)->where('id_carrito', $idCart);
-        $insertPedido = $this->db->update('detalle_carrito');
-
-        return $insertPedido;
-    }
-    //eliminar codigo usado 
-    public function deleteCodigo($codigo) {
-        $this->db->where('codigo', $codigo);
-        $deleteItem = $this->db->delete('codigos');
-        return $deleteItem;
-    }
 }

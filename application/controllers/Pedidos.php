@@ -9,6 +9,11 @@ class Pedidos extends CI_Controller
         $this->load->model('carrito_model');
     }
 
+    public function getPedido($carrito) {
+        $pedido = $this->pedidos_model->getIdPedido($carrito);
+        echo json_encode($pedido);
+    }
+
     public function creaPedido()
     {
         //datos para crear pedido
@@ -31,10 +36,6 @@ class Pedidos extends CI_Controller
             $arRes['res'] = $res;
         }
 
-        $idPedido = $this->pedidos_model->getIdPedido($carrito);
-
-        $insertPedido = $this->carrito_model->insertPedido($idPedido, $carrito);
-
         $cierraCart = $this->carrito_model->completeCart($carrito);
         $confirm = [];
         if ($cierraCart) {
@@ -54,7 +55,7 @@ class Pedidos extends CI_Controller
         echo json_encode($datosCart);
     }
 
-    public function setCod()
+    public function insertCod()
     {
         $codigo = $this->input->post("codigo");
         $inserCod = $this->pedidos_model->insertCod($codigo);
@@ -70,7 +71,7 @@ class Pedidos extends CI_Controller
         echo json_encode($res);
     }
 
-    public function insertCod()
+    public function deleteCod()
     {
         $data = [];
         $codigo = $this->input->post("codigo");

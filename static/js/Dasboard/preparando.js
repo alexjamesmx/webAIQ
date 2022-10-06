@@ -205,7 +205,7 @@ function mensajessss(id_rep, id_ped) {
 							console.log("ingrese al each");
 							if (d.metodo == "efectivo") {
 								mesaje =
-									"Tienes un nuevo pedido \nID: " +
+									"Tienes una nueva entrega por realizar\nID: " +
 									id_ped +
 									". \nRestaurante: " +
 									nom_resta +
@@ -222,7 +222,7 @@ function mensajessss(id_rep, id_ped) {
 									". \nFavor de llevar el cambio requerido.";
 							} else if (d.metodo != "efectivo") {
 								mesaje =
-									"Tienes un nuevo pedido \nID: " +
+									"Tienes una nueva entrega por realizar\nID: " +
 									id_ped +
 									". \nRestaurante: " +
 									nom_resta +
