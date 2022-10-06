@@ -1,5 +1,6 @@
 <?php
-class Pedidos extends CI_Controller {
+class Pedidos extends CI_Controller
+{
 
     public function __construct()
     {
@@ -8,7 +9,14 @@ class Pedidos extends CI_Controller {
         $this->load->model('carrito_model');
     }
 
-    public function creaPedido() {
+    public function getPedido($carrito) {
+        $idPedido = $this->pedidos_model->getIdPedido($carrito);
+        //var_dump($idPedido);
+        echo json_encode($idPedido);
+    }
+
+    public function creaPedido()
+    {
         //datos para crear pedido
         $idMesa = $this->input->post("id_mesa");
         $nombre = $this->input->post("nombre_alias");
@@ -17,8 +25,9 @@ class Pedidos extends CI_Controller {
         $rest = $this->input->post("id_user");
         $metodo = $this->input->post("metodo");
         $carrito = $this->input->post("id_carrito");
+        $cambio = $this->input->post("cambio");
 
-        $res = $this->pedidos_model->createPedido($idMesa, $nombre, $telefono, $total, $rest, $metodo, $carrito);
+        $res = $this->pedidos_model->createPedido($idMesa, $nombre, $telefono, $total, $rest, $metodo, $carrito, $cambio);
         $arRes = [];
         if ($res) {
             $arRes['message'] = 'Pedido creado exitosamente.';
@@ -27,13 +36,57 @@ class Pedidos extends CI_Controller {
             $arRes['message'] = 'No se pudo crear el pedido, intente mas tarde';
             $arRes['res'] = $res;
         }
-        echo json_encode($arRes);
 
         $idPedido = $this->pedidos_model->getIdPedido($carrito);
-        $datosCart = $this->carrito_model->getCart($carrito);
 
-        foreach ($datosCart as $row) {
+        $cierraCart = $this->carrito_model->completeCart($carrito);
+        $confirm = [];
+        if ($cierraCart) {
+            $confirm['message'] = 'Carrito cerrado correctamente.';
+            $confirm['res'] = $cierraCart;
+        } else {
+            $confirm['message'] = 'No se pudo cerrar el carrito, intente mas tarde';
+            $confirm['res'] = $cierraCart;
         }
-        
+        echo json_encode($arRes);
+    }
+
+    public function getDetallePedido()
+    {
+        $carrito = $this->input->post("id_carrito");
+        $datosCart = $this->carrito_model->getCart($carrito);
+        echo json_encode($datosCart);
+    }
+
+    public function insertCod()
+    {
+        $codigo = $this->input->post("codigo");
+        $inserCod = $this->pedidos_model->insertCod($codigo);
+
+        $res = [];
+        if ($inserCod) {
+            $res['message'] = 'Codigo agregado exitosamente.';
+            $res['res'] = $inserCod;
+        } else {
+            $res['message'] = 'No se pudo agregar codigo, intente mas tarde';
+            $res['res'] = $inserCod;
+        }
+        echo json_encode($res);
+    }
+
+    public function deleteCod()
+    {
+        $data = [];
+        $codigo = $this->input->post("codigo");
+
+        $res = $this->pedidos_model->deleteCod($codigo);
+        if ($res == true) {
+            $data["message"] = "Eliminado correctamente";
+            $data["res"] = true;
+        } else {
+            $data["message"] = "No se pudo eliminar el codigo...";
+            $data["res"] = false;
+        }
+        echo json_encode($data);
     }
 }

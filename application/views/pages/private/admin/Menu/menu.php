@@ -123,7 +123,9 @@
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
                                             </th>
-                                            <th scope="col"></th>
+                                            <th scope="col"class="text-center">
+                                                <h4>Acciones</h4>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableCombos">
@@ -228,7 +230,9 @@
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
                                             </th>
-                                            <th scope="col"></th>
+                                            <th scope="col"class="text-center">
+                                                <h4>Acciones</h4>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody id="tablePlatillos">
@@ -329,8 +333,9 @@
                                             </th>
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
+                                                <th scope="col"class="text-center">
+                                                <h4>Acciones</h4>
                                             </th>
-                                            <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBebidas">

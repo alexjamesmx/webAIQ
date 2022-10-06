@@ -1,3 +1,5 @@
+var repartidores = null;
+
 $(function () {
 	$("#results_tabla_repartidores").empty();
 	getRepartidores();
@@ -13,6 +15,7 @@ function getRepartidores() {
 	})
 		.done((result) => {
 			if (result.res) {
+				repartidores = result.data;
 				if ($("#results_tabla_repartidores").empty()) {
 					result.data.forEach((item) => {
 						$("#results_tabla_repartidores").append(
@@ -118,3 +121,27 @@ function reload_repartidores() {
 	getRepartidores();
 	$(".dataTables_empty").remove();
 }
+
+setInterval(async () => {
+	const res = await tmp();
+
+	if (getChanges(repartidores, res.data)) {
+		repartidores = res.data;
+		reload_repartidores();
+	}
+}, 10000);
+
+const tmp = async () => {
+	const response = await fetch(
+		appData.base_url + "repartidores/getRepartidores"
+	);
+	return response.json();
+};
+
+const getChanges = (previous, current) => {
+	if (JSON.stringify(previous) === JSON.stringify(current)) {
+		return false;
+	}
+
+	return true;
+};

@@ -64,6 +64,7 @@ class Repartidores extends CI_Controller
             'telefono' => $telefono,
             'zona' => $zona,
         );
+        //print_r($array);
         if ($nombre != $old_phone) {
             $exists = $this->repartidores_model->exist_repartidor($telefono, $old_phone);
         }

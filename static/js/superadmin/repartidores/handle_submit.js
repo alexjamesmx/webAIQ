@@ -25,6 +25,24 @@ $("#modal-form-repartidores").on("submit", function (event) {
 					if (res.res === true) {
 						message("success", "", res.message);
 						$("button[name='reload_repartidores']").click();
+						let numero = phone_repartidor;
+						let tipo = "nuevoR";
+
+						$.ajax({
+							url: appData.base_url + "MensajesW/sendTextMessage",
+							dataType: "json",
+							type: "post",
+							data: {
+								numero: numero,
+								tipo: tipo,
+							},
+						})
+							.done(function (response) {
+								if (response.res) {
+									alert(response.msg);
+								}
+							})
+							.fail();
 					}
 					if (res.res === false) {
 						message("danger", "Error: ", res.message);
