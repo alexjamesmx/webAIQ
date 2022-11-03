@@ -79,11 +79,11 @@ class Cuenta extends CI_Controller
         } else {
             $file_info = $this->upload->data();
             $imagen = $file_info['file_name'];
-            var_dump($imagen);
+            //var_dump($imagen);
             $ima = [
                 'avatar' => $imagen,
             ];
-            var_dump($ima);
+            //var_dump($ima);
             echo json_encode(
                 $res = $this->Cuenta_model->avatar_img($ima, $id_init)
             );

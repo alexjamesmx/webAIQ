@@ -118,12 +118,14 @@
                                                 <h4>Precio</h4>
                                             </th>
                                             <th scope="col" class="text-center">
-                                                <h4>Tiempo de preparación</h4>
+                                                <h4>Tiempo de preparacion</h4>
                                             </th>
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
                                             </th>
-                                            <th scope="col"></th>
+                                            <th scope="col"class="text-center">
+                                                <h4>Acciones</h4>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableCombos">
@@ -223,12 +225,14 @@
                                                 <h4>Precio</h4>
                                             </th>
                                             <th scope="col" class="text-center">
-                                                <h4>Tiempo de preparación</h4>
+                                                <h4>Tiempo de preparacion</h4>
                                             </th>
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
                                             </th>
-                                            <th scope="col"></th>
+                                            <th scope="col"class="text-center">
+                                                <h4>Acciones</h4>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody id="tablePlatillos">
@@ -325,12 +329,13 @@
                                                 <h4>Precio</h4>
                                             </th>
                                             <th scope="col" class="text-center">
-                                                <h4>Tiempo de preparación</h4>
+                                                <h4>Tiempo de preparacion</h4>
                                             </th>
                                             <th scope="col" class="text-center">
                                                 <h4>Status</h4>
+                                                <th scope="col"class="text-center">
+                                                <h4>Acciones</h4>
                                             </th>
-                                            <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBebidas">

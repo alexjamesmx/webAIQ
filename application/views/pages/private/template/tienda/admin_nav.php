@@ -111,9 +111,9 @@
                             <i class="iconsminds-shop-4"></i> Inicio
                         </a>
                     </li>
-                    <li id='menu_nav' class="navigation" data-page='menu' onclick='return clickgeneral(this)'>
+                    <li id='productos_nav' class="navigation" data-page='productos' onclick='return clickgeneral(this)'>
                         <a href="#">
-                            <i class="iconsminds-receipt-4"></i> Menú
+                            <i class="simple-icon-handbag"></i> Productos
                         </a>
                     </li>
                     <li id='reportes_nav' class="navigation" data-page='reportes' onclick='return clickgeneral(this)'>

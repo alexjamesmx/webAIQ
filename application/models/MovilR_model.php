@@ -5,7 +5,7 @@ class MovilR_model extends CI_Model
 
     public function getRestaurant($zona)
     { 
-        $cmd = "SELECT * FROM users WHERE tipo = 2 AND zona = $zona";
+        $cmd = "SELECT * FROM users WHERE tipo > 1 AND zona = $zona";
         $query = $this->db->query($cmd);
         return ($query->result());
     }
@@ -52,12 +52,23 @@ class MovilR_model extends CI_Model
         return $rs->result();
     }
     
-           public function getBebidas($id_user)
+    public function getBebidas($id_user)
     { 
         $this->db->select('*')
         ->from('menu')
         ->where('id_user', $id_user)
         ->where('id_categoria', 3)
+        ->where('status', 1);
+        $rs = $this->db->get();
+        return $rs->result();
+    }
+
+    public function getProductos($id_user)
+    { 
+        $this->db->select('*')
+        ->from('menu')
+        ->where('id_user', $id_user)
+        ->where('id_categoria', 4)
         ->where('status', 1);
         $rs = $this->db->get();
         return $rs->result();

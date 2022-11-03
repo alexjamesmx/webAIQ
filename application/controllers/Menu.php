@@ -40,13 +40,13 @@ class Menu extends CI_Controller
 
     public function actualizarImagen() {
         $id_a = $this->input->post('id_com');
-        var_dump($id_a);
+        //var_dump($id_a);
         $id_init_actualizar = intval($id_a);
         $config['upload_path'] = 'static/img/';
         $config['allowed_types'] = 'jpg|png|jpeg';
         $config['max_size'] = '5000';
         $hoy = date('YmdHis');
-        var_dump($id_init_actualizar);
+        //var_dump($id_init_actualizar);
 
         $nuevoNombreImg = 'platillo' . ($hoy = date('YmdHis'));
         $config['file_name'] = strtolower($nuevoNombreImg);
@@ -88,13 +88,13 @@ class Menu extends CI_Controller
         } else {
             $file_info = $this->upload->data();
             $imagen = $file_info['file_name'];
-            var_dump($imagen);
+            //var_dump($imagen);
             $id_platillo = $this->menu_model->select_id_imagen($id_init);
-            var_dump($id_platillo);
+            //var_dump($id_platillo);
             $ima = [
                 'imagen' => $imagen,
             ];
-            var_dump($ima);
+            //var_dump($ima);
             echo json_encode(
                 $this->menu_model->imagen($ima, $id_platillo->id_comida)
             );

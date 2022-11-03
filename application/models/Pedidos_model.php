@@ -2,17 +2,17 @@
 class Pedidos_model extends CI_Model
 {
     //genera un nuevo pedido
-    public function createPedido($idMesa, $nombre, $telefono, $total, $rest, $metodo, $carrito, $cambio)
+    public function createPedido($idMesa, $nombre, $telefono, $total, $rest, $metodo, $carrito, $cambio, $fecha_act)
     {
         $query = $this->db->query(
             "INSERT INTO pedidos 
-            values( NULL, now(), NULL, $idMesa, 1, NULL, '$nombre', $telefono, $total, $rest, '$metodo', $carrito, $cambio)"
+            values( NULL, '$fecha_act', NULL, $idMesa, 1, NULL, '$nombre', $telefono, $total, $rest, '$metodo', $carrito, $cambio)"
         );
 
         return $query;
     }
 
-    //obtiene el id de pedido
+    //obtiene la data del pedido x idCarrito
     public function getIdPedido($idCart)
     {
         $query = $this->db->query(
@@ -23,6 +23,18 @@ class Pedidos_model extends CI_Model
             INNER JOIN status_pedido as s
             ON p.id_status = s.id_status
             WHERE p.id_carrito = $idCart"
+        );
+
+        $row = $query->row();
+        return $row;
+    }
+    //obtiene la data del usuario x idPedido
+    public function getCelular($idPedido)
+    {
+        $query = $this->db->query(
+            "SELECT p.id_pedido, p.nombre_alias, p.telefono
+            FROM pedidos AS p
+            WHERE p.id_pedido = $idPedido"
         );
 
         $row = $query->row();

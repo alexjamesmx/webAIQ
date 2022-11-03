@@ -35,7 +35,12 @@ class Pages extends CI_Controller
                         $this->load->view('pages/private/template/admin_nav');
                         $this->load->view('pages/private/admin/home');
                         $this->load->view('pages/private/template/admin_footer');
+                    } else if ($this->session->tipo == 3) {
+                        $this->load->view('pages/private/template/tienda/admin_nav');
+                        $this->load->view('pages/private/admin/Tienda/home');
+                        $this->load->view('pages/private/template/tienda/admin_footer');
                     }
+                   
                 } else {
                     $this->session->set_tempdata('message', "There's something wrong with your session, log in again", 3);
                     $this->load->view('pages/public/login');

@@ -32,4 +32,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 
 ##token whats
-application/controllers/MensajesW
+application/controllers/MensajesW.php

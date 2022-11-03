@@ -42,7 +42,7 @@ class Users_model extends CI_Model
     {
         $rows = $this->db->count_all_results('users') > 0;
         if ($rows) {
-            return $this->db->get_where('users', array('tipo' => '2'))->result_array();
+            return $this->db->get_where('users', array('tipo >' => '1'))->result_array();
         } else {
             return false;
         }

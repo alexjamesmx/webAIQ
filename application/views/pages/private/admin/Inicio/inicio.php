@@ -18,8 +18,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Detalle del Pedido</th>
-                                <th scope="col"></th>
+                                <th scope="col">Detalle del pedido</th>
+                                <th scope="col">Aceptar / Declinar</th>
                             </tr>
                         </thead>
                         <tbody id="table-poraceptar">
@@ -41,7 +41,7 @@
             <div class="card h-100">
                 <div class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 bg-primary brad">
 
-                    <h2 class="card-title"> Aceptados (Preparando) </h2>
+                    <h2 class="card-title"> Aceptados (preparando) </h2>
                     <button onclick="refrescar_preparando()" type="button" class="btn btn-light restaricon">
                         <i class="simple-icon-bell"></i>&nbsp;
                         <span id="contidadpreparando" class="badge badge-dark"></span>
@@ -50,12 +50,12 @@
                 </div>
                 <div class="card-body pt-0">
 
-                <table class="table table-hover">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Platillos en Preparacion</th>
+                                <th scope="col">Platillos en preparación</th>
                                 <th scope="col">Tiempo que ha pasado</th>
-                                <th scope="col">¿Salido de Cocina?</th>
+                                <th scope="col">¿Salido de cocina?</th>
                             </tr>
                         </thead>
                         <tbody id="table-preparando">
@@ -75,7 +75,7 @@
             <div class="card h-100">
                 <div class="card-header d-flex justify-content-between align-items-center pt-4 pb-0 bg-secondary brad">
 
-                    <h2 class="card-title"> Empaquetado y en Espera </h2>
+                    <h2 class="card-title"> Empaquetado y en espera </h2>
                     <button onclick="refrescar_espera()" type="button" class="btn btn-light restaricon">
                         <i class="simple-icon-bell"></i>&nbsp;
                         <span id="contidadespera" class="badge badge-dark"></span>
@@ -83,11 +83,11 @@
 
                 </div>
                 <div class="card-body pt-0">
-                <table class="table table-hover">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Forma de Pago</th>
+                                <th scope="col">Forma de pago</th>
                                 <th scope="col">Repartidor</th>
                                 <th scope="col">Cliente</th>
                                 <th scope="col">Enviado / Cancelado</th>
@@ -122,18 +122,19 @@
                 </div>
                 <div class="card-body pt-0">
 
-                    <table class="data-table table-striped data-table-scrollable responsive nowrap"
-                        data-order="[[ 1, &quot;desc&quot; ]]">
+                    <table class="table table-hover">
                         <thead>
-                            <tr class="text-center">
-                                <th>Id</th>
-                                <th>Repartidor</th>
-                                <th>Total</th>
-                                <th>Forma de Pago</th>
-                                <th></th>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Repartidor</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Forma de pago</th>
+                                <th scope="col">Pagado / Devolución</th>
                             </tr>
                         </thead>
                         <tbody id="table-enviados">
+
+                            <!-- traer datos de base de datos por ajax -->
 
                         </tbody>
                     </table>

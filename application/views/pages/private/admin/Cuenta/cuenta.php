@@ -24,12 +24,12 @@
 
                         </div>
                     </div>
-                </div>
-                <div class="col-12 mt-4">
+                </div> 
+                <div class="col-12 mt-4"> 
                     <label for="cuenta_password" class="form-label">Contraseña</label>
                     <div class="input-group has-validation">
-                        <span class="input-group-text"><i class="simple-icon-lock"></i></span>
-                        <input type="cuenta_password" minlength="4" class=" form-control" required name="cuenta_password" id='cuenta_password'>
+                        <span class="input-group-text"><i class="simple-icon-lock"></i></span> 
+                        <input type="password" minlength="4" class=" form-control" required name="cuenta_password" id='cuenta_password'>
                         <div class="cuenta_password invalid-feedback">
                         </div>
                     </div>

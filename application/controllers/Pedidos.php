@@ -14,6 +14,12 @@ class Pedidos extends CI_Controller
         echo json_encode($pedido);
     }
 
+    public function getCelular() {
+        $idPedido = $this->input->post("idPedido");
+        $pedido = $this->pedidos_model->getCelular($idPedido);
+        echo json_encode($pedido);
+    }
+
     public function creaPedido()
     {
         //datos para crear pedido
@@ -25,8 +31,9 @@ class Pedidos extends CI_Controller
         $metodo = $this->input->post("metodo");
         $carrito = $this->input->post("id_carrito");
         $cambio = $this->input->post("cambio");
+        $fecha_act = date( 'Y-m-d H:i:s' );
 
-        $res = $this->pedidos_model->createPedido($idMesa, $nombre, $telefono, $total, $rest, $metodo, $carrito, $cambio);
+        $res = $this->pedidos_model->createPedido($idMesa, $nombre, $telefono, $total, $rest, $metodo, $carrito, $cambio, $fecha_act);
         $arRes = [];
         if ($res) {
             $arRes['message'] = 'Pedido creado exitosamente.';
